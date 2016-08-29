@@ -1,0 +1,43 @@
+body {
+  font-family: sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  background: #eee;
+}
+
+h1 {
+  font-size: 2em;
+  margin-bottom: .5em;
+}
+
+p {
+  margin-bottom: 1em;
+}
+
+#wrap {
+  width: 80%;
+  margin: 1em auto;
+  padding: 1em 5%;
+  background: #fff;
+  position: relative;
+}
+
+.inner {
+  position: relative;
+  z-index: 2;
+}
+
+#wrap:after {
+  content: "\f472"; 
+  font-family: Ionicons;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: inherit;
+  position: absolute;
+  font-size: 400px;
+  color: lightblue;
+  top: 50%;
+  left: 50%;
+  margin: -300px 0 0 -200px;
+  z-index: 1;
+}

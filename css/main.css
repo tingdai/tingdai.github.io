@@ -1,0 +1,72 @@
+body {
+  padding-bottom: 0px;
+  padding-top: 60px;
+}
+h2 {
+  padding-top: 75px;
+  margin-top: -60px;
+}
+.header {
+  background-color: #EEEEEE;
+  padding:20px;
+  background: url("../images/whale.jpeg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.fontawesomebg {
+position:relative;
+}   
+.fontawesomebg:before {
+position:absolute;
+font-family: FontAwesome;
+font-size: 48px;
+color: #563d7c;
+top:0;
+left:0;
+margin-right: 5px;
+content: "\f1ea"; 
+}
+
+.syntax .c { 
+  color: #60a0b0; font-style: italic 
+} /* Comment */
+.syntax .o { 
+  color: #666666; 
+} /* Operator */
+.syntax .k { 
+  color: #007020; font-weight: bold 
+} /* Keyword */
+.syntax .mi { 
+  color: #40a070;
+} /* Literal.Number.Integer */
+.syntax .nb { 
+  color: #007020;
+} /* Name.Builtin */
+.syntax .bp { 
+  color: #007020;
+} /* Name.Builtin.Pseudo */
+a.nodec { 
+  color: #333333;
+  text-decoration:none 
+}
+a.nodec:hover { 
+  color:#4582ec;
+}
+.pubitem {
+  padding-bottom: 10px;
+}
+.anchor-dest {
+  padding-top: 40px;
+}
+.news-date {
+}
+.conference {
+}
+.vcenter {
+  vertical-align: middle;
+}
+.projitem {
+  padding-bottom: 20px;
+}
