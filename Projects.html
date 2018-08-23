@@ -94,9 +94,9 @@
     		  </div>
     		  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" aria-expanded="true" style="height: 1px;">
     			  <ul class="nav navbar-nav">
-      				<li class="active"><a href="index.html">Home<span class="sr-only">(current)</span></a></li>
+              <li><a href="index.html">Home</a></li>
       				<li><a href="Publications.html">Publications</a></li>
-      				<li><a href="Projects.html">Projects</a></li>
+              <li class="active"><a href="Projects.html">Projects<span class="sr-only">(current)</span></a></li>
               <li><a href="Experience.html">Work Experience</a></li>
     			  </ul>
     		  </div>
@@ -104,97 +104,98 @@
       </div>
     </nav>
   
-    <h2>Recent News </h2>
-    <div class="col-lg-9 col-md-6 col-sm-6">
-    <ul><br>
-      <li style="color: black">
-        <strong>Aug 4, 2018</strong><br>
-        <p>DScope is accepted by SoCC'18 research track.</p>
-      </li>
-      <li style="color: black">
-        <strong>June 11, 2018</strong><br>
-        <p>TScope is accepted by ICAC'18 research track.</p>
-      </li>
-      <li style="color: black">
-        <strong>Mar 15, 2018</strong><br>
-        <p>Hytrace is accepted by TPDS.</p>
-      </li>
-      <li style="color: black">
-        <strong>Mar 9, 2018</strong><br>
-        <p>Received summer internship offer from IBM T. J. Watson Research.</p>
-      </li>
-      <li style="color: black">
-        <strong>Mar 8, 2018</strong><br>
-        <p>Timeout bug survey paper received <a href="http://conferences.computer.org/IC2E/2018/best_paper_candidates.htm"><span style="color: black">best paper nomination</span></a> in IC2E'18.</p>
-      </li>
-      <li style="color: black">
-        <strong>Dec 7, 2017</strong><br>
-        <p>Timeout bug survey paper is accepted by <a href="http://conferences.computer.org/IC2E/2018/">
-          <span style="color: black">IC2E'18</span></a> research track.</p>
-      </li>
-      <li style="color: black">
-        <strong>Aug 17, 2017</strong><br>
-        <p>Hytrace is accepted by <a href="https://acmsocc.github.io/2017/accepted-posters.html">
-          <span style="color: black">SoCC'17 poster session.</span></a></p>
-      </li>
-      <li style="color: black">
-        <strong>Jan 13 - May 12, 2017</strong><br>
-        <p>Co-ordinator of <a href="http://moss.csc.ncsu.edu/~mueller/seminar/spring17/">
-          <span style="color: black">CSC801 System Seminar.</span></a></p>
-      </li>
-      <li style="color: black">
-        <strong>Nov 10, 2016</strong><br>
-        <p>Passed my PhD Written Prelimary Exam. Yah!</p>
-      </li>
-      <!--li style="color: black">
-        <strong>Aug 29, 2016</strong><br>
-        <p>Apache JIRA tool Demo on <span style="color: black">CSC791 Automated Program Repair</span></p>
-      </li-->
-      <li style="color: black">
-        <strong>Apr 8, 2018</strong><br>
-        <p>Received summer internship offer from InsightFinder Inc.</p>
-      </li>
-      <!--li style="color: black">
-        <strong>Apr 18 &amp; Mar 28, 2016</strong><br>
-        <p>Speak on <a href="http://people.engr.ncsu.edu/gjin2/Classes/591/Spring2016/index.html">
-          <span style="color: black">CSC791 Reliable Software Systems</span></a></p>
-      </li-->
-      <!--li style="color: black">
-        <strong>Feb 19, 2016</strong><br>
-        <p>Speak on <a href="http://moss.csc.ncsu.edu/~mueller/seminar/spring16/">
-          <span style="color: black">CSC801 System Seminar</span></a></p>
-      </li-->
-      <li style="color: black">
-        <strong>Aug 26, 2015</strong><br>
-        Show a demo of the CCM project at Credit Suisse.
-      </li>
-    </ul>
+    <h2>Projects </h2>
+    <br>
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Hytrace: A Hybrid Approach to Performance Bug Diagnosis in Production Cloud Infrastructures</h3>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-4">
+            <center>
+            <img src="images/Hytrace.png" class="img-responsive" height=120 width=220 alt="[Hytrace]"/>
+            <p style="padding-top: 20px">
+              <a class="btn btn-primary btn-sm" href="http://dance.csc.ncsu.edu/papers/socc2017.pdf"><i class="fa fa-file-pdf-o fa-fw"></i> SoCC'17</a>&nbsp;
+              <a class="btn btn-primary btn-sm" href=""><i class="fa fa-file-pdf-o fa-fw"></i> TPDS'18</a>&nbsp;
+            </p>
+            </center>
+          </div>
+          <div class="col-md-8">
+            <p>
+              <a class="btn btn-default btn-sm"><i class="ios ion-ios-timer-outline fa-lg"></i> 08&#47;2016&#45;08&#47;2018</a>  
+              <a class="btn btn-default btn-sm" href="http://csc.ncsu.edu/"><i class="ios ion-ios-location-outline fa-lg"></i> NC State</a>
+            </p>
+            <p>
+              Server applications running inside production cloud infrastructures are prone to various performance problems (e.g., software hang, performance slowdown). When those problems occur, developers often have little clue to diagnose those problems. In this project, we present Hytrace, a novel hybrid approach to diagnosing performance problems in production cloud infrastructures. <br> 
+              <b>Hytrace</b> combines rule-based static analysis and runtime inference techniques to achieve higher bug localization accuracy than pure-static and pure-dynamic approaches for performance bugs. Hytrace does not require source code and can be applied to both compiled and interpreted programs such as C/C++ and Java. We conduct experiments using real performance bugs from seven commonly used server applications in production cloud infrastructures. The results show that our approach can significantly improve the performance bug diagnosis accuracy compared to existing diagnosis techniques.
+            </p>
+            <p>
+              <a class="btn btn-default btn-sm"><img src="images/apache2.png" width="25" /> Apache</a>
+              <a class="btn btn-default btn-sm"><img src="images/cassandra.png" width="18" /> Cassandra</a>
+              <a class="btn btn-default btn-sm"><img src="images/lighttpd.png" width="18" /> Lighttpd</a>
+              <a class="btn btn-default btn-sm"><img src="images/hadoop.png" width="20" /> Hadoop HDFS</a>
+              <a class="btn btn-default btn-sm"><img src="images/hadoop.png" width="20" /> Hadoop Mapreduce</a>
+              <a class="btn btn-default btn-sm"><img src="images/mysql.png" width="18" /> MySQL</a>
+              <a class="btn btn-default btn-sm"><img src="images/squid.png" width="18" /> Squid</a>
+              <a class="btn btn-default btn-sm"><img src="images/tomcat.png" width="20" /> Tomcat</a>
+              <a class="btn btn-default btn-sm"><img src="images/ccpp.png" width="32" /></a>
+              <a class="btn btn-default btn-sm"><img src="images/java.png" width="18" /> Java</a>
+              <a class="btn btn-default btn-sm"><img src="images/shellscript.png" width="14" /> Shell Script</a>
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="col-lg-3 col-md-4 col-sm-5">
-      <a class="twitter-timeline" href="https://twitter.com/DustinDai" data-widget-id="712077665520521220">Tweets by @DustinDai</a>
-        <script>
-          !function(d,s,id){
-            var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
-            if(!d.getElementById(id)){
-              js=d.createElement(s);
-              js.id=id;
-              js.src=p+"://platform.twitter.com/widgets.js";
-              fjs.parentNode.insertBefore(js,fjs);
-            }}(document,"script","twitter-wjs");
-        </script>
-        <!-- Place this tag where you want the +1 button to render. -->
-        <div class="g-plusone" data-annotation="inline" data-width="300"></div>
-        <!-- Place this tag after the last +1 button tag. -->
-        <script type="text/javascript">
-          (function() {
-            var po = document.createElement('script'); 
-            po.type = 'text/javascript'; 
-            po.async = true;
-            po.src = 'https://apis.google.com/js/plusone.js';
-            var s = document.getElementsByTagName('script')[0]; 
-            s.parentNode.insertBefore(po, s);
-          })();
-        </script>
+
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">CCM: Cloud Configuration Management System for Elastic Application Deployment in Private Clouds</h3>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-4">
+            <img src="images/ccm.png" class="img-responsive" height=120 alt="[CCM]"/>
+            <center><p style="padding-top: 20px">
+            <!--<a class="btn btn-primary btn-sm"><i class="fa fa-file-powerpoint-o fa-fw"></i> Slides</a>&nbsp;-->
+            <a class="btn btn-danger btn-sm" href="https://drive.google.com/file/d/0B_SslUDRJzv9VHNwSHZNTC1qanM/view"><i class="ios ion-ios-film-outline fa-lg"></i> Demo</a>
+            <a class="btn btn-github btn-sm" href="https://github.com/insightfinder/CCM"><i class="fa fa-github"></i> OpenSource</a>
+            </p></center>
+          </div>
+          <div class="col-md-8">
+            <p>
+              <a class="btn btn-default btn-sm"><i class="ios ion-ios-timer-outline fa-lg"></i> 01&#47;2015&#45;08&#47;2015</a>
+              <a class="btn btn-default btn-sm"><i class="ios ion-ios-timer-outline fa-lg"></i> 01&#47;2016&#45;08&#47;2016</a>  
+              <a class="btn btn-default btn-sm" href="https://www.credit-suisse.com/us/en.html"><i class="ios ion-ios-location-outline fa-lg"></i> Credit Suisse</a>
+              <a class="btn btn-default btn-sm" href="http://csc.ncsu.edu/"><i class="ios ion-ios-location-outline fa-lg"></i> NC State</a>
+            </p>
+            <p>
+              Cloud infrastructures and distributed applications become increasingly complex. 
+              We are thirsting for an easy-to-use cloud application deployment tool. 
+              This tool needs elasticity for dynamic environments, 
+              e.g., support geographically distributed hosts, 
+              well-handle cloud system anomalies, and dynamically balance workloads.
+              <br>
+              The <b>CCM</b> project aims to present this exactly easy-to-use application deployment tool. 
+              It has automatic component composition and instantiation. 
+              More importantly, it has an elastically auto-scaling mechanism 
+              to handle overload conditions, resource contentions, and system anomalies.
+            </p>
+            <p>
+              <a class="btn btn-default btn-sm"><img src="images/openstack.png" width="14" /> Openstack</a>
+              <a class="btn btn-default btn-sm"><img src="images/docker.png" width="20" /> Docker</a>
+              <a class="btn btn-default btn-sm"><img src="images/zookeeper.png" width="12" /> Apache ZooKeeper</a>
+              <a class="btn btn-default btn-sm"><img src="images/cadvisor.jpg" width="12" /> cAdvisor</a>
+              <br>
+              <a class="btn btn-default btn-sm"><img src="images/java.png" width="18" /> Java</a>
+              <a class="btn btn-default btn-sm"><img src="images/Python.png" width="14" /> Python</a>
+              <a class="btn btn-default btn-sm"><img src="images/shellscript.png" width="14" /> Shell Script</a>
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
     <br><br><br><br>
   </div>
