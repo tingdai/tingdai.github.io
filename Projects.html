@@ -97,7 +97,45 @@
 
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">Understanding and Detecting Timeout Bugs on Cloud Server Systems</h3>
+        <h3 class="panel-title">Detecting Data Corruption Hang Bugs in Cloud Server Systems</h3>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-4">
+            <center>
+            <img src="images/DScope.png" class="img-responsive" height=120 width=250 alt="[DScope]"/>
+            <p style="padding-top: 20px">
+              <a class="btn btn-primary btn-sm" href="http://dance.csc.ncsu.edu/papers/IC2E18.pdf"><i class="fa fa-file-pdf-o fa-fw"></i> SoCC'18</a>&nbsp;
+            </p>
+            </center>
+          </div>
+          <div class="col-md-8">
+            <p>
+              <a class="btn btn-default btn-sm"><i class="ios ion-ios-timer-outline fa-lg"></i> 02&#47;2017&#45;05&#47;2018</a>  
+              <a class="btn btn-default btn-sm" href="http://csc.ncsu.edu/"><i class="ios ion-ios-location-outline fa-lg"></i> NC State</a>
+            </p>
+            <p>
+              Cloud server systems such as Hadoop and Cassandra have enabled many real-world data-intensive applications running inside computing clouds. However, those systems present many data-corruption and performance problems which are notoriously difficult to debug due to the lack of diagnosis information.<br> 
+              We present <b>DScope</b>, a tool that statically detects data-corruption related software hang bugs in cloud server systems. DScope statically analyzes I/O operations and loops in a software package, and identifies loops whose exit conditions can be affected by I/O operations through returned data, returned error code, or I/O exception handling. After identifying those loops which are prone to hang problems under data corruption, DScope conducts loop bound and loop stride analysis to prune out false positives. We have implemented DScope and evaluated it using 9 common cloud server systems. Our results show that DScope can detect 42 real software hang bugs including 29 new bugs. In contrast, existing bug detection tools miss detecting most of those bugs.
+            </p>
+            <p>
+              <a class="btn btn-default btn-sm"><img src="images/cassandra.png" width="18" /> Cassandra</a>
+              <a class="btn btn-default btn-sm"><img src="images/commons.png" width="40" /> Compress</a>
+              <a class="btn btn-default btn-sm"><img src="images/hadoop.png" width="20" /> Hadoop</a>
+              <a class="btn btn-default btn-sm"><img src="images/hive.png" width="20" /> Hive</a>
+              <a class="btn btn-default btn-sm"><img src="images/kafka.png" width="40" /></a>
+              <a class="btn btn-default btn-sm"><img src="images/lucene.jpg" width="50" /></a><br>
+              <a class="btn btn-default btn-sm"><img src="images/soot.png" width="25" /></a>
+              <a class="btn btn-default btn-sm"><img src="images/java.png" width="17" /> Java</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Understanding and Detecting Timeout Bugs in Cloud Server Systems</h3>
       </div>
       <div class="panel-body">
         <div class="row">
