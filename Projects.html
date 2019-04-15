@@ -135,31 +135,35 @@
 
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">Detecting Timeout Bugs in Cloud Server Systems</h3>
+        <h3 class="panel-title">Studying, Detecting and Fixing Timeout Bugs in Cloud Server Systems</h3>
       </div>
       <div class="panel-body">
         <div class="row">
           <div class="col-md-4">
             <center>
-            <img src="images/TScope.png" class="img-responsive" height=100 alt="[TScope]"/>
+            <img src="images/TScopeTFix.png" class="img-responsive" height=100 alt="[TScope]"/>
             <p style="padding-top: 20px">
               <a class="btn btn-primary btn-sm" href="http://dance.csc.ncsu.edu/papers/IC2E18.pdf"><i class="fa fa-file-pdf-o fa-fw"></i> IC2E'18</a>&nbsp;
               <a class="btn btn-primary btn-sm" href="http://dance.csc.ncsu.edu/papers/ICAC18.pdf"><i class="fa fa-file-pdf-o fa-fw"></i> ICAC'18</a>&nbsp;
+              <a class="btn btn-primary btn-sm" href=""><i class="fa fa-file-pdf-o fa-fw"></i> ICDCS'19</a>&nbsp;
             </p>
+            <!-- <img src="images/TFix.png" class="img-responsive" height=100 alt="[TScope]"/> -->
             </center>
           </div>
           <div class="col-md-8">
             <p>
-              <a class="btn btn-default btn-sm"><i class="ios ion-ios-timer-outline fa-lg"></i> 02&#47;2017&#45;04&#47;2018</a>  
+              <a class="btn btn-default btn-sm"><i class="ios ion-ios-timer-outline fa-lg"></i> 02&#47;2017&#45;04&#47;2019</a>  
               <a class="btn btn-default btn-sm" href="http://csc.ncsu.edu/"><i class="ios ion-ios-location-outline fa-lg"></i> NC State</a>
             </p>
             <p>
               Timeout is commonly used to handle unexpected failures in server systems. However, improper use of timeout can cause server systems to hang or experience performance degradation. 
-              We conduct a comprehensive study to characterize 156 real-world timeout problems in 11 commonly used cloud server systems. 
+              We conduct a comprehensive <b>study</b> to characterize 156 real-world timeout problems in 11 commonly used cloud server systems. 
               Our study reveals timeout problems are widespread among cloud server systems.<br>
-              We futher present <b>TScope</b> to achieve timeout bug identification by leveraging kernel-level system call tracing and machine learning based anomaly detection and feature extraction schemes. 
+              We then present <b>TScope</b> to achieve timeout bug identification by leveraging kernel-level system call tracing and machine learning based anomaly detection and feature extraction schemes. 
               We conducted experiments using 19 real-world server performance bugs, including 12 timeout and 7 non-timeout performance bugs. 
-              The results show that TScope correctly classifies 18 out of 19 bugs with the false positive rate 0.8%.
+              The results show that TScope correctly classifies 18 out of 19 bugs with the false positive rate 0.8%.<br>
+              Futhermore, we present <b>TFix</b>, a drill-down bug analysis protocol for narrowing down the root cause variable of a timeout bug and producing recommendations for correcting the root cause. <!-- TFix first employs a system call frequent episode mining scheme to check whether a timeout bug is caused by a misused timeout variable. If the check is positive, TFix then performs application tracing to identify timeout affected functions by analyzing both function execution time and frequency changes. After identifying the timeout affected functions, TFix then performs taint analysis to localize the misused timeout variable. Last, TFix produces recommendations for proper timeout variable setting based on the tracing results during the system normal run.  -->
+              We have conducted extensive experiments using 13 real world cloud server timeout bugs. Our experimental results show that TFix can correctly localize the misused timeout variables and suggest proper values for those bugs.  
             </p>
             <p>
               <a class="btn btn-default btn-sm"><img src="images/apache2.png" width="25" /> Apache</a>
