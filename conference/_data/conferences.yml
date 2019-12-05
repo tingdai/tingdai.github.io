@@ -1,0 +1,224 @@
+- name: Conference on Cloud Computing
+  abbrv: CLOUD
+  url: http://conferences.computer.org/cloud/2019/
+  edition: 12
+  organization: IEEE
+  deadline: "2019-02-04"
+  date_from: "2019-07-08"
+  date_to: "2019-07-13"
+  location: "Milan, IT"
+  acceptance:
+    - 2015: 15
+    - 2014: 19
+    - 2013: 17
+    - 2012: 17
+    - 2011: 18
+  page_limit: 8
+
+- name: Conference on Cloud Computing and Services Science
+  abbrv: CLOSER
+  url: http://closer.scitevents.org/
+  edition: 10
+  deadline: "2019-12-13"
+  date_from: "2020-05-07"
+  date_to: "2020-05-09"
+  location: "Prague, Czech Republic"
+  acceptance: [14, 17, 18, 19, 11]
+  page_limit: 12
+
+- name: International Conference on Service-Oriented Computing
+  abbrv: ICSOC
+  url: http://www.icsoc.org
+  edition: 17
+  deadline: "2019-05-10"
+  date_from: "2019-10-28"
+  date_to: "2019-10-31"
+  location: "Touluse, France"
+  acceptance: []
+  page_limit: 15
+
+
+- name: European Conference on Software Architectures
+  abbrv: ECSA
+  url: https://ecsa2019.univ-lille.fr
+  edition: 17
+  deadline: "2019-05-10"
+  date_from: "2019-09-09"
+  date_to: "2019-09-13"
+  location: "Lille, France"
+  acceptance: []
+  page_limit: 15
+  
+- name: International Conference on Software Architecture
+  abbrv: ICSA
+  url: https://swk-www.informatik.uni-hamburg.de/~icsa2019/index.html
+  edition: unknown
+  deadline: "2018-12-06"
+  date_from: "2019-03-25"
+  date_to: "2019-03-29"
+  location: "Hamburg, Germany"
+  acceptance: []
+  page_limit: 10
+  
+
+- name: Conference on Cloud Computing Technology and Science
+  abbrv: CloudCom
+  url: http://2019.cloudcom.org/
+  edition: 11
+  date_from: "2019-12-11"
+  date_to: "2019-12-13"
+  deadline: "2019-08-10"
+  organization: IEEE
+  acceptance:
+    - 2015: 0
+    - 2014: 18
+    - 2013: 18
+    - 2012: 18
+    - 2011: 24
+  location: "Sydney, Australia"
+  page_limit: 8
+
+- name: Symposium on Cluster, Cloud, and Grid Computing
+  abbrv: CCGrid
+  url: http://www.ccgrid2019.org/
+  edition: 19
+  deadline: "2018-12-14"
+  date_from: "2019-05-14"
+  date_to: "2019-05-17"
+  organization: IEEE/ACM
+  acceptance:
+    - 2015: 26
+    - 2014: 19
+    - 2013: 22
+    - 2012: 28
+    - 2011: 29
+  location: Larnaca, Cyprus
+  acceptance: [26, 19, 22, 28, 29]
+  page_limit: 10
+
+- name: Conference on Cloud Engineering
+  abbrv: IC2E
+  url: http://conferences.computer.org/IC2E/2019/
+  edition: 6
+  organization: IEEE
+  deadline: "2018-11-23"
+  date_from: "2019-06-24"
+  date_to: "2019-06-27"
+  location: "Prague,Czech Republic"
+  page_limit: 10
+
+- name: Symposium on Cloud Computing
+  abbrv: SoCC
+  url: http://acmsocc.github.io/2019/
+  edition: 8
+  deadline: "2019-06-03"
+  date_from: "2019-11-20"
+  date_to: "2019-11-23"
+  organization: ACM
+  acceptance:
+    - 2015: 22
+    - 2013: 20
+    - 2012: 15
+    - 2011: 17
+    - 2010: 19
+  location: "Chaminade, CA, USA"
+  page_limit: 12
+
+- name: Conference on Utility and Cloud Computing
+  abbrv: UCC
+  edition: 11
+  url: http://ucc-conference.org/
+  deadline: "2019-08-29"
+  date_from: "2019-12-2"
+  date_to: "2019-12-5"
+  organization: IEEE/ACM
+  location: Auckland, New Zealand
+  page_limit: 10
+  acceptance:
+    - 2018: 20.5
+    - 2017: 27
+    - 2016: 26
+    - 2015: 27
+    - 2014: 27
+    - 2013: 38
+    - 2012: 40
+    - 2011: 28
+
+- name: Conference on Cloud Networking
+  abbrv: CloudNet
+  url: http://cloudnet2019.ieee-cloudnet.org/
+  edition: 7
+  date_from: "2019-11-04"
+  date_to: "2019-11-06"
+  deadline: "2019-07-23"
+  organization: IEEE
+  acceptance:
+    - 2015: 0
+    - 2014: 0
+    - 2013: 28
+    - 2012: 40
+  location: Coimbra, Portugal
+  page_limit: 6
+  
+- name: European Conference on Service-Oriented and Cloud Computing
+  abbrv: ESOCC
+  url: http://esocc2018.disco.unimib.it/
+  edition: 7
+  deadline: "2018-05-07"
+  date_from: "2018-09-12"
+  date_to: "2018-09-14"
+  location: "Como, Italy"
+  page_limit: 15  
+  
+- name: Workshop on Hot Topics in Cloud Computing
+  abbrv: HotCloud
+  url: https://www.usenix.org/conference/hotcloud19
+  edition: 11
+  organization: USENIX
+  deadline: "2019-03-06"
+  date_from: "2019-07-08"
+  date_to: "2018-07-08"
+  location: "Renton, WA, USA"
+  page_limit: 5
+  
+- name: Symposium on Secure Virtual Infrastructures – Cloud and Trusted Computing
+  abbrv: C&TC
+  url: http://www.otmconferences.org/index.php/conferences/ctc-2019
+  edition: 8
+  deadline: "2019-07-15"
+  date_from: "2019-10-21"
+  date_to: "2019-10-22"
+  location: "Rhodes, Greece"
+  page_limit: 18  
+
+- name: Hot Topics in Cloud Computing Performance
+  abbrv: HotCloudPerf
+  url: https://hotcloudperf.spec.org
+  edition: 2
+  deadline: "2019-03-14"
+  date_from: "2019-06-16"
+  date_to: "2019-06-17"
+  location: "Umea, Sweden"
+  page_limit: 6
+
+- name: IEEE International Conference on Computer Communications
+  abbrv: IEEE INFOCOM
+  url: https://infocom2020.ieee-infocom.org/
+  edition: 14
+  deadline: "2019-07-24"
+  date_from: "2020-04-27"
+  date_to: "2020-04-30"
+  location: "Beijing, China"
+  acceptance: 
+  page_limit: 10
+
+- name: International Conference on Future Internet of Things and Cloud
+  abbrv: FiCloud
+  url: http://www.ficloud.org/2019/
+  edition: 7
+  deadline: "2019-04-16"
+  date_from: "2019-08-26"
+  date_to: "2019-08-28"
+  location: "Istanbul, Turkey"
+  acceptance:
+  page_limit: 8
