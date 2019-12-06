@@ -20,7 +20,9 @@
         <a href="https://github.com/tingdai/tingdai.github.io/blob/master/hybridcloud.html"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/652c5b9acfaddf3a9c326fa6bde407b87f7be0f4/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6f72616e67655f6666373630302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png"></a>
       </div>
 
-      <div class="container">   
+      <div data-conference-container=""></div>
+
+      <!-- <div class="container">   
         <div class="col-md-4">
           <div data-abbrv="icse" data-detail=""></div>
         </div>
@@ -133,7 +135,7 @@
             <div class="countdown-container" data-abbrv="socc" data-countdown=""></div>
           </div>
         </div>
-    </div>
+      </div> -->
 
     <script type="text/template" id="main-example-template">
       <div class="time <%= label %>">
@@ -156,15 +158,25 @@
     </script>
 
 
+    <script type="text/template" id="conf-container-template">
+      <div class="container">   
+        <div class="col-md-4">
+          <div data-abbrv="<%= confabbr %>" data-detail=""></div>
+        </div>
+        <div class="col-md-8">
+          <div class="main-example">
+            <div class="countdown-container" data-abbrv="<%= confabbr %>" data-countdown=""></div>
+          </div>
+        </div>
+      </div>
+    </script>
 
 
     <script type="text/javascript">
       conferences = [
       {"abbrv": "icse", "deadline": "2020/08/28", "abbrvC": "ICSE", "fullname": "International Conference on Software Engineering", "period": "May 22-30 2021", "place": "Madrid, Spain", "link": "https://conf.researchr.org/home/icse-2021"},
       {"abbrv": "fse", "deadline": "2020/03/05", "abbrvC": "ESEC/FSE", "fullname": "ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering", "period": "November 8-13 2020", "place": "Sacramento, California", "link": "https://2020.esec-fse.org/"},
-      {"abbrv": "nsdi", "abbrvC": "NSDI (Spr & Fall)", "fullname": "USENIX Symposium on Networked Systems Design and Implementation", "period": "February 25–27, 2020", "place": "Santa Clara, California", "link": "https://www.usenix.org/conference/nsdi20"},
-      {"abbrv": "nsdis", "deadline": "2019/03/19"},
-      {"abbrv": "nsdif", "deadline": "2019/09/19"},
+      {"abbrv": "nsdi", "deadline": "2019/09/19", "abbrvC": "NSDI", "fullname": "USENIX Symposium on Networked Systems Design and Implementation", "period": "February 25–27, 2020", "place": "Santa Clara, California", "link": "https://www.usenix.org/conference/nsdi20"},
       {"abbrv": "pldi", "deadline": "2019/11/22", "abbrvC": "PLDI", "fullname": "ACM SIGPLAN Conference on Programming Language Design and Implementation", "period": "June 15-20 2020", "place": "London, United Kingdom", "link": "https://conf.researchr.org/home/pldi-2020"},
       {"abbrv": "osdi", "deadline": "2020/05/12", "abbrvC": "OSDI", "fullname": "USENIX Symposium on Operating Systems Design and Implementation", "period": "November 4–6, 2020", "place": "Banff, Alberta, Canada", "link": "https://www.usenix.org/conference/osdi20"},
       {"abbrv": "sosp", "deadline": "2019/04/24", "abbrvC": "SOSP", "fullname": "ACM Symposium on Operating Systems Principles", "period": "October 27-30, 2019", "place": "Deerhurst Resort, Huntsville, Ontario, Canada", "link": "https://sosp19.rcs.uwaterloo.ca/"},
@@ -174,6 +186,50 @@
       {"abbrv": "socc", "deadline": "2019/06/10", "abbrvC": "SoCC", "fullname": "ACM Symposium on Cloud Computing", "period": "November 20-23, 2019", "place": "Chaminade, Santa Cruz, California", "link": "https://acmsocc.github.io/2019/"},
       ];
 
+
+      $('[data-conference-container]').each(function() {
+        var upcommings = [], pasts = [];
+
+        function formatDate(date) {
+            var year = date.getFullYear().toString();
+            var month = (date.getMonth() + 101).toString().substring(1);
+            var day = (date.getDate() + 100).toString().substring(1);
+            return year + "/" + month + "/" + day;
+        }
+
+        var CurrentDate = formatDate(new Date());
+
+        var j = conferences.length;
+        while(j--) {
+          deadline = conferences[j].deadline
+          if (new Date(deadline) >= new Date(CurrentDate)){ 
+            upcommings.push(conferences[j])
+          } else {
+            pasts.push(conferences[j])
+          }
+        }
+        upcommings.sort((a, b) => (new Date(b.deadline) > new Date(a.deadline)) ? 1 : -1) //ascending
+        pasts.sort((a, b) => (new Date(a.deadline) > new Date(b.deadline)) ? 1 : -1) //descending
+
+        var $this = $(this);
+        var i = upcommings.length, abbrv;
+        while(i--) {
+          abbrv = upcommings[i].abbrv
+          var temp = _.template($('#conf-container-template').html());
+          $this.append(temp({
+            confabbr: abbrv,
+          })); 
+        }
+
+        var k = pasts.length;
+        while(k--) {
+          abbrv = pasts[k].abbrv
+          var temp = _.template($('#conf-container-template').html());
+          $this.append(temp({
+            confabbr: abbrv,
+          })); 
+        }
+      });
 
 
       $('[data-detail]').each(function() {
