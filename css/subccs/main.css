@@ -263,6 +263,14 @@ main [class*="pure-u-"]:last-child article {
   top: 95px;
   width: 100%;
 }
+.main-example .note {
+  font-size: 0.6em;
+  margin-top: 5px;
+  /*display: block;
+  position: absolute;
+  top: 95px;*/
+  width: 100%;
+}
 /* Animation start */
 .main-example .count.curr.top {
   -webkit-transform: rotateX(0deg);
