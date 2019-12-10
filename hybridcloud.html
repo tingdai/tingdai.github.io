@@ -118,14 +118,15 @@
           var timezone = timezones[tz];
           var confDate = moment.tz(deadline, timezone);
           var localConfDate = moment.tz(confDate, local_timezone);
+          conferences[j].localConfDate = localConfDate; //add the local deadline into list
           if (localConfDate.toDate() >= moment()){ 
             upcommings.push(conferences[j])
           } else {
             pasts.push(conferences[j])
           }
         }
-        upcommings.sort((a, b) => (new Date(b.deadline) > new Date(a.deadline)) ? 1 : -1) //ascending
-        pasts.sort((a, b) => (new Date(a.deadline) > new Date(b.deadline)) ? 1 : -1) //descending
+        upcommings.sort((a, b) => (b.localConfDate > a.localConfDate) ? 1 : -1) //ascending
+        pasts.sort((a, b) => (a.localConfDate > b.localConfDate) ? 1 : -1) //descending
 
         var $this = $(this);
         var i = upcommings.length, abbrv;
@@ -184,11 +185,12 @@
         while(i--) {
           if(abbrv == conferences[i].abbrv) {
               // nextYear = conferences[i].deadline;
-              var deadline = conferences[i].deadline;
-              var tz = conferences[i].timezone;
-              var timezone = timezones[tz];
-              var confDate = moment.tz(deadline, timezone);
-              var localConfDate = confDate.tz(local_timezone);
+              // var deadline = conferences[i].deadline;
+              // var tz = conferences[i].timezone;
+              // var timezone = timezones[tz];
+              // var confDate = moment.tz(deadline, timezone);
+              // var localConfDate = confDate.tz(local_timezone);
+              var localConfDate = conferences[i].localConfDate;
               nextYear = localConfDate.toDate();
               // nextYear = moment(confDate).local().format('YYYY-MM-DD HH:mm:ss');
               // nextYear = confDate;
