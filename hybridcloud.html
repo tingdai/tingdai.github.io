@@ -57,6 +57,7 @@
 
 
     <script type="text/template" id="conf-container-template">
+      <div id="<%= confabbr %>">
       <div class="container">   
         <div class="col-md-5">
           <div data-abbrv="<%= confabbr %>" data-detail=""></div>
@@ -67,6 +68,7 @@
           </div>
         </div>
       </div><br><br>
+    </div>
     </script>
 
 
@@ -146,7 +148,8 @@
           var temp = _.template($('#conf-container-template').html());
           $this.append(temp({
             confabbr: abbrv,
-          })); 
+          }));
+          $('#' + abbrv).addClass('past'); 
         }
       });
 

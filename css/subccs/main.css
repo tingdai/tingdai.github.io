@@ -156,6 +156,9 @@ main [class*="pure-u-"]:last-child article {
     padding: 0 !important;
   }
 }
+.past {
+  opacity: 0.5;
+}
 .main-example {
   margin: 0 auto;
   width: 355px;
