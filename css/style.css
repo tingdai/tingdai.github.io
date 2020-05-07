@@ -1,0 +1,54 @@
+
+/*Downloaded from https://www.codeseek.co/wstone/font-awesome-hourglass-egg-timer-jqzXRR */
+.hourglass-spin > [class*="fa-hourglass"] {
+  animation: showhide 4s steps(1) infinite;
+  opacity: 0;
+}
+.hourglass-spin > .fa-hourglass-end {
+  animation-delay: 2s;
+}
+.hourglass-spin > .fa-hourglass-half {
+  animation-delay: 1s;
+}
+.hourglass-spin > .fa-hourglass-start {
+  animation-delay: 0s;
+}
+.hourglass-spin > .fa-hourglass-end.spin {
+  animation: showhidespin 4s linear infinite;
+}
+
+@keyframes showhide {
+  0% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0;
+  }
+}
+@keyframes showhidespin {
+  0% {
+    opacity: 0;
+  }
+  74.9999999% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(180deg);
+  }
+}
+/*html, body {
+  height: 100%;
+}*/
+
+/*body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}*/
