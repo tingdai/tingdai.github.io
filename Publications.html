@@ -9,7 +9,6 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-    
       gtag('config', 'UA-124566132-1');
     </script>
 
@@ -29,6 +28,7 @@
     <link href="css/bootstrap.css" rel="stylesheet" media="screen">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/colorcodeicon.css" rel="stylesheet">
+    <script src="js/jquery.min.js"></script>
 </head>
 
 <body>
@@ -99,8 +99,22 @@
             <b>TFix: Automatic Timeout Bug Fixing in Production Server Systems</b><br>
             Jingzhu He, <b>Ting Dai</b>, and Xiaohui Gu<br>
             Proc. of IEEE International Conference on Distributed Computing Systems, Dallas, Texas, July, 2019.<br>
-            [<a target="_blank" href="http://dance.csc.ncsu.edu/papers/ICDCS19.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');">PDF</a>]
+            <!-- [<a target="_blank" href="http://dance.csc.ncsu.edu/papers/ICDCS19.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');">PDF</a>] -->
+            <a target="_blank" class="btn btn-default btn-xs" href="http://dance.csc.ncsu.edu/papers/ICDCS19.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><i class="fa fa-file-pdf-o"></i> pdf</a>
+            <a class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);" onclick="$('#bibtex_tfix').slideToggle('fast');return false;"><i class="fa fa-chevron-down"></i> bibtex</a>
             [acceptance rate 19.6%]
+             <div id="bibtex_tfix" class="bibtex well">
+                @inproceedings{tfix2019,<br>
+                &nbsp;&nbsp;author    = {Jingzhu He and Ting Dai and Xiaohui Gu},<br>
+                &nbsp;&nbsp;title     = {TFix: Automatic Timeout Bug Fixing in Production Server Systems},<br>
+                &nbsp;&nbsp;booktitle = {39th {IEEE} International Conference on Distributed Computing Systems, {ICDCS} 2019, Dallas, TX, USA, July 7-10, 2019},<br>
+                &nbsp;&nbsp;pages     = {612--623},<br>
+                &nbsp;&nbsp;publisher = {{IEEE}},<br>
+                &nbsp;&nbsp;year      = {2019},<br>
+                &nbsp;&nbsp;url       = {https://doi.org/10.1109/ICDCS.2019.00067},<br>
+                &nbsp;&nbsp;doi       = {10.1109/ICDCS.2019.00067},<br>
+                }
+            </div>
         </dd>
       </dl>
       <dl class="dl-horizontal">
@@ -109,8 +123,22 @@
             <b>FabZK: Supporting Privacy-Preserving, Auditable Smart Contracts in Hyperledger Fabric</b><br>
             Hui Kang*, <b>Ting Dai*</b>, Nerla Jean-Louis, Shu Tao, and Xiaohui Gu<br> (* equal contribution)<br>
             Proc. of IEEE/IFIP International Conference on Dependable Systems and Networks, Portland, Oregon, June, 2019.<br>
-            [<a target="_blank" href="http://dance.csc.ncsu.edu/papers/DSN19.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');">PDF</a>]
+            <!-- [<a target="_blank" href="http://dance.csc.ncsu.edu/papers/DSN19.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');">PDF</a>] -->
+            <a target="_blank" class="btn btn-default btn-xs" href="http://dance.csc.ncsu.edu/papers/DSN19.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><i class="fa fa-file-pdf-o"></i> pdf</a>
+            <a class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);" onclick="$('#bibtex_fabzk').slideToggle('fast');return false;"><i class="fa fa-chevron-down"></i> bibtex</a>
             [acceptance rate 21.4%]
+            <div id="bibtex_fabzk" class="bibtex well">
+              @inproceedings{fabzk2019,<br>
+              &nbsp;&nbsp;author    = {Hui Kang and Ting Dai and Nerla Jean{-}Louis and Shu Tao and Xiaohui Gu},<br>
+              &nbsp;&nbsp;title     = {FabZK: Supporting Privacy-Preserving, Auditable Smart Contracts in Hyperledger Fabric},<br>
+              &nbsp;&nbsp;booktitle = {49th Annual {IEEE/IFIP} International Conference on Dependable Systems and Networks, {DSN} 2019, Portland, OR, USA, June 24-27, 2019},<br>
+              &nbsp;&nbsp;pages     = {543--555},<br>
+              &nbsp;&nbsp;publisher = {{IEEE}},<br>
+              &nbsp;&nbsp;year      = {2019},<br>
+              &nbsp;&nbsp;url       = {https://doi.org/10.1109/DSN.2019.00061},<br>
+              &nbsp;&nbsp;doi       = {10.1109/DSN.2019.00061},<br>
+              }
+            </div>
         </dd>
       </dl>
       <dl class="dl-horizontal">
@@ -118,9 +146,48 @@
         <dd class="pubitem">
             <b>A Study on Container Vulnerability Exploit Detection</b><br>
             Olufogorehan Tunde-Onadele, Jingzhu He, <b>Ting Dai</b>, and Xiaohui Gu<br>
-            Proc. of IEEE International Conference on Cloud Engineering, Prague, Czech Republic, June, 2019.<br>
-            [<a target="_blank" href="http://dance.csc.ncsu.edu/papers/IC2E19.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');">PDF</a>]
+            Proc. of IEEE International Conference on Cloud Engineering, Prague, Czech Republic, June, 2019.<br>            
+            <a target="_blank" class="btn btn-default btn-xs" href="http://dance.csc.ncsu.edu/papers/IC2E19.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><i class="fa fa-file-pdf-o"></i> pdf</a>
+            <a class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);" onclick="$('#bibtex_convulstudy').slideToggle('fast');return false;"><i class="fa fa-chevron-down"></i> bibtex</a>
             [acceptance rate 26%]
+             <div id="bibtex_convulstudy" class="bibtex well">
+              @inproceedings{convulstudy2019,<br>
+              &nbsp;&nbsp;author    = {Olufogorehan Tunde{-}Onadele and Jingzhu He and Ting Dai and Xiaohui Gu},<br>
+              &nbsp;&nbsp;title     = {A Study on Container Vulnerability Exploit Detection},<br>
+              &nbsp;&nbsp;booktitle = {{IEEE} International Conference on Cloud Engineering, {IC2E} 2019, Prague, Czech Republic, June 24-27, 2019},<br>
+              &nbsp;&nbsp;pages     = {121--127},<br>
+              &nbsp;&nbsp;publisher = {{IEEE}},<br>
+              &nbsp;&nbsp;year      = {2019},<br>
+              &nbsp;&nbsp;url       = {https://doi.org/10.1109/IC2E.2019.00026},<br>
+              &nbsp;&nbsp;doi       = {10.1109/IC2E.2019.00026},<br>
+              }
+            </div>
+        </dd>
+      </dl>
+      <dl class="dl-horizontal">
+        <dt class="conference"><b><a href="" class="nodec">TPDS'19</a></b></dt>
+        <dd class="pubitem">
+            <b>Hytrace: A Hybrid Approach to Performance Bug Diagnosis in Production Cloud Infrastructures</b><br>
+            <b>Ting Dai</b>, Daniel Dean, Peipei Wang, Xiaohui Gu, and Shan Lu<br>
+            IEEE Transactions on Parallel and Distributed Systems, 2019.<br>
+            <!-- [<a target="_blank" href="http://dance.csc.ncsu.edu/papers/TPDS18.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');">PDF</a>] 
+            [<a target="_blank" href="http://dance.csc.ncsu.edu/papers/TPDS18_sup.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');">supplemental material</a>] -->
+            <a target="_blank" class="btn btn-default btn-xs" href="http://dance.csc.ncsu.edu/papers/TPDS18.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><i class="fa fa-file-pdf-o"></i> pdf</a>
+            <a target="_blank" class="btn btn-default btn-xs" href="http://dance.csc.ncsu.edu/papers/TPDS18_sup.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><i class="fa fa-file-pdf-o"></i> supplemental</a>
+            <a class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);" onclick="$('#bibtex_hytrace').slideToggle('fast');return false;"><i class="fa fa-chevron-down"></i> bibtex</a>
+             <div id="bibtex_hytrace" class="bibtex well">
+              @article{hytrace2019,<br>
+              &nbsp;&nbsp;author    = {Ting Dai and Daniel Joseph Dean and Peipei Wang and Xiaohui Gu and Shan Lu},<br>
+              &nbsp;&nbsp;title     = {Hytrace: {A} Hybrid Approach to Performance Bug Diagnosis in Production Cloud Infrastructures},<br>
+              &nbsp;&nbsp;journal   = {{IEEE} Trans. Parallel Distrib. Syst.},<br>
+              &nbsp;&nbsp;volume    = {30},<br>
+              &nbsp;&nbsp;number    = {1},<br>
+              &nbsp;&nbsp;pages     = {107--118},<br>
+              &nbsp;&nbsp;year      = {2019},<br>
+              &nbsp;&nbsp;url       = {https://doi.org/10.1109/TPDS.2018.2858800},<br>
+              &nbsp;&nbsp;doi       = {10.1109/TPDS.2018.2858800},<br>
+              }
+            </div>
         </dd>
       </dl>
       <dl class="dl-horizontal">
@@ -129,9 +196,22 @@
             <b>DScope: Detecting Real-World Data Corruption Hang Bugs in Cloud Server Systems</b><br>
             <b>Ting Dai</b>, Jingzhu He, Xiaohui Gu, Shan Lu, and Peipei Wang<br>
             Proc. of ACM Symposium on Cloud Computing, Carlsbad, CA, October, 2018.<br>
-            [<a target="_blank" href="http://dance.csc.ncsu.edu/papers/SOCC18.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');">PDF</a>]
-            [<a target="_blank" href="files/socc18-dscope.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');">Slides</a>]
+            <a target="_blank" class="btn btn-default btn-xs" href="http://dance.csc.ncsu.edu/papers/SOCC18.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><i class="fa fa-file-pdf-o"></i> pdf</a>
+            <a target="_blank" class="btn btn-default btn-xs" href="files/socc18-dscope.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><i class="fa fa-file-powerpoint-o"></i> slides</a>
+            <a class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);" onclick="$('#bibtex_dscope').slideToggle('fast');return false;"><i class="fa fa-chevron-down"></i> bibtex</a>
             [acceptance rate 24.4%]
+             <div id="bibtex_dscope" class="bibtex well">
+              @inproceedings{dscope2018,<br>
+              &nbsp;&nbsp;author    = {Ting Dai and Jingzhu He and Xiaohui Gu and Shan Lu and Peipei Wang},<br>
+              &nbsp;&nbsp;title     = {DScope: Detecting Real-World Data Corruption Hang Bugs in Cloud Server Systems},<br>
+              &nbsp;&nbsp;booktitle = {Proceedings of the {ACM} Symposium on Cloud Computing, SoCC 2018, Carlsbad, CA, USA, October 11-13, 2018},<br>
+              &nbsp;&nbsp;pages     = {313--325},<br>
+              &nbsp;&nbsp;publisher = {{ACM}},<br>
+              &nbsp;&nbsp;year      = {2018},<br>
+              &nbsp;&nbsp;url       = {https://doi.org/10.1145/3267809.3267844},<br>
+              &nbsp;&nbsp;doi       = {10.1145/3267809.3267844},<br>
+              }
+            </div>
         </dd>
       </dl>
       <dl class="dl-horizontal">
@@ -140,17 +220,20 @@
             <b>TScope: Automatic Timeout Bug Identification for Server Systems</b><br>
             Jingzhu He, <b>Ting Dai</b>, and Xiaohui Gu<br>
             Proc. of IEEE International Conference on Autonomic Computing, Trento, Italy, September, 2018.<br>
-            [<a target="_blank" href="http://dance.csc.ncsu.edu/papers/ICAC18.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');">PDF</a>]
-        </dd>
-      </dl>
-      <dl class="dl-horizontal">
-        <dt class="conference"><b><a href="" class="nodec">TPDS'18</a></b></dt>
-        <dd class="pubitem">
-            <b>Hytrace: A Hybrid Approach to Performance Bug Diagnosis in Production Cloud Infrastructures</b><br>
-            <b>Ting Dai</b>, Daniel Dean, Peipei Wang, Xiaohui Gu, and Shan Lu<br>
-            IEEE Transactions on Parallel and Distributed Systems, 2018.<br>
-            [<a target="_blank" href="http://dance.csc.ncsu.edu/papers/TPDS18.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');">PDF</a>] 
-            [<a target="_blank" href="http://dance.csc.ncsu.edu/papers/TPDS18_sup.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');">supplemental material</a>]
+            <a target="_blank" class="btn btn-default btn-xs" href="http://dance.csc.ncsu.edu/papers/ICAC18.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><i class="fa fa-file-pdf-o"></i> pdf</a>
+            <a class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);" onclick="$('#bibtex_tscope').slideToggle('fast');return false;"><i class="fa fa-chevron-down"></i> bibtex</a>
+             <div id="bibtex_tscope" class="bibtex well">
+              @inproceedings{tscope2018,<br>
+              &nbsp;&nbsp;author    = {Jingzhu He and Ting Dai and Xiaohui Gu},<br>
+              &nbsp;&nbsp;title     = {TScope: Automatic Timeout Bug Identification for Server Systems},<br>
+              &nbsp;&nbsp;booktitle = {2018 {IEEE} International Conference on Autonomic Computing, {ICAC} 2018, Trento, Italy, September 3-7, 2018},<br>
+              &nbsp;&nbsp;pages     = {1--10},<br>
+              &nbsp;&nbsp;publisher = {{IEEE} Computer Society},<br>
+              &nbsp;&nbsp;year      = {2018}, <br>
+              &nbsp;&nbsp;url       = {https://doi.org/10.1109/ICAC.2018.00010},<br>
+              &nbsp;&nbsp;doi       = {10.1109/ICAC.2018.00010},<br>
+              }
+            </div>
         </dd>
       </dl>
       <dl class="dl-horizontal">
@@ -159,11 +242,22 @@
             <b>Understanding Real-World Timeout Problems in Cloud Server Systems</b><br>
             <b>Ting Dai</b>, Jingzhu He, Xiaohui Gu, and Shan Lu<br>
             Proc. of IEEE International Conference on Cloud Engineering, Orlando, FL, April, 2018.<br>
-            [<a target="_blank" href="http://dance.csc.ncsu.edu/papers/IC2E18.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');">PDF</a>]
-            [<a target="_blank" href="files/ic2e18_slides_tingdai.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');">Slides</a>]
+            <a target="_blank" class="btn btn-default btn-xs" href="http://dance.csc.ncsu.edu/papers/IC2E18.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><i class="fa fa-file-pdf-o"></i> pdf</a>
+            <a target="_blank" class="btn btn-default btn-xs" href="files/ic2e18_slides_tingdai.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><i class="fa fa-file-powerpoint-o"></i> slides</a>
+            <a class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);" onclick="$('#bibtex_timeoutstudy').slideToggle('fast');return false;"><i class="fa fa-chevron-down"></i> bibtex</a>
             [acceptance rate 19%]
-            <a class="btn btn-danger btn-xs" href="http://conferences.computer.org/IC2E/2018/best_paper_candidates.htm"><i class="ios ion-ribbon-b fa-lg"></i> Best paper nominee</a>
-            <!--a class="btn btn-danger btn-xs" href="http://conferences.computer.org/IC2E/2018/best_paper_candidates.htm"><i class="ios ion-ribbon-a fa-lg"></i> Best paper nominee</a-->
+             <div id="bibtex_timeoutstudy" class="bibtex well">
+              @inproceedings{timeoutstudy2018,<br>
+              &nbsp;&nbsp;author    = {Ting Dai and Jingzhu He and Xiaohui Gu and Shan Lu},<br>
+              &nbsp;&nbsp;title     = {Understanding Real-World Timeout Problems in Cloud Server Systems},<br>
+              &nbsp;&nbsp;booktitle = {2018 {IEEE} International Conference on Cloud Engineering, {IC2E} 2018, Orlando, FL, USA, April 17-20, 2018},<br>
+              &nbsp;&nbsp;pages     = {1--11},<br>
+              &nbsp;&nbsp;publisher = {{IEEE} Computer Society},<br>
+              &nbsp;&nbsp;year      = {2018},<br>
+              &nbsp;&nbsp;url       = {https://doi.org/10.1109/IC2E.2018.00022},<br>
+              &nbsp;&nbsp;doi       = {10.1109/IC2E.2018.00022},<br>
+              }
+            </div>
         </dd>
       </dl>
       <dl class="dl-horizontal">
@@ -172,7 +266,20 @@
             <b>Hytrace: A Hybrid Approach to Performance Bug Diagnosis in Production Cloud Infrastructures</b><br>
             <b>Ting Dai</b>, Daniel Dean, Peipei Wang, Xiaohui Gu, and Shan Lu<br>
             Proc. of ACM Symposium on Cloud Computing, poster session, Santa Clara, CA, September, 2017.<br>
-            [<a target="_blank" href="http://dance.csc.ncsu.edu/papers/socc2017.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');">PDF</a>]
+            <a target="_blank" class="btn btn-default btn-xs" href="http://dance.csc.ncsu.edu/papers/socc2017.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><i class="fa fa-file-pdf-o"></i> pdf</a>
+            <a class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);" onclick="$('#bibtex_hytraceposter').slideToggle('fast');return false;"><i class="fa fa-chevron-down"></i> bibtex</a>
+             <div id="bibtex_hytraceposter" class="bibtex well">
+              @inproceedings{hytrace2017,<br>
+              &nbsp;&nbsp;author    = {Ting Dai and Daniel Dean and Peipei Wang and Xiaohui Gu and Shan Lu},<br>
+              &nbsp;&nbsp;title     = {Hytrace: a hybrid approach to performance bug diagnosis in production cloud infrastructures},<br>
+              &nbsp;&nbsp;booktitle = {Proceedings of the 2017 Symposium on Cloud Computing, SoCC 2017, Santa Clara, CA, USA, September 24-27, 2017},<br>
+              &nbsp;&nbsp;pages     = {641},<br>
+              &nbsp;&nbsp;publisher = {{ACM}},<br>
+              &nbsp;&nbsp;year      = {2017},<br>
+              &nbsp;&nbsp;url       = {https://doi.org/10.1145/3127479.3132562},<br>
+              &nbsp;&nbsp;doi       = {10.1145/3127479.3132562},<br>
+              }
+            </div>
         </dd>
       </dl>
       <dl class="dl-horizontal">
@@ -181,7 +288,20 @@
             <b>An Improved μTESLA Protocol Based on Queuing Theory and Benaloh-Leichter SSS in WSNs</b><br>
             Haiping Huang, Tianhe Gong, Tao Chen, Mingliang Xiong, Xinxing Pan, and <b>Ting Dai</b><br>
             Journal of Sensors, Vol. 2016, Article ID 9021650, 13 pages, 2016.<br>
-            [<a target="_blank" href="https://drive.google.com/file/d/0B_SslUDRJzv9VE5QV19qWk5nMDQ/view?usp=sharing" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');">PDF</a>]
+            <a target="_blank" class="btn btn-default btn-xs" href="https://drive.google.com/file/d/0B_SslUDRJzv9VE5QV19qWk5nMDQ/view?usp=sharing" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><i class="fa fa-file-pdf-o"></i> pdf</a>
+            <a class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);" onclick="$('#bibtex_μTESLA').slideToggle('fast');return false;"><i class="fa fa-chevron-down"></i> bibtex</a>
+             <div id="bibtex_μTESLA" class="bibtex well">
+              @article{advμTESLA2016,<br>
+              &nbsp;&nbsp;author    = {Haiping Huang and Tianhe Gong and Tao Chen and Mingliang Xiong and Xinxing Pan and Ting Dai},<br>
+              &nbsp;&nbsp;title     = {An Improved \emph{{\(\mu\)}}TESLA Protocol Based on Queuing Theory and Benaloh-Leichter {SSS} in WSNs},<br>
+              &nbsp;&nbsp;journal   = {J. Sensors},<br>
+              &nbsp;&nbsp;volume    = {2016},<br>
+              &nbsp;&nbsp;pages     = {9021650:1--9021650:13},<br>
+              &nbsp;&nbsp;year      = {2016},<br>
+              &nbsp;&nbsp;url       = {https://doi.org/10.1155/2016/9021650},<br>
+              &nbsp;&nbsp;doi       = {10.1155/2016/9021650},<br>
+              }
+            </div>
         </dd>
       </dl>
       <dl class="dl-horizontal">
@@ -190,7 +310,19 @@
             <b>Research on Migration Strategy of Mobile Agent in Wireless Sensor Networks</b><br>
             <b>Ting Dai</b>, Haiping Huang, Yang Lu, Ruchuan Wang, and Xinxing Pan<br>
             International Journal of Distributed Sensor Networks, Vol. 2013, Article ID 642986, 13 pages, 2013.<br>
-            [<a target="_blank" href="https://drive.google.com/file/d/0B_SslUDRJzv9bXRod3hzWDRVTjA/view?usp=sharing" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');">PDF</a>]
+            <a target="_blank" class="btn btn-default btn-xs" href="https://drive.google.com/file/d/0B_SslUDRJzv9bXRod3hzWDRVTjA/view?usp=sharing" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><i class="fa fa-file-pdf-o"></i> pdf</a>
+            <a class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);" onclick="$('#bibtex_migration').slideToggle('fast');return false;"><i class="fa fa-chevron-down"></i> bibtex</a>
+             <div id="bibtex_migration" class="bibtex well">
+              @article{migration2013,<br>
+              &nbsp;&nbsp;author    = {Ting Dai and Haiping Huang and Lu Yang and Ruchuan Wang and Xinxing Pan},<br>
+              &nbsp;&nbsp;title     = {Research on Migration Strategy of Mobile Agent in Wireless Sensor Networks},<br>
+              &nbsp;&nbsp;journal   = {{IJDSN}},<br>
+              &nbsp;&nbsp;volume    = {9},<br>
+              &nbsp;&nbsp;year      = {2013},<br>
+              &nbsp;&nbsp;url       = {https://doi.org/10.1155/2013/642986},<br>
+              &nbsp;&nbsp;doi       = {10.1155/2013/642986},<br>
+              }
+            </div>
         </dd>
       </dl>
       <dl class="dl-horizontal">
@@ -200,7 +332,7 @@
             基于(t, n)门限和划分树的可再生散列链构造方案<br>
             Haiping Huang, <b>Ting Dai</b>, Ruchuan Wang, Xiaolin Qin, and Jiutian Chen<br>
             Journal of Communications, Vol. 34, No. 4, pp. 70-81, Apr. 2013.<br>
-            [<a target="_blank" href="https://drive.google.com/file/d/0B_SslUDRJzv9ZE43Z0d0OFc1eVk/view?usp=sharing" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');">PDF</a>]
+            <a target="_blank" class="btn btn-default btn-xs" href="https://drive.google.com/file/d/0B_SslUDRJzv9ZE43Z0d0OFc1eVk/view?usp=sharing" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><i class="fa fa-file-pdf-o"></i> pdf</a>
         </dd>
       </dl>
       <dl class="dl-horizontal">
@@ -209,7 +341,7 @@
             <b>Novel self-renewal Hash Chain based on Ito-Saito-Nishizeki secret sharing scheme</b><br>
             <b>Ting Dai</b>, Haiping Huang, Ruchuan Wang, and Xinxing Pan<br>
             The Journal of China Universities of Posts and Telecommunications, Vol. 19(Suppl. 2), pp. 122-127, Oct. 2012.<br>
-            [<a target="_blank" href="https://drive.google.com/file/d/0B_SslUDRJzv9dnUxZFBLRTBRUDg/view?usp=sharing" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');">PDF</a>]
+            <a target="_blank" class="btn btn-default btn-xs" href="https://drive.google.com/file/d/0B_SslUDRJzv9dnUxZFBLRTBRUDg/view?usp=sharing" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><i class="fa fa-file-pdf-o"></i> pdf</a>
         </dd>
       </dl>
       <dl class="dl-horizontal">
@@ -218,7 +350,7 @@
             <b>Simulation of the Park Behaviors in a Shopping Mall of Dalian</b><br>
             Li Liu, <b>Ting Dai</b>, Yi Dou, Haiping Huang, Junjie Huang, and Ning Ye<br>
             Advanced Material Research, Vol. 317-319, pp. 2133-2137, Aug. 2011.<br>
-            [<a target="_blank" href="https://drive.google.com/file/d/0B_SslUDRJzv9YUs0a0plSk1CMUk/view?usp=sharing" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');">PDF</a>]
+            <a target="_blank" class="btn btn-default btn-xs" href="https://drive.google.com/file/d/0B_SslUDRJzv9YUs0a0plSk1CMUk/view?usp=sharing" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><i class="fa fa-file-pdf-o"></i> pdf</a>
         </dd>
       </dl>
     </div>
@@ -232,7 +364,7 @@
             <b>一种无线传感器网络中移动节点的分簇方法</b><br>
             Ruchuan Wang, Xinxin Pan, Haiping Huang, Dan Sha, <b>Ting Dai</b>, Linyun Jiang, Chao Sha, Jia Xu and Fu Xiao<br>
             Filed by Nanjing University of Posts and Telecommunications; Published on 06/08/2016; Pattern # CN103124421B<br>
-            [<a target="_blank" href="https://patentimages.storage.googleapis.com/85/15/6c/2180d822d0e49a/CN103124421B.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');">PDF</a>]
+            <a target="_blank" class="btn btn-default btn-xs" href="https://patentimages.storage.googleapis.com/85/15/6c/2180d822d0e49a/CN103124421B.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><i class="fa fa-file-pdf-o"></i> pdf</a>
         </dd>
       </dl>
       <dl class="dl-horizontal">
@@ -241,7 +373,7 @@
             <b>基于物联网应用场景的隐私查询和隐私身份验证的保护方法</b><br>
             Haingping Huang, Yi Dou, Ruchuan Wang, Haitao Zhang, Liang Xu, Lijuan Sun, <b>Ting Dai</b>, Haiyan Wang, Linyun Jiang, Chao Sha, Fu Xiao, Lin Zhang, Jian Guo, Zhigang Tan, Li Liu and Xiang Gu<br>
             Filed by Nanjing University of Posts and Telecommunications; Published on 10/22/2014; Pattern # CN102196431B<br>
-            [<a target="_blank" href="https://patentimages.storage.googleapis.com/bb/94/1e/cf50949bfba963/CN102196431B.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');">PDF</a>]
+            <a target="_blank" class="btn btn-default btn-xs" href="https://patentimages.storage.googleapis.com/bb/94/1e/cf50949bfba963/CN102196431B.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><i class="fa fa-file-pdf-o"></i> pdf</a>
         </dd>
       </dl>
       <dl class="dl-horizontal">
@@ -250,7 +382,7 @@
             <b>一种采用标签传感网跟踪与定位集装箱的方法</b><br>
             Haingping Huang, Yi Dou, Ruchuan Wang, Lijuan Sun, Haitao Zhang, Liang Xu, Chao Sha, <b>Ting Dai</b>, Jia Xu, Jian Guo, Zhigang Tan, Li Liu, Linyun Jiang and Yin Ma<br>
             Filed by Nanjing University of Posts and Telecommunications; Published on 09/10/2014; Pattern # CN102325344B<br>
-            [<a target="_blank" href="https://patentimages.storage.googleapis.com/41/27/12/e0c07334e3416d/CN102325344B.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');">PDF</a>]
+            <a target="_blank" class="btn btn-default btn-xs" href="https://patentimages.storage.googleapis.com/41/27/12/e0c07334e3416d/CN102325344B.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><i class="fa fa-file-pdf-o"></i> pdf</a>
         </dd>
       </dl>
       <dl class="dl-horizontal">
@@ -259,7 +391,7 @@
             <b>基于物联网场景的安全多方计算隐私保护测评方法</b><br>
             Lijuan Sun, Xuan Zhou, Haiping Huang, Ruchuan Wang, Jia Xu, Yachao Lv, Qi Yan, Shang Shang, <b>Ting Dai</b>, Yi Dou, Chao Sha and Fu Xiao<br>
             Filed by Nanjing University of Posts and Telecommunications; Published on 09/10/2014; Pattern # CN102594820B<br>
-            [<a target="_blank" href="https://patentimages.storage.googleapis.com/f8/5c/13/f1a8c72e8a2359/CN102594820B.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');">PDF</a>]
+            <a target="_blank" class="btn btn-default btn-xs" href="hhttps://patentimages.storage.googleapis.com/f8/5c/13/f1a8c72e8a2359/CN102594820B.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><i class="fa fa-file-pdf-o"></i> pdf</a>
         </dd>
       </dl>
       <dl class="dl-horizontal">
@@ -268,7 +400,7 @@
             <b>一种基于标签传感网的集装箱物流跟踪与定位方法</b><br>
             Haiping Huang, <b>Ting Dai</b>, Ruchuan Wang, Biao Liang, Lijuan Sun, Chao Sha, Qiang Zhao, Fu Xiao, Yi Dou, Jia Xu, Linyun Jiang, Zhigang Tan and Jian Guo<br>
             Filed by Nanjing University of Posts and Telecommunications & Nanjing Sample Technology Company Limited; Published on 11/27/2013; Pattern # CN102325345B<br>
-            [<a target="_blank" href="https://patentimages.storage.googleapis.com/9d/5d/dd/4c26718692920c/CN102325345B.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');">PDF</a>]
+            <a target="_blank" class="btn btn-default btn-xs" href="https://patentimages.storage.googleapis.com/9d/5d/dd/4c26718692920c/CN102325345B.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><i class="fa fa-file-pdf-o"></i> pdf</a>
         </dd>
       </dl>
       <dl class="dl-horizontal">
@@ -277,7 +409,7 @@
             <b>基于自动机和生命游戏的无线传感器网络广播认证方法</b><br>
             Haiping Huang, <b>Ting Dai</b>, Ruchuan Wang, Lijuan Sun, Yi Dou, Zhigang Tan, Li Liu, Wei Zhang, Xuan Zhou, Wencong Huang, Hao Chen and Chao Sha<br>
             Filed by Nanjing University of Posts and Telecommunications; Published on 09/25/2013; Pattern # CN102164369B<br>
-            [<a target="_blank" href="https://patentimages.storage.googleapis.com/f5/02/cb/59bc18b5b473db/CN102164369B.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');">PDF</a>]
+            <a target="_blank" class="btn btn-default btn-xs" href="https://patentimages.storage.googleapis.com/f5/02/cb/59bc18b5b473db/CN102164369B.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><i class="fa fa-file-pdf-o"></i> pdf</a>
         </dd>
       </dl>
     </div>
@@ -286,10 +418,39 @@
     <br>
     <div>
       <dl class="dl-horizontal">
+        <dt class="conference"><b><a href="https://repository.lib.ncsu.edu/handle/1840.20/37018" class="nodec">PhD Thesis'19</a></b></dt>
+        <dd class="pubitem">
+            <b>A Hybrid Approach to Cloud System Performance Bug Detection, Diagnosis and Fix</b><br>
+            <a target="_blank" class="btn btn-default btn-xs" href="https://repository.lib.ncsu.edu/bitstream/handle/1840.20/37018/etd.pdf?sequence=1" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><i class="fa fa-file-pdf-o"></i> pdf</a>
+            <a class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);" onclick="$('#bibtex_phdthesis').slideToggle('fast');return false;"><i class="fa fa-chevron-down"></i> bibtex</a>
+             <div id="bibtex_phdthesis" class="bibtex well">
+              @phdthesis{perfbugthesis2019,<br>
+              &nbsp;&nbsp;author    = {Ting Dai},<br>
+              &nbsp;&nbsp;title     = {A Hybrid Approach to Cloud System Performance Bug Detection, Diagnosis and Fix},<br>
+              &nbsp;&nbsp;school    = {North Carolina State University},<br>
+              &nbsp;&nbsp;year      = {2019},<br>
+              &nbsp;&nbsp;address   = {Raleigh, North Carolina},<br>
+              &nbsp;&nbsp;month     = {July},<br>
+              }
+            </div>
+        </dd>
+      </dl>
+      <dl class="dl-horizontal">
         <dt class="conference"><b><a href="http://cnki.scstl.org/KCMS/detail/detail.aspx?filename=1015544799.nh&dbcode=CMFD&dbname=CMFD2015" class="nodec">Master Thesis'14</a></b></dt>
         <dd class="pubitem">
             <b>无线传感器网络广播认证协议及入侵检测研究</b><br>
-            [<a target="_blank" href="https://drive.google.com/a/ncsu.edu/file/d/0B_SslUDRJzv9NDI1WDVUWHUxRk0/view?usp=sharing" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');">PDF</a>]
+            <a target="_blank" class="btn btn-default btn-xs" href="https://drive.google.com/a/ncsu.edu/file/d/0B_SslUDRJzv9NDI1WDVUWHUxRk0/view?usp=sharing" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><i class="fa fa-file-pdf-o"></i> pdf</a>
+            <a class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);" onclick="$('#bibtex_masterthesis').slideToggle('fast');return false;"><i class="fa fa-chevron-down"></i> bibtex</a>
+             <div id="bibtex_masterthesis" class="bibtex well">
+              @phdthesis{wsnBaIdThesis2014,<br>
+              &nbsp;&nbsp;author    = {Ting Dai},<br>
+              &nbsp;&nbsp;title     = {Research on Broadcast Authentication Protocols and Intrusion Detection in Wireless Sensor Networks},<br>
+              &nbsp;&nbsp;school    = {Nanjing Univeristy of Posts and Telecommunications},<br>
+              &nbsp;&nbsp;year      = {2014},<br>
+              &nbsp;&nbsp;address   = {Nanjing, China},<br>
+              &nbsp;&nbsp;month     = {April},<br>
+              }
+            </div>
         </dd>
       </dl>
     </div>
