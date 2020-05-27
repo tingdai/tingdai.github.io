@@ -1,0 +1,4 @@
+/* Make sure abstract does not disply by default*/
+.bibtex{
+    display:none;
+}

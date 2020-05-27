@@ -6760,8 +6760,4 @@ button.close {
     display: none !important;
   }
 }
-/* Make sure abstract does not disply by default*/
-.bibtex{
-    display:none;
-}
 /*# sourceMappingURL=bootstrap.css.map */
