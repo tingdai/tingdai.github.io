@@ -1090,7 +1090,7 @@ body {
   color: #333;
   background-color: #fff;
 }
-.jumbotron3R{position:relative;opacity:.8;color:#fff;color:rgba(255,255,255,0.75);text-align:center;border-radius:0;padding:50px;padding-bottom:60px;background-image:-webkit-linear-gradient(left, #00fbff 0, #2e00ff 100%);background-image:-o-linear-gradient(left, #00fbff 0, #2e00ff 100%);background-image:linear-gradient(to right, #00fbff 0, #2e00ff 100%);background-repeat:repeat-x;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff00fbff', endColorstr='#ff2e00ff', GradientType=1)}.jumbotron3R h1{margin-bottom:15px;font-weight:300;letter-spacing:-1px;color:#fff}
+.jumbotron3R{position:relative;opacity:.7;color:#fff;color:rgba(255,255,255,0.75);text-align:center;border-radius:0;padding:50px;padding-bottom:60px;background-image:-webkit-linear-gradient(left, #00fbff 0, #2e00ff 100%);background-image:-o-linear-gradient(left, #00fbff 0, #2e00ff 100%);background-image:linear-gradient(to right, #00fbff 0, #2e00ff 100%);background-repeat:repeat-x;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff00fbff', endColorstr='#ff2e00ff', GradientType=1)}.jumbotron3R h1{margin-bottom:15px;font-weight:300;letter-spacing:-1px;color:#fff}
 input,
 button,
 select,
