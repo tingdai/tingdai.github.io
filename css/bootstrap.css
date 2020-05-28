@@ -4501,6 +4501,17 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-default {
   background-color: #f8f8f8;
   border-color: #e7e7e7;
+  /*The follwing is added*/
+  /*position: fixed;*/
+  /*opacity:.8;*/
+  /*color:#fff;*/
+  /*color:rgba(255,255,255,0.75);*/
+  /*border-radius:0;*/
+  /*background-image:-webkit-linear-gradient(left, #00fbff 0, #2e00ff 100%);*/
+  /*background-image:-o-linear-gradient(left, #00fbff 0, #2e00ff 100%);*/
+  /*background-image:linear-gradient(to right, #00fbff 0, #2e00ff 100%);*/
+  /*background-repeat:repeat-x;*/
+  /*filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff00fbff', endColorstr='#ff2e00ff', GradientType=1)*/
 }
 .navbar-default .navbar-brand {
   color: #777;
