@@ -6789,8 +6789,8 @@ button.close {
 .result-iframe{
   width:100% !important;
   height:100% !important
-}[data-zoom='0.5'] 
-.result-iframe{
+}
+[data-zoom='0.5'] .result-iframe{
   width:200% !important;
   height:200% !important;
   -webkit-transform:scale(0.5);
@@ -6801,8 +6801,8 @@ button.close {
   position:relative;
   top:-50%;
   left:-50%
-}[data-zoom='0.25'] 
-.result-iframe{
+}
+[data-zoom='0.25'] .result-iframe{
   width:400% !important;
   height:400% !important;
   -webkit-transform:scale(0.25);
