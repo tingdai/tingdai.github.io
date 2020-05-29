@@ -33,20 +33,26 @@
           <!-- <iframe src="https://ghbtns.com/github-btn.html?user=tingdai&repo=tingdai.github.io&type=star&count=true" frameborder="0" scrolling="0" width="170px" height="20px"></iframe> -->
         </h1>
         
-        <h3 class="project-tagline"><i class="fa fa-tag"></i>system, network, software engineering, programming language, cloud computing</h3>
-        <h5>
+        <h3 class="project-tagline">
+          <a class="btn btn-transparent btn-sm"><i class="fa fa-tag"></i>system</a> 
+          <a class="btn btn-transparent btn-sm"><i class="fa fa-tag"></i>network</a>
+          <a class="btn btn-transparent btn-sm"><i class="fa fa-tag"></i>software engineering</a>
+          <a class="btn btn-transparent btn-sm"><i class="fa fa-tag"></i>programming language</a>
+          <a class="btn btn-transparent btn-sm"><i class="fa fa-tag"></i>cloud computing</a>
+        </h3>
+        <!-- <h5>
           <i class="ios ion-ios-redo fa-lg"></i>
           To edit a conference, <a target="_blank" href="https://github.com/tingdai/tingdai.github.io/blob/master/hybridcloud.html#L162-L171" style="color:white">send in a pull request</a>.
-        </h5>
+        </h5> -->
         <a href="https://github.com/tingdai/tingdai.github.io/blob/master/hybridcloud.html"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/652c5b9acfaddf3a9c326fa6bde407b87f7be0f4/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6f72616e67655f6666373630302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png"></a>
-        <h5>
+        <!-- <h5>
           <i class="ios ion-ios-timer-outline fa-lg"></i>
           <script>
             var dt = document.lastModified;    
             var anotherDateObject = new Date(Date.parse(dt));
-            document.write("Last updated on: " + anotherDateObject);      
+            document.write("Last updated on: " + anotherDateObject); 
           </script>
-        </h5>
+        </h5> -->
       </div>
 
       <div data-conference-container=""></div>
@@ -159,20 +165,19 @@
     <script type="text/javascript">
     $(function() {
       conferences = [
-      {"abbrv": "icse", "deadline": {"Technical Submission": "2020-08-28 23:59:59", "Other Tracks Submission": "2020-10-18 23:59:59"}, "timezone": "AoE", "period": "May 23-29 2021", "place": "Madrid, Spain", "link": "https://conf.researchr.org/home/icse-2021"},
-      {"abbrv": "fse", "deadline": {"Industry Submission": "2020-05-19 23:59:59", "Research Submission": "2020-03-05 23:59:59"}, "timezone": "AoE", "period": "November 8-13 2020", "place": "Sacramento, California", "link": "https://2020.esec-fse.org/"},
+      {"abbrv": "icse", "deadline": {"Technical Submission": "2020-08-28 23:59:59", "Other Tracks Submission": "2020-10-18 23:59:59"}, "timezone": "AoE", "period": "May 23-29, 2021", "place": "Madrid, Spain", "link": "https://conf.researchr.org/home/icse-2021"},
+      {"abbrv": "fse", "deadline": {"Industry Submission": "2020-05-19 23:59:59", "Research Submission": "2020-03-05 23:59:59"}, "timezone": "AoE", "period": "November 8-13, 2020", "place": "Sacramento, California", "link": "https://2020.esec-fse.org/"},
       {"abbrv": "nsdi", "deadline": {"Spring Abstract": "2020-04-10 23:59:59", "Spring Submission": "2020-04-17 23:59:59", "Fall Abstract": "2020-09-10 23:59:59", "Fall Submission": "2020-09-17 23:59:59"}, "timezone": "EDT", "period": "April 12–14, 2021", "place": "Boston, Massachusetts", "link": "https://www.usenix.org/conference/nsdi21"},
       {"abbrv": "pldi", "deadline": {"Submission": "2019-11-22 23:59:59"}, "timezone": "AoE", "period": "June 15-20 2020", "place": "London, United Kingdom", "link": "https://conf.researchr.org/home/pldi-2020"},
       {"abbrv": "osdi", "deadline": {"Abstract": "2020-05-20 15:00:00", "Submission": "2020-05-27 15:00:00"}, "timezone": "PDT", "period": "November 4–6, 2020", "place": "Banff, Alberta, Canada", "link": "https://www.usenix.org/conference/osdi20"},
       {"abbrv": "sosp", "deadline": {"Abstract": "2019-04-17 23:59:59", "Submission": "2019-04-24 23:59:59"}, "timezone": "UTC", "period": "October 27-30, 2019", "place": "Deerhurst Resort, Huntsville, Ontario, Canada", "link": "https://sosp19.rcs.uwaterloo.ca/"},
       {"abbrv": "atc", "deadline": {"Submission": "2020-01-15 23:59:59"}, "timezone": "EST", "period": "July 15–17, 2020", "place": "Boston, Massachusetts", "link": "https://www.usenix.org/conference/atc20"},
-      {"abbrv": "eurosys", "deadline": {"Submission": "2019-11-04 23:59:59"}, "timezone": "AoE", "period": "April 26-29, 2021", "place": "Edinburgh, Scotland, UK", "link": "https://2021.eurosys.org/"},
+      {"abbrv": "eurosys", "deadline": {"Submission": "2020-11-04 23:59:59"}, "timezone": "AoE", "period": "April 26-29, 2021", "place": "Edinburgh, Scotland, UK", "link": "https://2021.eurosys.org/"},
       {"abbrv": "fast", "deadline": {"Submission": "2019-09-26 23:59:59"}, "timezone": "AoE", "period": "February 24–27, 2020", "place": "Santa Clara, California", "link": "https://www.usenix.org/conference/fast20"},
       {"abbrv": "socc", "deadline": {"Abstract": "2020-05-18 23:59:59", "Submission": "2020-05-26 23:59:59"}, "timezone": "EDT", "period": "October 19-21, 2020", "place": "Renton, Washington", "link": "https://acmsocc.github.io/2020/"},
       ];
 
       conferenceConstants = {
-      "icse": {"abbrvC": "ICSE", "fullname": "International Conference on Software Engineering"},
       "icse": {"abbrvC": "ICSE", "fullname": "International Conference on Software Engineering"},
       "fse":  {"abbrvC": "ESEC/FSE", "fullname": "ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering"},
       "nsdi": {"abbrvC": "NSDI", "fullname": "USENIX Symposium on Networked Systems Design and Implementation"},
@@ -376,9 +381,10 @@
         var i = conferences.length, fullname, period, place, link, abbrvC;
         while(i--) {
           if(abbrv == conferences[i].abbrv) {
-              abbrvC = conferenceConstants[abbrv]["abbrvC"];
-              fullname = conferenceConstants[abbrv]["fullname"];
               period = conferences[i].period;
+              year = period.substr(period.length - 4);;
+              abbrvC = conferenceConstants[abbrv]["abbrvC"]+' '+year;
+              fullname = conferenceConstants[abbrv]["fullname"];
               place = conferences[i].place;
               link = conferences[i].link;
               break;
@@ -481,6 +487,11 @@
 
 
     <footer style="color:white" background-color="transparent">
+      <script>
+              var dt = document.lastModified;    
+              var anotherDateObject = new Date(Date.parse(dt));
+              document.write("Last updated on: " + anotherDateObject.toLocaleDateString());      
+      </script><br>
       <span class="site-footer-owner">Created by <a href="https://tingdai.github.io" style="color:white">Ting Dai</a>.</span>
       <span class="site-footer-credits">Thanks for the template <a href="http://stefan-kolb.github.io/cloud-conferences/" style="color:white">cloud-conferences</a>, <a href="http://hilios.github.io/jQuery.countdown/" style="color:white">jQuery.countdown</a> and <a href="https://aideadlin.es/?sub=ML,RO,SP,CV,NLP,DM" style="color:white">aideadlines</a>.</span>
     </footer>
