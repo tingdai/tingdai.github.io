@@ -317,7 +317,8 @@
           var dt = document.lastModified;    
           var anotherDateObject = new Date(Date.parse(dt));
           document.write("<center style=\"background-color:black; color:white; font-size: 12px;\"><i class=\"ios ion-ios-timer-outline fa-lg\"></i> Last updated on: " + anotherDateObject.toLocaleDateString()+"</center>");
-          document.getElementById('iframe-result').contentWindow.location.reload();  //reload iframe to prevent a shrinked window    
+          // document.getElementById('iframe-result').contentWindow.location.reload();  //reload iframe to prevent a shrinked window  
+          document.contentWindow.location.reload(); //reload current page to prevent a shrinked window in iframe
       </script>
       <iframe id="iframe-result" src="anemone.html" class="result-iframe" style="overflow:hidden;height:100%;width:100%" height="100%" width="100%"></iframe>
     <!-- </div> -->
