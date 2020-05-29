@@ -321,7 +321,16 @@
           // document.contentWindow.location.reload(); //reload current page to prevent a shrinked window in iframe
           // window.location.reload(false);
       </script>
-      <iframe id="iframe-result" style="overflow:hidden;height:100%;width:100%" src="anemone.html" class="result-iframe" height="100%" width="100%"></iframe>
+      <iframe onload="reloadOnce(this)" id="iframe-result" style="overflow:hidden;height:100%;width:100%" src="anemone.html" class="result-iframe" height="100%" width="100%"></iframe>
+      <script>
+        var iframeLoadCount = 0;
+        function reloadOnce(iframe) {
+          iframeLoadCount ++;
+          if (iframeLoadCount <= 1) {
+            iframe.contentWindow.location.reload();
+          }
+        }
+      </script>
     <!-- </div> -->
   </div>
 
