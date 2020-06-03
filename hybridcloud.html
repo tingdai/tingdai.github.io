@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/subccs/main.css">
     <script src="js/jquery.js"></script>
     <script src="js/lodash.min.js"></script>
-    <script src="js/jquery.countdown.min.js"></script>
+    <script src="js/jquery.countdown.js"></script>
     <link href="css/bootstrap2.min.css" rel="stylesheet" media="screen">
     <script src="js/moment.min.js"></script>
     <script src="js/moment-timezone-with-data.min.js"></script>
@@ -31,6 +31,15 @@
             background-color: #333;
         }
     </style>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-46464487-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-46464487-1');
+    </script>
   </head>
 
   <body data-gr-c-s-loaded="true">
@@ -46,7 +55,6 @@
           <i class="fa fa-stack-1x fa-hourglass-end spin"></i>
           </i>
           Hybrid Cloud Conference Countdowns 
-          <!-- <iframe src="https://ghbtns.com/github-btn.html?user=tingdai&repo=tingdai.github.io&type=star&count=true" frameborder="0" scrolling="0" width="170px" height="20px"></iframe> -->
         </h1>
         
         <h3 class="project-tagline">
@@ -419,33 +427,34 @@
 
       $('[data-countdown]').each(function() {
         var $this = $(this);
-        // var $this = $(this), nextYear = $(this).data('countdown');
+        // var $this = $(this), deadlineDate = $(this).data('countdown');
         var abbrv = $(this).data('abbrv');
         var ddtype = $(this).data('ddtype');
-        var i = conferences.length, nextYear;
+        var i = conferences.length, deadlineDate;
+        var confddID = abbrv.concat(ddtype).replace(/\s/g, '');
 
         while(i--) {
           if(abbrv == conferences[i].abbrv) {
             var localConfDate = conferences[i].localDDMap[ddtype];
               //var localConfDate = conferences[i].localConfDate;
-            nextYear = localConfDate.toDate();
+            deadlineDate = localConfDate.toDate();
             break;
           }
         }
         var temp = _.template($('#deadline-text-template').html());
-        $this.append(temp({deadline: nextYear, ddtype: ddtype}));
-        var labels = ['weeks', 'days', 'hours', 'minutes', 'seconds'],
-          // nextYear = (new Date().getFullYear() + 1) + '/01/01',
-          template = _.template($('#main-example-template').html()),
-          currDate = '00:00:00:00:00',
-          nextDate = '00:00:00:00:00',
-          parser = /([0-9]{2})/gi,
+        $this.append(temp({deadline: deadlineDate, ddtype: ddtype}));
+        var labels = ['weeks', 'days', 'hours', 'minutes', 'seconds'];
+          // deadlineDate = (new Date().getFullYear() + 1) + '/01/01',
+        var template = _.template($('#main-example-template').html());
+        var currDate = '00:00:00:00:00';
+        var nextDate = '00:00:00:00:00';
+        var parser = /([0-9]{2})/gi;
           // $example = $('#main-example');
-          $example = $(this);
+          // $example = $(this);
         // Parse countdown string to an object
         function strfobj(str) {
-          var parsed = str.match(parser),
-            obj = {};
+          var parsed = str.match(parser);
+          var obj = {};
           labels.forEach(function(label, i) {
             obj[label] = parsed[i]
           });
@@ -471,7 +480,7 @@
           }));
         });
         // Starts the countdown
-        $this.countdown(nextYear, function(event) {
+        $this.countdown(deadlineDate, function(event) {
           var newDate = event.strftime('%w:%d:%H:%M:%S'), data;
           if (newDate !== nextDate) {
             currDate = nextDate;
@@ -483,8 +492,8 @@
             };
             // Apply the new values to each node that changed
             diff(data.curr, data.next).forEach(function(label) {
-              var selector = '.%s'.replace(/%s/, label),
-                  $node = $this.find(selector);
+              var selector = '.%s'.replace(/%s/, label);
+              var $node = $this.find(selector);
               // Update the node
               $node.removeClass('flip');
               $node.find('.curr').text(data.curr[label]);
@@ -494,6 +503,8 @@
                 $node.addClass('flip');
               }, 50, $node);
             });
+          } else {
+            $('#' + confddID).addClass('past'); 
           }
         });
       });
@@ -503,13 +514,19 @@
 
 
     <footer style="color:white" background-color="transparent">
+      <iframe src="https://ghbtns.com/github-btn.html?user=tingdai&type=follow" allowtransparency="true" frameborder="0" scrolling="0" width="120" height="20"></iframe> <!--follow-->
+      <br>
+      <span class="site-footer-owner">Created by <a href="https://tingdai.github.io" style="color:white">Ting Dai</a>.</span>
+      <span class="site-footer-credits">Thanks for the template <a href="http://stefan-kolb.github.io/cloud-conferences/" style="color:white">cloud-conferences</a>, <a href="http://hilios.github.io/jQuery.countdown/" style="color:white">jQuery.countdown</a>, and <a href="https://aideadlin.es/?sub=ML,RO,SP,CV,NLP,DM" style="color:white">aideadlines</a>.</span><br>
       <script>
               var dt = document.lastModified;    
               var anotherDateObject = new Date(Date.parse(dt));
               document.write("Last updated on: " + anotherDateObject.toLocaleDateString());      
       </script><br>
-      <span class="site-footer-owner">Created by <a href="https://tingdai.github.io" style="color:white">Ting Dai</a>.</span>
-      <span class="site-footer-credits">Thanks for the template <a href="http://stefan-kolb.github.io/cloud-conferences/" style="color:white">cloud-conferences</a>, <a href="http://hilios.github.io/jQuery.countdown/" style="color:white">jQuery.countdown</a> and <a href="https://aideadlin.es/?sub=ML,RO,SP,CV,NLP,DM" style="color:white">aideadlines</a>.</span>
+      <span>
+      <!-- <iframe src="https://ghbtns.com/github-btn.html?user=tingdai&repo=tingdai.github.io&type=watch&count=false" allowtransparency="true" frameborder="0" scrolling="0" width="95" height="20"></iframe>  --><!--star-->
+      <!-- <iframe src="https://ghbtns.com/github-btn.html?user=tingdai&repo=tingdai.github.io&type=fork&count=false" allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe--> <!--fork-->
+      </span>
     </footer>
   </body>
 </html>
