@@ -48,8 +48,8 @@
       margin-left: -10%;
     }
     li.ypoint:not(:first-child) {
-      margin-left: -0%;
-      margin-right: 3%;
+      margin-left: -3%;
+      margin-right: 0%;
     }
     li.ypoint:first-child {
       margin-left: -0%;
@@ -140,7 +140,7 @@
       color: white;
       position: absolute;
       margin-top: -4.5rem;
-      left: 1.4em;
+      left: 1.5em;
       /*z-index: -1;*/
     }
     li.ypoint div:after {
@@ -150,7 +150,7 @@
       margin: 0;
       border: 1px solid white;
       padding: 0.5rem;
-      border-radius: 0.3rem;
+      border-radius: 3rem;
       text-align: center;
       word-wrap: break-word;
     }
