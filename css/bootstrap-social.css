@@ -12,7 +12,8 @@
 .btn-social.btn-lg{padding-left:61px}.btn-social.btn-lg>:first-child{line-height:45px;width:45px;font-size:1.8em}
 .btn-social.btn-sm{padding-left:38px}.btn-social.btn-sm>:first-child{line-height:28px;width:28px;font-size:1.4em}
 .btn-social.btn-xs{padding-left:30px}.btn-social.btn-xs>:first-child{line-height:20px;width:20px;font-size:1.2em}
-.btn-social-icon{position:relative;padding-left:44px;text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;height:34px;width:34px;padding:0}.btn-social-icon>:first-child{position:absolute;left:0;top:0;bottom:0;width:32px;line-height:34px;font-size:1.6em;text-align:center;border-right:1px solid rgba(0,0,0,0.2)}
+.btn-social-icon{position:relative;padding-left:44px;text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;height:34px;width:34px;padding:0}
+.btn-social-icon>:first-child{position:absolute;left:0;top:0;bottom:0;width:32px;line-height:34px;font-size:1.6em;text-align:center;border-right:1px solid rgba(0,0,0,0.2)}
 .btn-social-icon.btn-lg{padding-left:61px}.btn-social-icon.btn-lg>:first-child{line-height:45px;width:45px;font-size:1.8em}
 .btn-social-icon.btn-sm{padding-left:38px}.btn-social-icon.btn-sm>:first-child{line-height:28px;width:28px;font-size:1.4em}
 .btn-social-icon.btn-xs{padding-left:30px}.btn-social-icon.btn-xs>:first-child{line-height:20px;width:20px;font-size:1.2em}
@@ -156,4 +157,15 @@
 .btn-google-scholar:hover{color:#fff;background-color:#0d6aad;border-color:rgba(0,0,0,0.2)}
 .btn-google-hangout{color:#fff;background-color:#00b488;border-color:rgba(0,0,0,0.2)}.btn-google-hangout:focus,.btn-google-hangout.focus{color:#fff;background-color:#00e7af;border-color:rgba(0,0,0,0.2)}
 .btn-google-hangout:hover{color:#fff;background-color:#00e7af;border-color:rgba(0,0,0,0.2)}
+
+.btn-acmdl{color:#fff;background-image:linear-gradient(to right, #006400 0%, #228B22 51%, #32CD32 100%);border-color:rgba(0,0,0,0.2)}
+.btn-acmdl:focus,
+.btn-acmdl.focus{color:#fff;background-color:#0d6aad;border-color:rgba(0,0,0,0.2)}
+.btn-acmdl:hover{color:#fff;background-color:#006400;border-color:rgba(0,0,0,0.2)}
+
+.btn-dblp{color:#fff;background-image:linear-gradient(70deg, #337ab7 50%, #FFA500 50%);border-color:rgba(0,0,0,0.2)}
+.btn-dblp:focus,
+.btn-dblp.focus{color:#fff;background-color:#0d6aad;border-color:rgba(0,0,0,0.2)}
+.btn-dblp:hover{color:#fff;background-color:#006400;border-color:rgba(0,0,0,0.2)}
+
 
