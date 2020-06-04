@@ -279,7 +279,6 @@
         var thisyear = new Date().getFullYear();
         var nextyear = thisyear +1;
         var thismonth = new Date().getMonth();
-        // var thismonth = 7;
         var liItemTemps = [];
         //append the current year
         var temp0 = _.template($('#conf-deadline-month-each').html());
@@ -292,7 +291,7 @@
           var classtype = "";
           var confname = null;
           var month = months[(thismonth+months.length-i-1)%months.length];
-          if( month.includes('Jan') && !insertednextyear) {
+          if( month.includes('Jan') && !insertednextyear && i !== 11) {
             month = nextyear; //we need to assert 
             i++;
             insertednextyear = true;
