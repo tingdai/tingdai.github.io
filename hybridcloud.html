@@ -85,29 +85,44 @@
       
       <div class="container">
         <p>Conference deadlines in the next 12 months:</p>
-        <br>
-        <div class="timeline" style="font-size:15px;"> 
-          <ul>
-            <li class="ypoint"><div data="2020"></div></li>
-            <li class="point"><div data="Jun"></div></li>
-            <li class="point"><div data="Jul"></div></li>
-            <li><div data="Aug">ICSE</div></li>
-            <li><div data="Sep">FAST</div><div>NSDI**</div></li>
-            <li><div data="Oct">ICSE*</div></li>
-            <li><div data="Nov">EuroSys</div><div>PLDI</div></li>
-            <li class="point"><div data="Dec"></div></li>
-            <li class="ypoint"><div data="2021"></div></li>
-            <li><div data="Jan">ATC</div></li>
-            <li class="point"><div data="Feb"></div></li>
-            <li><div data="Mar">FSE</div></li>
-            <li><div data="Apr">NSDI*</div><div>SOSP</div></li>
-            <li><div data="May">FSE*</div><div>SoCC</div></li>
-          </ul>
-        </div>
-        <div><p style="font-size:15px; text-align:center">ICSE*: industry track, FSE*: industry track, NSDI*: spring submission, NSDI**: fall submission</p></div>
+        <br><br>
+
+        <div conf-dd-twelve-month=""></div>
+
+        <div><p style="font-size:15px; text-align:center">ICSE*: industry track,&nbsp;&nbsp; FSE*: industry track,&nbsp;&nbsp; NSDI*: spring submission,&nbsp;&nbsp; NSDI**: fall submission</p></div>
       </div>
 
+
+
+       <script type="text/template", id="conf-deadline-month">
+          <div class="timeline" style="font-size:15px;"> 
+          <ul>
+            <%= liItem1 %>
+            <%= liItem2 %>
+            <%= liItem3 %>
+            <%= liItem4 %>
+            <%= liItem5 %>
+            <%= liItem6 %>
+            <%= liItem7 %>
+            <%= liItem8 %>
+            <%= liItem9 %>
+            <%= liItem10 %>
+            <%= liItem11 %>
+            <%= liItem12 %>
+            <%= liItem13 %>
+            <%= liItem14 %>
+          </ul>
+          </div>
+        </script>
+
+        <script type="text/template", id="conf-deadline-month-each">
+            <li class="<%= classtype %>"><div data="<%= date%>"><%= confname %></div></li>
+        </script>
+
+
+
       <div data-conference-container=""></div>
+
 
     <script type="text/template" id="main-example-template">
       <div class="time <%= label %>">
@@ -217,29 +232,30 @@
     <script type="text/javascript">
     $(function() {
       conferences = [
-      {"abbrv": "icse", "deadline": {"Technical Submission": "2020-08-28 23:59:59", "Other Tracks Submission": "2020-10-18 23:59:59"}, "timezone": "AoE", "period": "May 23-29, 2021", "place": "Madrid, Spain", "link": "https://conf.researchr.org/home/icse-2021"},
-      {"abbrv": "fse", "deadline": {"Industry Submission": "2020-05-19 23:59:59", "Research Submission": "2020-03-05 23:59:59"}, "timezone": "AoE", "period": "November 8-13, 2020", "place": "Sacramento, California", "link": "https://2020.esec-fse.org/"},
-      {"abbrv": "nsdi", "deadline": {"Spring Abstract": "2020-04-10 23:59:59", "Spring Submission": "2020-04-17 23:59:59", "Fall Abstract": "2020-09-10 23:59:59", "Fall Submission": "2020-09-17 23:59:59"}, "timezone": "EDT", "period": "April 12–14, 2021", "place": "Boston, Massachusetts", "link": "https://www.usenix.org/conference/nsdi21"},
-      {"abbrv": "pldi", "deadline": {"Submission": "2019-11-22 23:59:59"}, "timezone": "AoE", "period": "June 15-20 2020", "place": "London, United Kingdom", "link": "https://conf.researchr.org/home/pldi-2020"},
-      {"abbrv": "osdi", "deadline": {"Abstract": "2020-05-20 15:00:00", "Submission": "2020-05-27 15:00:00"}, "timezone": "PDT", "period": "November 4–6, 2020", "place": "Banff, Alberta, Canada", "link": "https://www.usenix.org/conference/osdi20"},
-      {"abbrv": "sosp", "deadline": {"Abstract": "2019-04-17 23:59:59", "Submission": "2019-04-24 23:59:59"}, "timezone": "UTC", "period": "October 27-30, 2019", "place": "Deerhurst Resort, Huntsville, Ontario, Canada", "link": "https://sosp19.rcs.uwaterloo.ca/"},
-      {"abbrv": "atc", "deadline": {"Submission": "2020-01-15 23:59:59"}, "timezone": "EST", "period": "July 15–17, 2020", "place": "Boston, Massachusetts", "link": "https://www.usenix.org/conference/atc20"},
-      {"abbrv": "eurosys", "deadline": {"Submission": "2020-11-04 23:59:59"}, "timezone": "AoE", "period": "April 26-29, 2021", "place": "Edinburgh, Scotland, UK", "link": "https://2021.eurosys.org/"},
-      {"abbrv": "fast", "deadline": {"Submission": "2020-09-24 23:59:59"}, "timezone": "PDT", "period": "February 22–25, 2021", "place": "Santa Clara, California", "link": "https://www.usenix.org/conference/fast21"},
-      {"abbrv": "socc", "deadline": {"Abstract": "2020-05-18 23:59:59", "Submission": "2020-05-26 23:59:59"}, "timezone": "EDT", "period": "October 19-21, 2020", "place": "Renton, Washington", "link": "https://acmsocc.github.io/2020/"},
+        {"abbrv": "icse", "deadline": {"Technical Submission": "2020-08-28 23:59:59", "Other Tracks Submission": "2020-10-18 23:59:59"}, "timezone": "AoE", "period": "May 23-29, 2021", "place": "Madrid, Spain", "link": "https://conf.researchr.org/home/icse-2021"},
+        {"abbrv": "fse", "deadline": {"Industry Submission": "2020-05-19 23:59:59", "Research Submission": "2020-03-05 23:59:59"}, "timezone": "AoE", "period": "November 8-13, 2020", "place": "Sacramento, California", "link": "https://2020.esec-fse.org/"},
+        {"abbrv": "nsdi", "deadline": {"Spring Abstract": "2020-04-10 23:59:59", "Spring Submission": "2020-04-17 23:59:59", "Fall Abstract": "2020-09-10 23:59:59", "Fall Submission": "2020-09-17 23:59:59"}, "timezone": "EDT", "period": "April 12–14, 2021", "place": "Boston, Massachusetts", "link": "https://www.usenix.org/conference/nsdi21"},
+        {"abbrv": "pldi", "deadline": {"Submission": "2019-11-22 23:59:59"}, "timezone": "AoE", "period": "June 15-20 2020", "place": "London, United Kingdom", "link": "https://conf.researchr.org/home/pldi-2020"},
+        {"abbrv": "osdi", "deadline": {"Abstract": "2020-05-20 15:00:00", "Submission": "2020-05-27 15:00:00"}, "timezone": "PDT", "period": "November 4–6, 2020", "place": "Banff, Alberta, Canada", "link": "https://www.usenix.org/conference/osdi20"},
+        {"abbrv": "sosp", "deadline": {"Abstract": "2019-04-17 23:59:59", "Submission": "2019-04-24 23:59:59"}, "timezone": "UTC", "period": "October 27-30, 2019", "place": "Deerhurst Resort, Huntsville, Ontario, Canada", "link": "https://sosp19.rcs.uwaterloo.ca/"},
+        {"abbrv": "atc", "deadline": {"Submission": "2020-01-15 23:59:59"}, "timezone": "EST", "period": "July 15–17, 2020", "place": "Boston, Massachusetts", "link": "https://www.usenix.org/conference/atc20"},
+        {"abbrv": "eurosys", "deadline": {"Submission": "2020-11-04 23:59:59"}, "timezone": "AoE", "period": "April 26-29, 2021", "place": "Edinburgh, Scotland, UK", "link": "https://2021.eurosys.org/"},
+        {"abbrv": "fast", "deadline": {"Submission": "2020-09-24 23:59:59"}, "timezone": "PDT", "period": "February 22–25, 2021", "place": "Santa Clara, California", "link": "https://www.usenix.org/conference/fast21"},
+        {"abbrv": "socc", "deadline": {"Abstract": "2020-05-18 23:59:59", "Submission": "2020-05-26 23:59:59"}, "timezone": "EDT", "period": "October 19-21, 2020", "place": "Renton, Washington", "link": "https://acmsocc.github.io/2020/"},
       ];
-
+      //Technical Submission, Research Submission, Spring Submission, Fall Submission, Submission, 
+      //Other Tracks Submission, Industry Submission,
       conferenceConstants = {
-      "icse": {"abbrvC": "ICSE", "fullname": "International Conference on Software Engineering"},
-      "fse":  {"abbrvC": "ESEC/FSE", "fullname": "ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering"},
-      "nsdi": {"abbrvC": "NSDI", "fullname": "USENIX Symposium on Networked Systems Design and Implementation"},
-      "pldi": {"abbrvC": "PLDI", "fullname": "ACM SIGPLAN Conference on Programming Language Design and Implementation"},
-      "osdi": { "abbrvC": "OSDI", "fullname": "USENIX Symposium on Operating Systems Design and Implementation"},
-      "sosp": { "abbrvC": "SOSP", "fullname": "ACM Symposium on Operating Systems Principles"},
-      "atc":  {"abbrvC": "ATC", "fullname": "USENIX Annual Technical Conference"},
-      "eurosys": {"abbrvC": "EuroSys", "fullname": "European Conference on Computer Systems"},
-      "fast": {"abbrvC": "FAST", "fullname": "USENIX Conference on File and Storage Technologies"},
-      "socc": {"abbrvC": "SoCC", "fullname": "ACM Symposium on Cloud Computing"},
+        "icse": {"abbrvC": "ICSE", "fullname": "International Conference on Software Engineering"},
+        "fse":  {"abbrvC": "FSE", "fullname": "ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering"},
+        "nsdi": {"abbrvC": "NSDI", "fullname": "USENIX Symposium on Networked Systems Design and Implementation"},
+        "pldi": {"abbrvC": "PLDI", "fullname": "ACM SIGPLAN Conference on Programming Language Design and Implementation"},
+        "osdi": { "abbrvC": "OSDI", "fullname": "USENIX Symposium on Operating Systems Design and Implementation"},
+        "sosp": { "abbrvC": "SOSP", "fullname": "ACM Symposium on Operating Systems Principles"},
+        "atc":  {"abbrvC": "ATC", "fullname": "USENIX Annual Technical Conference"},
+        "eurosys": {"abbrvC": "EuroSys", "fullname": "European Conference on Computer Systems"},
+        "fast": {"abbrvC": "FAST", "fullname": "USENIX Conference on File and Storage Technologies"},
+        "socc": {"abbrvC": "SoCC", "fullname": "ACM Symposium on Cloud Computing"},
       };
 
       timezones = {'AoE': 'UTC-12', 'EST': 'UTC-5', 'EDT': 'UTC-4', 'PDT': 'UTC-7', 'PST': 'UTC-8', 'UTC': 'UTC'};
@@ -261,29 +277,150 @@
       addUtcTimeZones();
       var local_timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
+      months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
-      $('[data-conference-container]').each(function() {
-        var upcommings = [], pasts = [];
+      $('[conf-dd-twelve-month]').each(function(){
+
+        var realDD = {
+            "Jan": [], "Feb": [], "Mar": [], "Apr": [], 
+            "May": [], "Jun": [], "Jul": [], "Aug": [],
+            "Sep": [], "Oct": [], "Nov": [], "Dec": [],
+        };
         var j = conferences.length;
+        //Technical Submission, Research Submission, Spring Submission, Fall Submission, Submission, 
+        //Other Tracks Submission, Industry Submission,
         while(j--) {
           var deadlines = conferences[j].deadline;
           var tz = conferences[j].timezone;
           var timezone = timezones[tz];
           var localDDMap = new Map();
-          var comingdates = []; 
-          var pastdates = [];
           for (var type in deadlines){
             var deadline = deadlines[type];
             var confDate = moment.tz(deadline, timezone);
             var localConfDate = moment.tz(confDate, local_timezone);
             localDDMap[type] = localConfDate; //add the local deadline into a new map
+          }
+          conferences[j].localDDMap = localDDMap;//add the map into conferences properity
+          
+          var confddmap = conferences[j].localDDMap;
+          var abbrv = conferences[j].abbrv;
+          var abbrvC = conferenceConstants[abbrv]["abbrvC"];
+          for (var type in confddmap) {//type is dd name
+            if (type.includes('Abstract')) { //we don't focus on abstract deadline
+              continue;
+            }
+            var abbrvCNote = abbrvC;
+            if (type.includes('Other') || type.includes('Industry') || type.includes('Spring')) {
+              abbrvCNote = abbrvC + "*";
+            } 
+            if (type.includes('Fall')){
+              abbrvCNote = abbrvC + "**";
+            }
+            var deadline = confddmap[type]; // deadline is the dd date
+            var ddmonth = deadline.toString().substring(4, 7);
+            // ddmonth = ddmonth.substring(0,3); //only keep the first 3 letters for the month abbreviation
+            realDD[ddmonth].push(abbrvCNote);
+          }
+        }
+
+        var $this = $(this);
+        var thisyear = new Date().getFullYear();
+        var nextyear = thisyear +1;
+        var thismonth = new Date().getMonth();
+        // var thismonth = 7;
+        var liItemTemps = [];
+        //append the current year
+        var temp0 = _.template($('#conf-deadline-month-each').html());
+        liItemTemps.push(temp0({classtype:"ypoint", date:thisyear, confname:null}));
+        //append all the conferences and nextyear
+        var i = months.length;//i = 12
+        var insertednextyear = false;
+        while(i--){
+          var classtype = "";
+          var confname = null;
+          var month = months[(thismonth+months.length-i-1)%months.length];
+          if( month.includes('Jan') && !insertednextyear) {
+            month = nextyear; //we need to assert 
+            i++;
+            insertednextyear = true;
+            classtype = "ypoint";
+          }
+          if(month !== nextyear){
+            var ddlist = realDD[month];
+            var oddOrEvenYear = 0;
+            if(insertednextyear){
+              oddOrEvenYear = nextyear%2;
+            } else {
+              oddOrEvenYear = thisyear%2;
+            }
+            if(ddlist.length > 0){
+              confname = "";
+              var index = ddlist.length;
+              while(index--){
+                if(ddlist[index].includes('OSDI') && oddOrEvenYear == 1){
+                  continue;
+                } else if (ddlist[index].includes('SOSP') && oddOrEvenYear == 0){
+                  continue;
+                }
+                confname = confname + ddlist[index] + "</div><div>";
+              }
+              if(confname.length > 11){
+                confname = confname.substring(0, confname.length - 11);
+              }
+            } else {
+              classtype = "point";
+            } 
+          }
+          var temp = _.template($('#conf-deadline-month-each').html());
+          liItemTemps.push(temp({classtype: classtype, date: month, confname: confname}));
+        }
+        
+
+        var temp = _.template($('#conf-deadline-month').html());
+        $this.append(temp({
+          liItem1: liItemTemps[0],
+          liItem2: liItemTemps[1],
+          liItem3: liItemTemps[2],
+          liItem4: liItemTemps[3],
+          liItem5: liItemTemps[4],
+          liItem6: liItemTemps[5],
+          liItem7: liItemTemps[6],
+          liItem8: liItemTemps[7],
+          liItem9: liItemTemps[8],
+          liItem10: liItemTemps[9],
+          liItem11: liItemTemps[10],
+          liItem12: liItemTemps[11],
+          liItem13: liItemTemps[12],
+          liItem14: liItemTemps[13],
+        }));
+      });
+
+
+      $('[data-conference-container]').each(function() {
+        var upcommings = [], pasts = [];
+        var j = conferences.length;
+        while(j--) {
+          // var deadlines = conferences[j].deadline;
+          // var tz = conferences[j].timezone;
+          // var timezone = timezones[tz];
+          // var localDDMap = new Map();
+          var localDDMap = conferences[j].localDDMap;
+          var comingdates = []; 
+          var pastdates = [];
+          // for (var type in deadlines){
+          for (var type in localDDMap){
+            // var deadline = deadlines[type];
+            // var confDate = moment.tz(deadline, timezone);
+            // var localConfDate = moment.tz(confDate, local_timezone);
+            // localDDMap[type] = localConfDate; //add the local deadline into a new map
+            localConfDate = localDDMap[type];
             if(localConfDate.toDate() > moment()) {
               comingdates.push(localConfDate); 
             } else {
               pastdates.push(localConfDate);
             }
           }
-          conferences[j].localDDMap = localDDMap;//add the map into conferences properity
+          // conferences[j].localDDMap = localDDMap;//add the map into conferences properity
           
           if(comingdates.length > 1){
             comingdates.sort((a, b) => (a.toDate() > b.toDate()) ? 1 : -1); //ascending
@@ -425,6 +562,7 @@
           $('#' + abbrv).addClass('past'); 
         }
       });
+
 
 
       $('[data-detail]').each(function() {

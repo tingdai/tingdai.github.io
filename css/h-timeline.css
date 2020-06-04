@@ -48,7 +48,15 @@
       margin-left: -10%;
     }
     li.ypoint:not(:first-child) {
-      margin-left: -5%;
+      margin-left: -0%;
+      margin-right: 3%;
+    }
+    li.ypoint:first-child {
+      margin-left: -0%;
+      margin-right: 3%;
+    }
+    li.ypoint:last-child {
+      margin-left:  -1%;
     }
     /*li.point:first-child {
       margin-left: -10%;
@@ -68,7 +76,7 @@
     }*/
     /*li.point:last-child:after {
       content: "";
-      width: 59%;
+      width: -20%;
       height: 2px;
       background-color: white;
       position: absolute;
@@ -110,10 +118,10 @@
 
 
     li.ypoint { 
-      flex: 0 0 15%;
+      flex: 0 0 8%;
     }
     li.ypoint:after {
-      margin-left: 80% !important;
+      margin-left: 110% !important;
     }
     li.ypoint:before {
       content: "";
@@ -126,12 +134,25 @@
       margin-left: 80%;
     }
     li.ypoint div:before { 
-      content: "";
+      content: "|";
+      width: 100%;
+      font-size: 2rem;
+      color: white;
+      position: absolute;
+      margin-top: -4.5rem;
+      left: 1.4em;
+      /*z-index: -1;*/
     }
     li.ypoint div:after {
       content: attr(data);
-      left: 35%; 
+      left: 45%; 
+      top: -5.5rem;
       margin: 0;
+      border: 1px solid white;
+      padding: 0.5rem;
+      border-radius: 0.3rem;
+      text-align: center;
+      word-wrap: break-word;
     }
     li.ypoint div {
       border: none;
