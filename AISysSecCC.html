@@ -1,0 +1,380 @@
+<html lang="en-us" class="gr__stefan-kolb_github_io">
+  <head>
+    <meta charset="UTF-8">
+    <title>Hybrid Cloud Conferences</title>
+    <meta name="author" content="Ting Dai">
+    <link rel="shortcut icon" type="image/ico" href="images/favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="stylesheet" href="css/subccs/main.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/lodash.min.js"></script>
+    <script src="js/jquery.countdown.js"></script>
+    <link href="css/bootstrap2.min.css" rel="stylesheet" media="screen">
+    <script src="js/moment.min.js"></script>
+    <script src="js/moment-timezone-with-data.min.js"></script>
+    <link href="css/ionicons.min.css" rel="stylesheet">
+    <link href="css/font-awesome2.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/font-awesome-animation.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/gh-fork-ribbon.css" />
+    <link rel="stylesheet" href="css/h-timeline2.css">
+    <style>
+        /* The default background color is #c00 */
+        .github-fork-ribbon.right-bottom:before {
+            background-color: #090;
+        }
+
+        .github-fork-ribbon.right-top:before {
+            background-color: #f80;
+        }
+
+        .github-fork-ribbon.left-bottom:before {
+            background-color: #333;
+        }
+    </style>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-46464487-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-46464487-1');
+    </script>
+  </head>
+
+  <body data-gr-c-s-loaded="true">
+    <div class="home-welcome">  
+      <div class="container">
+        <h1>A collection of conferences IBMers target on.</h1>
+        <h3 class="project-tagline">
+          <a class="btn btn-danger btn-sm"><i class="fa fa-tag"></i>Artificial Intelligence</a>
+          <a class="btn btn-warning btn-sm"><i class="fa fa-tag"></i>Hybrid Cloud</a>
+          <a class="btn btn-primary btn-sm"><i class="fa fa-tag"></i>Security</a>
+          <a class="btn btn-success btn-sm"><i class="fa fa-tag"></i>System</a> 
+        </h3>
+        <a class="github-fork-ribbon right-top" href="https://github.com/tingdai/tingdai.github.io/blob/master/AISysSecCC.html" data-ribbon="Fork me on GitHub" title="Fork me on GitHub">Fork me on GitHub</a>
+      </div>
+
+
+
+
+      <div class="container">
+        <p>Conference submission deadlines in the next 12 months:</p>
+        <br><br>
+
+        <div conf-dd-twelve-month=""></div>
+
+        <div><p style="font-size:13px; text-align:left">
+          ICSE<sup>ind</sup>: industry track,&nbsp;&nbsp; 
+          ESEC/FSE<sup>ind</sup>: industry track,&nbsp;&nbsp; 
+          <br>NSDI: two submissions in spring and fall,&nbsp;&nbsp; 
+          <br>CCS: two submissions,&nbsp;&nbsp; 
+          <br>Usenix Security: four submissions in spring, summer, fall, and winter,&nbsp;&nbsp; 
+          <br>S&P: twelve submissions in each month,&nbsp;&nbsp; 
+          <br>NDSS: two submissions in summer and fall,&nbsp;&nbsp; 
+          <br>PETS: four submissions in spring, summer, fall, and winter,&nbsp;&nbsp; 
+        </p></div>
+      </div>
+
+
+
+       <script type="text/template", id="conf-deadline-month">
+          <div class="timeline" style="font-size:12px;"> 
+          <ul>
+            <%= liItem1 %>
+            <%= liItem2 %>
+            <%= liItem3 %>
+            <%= liItem4 %>
+            <%= liItem5 %>
+            <%= liItem6 %>
+            <%= liItem7 %>
+            <%= liItem8 %>
+            <%= liItem9 %>
+            <%= liItem10 %>
+            <%= liItem11 %>
+            <%= liItem12 %>
+            <%= liItem13 %>
+            <%= liItem14 %>
+          </ul>
+          </div>
+        </script>
+
+        <script type="text/template", id="conf-deadline-month-each">
+            <li class="<%= classtype %>"><div data="<%= date %>"<%= confname %></div></li>
+        </script>
+
+ 
+<!--         <li class="point"><div data="Jun"; class="bg-HC">SoCC</div></li>
+        <li class="ypoint"><div data="2020"; class=""></div></li>
+        <li class="point"><div data="Apr"; class="bg-HC">OSDI</div><div class="AI">KDD</div></li> -->
+    
+    <script type="text/javascript">
+    $(function() {
+      conferences = [
+        {"abbrv": "aaai",     "category": ["AI"],  "deadline": {"Submission": "2019-09-05 23:59:59"}, "timezone": "UTC-10", "abbrvC": "AAAI", "fullname": "AAAI Conference on Artificial Intelligence", "period": "February 7-12, 2020", "place": "Hilton New York Midtown, New York, New York", "link": "https://aaai.org/Conferences/AAAI-20/"},
+        {"abbrv": "sysml",    "category": ["AI"],  "deadline": {"Submission": "2019-09-09 16:59:59"}, "timezone": "AoE", "abbrvC": "MLSys", "fullname": "Conference on Machine Learning and Systems", "period": "March 2-4, 2020", "place": "Austin, Texas", "link": "https://mlsys.org/"},
+        {"abbrv": "iclr",     "category": ["AI"],  "deadline": {"Submission": "2019-09-25 18:00:00"}, "timezone": "EAT", "abbrvC": "ICLR", "fullname": "International Conference on Learning Representations", "period": "April 26-30, 2020", "place": "Addis Ababa, Ethiopia", "link": "https://iclr.cc/Conferences/2020"},
+        {"abbrv": "icml",     "category": ["AI"],  "deadline": {"Submission": "2020-02-07 03:59:59"}, "timezone": "PT", "abbrvC": "ICML", "fullname": "International Conference on Machine Learning", "period": "July 12-18, 2020", "place": "Vienna, Austria", "link": "https://icml.cc/Conferences/2020/"},
+        {"abbrv": "cvpr",     "category": ["AI"],  "deadline": {"Submission": "2019-11-15 23:59:59"}, "timezone": "PST", "abbrvC": "CVPR", "fullname": "IEEE Conference on Computer Vision and Pattern Recognition", "period": "June 14-19, 2020", "place": "Seattle, Washington", "link": "http://cvpr2020.thecvf.com/"},
+        {"abbrv": "acl",      "category": ["AI"],  "deadline": {"Submission": "2019-12-09 23:59:59"}, "timezone": "AoE", "abbrvC": "ACL", "fullname": "Annual Conference of the Association for Computational Linguistics", "period": "July 5-10, 2020", "place": "Seattle, Washington", "link": "https://acl2020.org/"},
+        {"abbrv": "kdd",      "category": ["AI"],  "deadline": {"Submission": "2020-02-13 23:59:59"}, "timezone": "NUT", "abbrvC": "KDD", "fullname": "ACM SIGKDD Conference on Knowledge Discovery and Data Mining", "period": "August 22-27, 2020", "place": "San Diego, California", "link": "https://www.kdd.org/kdd2020/"},
+        {"abbrv": "ijcai",    "category": ["AI"],  "deadline": {"Submission": "2020-11-21 23:59:59"}, "timezone": "AoE", "abbrvC": "IJCAI-PRICAI", "fullname": "International Joint Conference on Artificial Intelligence and Pacific Rim International Conference on Artificial Intelligence", "period": "July 11-17, 2020", "place": "Yokohama, Japan", "link": "https://ijcai20.org/"},
+        {"abbrv": "vldb",     "category": ["AI"],  "deadline": {"Submission": "2020-03-01 17:00:00"}, "timezone": "PST", "abbrvC": "VLDB", "fullname": "International Conference on Very Large Data Bases", "period": "August 31-September 4, 2020", "place": "Tokyo,Japan", "link": "https://vldb2020.org/"},
+        {"abbrv": "nips",     "category": ["AI"],  "deadline": {"Submission": "2019-05-23 15:00:00"}, "timezone": "PST", "abbrvC": "NeurIPS", "fullname": "Conference on Neural Information Processing Systems", "period": "December 8-14, 2020", "place": "Vancouver, Canada", "link": "https://nips.cc/"},
+
+        {"abbrv": "icse", "category": ["HC"], "deadline": {"Technical Submission": "2020-08-28 23:59:59", "Other Tracks Submission": "2020-10-18 23:59:59"}, "timezone": "AoE", "abbrvC": "ICSE", "fullname": "International Conference on Software Engineering", "period": "May 22-30 2021", "place": "Madrid, Spain", "link": "https://conf.researchr.org/home/icse-2021"},
+        {"abbrv": "fse", "category": ["HC"], "deadline": {"Industry Submission": "2020-05-19 23:59:59", "Research Submission": "2020-03-05 23:59:59"}, "timezone": "AoE", "abbrvC": "ESEC/FSE", "fullname": "ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering", "period": "November 8-13 2020", "place": "Sacramento, California", "link": "https://2020.esec-fse.org/"},
+        {"abbrv": "nsdi", "category": ["HC"], "deadline": {"Spring Abstract": "2020-04-10 23:59:59", "Spring Submission": "2020-04-17 23:59:59", "Fall Abstract": "2020-09-10 23:59:59", "Fall Submission": "2020-09-17 23:59:59"}, "timezone": "PDT", "abbrvC": "NSDI", "fullname": "USENIX Symposium on Networked Systems Design and Implementation", "period": "February 25–27, 2020", "place": "Santa Clara, California", "link": "https://www.usenix.org/conference/nsdi20"},
+        {"abbrv": "pldi", "category": ["HC"], "deadline": {"Submission": "2019-11-22 23:59:59"}, "timezone": "AoE", "abbrvC": "PLDI", "fullname": "ACM SIGPLAN Conference on Programming Language Design and Implementation", "period": "June 15-20 2020", "place": "London, United Kingdom", "link": "https://conf.researchr.org/home/pldi-2020"},
+        {"abbrv": "osdi", "category": ["HC", "Sy"], "deadline": {"Abstract": "2020-05-20 15:00:00", "Submission": "2020-05-27 15:00:00"}, "timezone": "PDT", "abbrvC": "OSDI", "fullname": "USENIX Symposium on Operating Systems Design and Implementation", "period": "November 4–6, 2020", "place": "Banff, Alberta, Canada", "link": "https://www.usenix.org/conference/osdi20"},
+        {"abbrv": "sosp", "category": ["HC"], "deadline": {"Abstract": "2019-04-17 23:59:59", "Submission": "2019-04-24 23:59:59"}, "timezone": "UTC", "abbrvC": "SOSP", "fullname": "ACM Symposium on Operating Systems Principles", "period": "October 27-30, 2019", "place": "Deerhurst Resort, Huntsville, Ontario, Canada", "link": "https://sosp19.rcs.uwaterloo.ca/"},
+        {"abbrv": "atc", "category": ["HC"], "deadline": {"Submission": "2020-01-15 23:59:59"}, "timezone": "EST", "abbrvC": "ATC", "fullname": "USENIX Annual Technical Conference", "period": "July 15–17, 2020", "place": "Boston, Massachusetts", "link": "https://www.usenix.org/conference/atc20"},
+        {"abbrv": "eurosys", "category": ["HC"], "deadline": {"Submission": "2020-11-04 23:59:59"}, "abbrvC": "EuroSys", "fullname": "European Conference on Computer Systems", "period": "April 26-29, 2021", "place": "Edinburgh, Scotland, UK", "link": "https://2021.eurosys.org/"},
+        {"abbrv": "fast", "category": ["HC", "Sy"], "deadline": {"Submission": "2020-09-24 23:59:59"}, "timezone": "AoE", "abbrvC": "FAST", "fullname": "USENIX Conference on File and Storage Technologies", "period": "February 24–27, 2020", "place": "Santa Clara, California", "link": "https://www.usenix.org/conference/fast20"},
+        {"abbrv": "socc", "category": ["HC"], "deadline": {"Abstract": "2020-05-18 23:59:59", "Submission": "2020-05-26 23:59:59"}, "timezone": "EDT", "abbrvC": "SoCC", "fullname": "ACM Symposium on Cloud Computing", "period": "November 20-23, 2019", "place": "Chaminade, Santa Cruz, California", "link": "https://acmsocc.github.io/2019/"},
+        
+        {"abbrv": "ccs",      "category": ["Se"],  "deadline": {"First Submission": "2020-01-20 23:59:59", "Second Submission": "2020-05-04 23:59:59"}, "timezone": "AoE", "abbrvC": "CCS", "fullname": "ACM Conference on Computer and Communications Security", "period": "November 9-13, 2020", "place": "Orlando, Florida", "link": "https://www.sigsac.org/ccs/CCS2020/"},
+        {"abbrv": "security", "category": ["Se"],  "deadline": {"Spring Submission": "2019-05-15 20:00:00", "Summer Submission": "2019-08-23 20:00:00", "Fall Submission": "2019-11-15 20:00:00", "Winter Submission": "2020-02-15 20:00:00"}, "timezone": "EDT", "abbrvC": "Security", "fullname": "USENIX Security Symposium", "period": "August 12–14, 2020", "place": "Boston, Massachusetts", "link": "https://www.usenix.org/conference/usenixsecurity20"},
+        {"abbrv": "sp",       "category": ["Se"],  "deadline": {"Jan Submission": "2020-01-01 15:00:00", "Feb Submission": "2020-02-01 15:00:00", "Mar Submission": "2020-03-01 15:00:00", "Apr Submission": "2020-04-01 15:00:00", "May Submission": "2020-05-01 15:00:00", "Jun Submission": "2020-06-01 15:00:00", "Jul Submission": "2020-07-01 15:00:00", "Aug Submission": "2020-08-01 15:00:00", "Sep Submission": "2020-09-01 15:00:00", "Oct Submission": "2020-10-01 15:00:00", "Nov Submission": "2020-11-01 15:00:00", "Dec Submission": "2020-12-01 15:00:00"}, "timezone": "PDT", "abbrvC": "S&P", "fullname": "IEEE Symposium on Security and Privacy", "period": "May 18-20, 2020", "place": "San Francisco, California", "link": "https://www.ieee-security.org/TC/SP2020/"},
+        {"abbrv": "ndss",     "category": ["Se"],  "deadline": {"Summer Submission": "2019-06-14 23:59:59", "Fall Submission": "2019-09-13 23:59:59"}, "timezone": "AoE", "abbrvC": "NDSS", "fullname": "ISOC Network and Distributed System Security Symposium", "period": "February 23-26, 2020", "place": "San Diego, California", "link": "https://www.ndss-symposium.org/ndss2020"},
+        {"abbrv": "eurocrypt","category": ["Se"],  "deadline": {"Submission": "2019-09-26 23:59:59"}, "timezone": "CET", "abbrvC": "Eurocrypt", "fullname": "European Cryptology Conference", "period": "May 10-14, 2020", "place": "Zagreb, Croatia", "link": "https://eurocrypt.iacr.org/2020/"},
+        {"abbrv": "crypto",   "category": ["Se"],  "deadline": {"Submission": "2020-02-11 21:00:00"}, "timezone": "UTC", "abbrvC": "Crypto", "fullname": "International Cryptology Conference", "period": "August 16-20, 2020", "place": "Santa Barbara, California", "link": "https://crypto.iacr.org/2020/"},
+        {"abbrv": "acsac",    "category": ["Se"],  "deadline": {"Submission": "2019-06-12 23:59:59"}, "timezone": "AoE", "abbrvC": "ACSAC", "fullname": "Annual Computer Security Applications Conference", "period": "December 9-13, 2019", "place": "San Juan, Puerto Rico", "link": "https://www.acsac.org/"},
+        {"abbrv": "esorics",  "category": ["Se"],  "deadline": {"Submission": "2020-04-24 23:59:59"}, "timezone": "AoE", "abbrvC": "ESORICS", "fullname": "European Symposium on Research in Computer Security", "period": "September 14-18, 2020", "place": "Guildford, Surrey, UK", "link": "http://esorics2020.sccs.surrey.ac.uk/"},
+        {"abbrv": "pkc",      "category": ["Se"],  "deadline": {"Submission": "2019-11-02 21:59:59"}, "timezone": "UTC", "abbrvC": "PKC", "fullname": "International Conference on Practice and Theory in Public Key Cryptography", "period": "May 4-7 2020", "place": "Edinburgh, Scotland", "link": "https://pkc.iacr.org/2020/"},
+        {"abbrv": "pets",     "category": ["Se"],  "deadline": {"Spring Submission": "2020-05-31 23:59:59", "Summer Submission": "2020-08-31 23:59:59", "Fall Submission": "2020-11-30 23:59:59", "Winter Submission": "2020-02-29 23:59:59"}, "timezone": "AoE", "abbrvC": "PETS", "fullname": "Privacy Enhancing Technologies Symposium", "period": "July 14–18, 2020", "place": "Montréal, Canada", "link": "https://petsymposium.org/"},
+
+        {"abbrv": "isscc",    "category": ["Sy"],  "deadline": {"Submission": "2019-09-09 15:00:00"}, "timezone": "EDT", "abbrvC": "ISSCC", "fullname": "IEEE International Solid State Circuits Conference", "period": "February 16-20, 2020", "place": "San Francisco, California", "link": "http://isscc.org/"},
+        {"abbrv": "asplos",   "category": ["Sy"],  "deadline": {"Submission": "2019-08-16 16:59:59"}, "timezone": "PDT", "abbrvC": "ASPLOS", "fullname": "ACM International Conference on Architectural Support for Programming Languages and Operating Systems", "period": "March 16-20, 2020", "place": "Lausanne, Switzerland", "link": "https://asplos-conference.org/"},
+        {"abbrv": "ectc",     "category": ["Sy"],  "deadline": {"Submission": "2019-10-15 23:59:59"}, "timezone": "AoE", "abbrvC": "ECTC", "fullname": "IEEE Electronic Components and Technology Conferencee", "period": "May 26-29, 2020", "place": "Lake Buena Vista, Florida", "link": "https://www.ectc.net/"},
+        {"abbrv": "isca",     "category": ["Sy"],  "deadline": {"Submission": "2019-11-26 11:59:59"}, "timezone": "CET", "abbrvC": "ISCA", "fullname": "International Symposium on Computer Architecture", "period": "May 30–June 3, 2020", "place": "Valencia, Spain", "link": "https://iscaconf.org/isca2020/"},
+        {"abbrv": "dac",      "category": ["Sy"],  "deadline": {"Submission": "2020-01-22 17:00:00"}, "timezone": "MST", "abbrvC": "DAC", "fullname": "Design Automation Conference", "period": "July 19-23, 2020", "place": "San Francisco, CA", "link": "https://www.dac.com/"},
+        {"abbrv": "vlsi",     "category": ["Sy"],  "deadline": {"Submission": "2020-02-10 23:59:59"}, "timezone": "PST", "abbrvC": "VLSI", "fullname": "Symposia on VLSI Technology and Circuits", "period": "June 14-19, 2020", "place": "Honolulu, Hawaii", "link": "https://vlsisymposium.org/"},
+        {"abbrv": "micro",    "category": ["Sy"],  "deadline": {"Submission": "2019-04-05 16:59:59"}, "timezone": "PDT", "abbrvC": "MICRO", "fullname": "IEEE/ACM International Symposium on Microarchitecture", "period": "October 12-16, 2019", "place": "Columbus, Ohio", "link": "https://www.microarch.org/"},
+        {"abbrv": "iedm",     "category": ["Sy"],  "deadline": {"Submission": "2019-07-29 23:59:59"}, "timezone": "PDT", "abbrvC": "IEDM", "fullname": "IEEE International Electronic Device Meeting", "period": "December 7-11, 2019", "place": "San Francisco, California", "link": "https://ieee-iedm.org/"},        
+
+      ];
+
+
+      timezones = {'AoE': 'UTC-12', 'EST': 'UTC-5', 'EDT': 'UTC-4', 'PDT': 'UTC-7', 'PST': 'UTC-8', 'UTC': 'UTC', 'UTC-10': 'UTC-10', 'EAT': 'UTC+3', 'PT': 'UTC-8', 'NUT': 'UTC-11', 'CET': 'UTC-1', 'MST': 'UTC-7'};
+
+      conf_type_data = {'HC': 'Hybrid Cloud', 'Sys': 'System', 'Sec': 'Security', 'AI': 'AI'};
+
+      conf_category = {
+        'HC': ['icse', 'fse', 'ndsi', 'pldi', 'osdi', 'sosp', 'atc', 'eurosys', 'fast', 'socc'],
+        'Sy': ['isscc', 'fast', 'asplos', 'ectc', 'isca', 'dac', 'vlsi', 'micro', 'osdi', 'iedm'],
+        'Se': ['ccs', 'security', 'sp', 'ndss', 'eurocrypt', 'crypto', 'acsac', 'esorics', 'pkc', 'pets'],
+        'AI': ['aaai', 'sysml', 'iclr', 'icml', 'cvpr', 'acl', 'kdd', 'ijcai', 'vldb', 'nips'],
+      };
+
+      all_subs = ['HC', 'Sy', 'Se', 'AI'];
+
+
+
+      // Borrowed from https://github.com/moment/moment-timezone/issues/167
+      // Adds support for time zones 'UTC-12'..'UTC+12'
+      function addUtcTimeZones() {
+        // Moment.js uses the IANA timezone database, which supports generic time zones like 'Etc/GMT+1'.
+        // However, the signs for these time zones are inverted compared to ISO 8601.
+        // For more details, see https://github.com/moment/moment-timezone/issues/167
+        for (let offset = -12; offset <= 12; offset++) {
+          const posixSign = offset <= 0 ? '+' : '-';
+          const isoSign = offset >= 0 ? '+' : '-';
+          const link = `Etc/GMT${posixSign}${Math.abs(offset)}|UTC${isoSign}${Math.abs(offset)}`;
+          moment.tz.link(link);
+        }
+      }
+      addUtcTimeZones();
+      try {
+        var local_timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+        $('.local-timezone').text(local_timezone.toString());
+      }
+      catch(err) {
+        $('.local-timezone-hide').hide();
+      }
+
+      months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+      $('[conf-dd-twelve-month]').each(function(){
+
+        var realDD = {
+            "Jan": [], "Feb": [], "Mar": [], "Apr": [], 
+            "May": [], "Jun": [], "Jul": [], "Aug": [],
+            "Sep": [], "Oct": [], "Nov": [], "Dec": [],
+        };
+        var abbrvCCateMap = {};
+        var j = conferences.length;
+        //Technical Submission, Research Submission, Spring Submission, Fall Submission, Submission, 
+        //Other Tracks Submission, Industry Submission,
+        while(j--) {
+          var deadlines = conferences[j].deadline;
+          var tz = conferences[j].timezone;
+          var timezone = timezones[tz];
+          var localDDMap = new Map();
+          for (var type in deadlines){
+            var deadline = deadlines[type];
+            var confDate = moment.tz(deadline, timezone);
+            var localConfDate = moment.tz(confDate, local_timezone);
+            localDDMap[type] = localConfDate; //add the local deadline into a new map
+          }
+          conferences[j].localDDMap = localDDMap;//add the map into conferences properity
+          
+          var confddmap = conferences[j].localDDMap;
+          var abbrv = conferences[j].abbrv;
+          var abbrvC = conferences[j].abbrvC;
+          for (var type in confddmap) {//type is dd name
+            if (type.includes('Abstract')) { //we don't focus on abstract deadline
+              continue;
+            }
+            var abbrvCNote = abbrvC;
+            if (type.includes('Other') || type.includes('Industry')) {
+              abbrvCNote = abbrvC + "<sup>ind</sup>";
+            } else if (type.includes('Spring')){
+              abbrvCNote = abbrvC + "<sup>spr</sup>";
+            } else if (type.includes('Summer')){
+              abbrvCNote = abbrvC + "<sup>sum</sup>";
+            } else if (type.includes('Fall')){
+              abbrvCNote = abbrvC + "<sup>fal</sup>";
+            } else if (type.includes('Winter')){
+              abbrvCNote = abbrvC + "<sup>win</sup>";
+            } else if (type.includes('First')){
+              abbrvCNote = abbrvC + "<sup>1st</sup>";
+            } else if(type.includes('Second')){
+              abbrvCNote = abbrvC + "<sup>2nd</sup>";
+            } else if(type.includes('Jan')){
+              abbrvCNote = abbrvC + "<sup>jan</sup>";
+            } else if(type.includes('Feb')){
+              abbrvCNote = abbrvC + "<sup>feb</sup>";
+            } else if(type.includes('Mar')){
+              abbrvCNote = abbrvC + "<sup>mar</sup>";
+            } else if(type.includes('Apr')){
+              abbrvCNote = abbrvC + "<sup>apr</sup>";
+            } else if(type.includes('May')){
+              abbrvCNote = abbrvC + "<sup>may</sup>";
+            } else if(type.includes('Jun')){
+              abbrvCNote = abbrvC + "<sup>jun</sup>";
+            } else if(type.includes('Jul')){
+              abbrvCNote = abbrvC + "<sup>jul</sup>";
+            } else if(type.includes('Aug')){
+              abbrvCNote = abbrvC + "<sup>aug</sup>";
+            } else if(type.includes('Sep')){
+              abbrvCNote = abbrvC + "<sup>sep</sup>";
+            } else if(type.includes('Oct')){
+              abbrvCNote = abbrvC + "<sup>oct</sup>";
+            } else if(type.includes('Nov')){
+              abbrvCNote = abbrvC + "<sup>nov</sup>";
+            } else if(type.includes('Dec')){
+              abbrvCNote = abbrvC + "<sup>dec</sup>";
+            } 
+            var deadline = confddmap[type]; // deadline is the dd date
+            var ddmonth = deadline.toString().substring(4, 7);
+            // ddmonth = ddmonth.substring(0,3); //only keep the first 3 letters for the month abbreviation
+            realDD[ddmonth].push(abbrvCNote);
+            abbrvCCateMap[abbrvCNote] = conferences[j].category;
+          }
+        }
+
+        var $this = $(this);
+        var thisyear = new Date().getFullYear();
+        var nextyear = thisyear +1;
+        var thismonth = new Date().getMonth();
+        // var thismonth = 7;
+        var liItemTemps = [];
+        //append the current year
+        var temp0 = _.template($('#conf-deadline-month-each').html());
+        liItemTemps.push(temp0({classtype:"ypoint", date:thisyear, confname:">"}));
+        // alert(temp0({classtype:"ypoint", date:thisyear, confname:">"}));
+        //append all the conferences and nextyear
+        var i = months.length;//i = 12
+        var insertednextyear = false;
+        while(i--){
+          var classtype = "";
+          var confname = null;
+          var month = months[(thismonth+months.length-i-1)%months.length];
+          if( month.includes('Jan') && !insertednextyear) {
+            month = nextyear; //we need to assert 
+            i++;
+            insertednextyear = true;
+            classtype = "ypoint";
+            confname = ">";
+          }
+          if(month !== nextyear){
+            var ddlist = realDD[month];
+            var oddOrEvenYear = 0;
+            if(insertednextyear){
+              oddOrEvenYear = nextyear%2;
+            } else {
+              oddOrEvenYear = thisyear%2;
+            }
+            if(ddlist.length > 0){
+              confname = "";
+              var index = ddlist.length;
+              while(index--){
+                if(ddlist[index].includes('OSDI') && oddOrEvenYear == 1){
+                  continue;
+                } else if (ddlist[index].includes('SOSP') && oddOrEvenYear == 0){
+                  continue;
+                }
+                var confAbbrvC = ddlist[index];
+                var cate = abbrvCCateMap[confAbbrvC];
+                var bgclass;
+                if(cate.length == 1){
+                  bgclass = "bg-" + cate[0];
+                } else if(cate.length == 2){ //we only observe that there are confs in both HC and Sy categories
+                  bgclass = "bg-" + cate[0].substring(1,2) + cate[1].substring(1,2);
+                }
+                // alert(bgclass);
+                confname = confname + " class='"+bgclass+"'>" + confAbbrvC + "</div><div";
+              }
+              if(confname.length > 10){
+                confname = confname.substring(0, confname.length - 10);
+              }
+            } else {
+              classtype = "point";
+              confname = ">";
+            } 
+          }
+          var temp = _.template($('#conf-deadline-month-each').html());
+          liItemTemps.push(temp({classtype: classtype, date: month, confname: confname}));
+          // alert(temp({classtype: classtype, date: month, confname: confname}));
+        }
+        
+
+        var temp = _.template($('#conf-deadline-month').html());
+        $this.append(temp({
+          liItem1: liItemTemps[0],
+          liItem2: liItemTemps[1],
+          liItem3: liItemTemps[2],
+          liItem4: liItemTemps[3],
+          liItem5: liItemTemps[4],
+          liItem6: liItemTemps[5],
+          liItem7: liItemTemps[6],
+          liItem8: liItemTemps[7],
+          liItem9: liItemTemps[8],
+          liItem10: liItemTemps[9],
+          liItem11: liItemTemps[10],
+          liItem12: liItemTemps[11],
+          liItem13: liItemTemps[12],
+          liItem14: liItemTemps[13],
+        }));
+      });
+      
+
+
+    });
+    </script>
+    <br>
+
+    <footer style="color:white" background-color="transparent">
+      <span class="site-footer-owner">Created by <a href="https://tingdai.github.io" style="color:white">Ting Dai</a>.</span>
+      <script>
+              var dt = document.lastModified;    
+              var anotherDateObject = new Date(Date.parse(dt));
+              document.write("Last updated on: " + anotherDateObject.toLocaleDateString() + '.');      
+      </script>
+      <br>
+      <iframe src="https://ghbtns.com/github-btn.html?user=tingdai&type=follow" allowtransparency="true" frameborder="0" scrolling="0" width="120" height="20"></iframe> <!--follow-->
+    </footer>
+  </body>
+</html>
