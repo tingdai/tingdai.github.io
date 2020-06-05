@@ -32,6 +32,18 @@
             background-color: #333;
         }
     </style>
+    <script>
+      function areaclick(name, classtype) {
+        if (document.getElementById(name).className != "btn btn-default btn-sm"){
+          document.getElementById(name).className = "btn btn-default btn-sm";
+          // $('#conf-dd-twelve-month').hide();
+          $( "#conf-dd-twelve-month" ).load(window.location.href + "#conf-dd-twelve-month" );
+        } else {
+          document.getElementById(name).className = classtype;
+          $( "#conf-dd-twelve-month" ).load(window.location.href + "#conf-dd-twelve-month" );
+        }
+      };
+    </script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-46464487-1"></script>
     <script>
@@ -47,23 +59,60 @@
     <div class="home-welcome">  
       <div class="container">
         <h1>A collection of conferences IBMers target on.</h1>
-        <h3 class="project-tagline">
-          <a class="btn btn-danger btn-sm"><i class="fa fa-tag"></i>Artificial Intelligence</a>
-          <a class="btn btn-warning btn-sm"><i class="fa fa-tag"></i>Hybrid Cloud</a>
-          <a class="btn btn-primary btn-sm"><i class="fa fa-tag"></i>Security</a>
-          <a class="btn btn-success btn-sm"><i class="fa fa-tag"></i>System</a> 
+        <h3 id="labels" class="project-tagline">
+          <a id="AILabel" class="btn btn-danger btn-sm" onclick="areaclick('AILabel', 'btn btn-danger btn-sm')"><i class="fa fa-tag"></i>Artificial Intelligence</a>
+          <a id="HCLabel" class="btn btn-warning btn-sm" onclick="areaclick('HCLabel', 'btn btn-warning btn-sm')"><i class="fa fa-tag"></i>Hybrid Cloud</a>
+          <a id="SeLabel" class="btn btn-primary btn-sm" onclick="areaclick('SeLabel', 'btn btn-primary btn-sm')"><i class="fa fa-tag"></i>Security</a>
+          <a id="SyLabel" class="btn btn-success btn-sm" onclick="areaclick('SyLabel', 'btn btn-success btn-sm')"><i class="fa fa-tag"></i>System</a> 
         </h3>
         <a class="github-fork-ribbon right-top" href="https://github.com/tingdai/tingdai.github.io/blob/master/AISysSecCC.html" data-ribbon="Fork me on GitHub" title="Fork me on GitHub">Fork me on GitHub</a>
       </div>
 
 
+<!--       <div class="container">
+        <form class="form-horizontal">
+          <div class="form-group">
+            <div class="col-md-3">
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" id="HC-checkbox" class=""> Hybrid Cloud
+                </label>
+              </div>
+            </div>
+            
+            <div class="col-md-3">
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" id="Sys-checkbox" class=""> System
+                </label>
+              </div>
+            </div>
+            
+            <div class="col-md-3">
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" id="Sec-checkbox" class=""> Security
+                </label>
+              </div>
+            </div>
+            
+            <div class="col-md-3">
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" id="AI-checkbox" class=""> AI
+                </label>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div> -->
 
 
       <div class="container">
         <p>Conference submission deadlines in the next 12 months:</p>
         <br><br>
 
-        <div conf-dd-twelve-month=""></div>
+        <div id="conf-dd-twelve-month" conf-dd-twelve-month=""></div>
 
         <div><p style="font-size:13px; text-align:left">
           <br>ESEC/FSE: separated research track and industry track,&nbsp;&nbsp;
@@ -194,9 +243,20 @@
         $('.local-timezone-hide').hide();
       }
 
+      areas = {'AI': true, 'HC': true, 'Se': true, 'Sy': true};
+
       months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
-      $('[conf-dd-twelve-month]').each(function(){
+      function applytemplateOntime(content){
+
+        for(area in areas){
+          var label = area+"Label";
+          if (document.getElementById(label).className == "btn btn-default btn-sm"){//unclicked
+            areas[area] = false;
+          } else {
+            areas[area] = true;
+          }
+        }
 
         var realDD = {
             "Jan": [], "Feb": [], "Mar": [], "Apr": [], 
@@ -268,14 +328,25 @@
               abbrvCNote = abbrvC + "<sup>dec</sup>";
             } 
             var deadline = confddmap[type]; // deadline is the dd date
-            var ddmonth = deadline.toString().substring(4, 7);
-            // ddmonth = ddmonth.substring(0,3); //only keep the first 3 letters for the month abbreviation
-            realDD[ddmonth].push(abbrvCNote);
-            abbrvCCateMap[abbrvCNote] = conferences[j].category;
+            var ddmonth = deadline.toString().substring(4, 7); //only keep the first 3 letters for the month abbreviation
+            var filteredcate = [];
+            var catlen = conferences[j].category.length;
+            while(catlen--){
+            // for(var cat in conferences[j].category){
+              var cat = conferences[j].category[catlen];
+              if(areas[cat] == true){
+                filteredcate.push(cat);
+              }
+            }
+            if(filteredcate.length > 0){ 
+              realDD[ddmonth].push(abbrvCNote);
+              // abbrvCCateMap[abbrvCNote] = conferences[j].category;
+              abbrvCCateMap[abbrvCNote] = filteredcate;
+            }
           }
         }
 
-        var $this = $(this);
+        var $this = $(content);
         var thisyear = new Date().getFullYear();
         var nextyear = thisyear +1;
         var thismonth = new Date().getMonth();
@@ -338,7 +409,6 @@
           liItemTemps.push(temp({classtype: classtype, date: month, confname: confname}));
           // alert(temp({classtype: classtype, date: month, confname: confname}));
         }
-        
 
         var temp = _.template($('#conf-deadline-month').html());
         $this.append(temp({
@@ -357,7 +427,86 @@
           liItem13: liItemTemps[12],
           liItem14: liItemTemps[13],
         }));
+        return $this;        
+      }
+
+      $('[conf-dd-twelve-month]').each(function(){
+        var currcontent = applytemplateOntime(this);
+        $(this).append(currcontent);
       });
+
+      
+      /////////////////////////////
+      //refresh the current page
+      /////////////////////////////
+
+
+
+      // var pageaddr = 'tingdai.github.io/AISysSecCC.html';
+      // // Get subjects from URL
+      //   var url = new URL(window.location);
+      //   var subs = url.searchParams.get('sub');
+      //   if (subs == undefined) {
+      //      subs = store.get(pageaddr);
+      //   } else {
+      //      subs = subs.split(',');
+      //   }
+      //   // Get subjects from browser cache
+      //   if (subs === undefined) {
+      //     subs = all_subs;
+      //     for (var i = 0; i < subs.length; i++) {
+      //       $('#' + subs[i] + '-checkbox').prop('checked', true);
+      //     }
+      //   } else {
+      //     for (var i = 0; i < subs.length; i++) {
+      //       $('#' + subs[i] + '-checkbox').prop('checked', true);
+      //     }
+      //   }
+      //   // Hide unchecked subs
+      //   for (var i = 0; i < all_subs.length; i++) {
+      //     if (subs.indexOf(all_subs[i]) < 0) {
+      //       $('.' + all_subs[i] + '-conf').hide();
+      //     } 
+      //   }
+      //   //show at least one checked subs, e.g., OSDI->HC, Sys
+      //   for (var i = 0; i < all_subs.length; i++) {
+      //     if (subs.indexOf(all_subs[i]) >= 0) {
+      //       $('.' + all_subs[i] + '-conf').show();
+      //     } 
+      //   }
+      //   store.set(pageaddr, subs);
+      //   window.history.pushState(null, null, '/?sub=' + subs.join());
+
+        // Event handler on checkbox change
+        // $('form :checkbox').change(function(e) {
+        //   alert("here");
+          // var checked = $(this).is(':checked');
+          // var cid = $(this).prop('id');
+          // var csub = cid.substring(0, cid.length - 9);
+          // if (checked == true) {
+          //   $('.' + csub + '-conf').show();
+          //   if (subs.indexOf(csub) < 0)
+          //     subs.push(csub);
+          // } else {
+          //   $('.' + csub + '-conf').hide();
+          //   //checked->unchecked, need to travese other subs to handle at least one checked case, e.g., OSDI->HC, Sys
+          //   for(var i = 0; i < all_subs.length; i++){
+          //     if(all_subs[i] != csub){
+          //       var checked2 = $('#' + all_subs[i] + '-checkbox').is(':checked');
+          //       if(checked2 == true){
+          //         $('.' + all_subs[i] + '-conf').show();
+          //       }
+          //     }
+          //   }
+          //   var idx = subs.indexOf(csub);
+          //   if (idx >= 0)
+          //     subs.splice(idx, 1);//remove the csub from subs
+          // }
+          // console.log(subs);
+          // store.set('tingdai.github.io/AISysSecCC.html', subs);
+          // window.history.pushState(null, null, '/?sub=' + subs.join());
+        // });
+        /////////////////////////
       
 
 

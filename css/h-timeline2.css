@@ -187,7 +187,10 @@
 
     /*we only observe that there are confs in both HC and Sy categories*/
     li div.bg-Cy { 
-      background: linear-gradient(90deg, #f0ad4e 50%, #5cb85c 50%); 
+      background: linear-gradient(180deg, #f0ad4e 50%, #5cb85c 50%); 
+    }
+    li div.bg-yC { 
+      background: linear-gradient(180deg, #f0ad4e 50%, #5cb85c 50%); 
     }
 
     
