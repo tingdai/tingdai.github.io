@@ -131,28 +131,32 @@
       height: 20px;
       border: 2px solid white;
       background-color: white !important;
-      margin-left: 80%;
+      /*margin-left: 80%;*/
+      left: 40%;
     }
     li.ypoint div:before { 
       content: "|";
-      width: 100%;
-      font-size: 2rem;
+      left: 50%; 
+      /*width: 100%;*/
+/*      height: 150%;*/
+      font-size: 3rem;
       color: white;
-      position: absolute;
-      margin-top: -4.5rem;
-      left: 1.2em;
+      /*position: absolute;*/
+      margin-top: -5.8rem;
+      /*left: 1.2em;*/
       /*z-index: -1;*/
     }
     li.ypoint div:after {
       content: attr(data);
-      left: 45%; 
-      top: -5rem;
+      left: 50%; 
+      top: -6rem;
       margin: 0;
       border: 1px solid white;
       padding: 0.5rem;
       border-radius: 3rem;
       text-align: center;
       word-wrap: break-word;
+      width: 5rem;
       /*background: linear-gradient(90deg, #d9534f 50%, #f0ad4e 50%);
       background: linear-gradient(90deg, #5bc0de 50%, #5cb85c 50%);*/
       /*background-color: transparent !important;*/

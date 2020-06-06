@@ -34,13 +34,20 @@
     </style>
     <script>
       function areaclick(name, classtype) {
-        if (document.getElementById(name).className != "btn btn-default btn-sm"){
+        if (document.getElementById(name).className != "btn btn-default btn-sm"){//unclick--unchoose
           document.getElementById(name).className = "btn btn-default btn-sm";
-          // $('#conf-dd-twelve-month').hide();
-          // $( "#conf-dd-twelve-month" ).load(window.location.href + "#conf-dd-twelve-month" );
-        } else {
+          if(name == 'HCLabel'){
+            document.getElementById('HCNote').style.display="none";
+          } else if(name == 'SeLabel'){
+            document.getElementById('SeNote').style.display="none";
+          }
+        } else { //click--choose
           document.getElementById(name).className = classtype;
-          // $( "#conf-dd-twelve-month" ).load(window.location.href + "#conf-dd-twelve-month" );
+          if(name == 'HCLabel'){
+            document.getElementById('HCNote').style.display="block";
+          } else if(name == 'SeLabel'){
+            document.getElementById('SeNote').style.display="block";
+          }
         }
       };
     </script>
@@ -114,16 +121,19 @@
 
         <div id="conf-dd-twelve-month" conf-dd-twelve-month=""></div>
 
-        <div><p style="font-size:13px; text-align:left">
-          <br>ESEC/FSE: separated research track and industry track,&nbsp;&nbsp;
-          <br>ICSE: separated research track and industry track,&nbsp;&nbsp;   
-          <br>CCS: two submissions,&nbsp;&nbsp; 
-          <br>Usenix Security: four submissions in spring, summer, fall, and winter,&nbsp;&nbsp; 
-          <br>S&P: twelve submissions in each month,&nbsp;&nbsp; 
-          <br>NDSS: two submissions in summer and fall,&nbsp;&nbsp; 
-          <br>NSDI: two submissions in spring and fall,&nbsp;&nbsp;
-          <!-- <br>PETS: four submissions in spring, summer, fall, and winter,&nbsp;&nbsp;  -->
-        </p></div>
+        <div style="font-size:13px; text-align:left">
+          <div id="HCNote">
+          <p>ESEC/FSE: separated research track and industry track.</p>
+          <p>ICSE: separated research track and industry track.</p>
+          <p>NSDI: two submissions in spring and fall.</p>
+          </div>
+          <div id="SeNote">
+          <p>CCS: two submissions.</p>
+          <p>Usenix Security: four submissions in spring, summer, fall, and winter.</p>
+          <p>S&P: twelve submissions in each month.</p> 
+          <p>NDSS: two submissions in summer and fall.</p>
+          </div>
+        </div>
       </div>
 
 
@@ -154,7 +164,7 @@
         </script>
 
  
-<!--         <li class="point"><div data="Jun"; class="bg-HC">SoCC</div></li>
+<!--         <li><div data="Jun"; class="bg-HC">SoCC</div></li>
         <li class="ypoint"><div data="2020"; class=""></div></li>
         <li class="point"><div data="Apr"; class="bg-HC">OSDI</div><div class="AI">KDD</div></li> -->
     
@@ -399,6 +409,8 @@
               }
               if(confname.length > 10){
                 confname = confname.substring(0, confname.length - 10);
+              } else {
+                classtype = "point";
               }
             } else {
               classtype = "point";
@@ -430,84 +442,40 @@
         return $this;        
       }
 
-      $('[conf-dd-twelve-month]').each(function(){
-        var currcontent = applytemplateOntime(this);
-        $(this).append(currcontent);
-      });
+      // $('[conf-dd-twelve-month]').each(function(){
+      //   var currcontent = applytemplateOntime(this);
+      // });
+
+      applytemplateOntime(document.getElementById("conf-dd-twelve-month"));
 
       
       /////////////////////////////
       //refresh the current page
       /////////////////////////////
+      var AINode = document.getElementById('AILabel');
+      var HCNode = document.getElementById('HCLabel');
+      var SeNode = document.getElementById('SeLabel');
+      var SyNode = document.getElementById('SyLabel');
 
+      AINode.addEventListener('click', function() {
+        document.getElementById("conf-dd-twelve-month").innerHTML = null;
+        applytemplateOntime(document.getElementById("conf-dd-twelve-month"));
+      });
 
+      HCNode.addEventListener('click', function() {
+        document.getElementById("conf-dd-twelve-month").innerHTML = null;
+        applytemplateOntime(document.getElementById("conf-dd-twelve-month"));
+      });
 
-      // var pageaddr = 'tingdai.github.io/AISysSecCC.html';
-      // // Get subjects from URL
-      //   var url = new URL(window.location);
-      //   var subs = url.searchParams.get('sub');
-      //   if (subs == undefined) {
-      //      subs = store.get(pageaddr);
-      //   } else {
-      //      subs = subs.split(',');
-      //   }
-      //   // Get subjects from browser cache
-      //   if (subs === undefined) {
-      //     subs = all_subs;
-      //     for (var i = 0; i < subs.length; i++) {
-      //       $('#' + subs[i] + '-checkbox').prop('checked', true);
-      //     }
-      //   } else {
-      //     for (var i = 0; i < subs.length; i++) {
-      //       $('#' + subs[i] + '-checkbox').prop('checked', true);
-      //     }
-      //   }
-      //   // Hide unchecked subs
-      //   for (var i = 0; i < all_subs.length; i++) {
-      //     if (subs.indexOf(all_subs[i]) < 0) {
-      //       $('.' + all_subs[i] + '-conf').hide();
-      //     } 
-      //   }
-      //   //show at least one checked subs, e.g., OSDI->HC, Sys
-      //   for (var i = 0; i < all_subs.length; i++) {
-      //     if (subs.indexOf(all_subs[i]) >= 0) {
-      //       $('.' + all_subs[i] + '-conf').show();
-      //     } 
-      //   }
-      //   store.set(pageaddr, subs);
-      //   window.history.pushState(null, null, '/?sub=' + subs.join());
+      SeNode.addEventListener('click', function() {
+        document.getElementById("conf-dd-twelve-month").innerHTML = null;
+        applytemplateOntime(document.getElementById("conf-dd-twelve-month"));
+      });
 
-        // Event handler on checkbox change
-        // $('form :checkbox').change(function(e) {
-        //   alert("here");
-          // var checked = $(this).is(':checked');
-          // var cid = $(this).prop('id');
-          // var csub = cid.substring(0, cid.length - 9);
-          // if (checked == true) {
-          //   $('.' + csub + '-conf').show();
-          //   if (subs.indexOf(csub) < 0)
-          //     subs.push(csub);
-          // } else {
-          //   $('.' + csub + '-conf').hide();
-          //   //checked->unchecked, need to travese other subs to handle at least one checked case, e.g., OSDI->HC, Sys
-          //   for(var i = 0; i < all_subs.length; i++){
-          //     if(all_subs[i] != csub){
-          //       var checked2 = $('#' + all_subs[i] + '-checkbox').is(':checked');
-          //       if(checked2 == true){
-          //         $('.' + all_subs[i] + '-conf').show();
-          //       }
-          //     }
-          //   }
-          //   var idx = subs.indexOf(csub);
-          //   if (idx >= 0)
-          //     subs.splice(idx, 1);//remove the csub from subs
-          // }
-          // console.log(subs);
-          // store.set('tingdai.github.io/AISysSecCC.html', subs);
-          // window.history.pushState(null, null, '/?sub=' + subs.join());
-        // });
-        /////////////////////////
-      
+      SyNode.addEventListener('click', function() {
+        document.getElementById("conf-dd-twelve-month").innerHTML = null;
+        applytemplateOntime(document.getElementById("conf-dd-twelve-month"));
+      });      
 
 
     });
