@@ -132,11 +132,11 @@
       border: 2px solid white;
       background-color: white !important;
       /*margin-left: 80%;*/
-      left: 40%;
+      left: 33%;
     }
     li.ypoint div:before { 
       content: "|";
-      left: 50%; 
+      left: 40%; 
       /*width: 100%;*/
 /*      height: 150%;*/
       font-size: 3rem;
@@ -239,8 +239,9 @@
       font-size: 1.3rem;
       color: white;
       position: absolute;
-      margin-top: -2.2rem;
+      margin-top: -2.1rem;
       left: 0;
+      opacity: 0;
       /*z-index: -1;*/
     }
     
@@ -272,6 +273,7 @@
       border: 1px dashed white;
       text-align: center;
       word-wrap: break-word;
+      opacity: 0;
     }
     
     /* COLORS */

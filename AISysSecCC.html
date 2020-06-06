@@ -123,7 +123,7 @@
         </script>
 
         <script type="text/template", id="conf-deadline-month-each">
-            <li class="<%= classtype %>"><div data="<%= date %>"<%= confname %></div></li>
+            <li class="<%= classtype %>"><div data="<%= date %>"<%= confname %></div><p>FillUp</p></li>
         </script>
 
  
@@ -166,7 +166,6 @@
         {"abbrv": "esorics",  "category": ["Se"],  "deadline": {"Submission": "2020-04-24 23:59:59"}, "timezone": "AoE", "abbrvC": "ESORICS", "fullname": "European Symposium on Research in Computer Security", "period": "September 14-18, 2020", "place": "Guildford, Surrey, UK", "link": "http://esorics2020.sccs.surrey.ac.uk/"},
         // {"abbrv": "pkc",      "category": ["Se"],  "deadline": {"Submission": "2019-11-02 21:59:59"}, "timezone": "UTC", "abbrvC": "PKC", "fullname": "International Conference on Practice and Theory in Public Key Cryptography", "period": "May 4-7 2020", "place": "Edinburgh, Scotland", "link": "https://pkc.iacr.org/2020/"},
         // {"abbrv": "pets",     "category": ["Se"],  "deadline": {"Spring Submission": "2020-05-31 23:59:59", "Summer Submission": "2020-08-31 23:59:59", "Fall Submission": "2020-11-30 23:59:59", "Winter Submission": "2020-02-29 23:59:59"}, "timezone": "AoE", "abbrvC": "PETS", "fullname": "Privacy Enhancing Technologies Symposium", "period": "July 14–18, 2020", "place": "Montréal, Canada", "link": "https://petsymposium.org/"},
-
         {"abbrv": "isscc",    "category": ["Sy"],  "deadline": {"Submission": "2019-09-09 15:00:00"}, "timezone": "EDT", "abbrvC": "ISSCC", "fullname": "IEEE International Solid State Circuits Conference", "period": "February 16-20, 2020", "place": "San Francisco, California", "link": "http://isscc.org/"},
         {"abbrv": "asplos",   "category": ["Sy"],  "deadline": {"Submission": "2019-08-16 16:59:59"}, "timezone": "PDT", "abbrvC": "ASPLOS", "fullname": "ACM International Conference on Architectural Support for Programming Languages and Operating Systems", "period": "March 16-20, 2020", "place": "Lausanne, Switzerland", "link": "https://asplos-conference.org/"},
         {"abbrv": "ectc",     "category": ["Sy"],  "deadline": {"Submission": "2019-10-15 23:59:59"}, "timezone": "AoE", "abbrvC": "ECTC", "fullname": "IEEE Electronic Components and Technology Conferencee", "period": "May 26-29, 2020", "place": "Lake Buena Vista, Florida", "link": "https://www.ectc.net/"},
@@ -174,7 +173,8 @@
         {"abbrv": "dac",      "category": ["Sy"],  "deadline": {"Submission": "2020-01-22 17:00:00"}, "timezone": "MST", "abbrvC": "DAC", "fullname": "Design Automation Conference", "period": "July 19-23, 2020", "place": "San Francisco, CA", "link": "https://www.dac.com/"},
         {"abbrv": "vlsi",     "category": ["Sy"],  "deadline": {"Submission": "2020-02-10 23:59:59"}, "timezone": "PST", "abbrvC": "VLSI", "fullname": "Symposia on VLSI Technology and Circuits", "period": "June 14-19, 2020", "place": "Honolulu, Hawaii", "link": "https://vlsisymposium.org/"},
         {"abbrv": "micro",    "category": ["Sy"],  "deadline": {"Submission": "2019-04-05 16:59:59"}, "timezone": "PDT", "abbrvC": "MICRO", "fullname": "IEEE/ACM International Symposium on Microarchitecture", "period": "October 12-16, 2019", "place": "Columbus, Ohio", "link": "https://www.microarch.org/"},
-        {"abbrv": "iedm",     "category": ["Sy"],  "deadline": {"Submission": "2019-07-29 23:59:59"}, "timezone": "PDT", "abbrvC": "IEDM", "fullname": "IEEE International Electronic Device Meeting", "period": "December 7-11, 2019", "place": "San Francisco, California", "link": "https://ieee-iedm.org/"},        
+        {"abbrv": "iedm",     "category": ["Sy"],  "deadline": {"Submission": "2019-07-29 23:59:59"}, "timezone": "PDT", "abbrvC": "IEDM", "fullname": "IEEE International Electronic Device Meeting", "period": "December 7-11, 2019", "place": "San Francisco, California", "link": "https://ieee-iedm.org/"}, 
+
 
       ];
 
@@ -373,10 +373,10 @@
               if(confname.length > 10){
                 confname = confname.substring(0, confname.length - 10);
               } else {
-                classtype = "point";
+                // classtype = "point";
               }
             } else {
-              classtype = "point";
+              // classtype = "point";
               confname = ">";
             } 
           }
