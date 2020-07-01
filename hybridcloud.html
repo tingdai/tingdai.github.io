@@ -328,8 +328,7 @@
         var $this = $(this);
         var thisyear = new Date().getFullYear();
         var nextyear = thisyear +1;
-        // var thismonth = new Date().getMonth();
-        var thismonth = 5;
+        var thismonth = new Date().getMonth();
         var liItemTemps = [];
         //append the current year
         var temp0 = _.template($('#conf-deadline-month-each').html());
