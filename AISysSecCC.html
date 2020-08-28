@@ -149,7 +149,7 @@
         {"abbrv": "fse", "category": ["HC"], "deadline": {"Industry Submission": "2020-05-19 23:59:59", "Research Submission": "2020-03-05 23:59:59"}, "timezone": "AoE", "abbrvC": "ESEC/FSE", "fullname": "ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering", "period": "November 8-13 2020", "place": "Sacramento, California", "link": "https://2020.esec-fse.org/"},
         {"abbrv": "nsdi", "category": ["HC"], "deadline": {"Spring Abstract": "2020-04-10 23:59:59", "Spring Submission": "2020-04-17 23:59:59", "Fall Abstract": "2020-09-10 23:59:59", "Fall Submission": "2020-09-17 23:59:59"}, "timezone": "PDT", "abbrvC": "NSDI", "fullname": "USENIX Symposium on Networked Systems Design and Implementation", "period": "February 25–27, 2020", "place": "Santa Clara, California", "link": "https://www.usenix.org/conference/nsdi20"},
         {"abbrv": "pldi", "category": ["HC"], "deadline": {"Submission": "2019-11-22 23:59:59"}, "timezone": "AoE", "abbrvC": "PLDI", "fullname": "ACM SIGPLAN Conference on Programming Language Design and Implementation", "period": "June 15-20 2020", "place": "London, United Kingdom", "link": "https://conf.researchr.org/home/pldi-2020"},
-        {"abbrv": "osdi", "category": ["HC", "Sy"], "deadline": {"Abstract": "2020-05-20 15:00:00", "Submission": "2020-05-27 15:00:00"}, "timezone": "PDT", "abbrvC": "OSDI", "fullname": "USENIX Symposium on Operating Systems Design and Implementation", "period": "November 4–6, 2020", "place": "Banff, Alberta, Canada", "link": "https://www.usenix.org/conference/osdi20"},
+        {"abbrv": "osdi", "category": ["HC", "Sy"], "deadline": {"Abstract": "2020-12-03 15:00:00", "Submission": "2020-12-10 15:00:00"}, "timezone": "PDT", "abbrvC": "OSDI", "fullname": "USENIX Symposium on Operating Systems Design and Implementation", "period": "July 14–16, 2021", "place": "Santa Clara, California", "link": "https://www.usenix.org/conference/osdi21"},
         {"abbrv": "sosp", "category": ["HC", "Sy"], "deadline": {"Abstract": "2019-04-17 23:59:59", "Submission": "2019-04-24 23:59:59"}, "timezone": "UTC", "abbrvC": "SOSP", "fullname": "ACM Symposium on Operating Systems Principles", "period": "October 27-30, 2019", "place": "Deerhurst Resort, Huntsville, Ontario, Canada", "link": "https://sosp19.rcs.uwaterloo.ca/"},
         {"abbrv": "atc", "category": ["HC"], "deadline": {"Submission": "2020-01-15 23:59:59"}, "timezone": "EST", "abbrvC": "ATC", "fullname": "USENIX Annual Technical Conference", "period": "July 15–17, 2020", "place": "Boston, Massachusetts", "link": "https://www.usenix.org/conference/atc20"},
         {"abbrv": "eurosys", "category": ["HC"], "deadline": {"Submission": "2020-10-09 23:59:59"}, "abbrvC": "EuroSys", "fullname": "European Conference on Computer Systems", "period": "April 26-29, 2021", "place": "Edinburgh, Scotland, UK", "link": "https://2021.eurosys.org/"},
@@ -354,9 +354,10 @@
               confname = "";
               var index = ddlist.length;
               while(index--){
-                if(ddlist[index].includes('OSDI') && oddOrEvenYear == 1){
-                  continue;
-                } else if (ddlist[index].includes('SOSP') && oddOrEvenYear == 0){
+                // if(ddlist[index].includes('OSDI') && oddOrEvenYear == 1){
+                //   continue;
+                // } else 
+                if (ddlist[index].includes('SOSP') && oddOrEvenYear == 0){
                   continue;
                 }
                 var confAbbrvC = ddlist[index];
