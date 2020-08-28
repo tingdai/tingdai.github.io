@@ -92,7 +92,7 @@
       flex: 0 0 15%;
     }
     li.point:after {
-      margin-left: 80% !important;
+      margin-left: 50% !important;
     }
     li.point:before {
       content: "";
