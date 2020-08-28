@@ -10,6 +10,8 @@ body {
   font-family: 'Source Sans Pro', sans-serif !important;
   font-weight: 300;
   line-height: 1.4em;
+  /*overflow: scroll;*/
+  /*width:1500px;*/
 }
 pre {
   background-color: #f8f8f8;
@@ -109,7 +111,7 @@ header .nav-toggle .pure-button i {
 /**
  * Navigation module
  */
-@media screen and (max-width: 48em) {
+/*@media screen and (max-width: 48em) {
   nav.pure-menu {
     height: 0;
     overflow: hidden;
@@ -126,7 +128,7 @@ header .nav-toggle .pure-button i {
     height: auto;
     overflow: visible;
   }
-}
+}*/
 /**
  * Main module
  */
@@ -151,11 +153,11 @@ main [class*="pure-u-"]:first-child article {
 main [class*="pure-u-"]:last-child article {
   padding-right: 0;
 }
-@media screen and (max-width: 48em) {
+/*@media screen and (max-width: 48em) {
   main article {
     padding: 0 !important;
   }
-}
+}*/
 .past {
   opacity: 0.5;
 }
@@ -318,9 +320,10 @@ main [class*="pure-u-"]:last-child article {
   -o-transform: rotateX(0deg);
   transform: rotateX(0deg);
 }
-@media screen and (max-width: 48em) {
+@media screen and (max-width: 98em) {
   .main-example {
     width: 100%;
+    padding-bottom: 10%; /*add padding to reduec overlap*/
   }
   .main-example .countdown-container {
     height: 100px;
@@ -385,6 +388,7 @@ footer a:visited:hover {
   color: white;
   padding: 2em 0 2em;
   font-size: 125%;
+  overflow-x: scroll; /*scroll the one-year timeline horizontally*/
 }
 .home-welcome h1 {
   color: white;
@@ -659,5 +663,49 @@ footer a:visited:hover {
   }
 }
 
+.scrollrow {
+  overflow-x: scroll;
+}
+.scrollrow::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+.scrollrow::-webkit-scrollbar:horizontal {
+    height: 11px;
+}
+.scrollrow::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    border: 2px solid white;
+    background-color: rgba(0, 0, 0, .5);
+}
+.scrollrow::-webkit-scrollbar-track { 
+    background-color: #fff; 
+    border-radius: 8px; 
+} 
 
+/* Container for flexboxes */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Create four equal columns */
+.column {
+  flex: 33.3%;
+  padding: 10px;
+}
+
+/* On screens that are 992px wide or less, go from four columns to two columns */
+/*@media screen and (max-width: 992px) {
+  .column {
+    flex: 33.3%;
+  }
+}*/
+
+/* On screens that are 600px wide or less, make the columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 1200px) {
+  .row {
+    flex-direction: column;
+    height: 150px;
+  }
+}
 

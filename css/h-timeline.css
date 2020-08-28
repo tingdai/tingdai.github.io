@@ -27,7 +27,7 @@
     
     .timeline {
       display: flex;
-      /*overflow-x: hidden;*/
+      /*overflow-x: scroll;*/
     }
     
     ul {

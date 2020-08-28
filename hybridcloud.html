@@ -69,7 +69,7 @@
           <i class="ios ion-ios-redo fa-lg"></i>
           To edit a conference, <a target="_blank" href="https://github.com/tingdai/tingdai.github.io/blob/master/hybridcloud.html#L162-L171" style="color:white">send in a pull request</a>.
         </h5> -->
-        <!-- <a class="github-fork-ribbon right-top" href="https://github.com/tingdai/tingdai.github.io/blob/master/hybridcloud.html" data-ribbon="Fork me on GitHub" title="Fork me on GitHub">Fork me on GitHub</a> -->
+        <a class="github-fork-ribbon right-top" href="https://github.com/tingdai/tingdai.github.io/blob/master/hybridcloud.html" data-ribbon="Fork me on GitHub" title="Fork me on GitHub">Fork me on GitHub</a>
         <!-- <h5>
           <i class="ios ion-ios-timer-outline fa-lg"></i>
           <script>
@@ -82,15 +82,16 @@
       </div>
 
 
-      
       <div class="container">
         <p>Submission deadlines in the next 12 months:</p>
+      <div class="scrollrow">
+        
         <br><br>
 
         <div conf-dd-twelve-month=""></div>
 
         <div><p style="font-size:13px; text-align:center">ICSE*: industry track,&nbsp;&nbsp; FSE*: industry track,&nbsp;&nbsp; NSDI*: spring submission,&nbsp;&nbsp; NSDI**: fall submission</p></div>
-      </div>
+      </div></div>
 
 
 
@@ -183,6 +184,31 @@
         </div>
       </div>
     </div>
+    </script>
+
+    <script type="text/template" id="conf-container-template2-bakup">
+      <div class="container"><hr>
+        <div id="<%= confabbr %>">
+        <div class="row">
+          <div class="column">
+            <div data-abbrv="<%= confabbr %>" data-detail=""></div>
+          </div>
+          <div class="column">
+            <div class="main-example">
+              <div id="<%= type1id %>">
+                <div class="countdown-container" data-abbrv="<%= confabbr %>" data-countdown="" data-ddtype="<%= ddtype1 %>"></div>
+              </div>
+            </div>
+          </div>
+          <div class="column">
+            <div class="main-example">
+              <div id="<%= type2id %>">
+                <div class="countdown-container" data-abbrv="<%= confabbr %>" data-countdown="" data-ddtype="<%= ddtype2 %>"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </script>
 
     <script type="text/template" id="conf-container-template4">
