@@ -10,6 +10,8 @@ h2 {
 
 .t-timeline {
   list-style: none;
+  overflow: scroll;
+  min-width: 500px;
 }
 .t-timeline > li {
   margin-bottom: 60px;
@@ -20,9 +22,9 @@ h2 {
 }
 
 /* for Desktop */
-@media screen and (min-width: 640px) {
+@media screen and (min-width: 680px) {
   .t-timeline > li {
-    overflow: hidden;
+    overflow: scroll;
     margin: 0;
     position: relative;
   }

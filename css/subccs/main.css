@@ -667,7 +667,7 @@ footer a:visited:hover {
   overflow-x: scroll;
 }
 .scrollrow::-webkit-scrollbar {
-    -webkit-appearance: none;
+    /*-webkit-appearance: none;*/
 }
 .scrollrow::-webkit-scrollbar:horizontal {
     height: 11px;
