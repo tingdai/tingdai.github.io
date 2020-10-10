@@ -447,12 +447,17 @@
     <br>
 
     <footer style="color:white" background-color="transparent">
-      <span class="site-footer-owner">Created by <a href="https://tingdai.github.io" style="color:white">Ting Dai</a>.</span>
-      <script>
-              var dt = document.lastModified;    
-              var anotherDateObject = new Date(Date.parse(dt));
-              document.write("Last updated on: " + anotherDateObject.toLocaleDateString() + '.');      
-      </script>
+      <span class="site-footer-owner">Created by <a href="https://tingdai.github.io" style="color:white">Ting Dai</a>.</span><br>
+      <i class="ios ion-ios-timer-outline fa-lg"></i>
+            <script>
+              const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+              function lastModified() {
+                var modiDate = new Date(document.lastModified);
+                var showAs = monthNames[modiDate.getMonth()] + " " + modiDate.getFullYear();
+                return showAs
+              }
+              document.write("Last updated in: " + lastModified());     
+            </script>
       <br>
       <iframe src="https://ghbtns.com/github-btn.html?user=tingdai&type=follow" allowtransparency="true" frameborder="0" scrolling="0" width="120" height="20"></iframe> <!--follow-->
     </footer>
