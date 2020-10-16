@@ -97,44 +97,84 @@
    <!--  <h2>Projects </h2>
     <br> -->
     <br>
+    <h3><i class="fa fa-tag"></i> Risky Infrastructure-as-Code embedded Scripts</h3>
+    <br>
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">Supporting Privacy-Preserving, Auditable Smart Contracts in Hyperledger Fabric</h3>
+        <h3 class="panel-title">Automatically Detecting Risky Scripts in Infrastructure Code</h3>
       </div>
       <div class="panel-body">
         <div class="row">
           <div class="col-md-4">
             <center>
-            <img src="images/FabZK.png" class="img-responsive" height=120 alt="[FabZK]"/>
+            <img src="images/securecode.png" class="img-responsive" height=120 alt="[SecureCode]"/>
             <p style="padding-top: 20px">
-              <a class="btn btn-primary btn-sm" href="files/fabzk_DSN19.pdf"><i class="fa fa-file-pdf-o fa-fw"></i> DSN'19</a>&nbsp;
+              <a class="btn btn-primary btn-sm" href="files/securecode_SOCC20.pdf"><i class="fa fa-file-pdf-o fa-fw"></i> SoCC'20</a>&nbsp;
             </p>
             </center>
           </div>
           <div class="col-md-8">
             <p>
-              <a class="btn btn-default btn-sm"><i class="ios ion-ios-timer-outline fa-lg"></i> 06&#47;2018&#45;03&#47;2019</a>  
-              <a class="btn btn-default btn-sm" href="http://csc.ncsu.edu/"><i class="ios ion-ios-location-outline fa-lg"></i> NC State</a>
-              <a class="btn btn-default btn-sm" href="http://www.research.ibm.com/"><i class="ios ion-ios-location-outline fa-lg"></i> IBM Research</a>
+              <a class="btn btn-default btn-sm"><i class="ios ion-ios-timer-outline fa-lg"></i> 09&#47;2019&#45;05&#47;2020</a>  
+              <a class="btn btn-default btn-sm" href="http://csc.ncsu.edu/"><i class="ios ion-ios-location-outline fa-lg"></i> IBM Research</a>
             </p>
             <p>
-              On a Blockchain network, transaction data are exposed to all participants.
-              To preserve privacy and confidentiality in transactions, while still maintaining data immutability, we design and implement FabZK.<br>
-              <b>FabZK</b> conceals transaction details on a shared ledger by storing only encrypted data from each transaction (e.g., payment amount), and by anonymizing the transactional relationship (e.g., payer and payee) between members in a Blockchain network.
-              It achieves both privacy and auditability by supporting verifiable Pedersen commitments and constructing zero-knowledge proofs.
-              FabZK is implemented as an extension to the open source Hyperledger Fabric. It provides APIs to easily enable data privacy in both client code and chaincode. 
-              It also supports on-demand, automated auditing based on encrypted data.
-              Our evaluation shows that FabZK offers strong privacy-preserving capabilities, while delivering reasonable performance for the applications developed based on its framework.
+              Infrastructure code supports embedded scripting languages such as Shell and PowerShell to manage the infrastructure resources and conduct life-cycle operations. Risky patterns in the embedded scripts have widespread of negative impacts across the whole infrastructure, causing disastrous consequences.<br> 
+              We propose an analysis framework, which can automatically extract and compose the embedded scripts from infrastructure code before detecting their risky code patterns with correlated severity levels and negative impacts.<br> 
+              We implement <b>SecureCode</b> based on the proposed framework to check infrastructure code supported by Ansible, i.e., Ansible playbooks. We integrate SecureCode with the DevOp pipeline deployed in IBM cloud and test SecureCode on 45 IBM Services community repositories. Our evaluation shows that SecureCode can efficiently and effectively identify 3419 true issues with 116 false positives in minutes. Among the 3419 true issues, 1691 have high severity levels.
             </p>
             <p>
-              <a class="btn btn-default btn-sm"><img src="images/fabric.png" width="70" /> </a>
-              <a class="btn btn-default btn-sm"> zero-knowledge proof </a>
-              <a class="btn btn-default btn-sm"><img src="images/golang.png" width="45" /> </a>
+              <a class="btn btn-default btn-sm">Ansible-lint</a>
+              <a class="btn btn-default btn-sm">ShellCheck</a>
+              <a class="btn btn-default btn-sm">PSScriptAnalyzer</a>
+              <a class="btn btn-default btn-sm"><img src="images/ansible.png" width="65" /></a>
+              <a class="btn btn-default btn-sm"><img src="images/Python.png" width="14" /> Python</a>
+              <a class="btn btn-default btn-sm"><img src="images/yaml.svg" width="40" /></a>
+              <a class="btn btn-default btn-sm"><img src="images/shellscript.png" width="14" /> Shell Script</a>
+              <a class="btn btn-default btn-sm"><img src="images/shellscript.png" width="14" /> PowerShell Script</a>
             </p>
           </div>
         </div>
       </div>
     </div>
+
+
+
+    <br><br><br>
+    <h3><i class="fa fa-tag"></i> Hang Bugs</h3>
+    <br>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Automatically Fixing Software Hang Bugs for Production Cloud Systems</h3>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-4">
+            <center>
+            <img src="images/hangfix.png" class="img-responsive" height=120 alt="[HangFix]"/>
+            <p style="padding-top: 20px">
+              <a class="btn btn-primary btn-sm" href="files/hangfix_SOCC20.pdf"><i class="fa fa-file-pdf-o fa-fw"></i> SoCC'20</a>&nbsp;
+            </p>
+            </center>
+          </div>
+          <div class="col-md-8">
+            <p>
+              <a class="btn btn-default btn-sm"><i class="ios ion-ios-timer-outline fa-lg"></i> 09&#47;2018&#45;05&#47;2020</a>  
+              <a class="btn btn-default btn-sm" href="http://csc.ncsu.edu/"><i class="ios ion-ios-location-outline fa-lg"></i> NC State</a>
+            </p>
+            <p>
+              Software hang bugs are notoriously difficult to debug, which often cause serious service outages in cloud systems.<br> 
+              We present <b>HangFix</b>, a software hang bug fixing framework which can automatically fix a hang bug that is triggered and detected in production cloud environments. HangFix first leverages stack trace analysis to localize the hang function and then performs root cause pattern matching to classify hang bugs into different types based on likely root causes. Next, HangFix generates effective code patches based on the identified root cause patterns. We have implemented a prototype of HangFix and evaluated the system on 42 real-world software hang bugs in 10 commonly used cloud server applications. Our results show that HangFix can successfully fix 40 out of 42 hang bugs in seconds.
+            </p>
+            <p>
+              <a class="btn btn-default btn-sm"><img src="images/soot.png" width="25" /></a>
+              <a class="btn btn-default btn-sm"><img src="images/java.png" width="17" /> Java</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
 
 
     <div class="panel panel-default">
@@ -175,6 +215,56 @@
       </div>
     </div>
 
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Hytrace: A Hybrid Approach to Performance Bug Diagnosis in Production Cloud Infrastructures</h3>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-4">
+            <center>
+            <img src="images/Hytrace.png" class="img-responsive" height=120 width=220 alt="[Hytrace]"/>
+            <p style="padding-top: 20px">
+              <a class="btn btn-primary btn-sm" href="files/hytrace_SOCC17.pdf"><i class="fa fa-file-pdf-o fa-fw"></i> SoCC'17</a>&nbsp;
+              <a class="btn btn-primary btn-sm" href="files/hytrace_TPDS19.pdf"><i class="fa fa-file-pdf-o fa-fw"></i> TPDS'19</a>&nbsp;
+            </p>
+            </center>
+          </div>
+          <div class="col-md-8">
+            <p>
+              <a class="btn btn-default btn-sm"><i class="ios ion-ios-timer-outline fa-lg"></i> 08&#47;2015&#45;05&#47;2018</a>  
+              <a class="btn btn-default btn-sm" href="http://csc.ncsu.edu/"><i class="ios ion-ios-location-outline fa-lg"></i> NC State</a>
+            </p>
+            <p>
+              Server applications running inside production cloud infrastructures are prone to various performance problems (e.g., software hang, performance slowdown). When those problems occur, developers often have little clue to diagnose those problems. In this project, we present Hytrace, a novel hybrid approach to diagnosing performance problems in production cloud infrastructures. <br> 
+              <b>Hytrace</b> combines rule-based static analysis and runtime inference techniques to achieve higher bug localization accuracy than pure-static and pure-dynamic approaches for performance bugs. Hytrace does not require source code and can be applied to both compiled and interpreted programs such as C/C++ and Java. We conduct experiments using real performance bugs from seven commonly used server applications in production cloud infrastructures. The results show that our approach can significantly improve the performance bug diagnosis accuracy compared to existing diagnosis techniques.
+            </p>
+            <p>
+              <!-- <a class="btn btn-default btn-sm"><img src="images/apache2.png" width="25" /> Apache</a>
+              <a class="btn btn-default btn-sm"><img src="images/cassandra.png" width="18" /> Cassandra</a>
+              <a class="btn btn-default btn-sm"><img src="images/lighttpd.png" width="18" /> Lighttpd</a>
+              <a class="btn btn-default btn-sm"><img src="images/hadoop.png" width="20" /> Hadoop</a>
+              <a class="btn btn-default btn-sm"><img src="images/mysql.png" width="18" /> MySQL</a>
+              <a class="btn btn-default btn-sm"><img src="images/squid.png" width="18" /> Squid</a>
+              <a class="btn btn-default btn-sm"><img src="images/tomcat.png" width="20" /> Tomcat</a><br> -->
+              <a class="btn btn-default btn-sm"><img src="images/lttng.jpg" width="25" /> LTTng</a>
+              <a class="btn btn-default btn-sm"><img src="images/ml.png" width="20" /> Clustering algo</a>
+              <a class="btn btn-default btn-sm"><img src="images/llvm.png" width="25" /> LLVM</a>
+              <a class="btn btn-default btn-sm"><img src="images/findbugs.png" width="22" /> Findbugs</a>
+              <a class="btn btn-default btn-sm"><img src="images/ccpp.png" width="32" /></a>
+              <a class="btn btn-default btn-sm"><img src="images/java.png" width="17" /> Java</a>
+              <!-- <a class="btn btn-default btn-sm"><img src="images/shellscript.png" width="14" /> Shell Script</a> -->
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <br><br><br>
+    <h3><i class="fa fa-tag"></i> Timeout Bugs</h3>
+    <br>
     <div class="panel panel-default">
       <div class="panel-heading">
         <h3 class="panel-title">Studying, Detecting and Fixing Timeout Bugs in Cloud Server Systems</h3>
@@ -229,51 +319,53 @@
       </div>
     </div>
 
+
+    <br><br><br>
+    <h3><i class="fa fa-tag"></i> BlockChain</h3>
+    <br>
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">Hytrace: A Hybrid Approach to Performance Bug Diagnosis in Production Cloud Infrastructures</h3>
+        <h3 class="panel-title">Supporting Privacy-Preserving, Auditable Smart Contracts in Hyperledger Fabric</h3>
       </div>
       <div class="panel-body">
         <div class="row">
           <div class="col-md-4">
             <center>
-            <img src="images/Hytrace.png" class="img-responsive" height=120 width=220 alt="[Hytrace]"/>
+            <img src="images/FabZK.png" class="img-responsive" height=120 alt="[FabZK]"/>
             <p style="padding-top: 20px">
-              <a class="btn btn-primary btn-sm" href="files/hytrace_SOCC17.pdf"><i class="fa fa-file-pdf-o fa-fw"></i> SoCC'17</a>&nbsp;
-              <a class="btn btn-primary btn-sm" href="files/hytrace_TPDS19.pdf"><i class="fa fa-file-pdf-o fa-fw"></i> TPDS'19</a>&nbsp;
+              <a class="btn btn-primary btn-sm" href="files/fabzk_DSN19.pdf"><i class="fa fa-file-pdf-o fa-fw"></i> DSN'19</a>&nbsp;
             </p>
             </center>
           </div>
           <div class="col-md-8">
             <p>
-              <a class="btn btn-default btn-sm"><i class="ios ion-ios-timer-outline fa-lg"></i> 08&#47;2015&#45;05&#47;2018</a>  
+              <a class="btn btn-default btn-sm"><i class="ios ion-ios-timer-outline fa-lg"></i> 06&#47;2018&#45;03&#47;2019</a>  
               <a class="btn btn-default btn-sm" href="http://csc.ncsu.edu/"><i class="ios ion-ios-location-outline fa-lg"></i> NC State</a>
+              <a class="btn btn-default btn-sm" href="http://www.research.ibm.com/"><i class="ios ion-ios-location-outline fa-lg"></i> IBM Research</a>
             </p>
             <p>
-              Server applications running inside production cloud infrastructures are prone to various performance problems (e.g., software hang, performance slowdown). When those problems occur, developers often have little clue to diagnose those problems. In this project, we present Hytrace, a novel hybrid approach to diagnosing performance problems in production cloud infrastructures. <br> 
-              <b>Hytrace</b> combines rule-based static analysis and runtime inference techniques to achieve higher bug localization accuracy than pure-static and pure-dynamic approaches for performance bugs. Hytrace does not require source code and can be applied to both compiled and interpreted programs such as C/C++ and Java. We conduct experiments using real performance bugs from seven commonly used server applications in production cloud infrastructures. The results show that our approach can significantly improve the performance bug diagnosis accuracy compared to existing diagnosis techniques.
+              On a Blockchain network, transaction data are exposed to all participants.
+              To preserve privacy and confidentiality in transactions, while still maintaining data immutability, we design and implement FabZK.<br>
+              <b>FabZK</b> conceals transaction details on a shared ledger by storing only encrypted data from each transaction (e.g., payment amount), and by anonymizing the transactional relationship (e.g., payer and payee) between members in a Blockchain network.
+              It achieves both privacy and auditability by supporting verifiable Pedersen commitments and constructing zero-knowledge proofs.
+              FabZK is implemented as an extension to the open source Hyperledger Fabric. It provides APIs to easily enable data privacy in both client code and chaincode. 
+              It also supports on-demand, automated auditing based on encrypted data.
+              Our evaluation shows that FabZK offers strong privacy-preserving capabilities, while delivering reasonable performance for the applications developed based on its framework.
             </p>
             <p>
-              <!-- <a class="btn btn-default btn-sm"><img src="images/apache2.png" width="25" /> Apache</a>
-              <a class="btn btn-default btn-sm"><img src="images/cassandra.png" width="18" /> Cassandra</a>
-              <a class="btn btn-default btn-sm"><img src="images/lighttpd.png" width="18" /> Lighttpd</a>
-              <a class="btn btn-default btn-sm"><img src="images/hadoop.png" width="20" /> Hadoop</a>
-              <a class="btn btn-default btn-sm"><img src="images/mysql.png" width="18" /> MySQL</a>
-              <a class="btn btn-default btn-sm"><img src="images/squid.png" width="18" /> Squid</a>
-              <a class="btn btn-default btn-sm"><img src="images/tomcat.png" width="20" /> Tomcat</a><br> -->
-              <a class="btn btn-default btn-sm"><img src="images/lttng.jpg" width="25" /> LTTng</a>
-              <a class="btn btn-default btn-sm"><img src="images/ml.png" width="20" /> Clustering algo</a>
-              <a class="btn btn-default btn-sm"><img src="images/llvm.png" width="25" /> LLVM</a>
-              <a class="btn btn-default btn-sm"><img src="images/findbugs.png" width="22" /> Findbugs</a>
-              <a class="btn btn-default btn-sm"><img src="images/ccpp.png" width="32" /></a>
-              <a class="btn btn-default btn-sm"><img src="images/java.png" width="17" /> Java</a>
-              <!-- <a class="btn btn-default btn-sm"><img src="images/shellscript.png" width="14" /> Shell Script</a> -->
+              <a class="btn btn-default btn-sm"><img src="images/fabric.png" width="70" /> </a>
+              <a class="btn btn-default btn-sm"> zero-knowledge proof </a>
+              <a class="btn btn-default btn-sm"><img src="images/golang.png" width="45" /> </a>
             </p>
           </div>
         </div>
       </div>
     </div>
 
+
+    <br><br><br>
+    <h3><i class="fa fa-tag"></i> Cloud Configuration Management</h3>
+    <br>
 
     <div class="panel panel-default">
       <div class="panel-heading">
