@@ -29,7 +29,7 @@ h2 {
     position: relative;
   }
   .t-timeline > li .t-timeline-date {
-    width: 110px;
+    width: 120px;
     float: left;
     margin-top: 5px;
     border-bottom: none;
@@ -54,7 +54,7 @@ h2 {
     border-radius: 50%;
     border: solid #000000;
     position: absolute;
-    left: 105px;
+    left: 115px;
     top: 9px;
     /*border-radius: 100%;*/
   }
