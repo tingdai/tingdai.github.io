@@ -11,7 +11,7 @@ h2 {
 .t-timeline {
   list-style: none;
   overflow: scroll;
-  min-width: 500px;
+  min-width: 680px;
 }
 .t-timeline > li {
   margin-bottom: 60px;
