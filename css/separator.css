@@ -1,0 +1,17 @@
+.separator {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 3px;
+}
+.separator::before, .separator::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid purple;
+}
+.separator::before {
+    margin-right: .25em;
+}
+.separator::after {
+    margin-left: .25em;
+}
