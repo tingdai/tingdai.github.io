@@ -97,19 +97,19 @@
               <a class="btn btn-default btn-sm" href="http://csc.ncsu.edu/"><i class="ios ion-ios-location-outline fa-lg"></i> IBM Research</a>
             </p>
             <p>
-              Infrastructure code supports embedded scripting languages such as Shell and PowerShell to manage the infrastructure resources and conduct life-cycle operations. Risky patterns in the embedded scripts have widespread of negative impacts across the whole infrastructure, causing disastrous consequences.<br> 
-              We propose an analysis framework, which can automatically extract and compose the embedded scripts from infrastructure code before detecting their risky code patterns with correlated severity levels and negative impacts.<br> 
-              We implement <b>SecureCode</b> based on the proposed framework to check infrastructure code supported by Ansible, i.e., Ansible playbooks. We integrate SecureCode with the DevOp pipeline deployed in IBM cloud and test SecureCode on 45 IBM Services community repositories. Our evaluation shows that SecureCode can efficiently and effectively identify 3419 true issues with 116 false positives in minutes. Among the 3419 true issues, 1691 have high severity levels.
-            </p>
-            <p>
+              <a class="btn btn-default btn-sm"><img src="images/ansible.png" width="65" /></a>
               <a class="btn btn-default btn-sm">Ansible-lint</a>
               <a class="btn btn-default btn-sm">ShellCheck</a>
               <a class="btn btn-default btn-sm">PSScriptAnalyzer</a>
-              <a class="btn btn-default btn-sm"><img src="images/ansible.png" width="65" /></a>
               <a class="btn btn-default btn-sm"><img src="images/Python.png" width="14" /> Python</a>
               <a class="btn btn-default btn-sm"><img src="images/yaml.svg" width="40" /></a>
               <a class="btn btn-default btn-sm"><img src="images/shellscript.png" width="14" /> Shell Script</a>
               <a class="btn btn-default btn-sm"><img src="images/shellscript.png" width="14" /> PowerShell Script</a>
+            </p>
+            <p>
+              Infrastructure code supports embedded scripting languages such as Shell and PowerShell to manage the infrastructure resources and conduct life-cycle operations. Risky patterns in the embedded scripts have widespread of negative impacts across the whole infrastructure, causing disastrous consequences.<br> 
+              We propose an analysis framework, which can automatically extract and compose the embedded scripts from infrastructure code before detecting their risky code patterns with correlated severity levels and negative impacts.<br> 
+              We implement <b>SecureCode</b> based on the proposed framework to check infrastructure code supported by Ansible, i.e., Ansible playbooks. We integrate SecureCode with the DevOp pipeline deployed in IBM cloud and test SecureCode on 45 IBM Services community repositories. Our evaluation shows that SecureCode can efficiently and effectively identify 3419 true issues with 116 false positives in minutes. Among the 3419 true issues, 1691 have high severity levels.
             </p>
           </div>
         </div>
@@ -142,13 +142,14 @@
               <a class="btn btn-default btn-sm" href="http://csc.ncsu.edu/"><i class="ios ion-ios-location-outline fa-lg"></i> NC State</a>
             </p>
             <p>
-              Software hang bugs are notoriously difficult to debug, which often cause serious service outages in cloud systems.<br> 
-              We present <b>HangFix</b>, a software hang bug fixing framework which can automatically fix a hang bug that is triggered and detected in production cloud environments. HangFix first leverages stack trace analysis to localize the hang function and then performs root cause pattern matching to classify hang bugs into different types based on likely root causes. Next, HangFix generates effective code patches based on the identified root cause patterns. We have implemented a prototype of HangFix and evaluated the system on 42 real-world software hang bugs in 10 commonly used cloud server applications. Our results show that HangFix can successfully fix 40 out of 42 hang bugs in seconds.
-            </p>
-            <p>
               <a class="btn btn-default btn-sm"><img src="images/soot.png" width="25" /></a>
               <a class="btn btn-default btn-sm"><img src="images/java.png" width="17" /> Java</a>
             </p>
+            <p>
+              Software hang bugs are notoriously difficult to debug, which often cause serious service outages in cloud systems.<br> 
+              We present <b>HangFix</b>, a software hang bug fixing framework which can automatically fix a hang bug that is triggered and detected in production cloud environments. HangFix first leverages stack trace analysis to localize the hang function and then performs root cause pattern matching to classify hang bugs into different types based on likely root causes. Next, HangFix generates effective code patches based on the identified root cause patterns. We have implemented a prototype of HangFix and evaluated the system on 42 real-world software hang bugs in 10 commonly used cloud server applications. Our results show that HangFix can successfully fix 40 out of 42 hang bugs in seconds.
+            </p>
+            <br>
               <!-- <div class="separator"><i class="ios ion-ios-paper fa-lg"></i>&nbsp;&nbsp;Media Coverage</div-->
               <div class="boxcus">
                 <div class="title"><i class="ios ion-ios-paper fa-lg"></i>&nbsp;&nbsp;Media Coverage</div><br>
@@ -192,10 +193,6 @@
               <a class="btn btn-default btn-sm" href="http://csc.ncsu.edu/"><i class="ios ion-ios-location-outline fa-lg"></i> NC State</a>
             </p>
             <p>
-              Cloud server systems such as Hadoop and Cassandra have enabled many real-world data-intensive applications running inside computing clouds. However, those systems present many data-corruption and performance problems which are notoriously difficult to debug due to the lack of diagnosis information.<br> 
-              We present <b>DScope</b>, a tool that statically detects data-corruption related software hang bugs in cloud server systems. DScope statically analyzes I/O operations and loops in a software package, and identifies loops whose exit conditions can be affected by I/O operations through returned data, returned error code, or I/O exception handling. After identifying those loops which are prone to hang problems under data corruption, DScope conducts loop bound and loop stride analysis to prune out false positives. We have implemented DScope and evaluated it using 9 common cloud server systems. Our results show that DScope can detect 42 real software hang bugs including 29 new bugs. In contrast, existing bug detection tools miss detecting most of those bugs.
-            </p>
-            <p>
               <!-- <a class="btn btn-default btn-sm"><img src="images/cassandra.png" width="18" /> Cassandra</a>
               <a class="btn btn-default btn-sm"><img src="images/commons.png" width="40" /> Compress</a>
               <a class="btn btn-default btn-sm"><img src="images/hadoop.png" width="20" /> Hadoop</a>
@@ -204,6 +201,10 @@
               <a class="btn btn-default btn-sm"><img src="images/lucene.jpg" width="50" /></a><br> -->
               <a class="btn btn-default btn-sm"><img src="images/soot.png" width="25" /></a>
               <a class="btn btn-default btn-sm"><img src="images/java.png" width="17" /> Java</a>
+            </p>
+            <p>
+              Cloud server systems such as Hadoop and Cassandra have enabled many real-world data-intensive applications running inside computing clouds. However, those systems present many data-corruption and performance problems which are notoriously difficult to debug due to the lack of diagnosis information.<br> 
+              We present <b>DScope</b>, a tool that statically detects data-corruption related software hang bugs in cloud server systems. DScope statically analyzes I/O operations and loops in a software package, and identifies loops whose exit conditions can be affected by I/O operations through returned data, returned error code, or I/O exception handling. After identifying those loops which are prone to hang problems under data corruption, DScope conducts loop bound and loop stride analysis to prune out false positives. We have implemented DScope and evaluated it using 9 common cloud server systems. Our results show that DScope can detect 42 real software hang bugs including 29 new bugs. In contrast, existing bug detection tools miss detecting most of those bugs.
             </p>
           </div>
         </div>
@@ -232,10 +233,6 @@
               <a class="btn btn-default btn-sm" href="http://csc.ncsu.edu/"><i class="ios ion-ios-location-outline fa-lg"></i> NC State</a>
             </p>
             <p>
-              Server applications running inside production cloud infrastructures are prone to various performance problems (e.g., software hang, performance slowdown). When those problems occur, developers often have little clue to diagnose those problems. In this project, we present Hytrace, a novel hybrid approach to diagnosing performance problems in production cloud infrastructures. <br> 
-              <b>Hytrace</b> combines rule-based static analysis and runtime inference techniques to achieve higher bug localization accuracy than pure-static and pure-dynamic approaches for performance bugs. Hytrace does not require source code and can be applied to both compiled and interpreted programs such as C/C++ and Java. We conduct experiments using real performance bugs from seven commonly used server applications in production cloud infrastructures. The results show that our approach can significantly improve the performance bug diagnosis accuracy compared to existing diagnosis techniques.
-            </p>
-            <p>
               <!-- <a class="btn btn-default btn-sm"><img src="images/apache2.png" width="25" /> Apache</a>
               <a class="btn btn-default btn-sm"><img src="images/cassandra.png" width="18" /> Cassandra</a>
               <a class="btn btn-default btn-sm"><img src="images/lighttpd.png" width="18" /> Lighttpd</a>
@@ -251,6 +248,10 @@
               <a class="btn btn-default btn-sm">C/C++</a>
               <a class="btn btn-default btn-sm"><img src="images/java.png" width="17" /> Java</a>
               <!-- <a class="btn btn-default btn-sm"><img src="images/shellscript.png" width="14" /> Shell Script</a> -->
+            </p>
+            <p>
+              Server applications running inside production cloud infrastructures are prone to various performance problems (e.g., software hang, performance slowdown). When those problems occur, developers often have little clue to diagnose those problems. In this project, we present Hytrace, a novel hybrid approach to diagnosing performance problems in production cloud infrastructures. <br> 
+              <b>Hytrace</b> combines rule-based static analysis and runtime inference techniques to achieve higher bug localization accuracy than pure-static and pure-dynamic approaches for performance bugs. Hytrace does not require source code and can be applied to both compiled and interpreted programs such as C/C++ and Java. We conduct experiments using real performance bugs from seven commonly used server applications in production cloud infrastructures. The results show that our approach can significantly improve the performance bug diagnosis accuracy compared to existing diagnosis techniques.
             </p>
           </div>
         </div>
@@ -284,16 +285,6 @@
               <a class="btn btn-default btn-sm" href="http://csc.ncsu.edu/"><i class="ios ion-ios-location-outline fa-lg"></i> NC State</a>
             </p>
             <p>
-              Timeout is commonly used to handle unexpected failures in server systems. However, improper use of timeout can cause server systems to hang or experience performance degradation. 
-              We conduct a comprehensive <b>study</b> to characterize 156 real-world timeout problems in 11 commonly used cloud server systems. 
-              Our study reveals timeout problems are widespread among cloud server systems.<br>
-              We then present <b>TScope</b> to achieve timeout bug identification by leveraging kernel-level system call tracing and machine learning based anomaly detection and feature extraction schemes. 
-              We conducted experiments using 19 real-world server performance bugs, including 12 timeout and 7 non-timeout performance bugs. 
-              The results show that TScope correctly classifies 18 out of 19 bugs with the false positive rate 0.8%.<br>
-              Futhermore, we present <b>TFix</b>, a drill-down bug analysis protocol for narrowing down the root cause variable of a timeout bug and producing recommendations for correcting the root cause. <!-- TFix first employs a system call frequent episode mining scheme to check whether a timeout bug is caused by a misused timeout variable. If the check is positive, TFix then performs application tracing to identify timeout affected functions by analyzing both function execution time and frequency changes. After identifying the timeout affected functions, TFix then performs taint analysis to localize the misused timeout variable. Last, TFix produces recommendations for proper timeout variable setting based on the tracing results during the system normal run.  -->
-              We have conducted extensive experiments using 13 real world cloud server timeout bugs. Our experimental results show that TFix can correctly localize the misused timeout variables and suggest proper values for those bugs.  
-            </p>
-            <p>
               <!-- <a class="btn btn-default btn-sm"><img src="images/apache2.png" width="25" /> Apache</a>
               <a class="btn btn-default btn-sm"><img src="images/cassandra.png" width="18" /> Cassandra</a>
               <a class="btn btn-default btn-sm"><img src="images/flume.png" width="18" /> Flume</a>
@@ -309,6 +300,16 @@
               <a class="btn btn-default btn-sm"><img src="images/ml.png" width="20" /> SOM algo</a>
               <a class="btn btn-default btn-sm"><img src="" width="20" /> Dapper tracing</a>
               <a class="btn btn-default btn-sm"><img src="images/java.png" width="17" /> Java</a>
+            </p>
+            <p>
+              Timeout is commonly used to handle unexpected failures in server systems. However, improper use of timeout can cause server systems to hang or experience performance degradation. 
+              We conduct a comprehensive <b>study</b> to characterize 156 real-world timeout problems in 11 commonly used cloud server systems. 
+              Our study reveals timeout problems are widespread among cloud server systems.<br>
+              We then present <b>TScope</b> to achieve timeout bug identification by leveraging kernel-level system call tracing and machine learning based anomaly detection and feature extraction schemes. 
+              We conducted experiments using 19 real-world server performance bugs, including 12 timeout and 7 non-timeout performance bugs. 
+              The results show that TScope correctly classifies 18 out of 19 bugs with the false positive rate 0.8%.<br>
+              Futhermore, we present <b>TFix</b>, a drill-down bug analysis protocol for narrowing down the root cause variable of a timeout bug and producing recommendations for correcting the root cause. <!-- TFix first employs a system call frequent episode mining scheme to check whether a timeout bug is caused by a misused timeout variable. If the check is positive, TFix then performs application tracing to identify timeout affected functions by analyzing both function execution time and frequency changes. After identifying the timeout affected functions, TFix then performs taint analysis to localize the misused timeout variable. Last, TFix produces recommendations for proper timeout variable setting based on the tracing results during the system normal run.  -->
+              We have conducted extensive experiments using 13 real world cloud server timeout bugs. Our experimental results show that TFix can correctly localize the misused timeout variables and suggest proper values for those bugs.  
             </p>
           </div>
         </div>
@@ -340,6 +341,12 @@
               <a class="btn btn-default btn-sm" href="http://www.research.ibm.com/"><i class="ios ion-ios-location-outline fa-lg"></i> IBM Research</a>
             </p>
             <p>
+              <a class="btn btn-default btn-sm"><img src="images/fabric.png" width="70" /> </a>
+              <a class="btn btn-default btn-sm"> Zero-knowledge proof </a>
+              <!-- <a class="btn btn-default btn-sm"><img src="images/golang.png" width="45" /> </a> -->
+              <a class="btn btn-default btn-sm"> Golang </a>
+            </p>
+            <p>
               On a Blockchain network, transaction data are exposed to all participants.
               To preserve privacy and confidentiality in transactions, while still maintaining data immutability, we design and implement FabZK.<br>
               <b>FabZK</b> conceals transaction details on a shared ledger by storing only encrypted data from each transaction (e.g., payment amount), and by anonymizing the transactional relationship (e.g., payer and payee) between members in a Blockchain network.
@@ -347,12 +354,6 @@
               FabZK is implemented as an extension to the open source Hyperledger Fabric. It provides APIs to easily enable data privacy in both client code and chaincode. 
               It also supports on-demand, automated auditing based on encrypted data.
               Our evaluation shows that FabZK offers strong privacy-preserving capabilities, while delivering reasonable performance for the applications developed based on its framework.
-            </p>
-            <p>
-              <a class="btn btn-default btn-sm"><img src="images/fabric.png" width="70" /> </a>
-              <a class="btn btn-default btn-sm"> Zero-knowledge proof </a>
-              <!-- <a class="btn btn-default btn-sm"><img src="images/golang.png" width="45" /> </a> -->
-              <a class="btn btn-default btn-sm"> Golang </a>
             </p>
           </div>
         </div>
@@ -385,6 +386,15 @@
               <a class="btn btn-default btn-sm" href="http://csc.ncsu.edu/"><i class="ios ion-ios-location-outline fa-lg"></i> NC State</a>
             </p>
             <p>
+              <a class="btn btn-default btn-sm"><img src="images/openstack.png" width="14" /> Openstack</a>
+              <a class="btn btn-default btn-sm"><img src="images/docker.png" width="20" /> Docker</a>
+              <a class="btn btn-default btn-sm"><img src="images/zookeeper.png" width="12" /> ZooKeeper</a>
+              <a class="btn btn-default btn-sm"><img src="images/cadvisor.jpg" width="12" /> cAdvisor</a>
+              <a class="btn btn-default btn-sm"><img src="images/java.png" width="17" /> Java</a>
+              <a class="btn btn-default btn-sm"><img src="images/Python.png" width="14" /> Python</a>
+              <a class="btn btn-default btn-sm"><img src="images/shellscript.png" width="14" /> Shell Script</a>
+            </p>
+            <p>
               Cloud infrastructures and distributed applications become increasingly complex. 
               We are thirsting for an easy-to-use cloud application deployment tool. 
               This tool needs elasticity for dynamic environments, 
@@ -395,16 +405,6 @@
               It has automatic component composition and instantiation. 
               More importantly, it has an elastically auto-scaling mechanism 
               to handle overload conditions, resource contentions, and system anomalies.
-            </p>
-            <p>
-              <a class="btn btn-default btn-sm"><img src="images/openstack.png" width="14" /> Openstack</a>
-              <a class="btn btn-default btn-sm"><img src="images/docker.png" width="20" /> Docker</a>
-              <a class="btn btn-default btn-sm"><img src="images/zookeeper.png" width="12" /> ZooKeeper</a>
-              <a class="btn btn-default btn-sm"><img src="images/cadvisor.jpg" width="12" /> cAdvisor</a>
-              <br>
-              <a class="btn btn-default btn-sm"><img src="images/java.png" width="17" /> Java</a>
-              <a class="btn btn-default btn-sm"><img src="images/Python.png" width="14" /> Python</a>
-              <a class="btn btn-default btn-sm"><img src="images/shellscript.png" width="14" /> Shell Script</a>
             </p>
           </div>
         </div>
