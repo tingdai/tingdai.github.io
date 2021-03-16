@@ -384,9 +384,10 @@
               confname = "";
               var index = ddlist.length;
               while(index--){
-                if(ddlist[index].includes('OSDI') && oddOrEvenYear == 1){
-                  continue;
-                } else if (ddlist[index].includes('SOSP') && oddOrEvenYear == 0){
+                // if(ddlist[index].includes('OSDI') && oddOrEvenYear == 1){
+                //   continue;
+                // } 
+                if (ddlist[index].includes('SOSP') && oddOrEvenYear == 0){
                   continue;
                 }
                 confname = confname + ddlist[index] + "</div><div>";
