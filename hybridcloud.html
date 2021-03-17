@@ -41,9 +41,34 @@
     
       gtag('config', 'UA-46464487-1');
     </script>
+
+    <style>
+      #topBtn {
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        right: 30px;
+        z-index: 99;
+        font-size: 40px;
+        border: none;
+        outline: none;
+        background-color: transparent;
+        color: white;
+        cursor: pointer;
+        /*padding: 15px;*/
+        border-radius: 4px;
+      }
+      #topBtn:hover {
+        /*background-color: #555;*/
+        color: #555;
+      }
+    </style>
+
   </head>
 
   <body data-gr-c-s-loaded="true">
+
+    <button onclick="topFunction()" id="topBtn" title="Go to top"><i class="fa fa-arrow-up"></i></button>
 
     <div class="home-welcome">
       <div class="container">
@@ -260,7 +285,7 @@
       conferences = [
         {"abbrv": "icse", "deadline": {"Technical Submission": "2020-08-28 23:59:59", "Other Tracks Submission": "2020-10-18 23:59:59"}, "timezone": "AoE", "period": "May 23-29, 2021", "place": "Madrid, Spain", "link": "https://conf.researchr.org/home/icse-2021"},
         {"abbrv": "fse", "deadline": {"Industry Submission": "2021-05-07 23:59:59", "Research Submission": "2021-02-25 23:59:59"}, "timezone": "AoE", "period": "August 23-27, 2021", "place": "Athens, Greece", "link": "https://2021.esec-fse.org/"},
-        {"abbrv": "nsdi", "deadline": {"Spring Abstract": "2020-04-10 23:59:59", "Spring Submission": "2020-04-17 23:59:59", "Fall Abstract": "2020-09-10 23:59:59", "Fall Submission": "2020-09-17 23:59:59"}, "timezone": "EDT", "period": "April 12–14, 2021", "place": "Boston, Massachusetts", "link": "https://www.usenix.org/conference/nsdi21"},
+        {"abbrv": "nsdi", "deadline": {"Spring Abstract": "2021-03-04 20:59:59", "Spring Submission": "2021-03-10 20:59:59", "Fall Abstract": "2021-09-09 20:59:59", "Fall Submission": "2021-09-15 20:59:59"}, "timezone": "PDT", "period": "April 4–6, 2022", "place": "Renton, Washington", "link": "https://www.usenix.org/conference/nsdi22"},
         {"abbrv": "pldi", "deadline": {"Submission": "2020-11-20 23:59:59"}, "timezone": "AoE", "period": "June 20-25 2021", "place": "Virtual", "link": "https://conf.researchr.org/home/pldi-2021"},
         {"abbrv": "osdi", "deadline": {"Abstract": "2020-12-03 15:00:00", "Submission": "2020-12-10 15:00:00"}, "timezone": "PDT", "period": "July 14–16, 2021", "place": "Santa Clara, California", "link": "https://www.usenix.org/conference/osdi21"},
         {"abbrv": "sosp", "deadline": {"Abstract": "2021-04-30 14:59:59", "Submission": "2021-05-07 14:59:59"}, "timezone": "PST", "period": "October 25-28, 2021", "place": "Koblenz, Germany", "link": "https://sosp2021.mpi-sws.org/"},
@@ -268,7 +293,7 @@
         {"abbrv": "eurosys", "deadline": {"Abstract": "2020-10-01 23:59:59", "Submission": "2020-10-09 23:59:59"}, "timezone": "UTC", "period": "April 26-29, 2021", "place": "Edinburgh, Scotland, UK", "link": "https://2021.eurosys.org/"},
         {"abbrv": "fast", "deadline": {"Submission": "2020-09-24 23:59:59"}, "timezone": "PDT", "period": "February 22–25, 2021", "place": "Santa Clara, California", "link": "https://www.usenix.org/conference/fast21"},
         {"abbrv": "socc", "deadline": {"Abstract": "2020-05-18 23:59:59", "Submission": "2020-05-26 23:59:59"}, "timezone": "EDT", "period": "October 19-21, 2020", "place": "Virtual", "link": "https://acmsocc.github.io/2020/"},
-        {"abbrv": "asplos", "deadline": {"Abstract": "2020-08-14 14:59:59", "Submission": "2020-08-21 14:59:59"}, "timezone": "PDT", "period": "April 2021", "place": "Detroit, Michigan", "link": "https://asplos-conference.org/"},
+        // {"abbrv": "asplos", "deadline": {"Abstract": "2020-08-14 14:59:59", "Submission": "2020-08-21 14:59:59"}, "timezone": "PDT", "period": "April 2021", "place": "Detroit, Michigan", "link": "https://asplos-conference.org/"},
       ];
       //Technical Submission, Research Submission, Spring Submission, Fall Submission, Submission, 
       //Other Tracks Submission, Industry Submission,
@@ -283,7 +308,7 @@
         "eurosys": {"abbrvC": "EuroSys", "fullname": "European Conference on Computer Systems"},
         "fast": {"abbrvC": "FAST", "fullname": "USENIX Conference on File and Storage Technologies"},
         "socc": {"abbrvC": "SoCC", "fullname": "ACM Symposium on Cloud Computing"},
-        "asplos": {"abbrvC": "ASPLOS", "fullname": "ACM International Conference on Architectural Support for Programming Languages and Operating Systems"},
+        // "asplos": {"abbrvC": "ASPLOS", "fullname": "ACM International Conference on Architectural Support for Programming Languages and Operating Systems"},
       };
 
       timezones = {'AoE': 'UTC-12', 'EST': 'UTC-5', 'EDT': 'UTC-4', 'PDT': 'UTC-7', 'PST': 'UTC-8', 'UTC': 'UTC'};
@@ -706,6 +731,24 @@
     </script>
     <br>
 
+    <script>
+      //Get the button
+      var mybutton = document.getElementById("topBtn");
+      // When the user scrolls down 20px from the top of the document, show the button
+      window.onscroll = function() {scrollFunction()};
+      function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+          mybutton.style.display = "block";
+        } else {
+          mybutton.style.display = "none";
+        }
+      }
+      // When the user clicks on the button, scroll to the top of the document
+      function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+      }
+    </script>
 
     <footer style="color:white" background-color="transparent">
       <iframe src="https://ghbtns.com/github-btn.html?user=tingdai&type=follow" allowtransparency="true" frameborder="0" scrolling="0" width="120" height="20"></iframe> <!--follow-->
