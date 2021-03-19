@@ -1,4 +1,4 @@
-<html lang="en-us" class="gr__stefan-kolb_github_io">
+<html lang="en-us">
   <head>
     <meta charset="UTF-8">
     <title>Hybrid Cloud Conferences</title>
@@ -62,7 +62,7 @@
     </script>
   </head>
 
-  <body data-gr-c-s-loaded="true">
+  <body>
     <div class="home-welcome">  
       <div class="container">
         <h1>A collection of conferences IBMers target on.</h1>
@@ -134,49 +134,88 @@
     <script type="text/javascript">
     $(function() {
       conferences = [
-        {"abbrv": "aaai",     "category": ["AI"],  "deadline": {"Submission": "2019-09-05 23:59:59"}, "timezone": "UTC-10", "abbrvC": "AAAI", "fullname": "AAAI Conference on Artificial Intelligence", "period": "February 7-12, 2020", "place": "Hilton New York Midtown, New York, New York", "link": "https://aaai.org/Conferences/AAAI-20/"},
-        {"abbrv": "sysml",    "category": ["AI"],  "deadline": {"Submission": "2019-09-09 16:59:59"}, "timezone": "AoE", "abbrvC": "MLSys", "fullname": "Conference on Machine Learning and Systems", "period": "March 2-4, 2020", "place": "Austin, Texas", "link": "https://mlsys.org/"},
-        {"abbrv": "iclr",     "category": ["AI"],  "deadline": {"Submission": "2019-09-25 18:00:00"}, "timezone": "EAT", "abbrvC": "ICLR", "fullname": "International Conference on Learning Representations", "period": "April 26-30, 2020", "place": "Addis Ababa, Ethiopia", "link": "https://iclr.cc/Conferences/2020"},
-        {"abbrv": "icml",     "category": ["AI"],  "deadline": {"Submission": "2020-02-07 03:59:59"}, "timezone": "PT", "abbrvC": "ICML", "fullname": "International Conference on Machine Learning", "period": "July 12-18, 2020", "place": "Vienna, Austria", "link": "https://icml.cc/Conferences/2020/"},
-        {"abbrv": "cvpr",     "category": ["AI"],  "deadline": {"Submission": "2019-11-15 23:59:59"}, "timezone": "PST", "abbrvC": "CVPR", "fullname": "IEEE Conference on Computer Vision and Pattern Recognition", "period": "June 14-19, 2020", "place": "Seattle, Washington", "link": "http://cvpr2020.thecvf.com/"},
-        {"abbrv": "acl",      "category": ["AI"],  "deadline": {"Submission": "2019-12-09 23:59:59"}, "timezone": "AoE", "abbrvC": "ACL", "fullname": "Annual Conference of the Association for Computational Linguistics", "period": "July 5-10, 2020", "place": "Seattle, Washington", "link": "https://acl2020.org/"},
-        {"abbrv": "kdd",      "category": ["AI"],  "deadline": {"Submission": "2020-02-13 23:59:59"}, "timezone": "NUT", "abbrvC": "KDD", "fullname": "ACM SIGKDD Conference on Knowledge Discovery and Data Mining", "period": "August 22-27, 2020", "place": "San Diego, California", "link": "https://www.kdd.org/kdd2020/"},
-        {"abbrv": "ijcai",    "category": ["AI"],  "deadline": {"Submission": "2020-11-21 23:59:59"}, "timezone": "AoE", "abbrvC": "IJCAI-PRICAI", "fullname": "International Joint Conference on Artificial Intelligence and Pacific Rim International Conference on Artificial Intelligence", "period": "July 11-17, 2020", "place": "Yokohama, Japan", "link": "https://ijcai20.org/"},
-        {"abbrv": "vldb",     "category": ["AI"],  "deadline": {"Submission": "2020-03-01 17:00:00"}, "timezone": "PST", "abbrvC": "VLDB", "fullname": "International Conference on Very Large Data Bases", "period": "August 31-September 4, 2020", "place": "Tokyo,Japan", "link": "https://vldb2020.org/"},
-        {"abbrv": "nips",     "category": ["AI"],  "deadline": {"Submission": "2019-05-23 15:00:00"}, "timezone": "PST", "abbrvC": "NeurIPS", "fullname": "Conference on Neural Information Processing Systems", "period": "December 8-14, 2020", "place": "Vancouver, Canada", "link": "https://nips.cc/"},
+        {"abbrv": "aaai",     "deadline": {"Submission": "2019-09-05 23:59:59"}, "timezone": "UTC-10", "period": "February 7-12, 2020", "place": "Hilton New York Midtown, New York, New York", "link": "https://aaai.org/Conferences/AAAI-20/"},
+        {"abbrv": "sysml",    "deadline": {"Submission": "2019-09-09 16:59:59"}, "timezone": "AoE", "period": "March 2-4, 2020", "place": "Austin, Texas", "link": "https://mlsys.org/"},
+        {"abbrv": "iclr",     "deadline": {"Submission": "2019-09-25 18:00:00"}, "timezone": "EAT", "period": "April 26-30, 2020", "place": "Addis Ababa, Ethiopia", "link": "https://iclr.cc/Conferences/2020"},
+        {"abbrv": "icml",     "deadline": {"Submission": "2020-02-07 03:59:59"}, "timezone": "PT", "period": "July 12-18, 2020", "place": "Vienna, Austria", "link": "https://icml.cc/Conferences/2020/"},
+        {"abbrv": "cvpr",     "deadline": {"Submission": "2019-11-15 23:59:59"}, "timezone": "PST", "period": "June 14-19, 2020", "place": "Seattle, Washington", "link": "http://cvpr2020.thecvf.com/"},
+        {"abbrv": "acl",      "deadline": {"Submission": "2019-12-09 23:59:59"}, "timezone": "AoE", "period": "July 5-10, 2020", "place": "Seattle, Washington", "link": "https://acl2020.org/"},
+        {"abbrv": "kdd",      "deadline": {"Submission": "2020-02-13 23:59:59"}, "timezone": "NUT", "period": "August 22-27, 2020", "place": "San Diego, California", "link": "https://www.kdd.org/kdd2020/"},
+        {"abbrv": "ijcai",    "deadline": {"Submission": "2020-11-21 23:59:59"}, "timezone": "AoE", "period": "July 11-17, 2020", "place": "Yokohama, Japan", "link": "https://ijcai20.org/"},
+        {"abbrv": "vldb",     "deadline": {"Submission": "2020-03-01 17:00:00"}, "timezone": "PST", "period": "August 31-September 4, 2020", "place": "Tokyo,Japan", "link": "https://vldb2020.org/"},
+        {"abbrv": "nips",     "deadline": {"Submission": "2019-05-23 15:00:00"}, "timezone": "PST", "period": "December 8-14, 2020", "place": "Vancouver, Canada", "link": "https://nips.cc/"},
 
-        {"abbrv": "icse", "category": ["HC"], "deadline": {"Technical Submission": "2020-08-28 23:59:59", "Other Tracks Submission": "2020-10-18 23:59:59"}, "timezone": "AoE", "abbrvC": "ICSE", "fullname": "International Conference on Software Engineering", "period": "May 22-30 2021", "place": "Madrid, Spain", "link": "https://conf.researchr.org/home/icse-2021"},
-        {"abbrv": "fse", "category": ["HC"], "deadline": {"Industry Submission": "2020-05-19 23:59:59", "Research Submission": "2020-03-05 23:59:59"}, "timezone": "AoE", "abbrvC": "ESEC/FSE", "fullname": "ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering", "period": "November 8-13 2020", "place": "Sacramento, California", "link": "https://2020.esec-fse.org/"},
-        {"abbrv": "nsdi", "category": ["HC"], "deadline": {"Spring Abstract": "2020-04-10 23:59:59", "Spring Submission": "2020-04-17 23:59:59", "Fall Abstract": "2020-09-10 23:59:59", "Fall Submission": "2020-09-17 23:59:59"}, "timezone": "PDT", "abbrvC": "NSDI", "fullname": "USENIX Symposium on Networked Systems Design and Implementation", "period": "February 25–27, 2020", "place": "Santa Clara, California", "link": "https://www.usenix.org/conference/nsdi20"},
-        {"abbrv": "pldi", "category": ["HC"], "deadline": {"Submission": "2019-11-22 23:59:59"}, "timezone": "AoE", "abbrvC": "PLDI", "fullname": "ACM SIGPLAN Conference on Programming Language Design and Implementation", "period": "June 15-20 2020", "place": "London, United Kingdom", "link": "https://conf.researchr.org/home/pldi-2020"},
-        {"abbrv": "osdi", "category": ["HC", "Sy"], "deadline": {"Abstract": "2020-12-03 15:00:00", "Submission": "2020-12-10 15:00:00"}, "timezone": "PDT", "abbrvC": "OSDI", "fullname": "USENIX Symposium on Operating Systems Design and Implementation", "period": "July 14–16, 2021", "place": "Santa Clara, California", "link": "https://www.usenix.org/conference/osdi21"},
-        {"abbrv": "sosp", "category": ["HC", "Sy"], "deadline": {"Abstract": "2019-04-17 23:59:59", "Submission": "2019-04-24 23:59:59"}, "timezone": "UTC", "abbrvC": "SOSP", "fullname": "ACM Symposium on Operating Systems Principles", "period": "October 27-30, 2019", "place": "Deerhurst Resort, Huntsville, Ontario, Canada", "link": "https://sosp19.rcs.uwaterloo.ca/"},
-        {"abbrv": "atc", "category": ["HC"], "deadline": {"Submission": "2020-01-15 23:59:59"}, "timezone": "EST", "abbrvC": "ATC", "fullname": "USENIX Annual Technical Conference", "period": "July 15–17, 2020", "place": "Boston, Massachusetts", "link": "https://www.usenix.org/conference/atc20"},
-        {"abbrv": "eurosys", "category": ["HC"], "deadline": {"Submission": "2020-10-09 23:59:59"}, "abbrvC": "EuroSys", "fullname": "European Conference on Computer Systems", "period": "April 26-29, 2021", "place": "Edinburgh, Scotland, UK", "link": "https://2021.eurosys.org/"},
-        {"abbrv": "fast", "category": ["HC", "Sy"], "deadline": {"Submission": "2020-09-24 23:59:59"}, "timezone": "AoE", "abbrvC": "FAST", "fullname": "USENIX Conference on File and Storage Technologies", "period": "February 24–27, 2020", "place": "Santa Clara, California", "link": "https://www.usenix.org/conference/fast20"},
-        {"abbrv": "socc", "category": ["HC"], "deadline": {"Abstract": "2020-05-18 23:59:59", "Submission": "2020-05-26 23:59:59"}, "timezone": "EDT", "abbrvC": "SoCC", "fullname": "ACM Symposium on Cloud Computing", "period": "November 20-23, 2019", "place": "Chaminade, Santa Cruz, California", "link": "https://acmsocc.github.io/2019/"},
+        {"abbrv": "icse", "deadline": {"Technical Submission": "2020-08-28 23:59:59", "Other Tracks Submission": "2020-10-18 23:59:59"}, "timezone": "AoE", "period": "May 22-30 2021", "place": "Madrid, Spain", "link": "https://conf.researchr.org/home/icse-2021"},
+        {"abbrv": "fse", "deadline": {"Industry Submission": "2020-05-19 23:59:59", "Research Submission": "2020-03-05 23:59:59"}, "timezone": "AoE", "period": "November 8-13 2020", "place": "Sacramento, California", "link": "https://2020.esec-fse.org/"},
+        {"abbrv": "nsdi", "deadline": {"Spring Abstract": "2020-04-10 23:59:59", "Spring Submission": "2020-04-17 23:59:59", "Fall Abstract": "2020-09-10 23:59:59", "Fall Submission": "2020-09-17 23:59:59"}, "timezone": "PDT", "period": "February 25–27, 2020", "place": "Santa Clara, California", "link": "https://www.usenix.org/conference/nsdi20"},
+        {"abbrv": "pldi", "deadline": {"Submission": "2019-11-22 23:59:59"}, "timezone": "AoE", "period": "June 15-20 2020", "place": "London, United Kingdom", "link": "https://conf.researchr.org/home/pldi-2020"},
+        {"abbrv": "osdi", "deadline": {"Abstract": "2020-12-03 15:00:00", "Submission": "2020-12-10 15:00:00"}, "timezone": "PDT", "period": "July 14–16, 2021", "place": "Santa Clara, California", "link": "https://www.usenix.org/conference/osdi21"},
+        {"abbrv": "sosp", "deadline": {"Abstract": "2019-04-17 23:59:59", "Submission": "2019-04-24 23:59:59"}, "timezone": "UTC", "period": "October 27-30, 2019", "place": "Deerhurst Resort, Huntsville, Ontario, Canada", "link": "https://sosp19.rcs.uwaterloo.ca/"},
+        {"abbrv": "atc", "deadline": {"Submission": "2020-01-15 23:59:59"}, "timezone": "EST", "period": "July 15–17, 2020", "place": "Boston, Massachusetts", "link": "https://www.usenix.org/conference/atc20"},
+        {"abbrv": "eurosys", "deadline": {"Submission": "2020-10-09 23:59:59"}, "period": "April 26-29, 2021", "place": "Edinburgh, Scotland, UK", "link": "https://2021.eurosys.org/"},
+        {"abbrv": "fast", "deadline": {"Submission": "2020-09-24 23:59:59"}, "timezone": "AoE", "period": "February 24–27, 2020", "place": "Santa Clara, California", "link": "https://www.usenix.org/conference/fast20"},
+        {"abbrv": "socc", "deadline": {"Abstract": "2020-05-18 23:59:59", "Submission": "2020-05-26 23:59:59"}, "timezone": "EDT", "period": "November 20-23, 2019", "place": "Chaminade, Santa Cruz, California", "link": "https://acmsocc.github.io/2019/"},
         
-        {"abbrv": "ccs",      "category": ["Se"],  "deadline": {"First Submission": "2020-01-20 23:59:59", "Second Submission": "2020-05-04 23:59:59"}, "timezone": "AoE", "abbrvC": "CCS", "fullname": "ACM Conference on Computer and Communications Security", "period": "November 9-13, 2020", "place": "Orlando, Florida", "link": "https://www.sigsac.org/ccs/CCS2020/"},
-        {"abbrv": "security", "category": ["Se"],  "deadline": {"Summer Submission": "2020-06-18 11:59:59", "Fall Submission": "2020-10-15 11:59:59", "Winter Submission": "2021-02-04 11:59:59"}, "timezone": "AoE", "abbrvC": "Security", "fullname": "USENIX Security Symposium", "period": "August 12–14, 2020", "place": "Boston, Massachusetts", "link": "https://www.usenix.org/conference/usenixsecurity20"},
-        {"abbrv": "sp",       "category": ["Se"],  "deadline": {"Jan Submission": "2020-01-01 15:00:00", "Feb Submission": "2020-02-01 15:00:00", "Mar Submission": "2020-03-01 15:00:00", "Apr Submission": "2020-04-01 15:00:00", "May Submission": "2020-05-01 15:00:00", "Jun Submission": "2020-06-01 15:00:00", "Jul Submission": "2020-07-01 15:00:00", "Aug Submission": "2020-08-01 15:00:00", "Sep Submission": "2020-09-01 15:00:00", "Oct Submission": "2020-10-01 15:00:00", "Nov Submission": "2020-11-01 15:00:00", "Dec Submission": "2020-12-01 15:00:00"}, "timezone": "PDT", "abbrvC": "S&P", "fullname": "IEEE Symposium on Security and Privacy", "period": "May 18-20, 2020", "place": "San Francisco, California", "link": "https://www.ieee-security.org/TC/SP2020/"},
-        {"abbrv": "ndss",     "category": ["Se"],  "deadline": {"Summer Submission": "2019-06-14 23:59:59", "Fall Submission": "2019-09-13 23:59:59"}, "timezone": "AoE", "abbrvC": "NDSS", "fullname": "ISOC Network and Distributed System Security Symposium", "period": "February 23-26, 2020", "place": "San Diego, California", "link": "https://www.ndss-symposium.org/ndss2020"},
-        {"abbrv": "eurocrypt","category": ["Se"],  "deadline": {"Submission": "2019-09-26 23:59:59"}, "timezone": "CET", "abbrvC": "Eurocrypt", "fullname": "European Cryptology Conference", "period": "May 10-14, 2020", "place": "Zagreb, Croatia", "link": "https://eurocrypt.iacr.org/2020/"},
-        {"abbrv": "crypto",   "category": ["Se"],  "deadline": {"Submission": "2020-02-11 21:00:00"}, "timezone": "UTC", "abbrvC": "Crypto", "fullname": "International Cryptology Conference", "period": "August 16-20, 2020", "place": "Santa Barbara, California", "link": "https://crypto.iacr.org/2020/"},
-        {"abbrv": "acsac",    "category": ["Se"],  "deadline": {"Submission": "2019-06-12 23:59:59"}, "timezone": "AoE", "abbrvC": "ACSAC", "fullname": "Annual Computer Security Applications Conference", "period": "December 9-13, 2019", "place": "San Juan, Puerto Rico", "link": "https://www.acsac.org/"},
-        {"abbrv": "esorics",  "category": ["Se"],  "deadline": {"Submission": "2020-04-24 23:59:59"}, "timezone": "AoE", "abbrvC": "ESORICS", "fullname": "European Symposium on Research in Computer Security", "period": "September 14-18, 2020", "place": "Guildford, Surrey, UK", "link": "http://esorics2020.sccs.surrey.ac.uk/"},
-        // {"abbrv": "pkc",      "category": ["Se"],  "deadline": {"Submission": "2019-11-02 21:59:59"}, "timezone": "UTC", "abbrvC": "PKC", "fullname": "International Conference on Practice and Theory in Public Key Cryptography", "period": "May 4-7 2020", "place": "Edinburgh, Scotland", "link": "https://pkc.iacr.org/2020/"},
-        // {"abbrv": "pets",     "category": ["Se"],  "deadline": {"Spring Submission": "2020-05-31 23:59:59", "Summer Submission": "2020-08-31 23:59:59", "Fall Submission": "2020-11-30 23:59:59", "Winter Submission": "2020-02-29 23:59:59"}, "timezone": "AoE", "abbrvC": "PETS", "fullname": "Privacy Enhancing Technologies Symposium", "period": "July 14–18, 2020", "place": "Montréal, Canada", "link": "https://petsymposium.org/"},
-        {"abbrv": "isscc",    "category": ["Sy"],  "deadline": {"Submission": "2019-09-09 15:00:00"}, "timezone": "EDT", "abbrvC": "ISSCC", "fullname": "IEEE International Solid State Circuits Conference", "period": "February 16-20, 2020", "place": "San Francisco, California", "link": "http://isscc.org/"},
-        {"abbrv": "asplos",   "category": ["Sy"],  "deadline": {"Submission": "2019-08-16 16:59:59"}, "timezone": "PDT", "abbrvC": "ASPLOS", "fullname": "ACM International Conference on Architectural Support for Programming Languages and Operating Systems", "period": "March 16-20, 2020", "place": "Lausanne, Switzerland", "link": "https://asplos-conference.org/"},
-        {"abbrv": "ectc",     "category": ["Sy"],  "deadline": {"Submission": "2019-10-15 23:59:59"}, "timezone": "AoE", "abbrvC": "ECTC", "fullname": "IEEE Electronic Components and Technology Conferencee", "period": "May 26-29, 2020", "place": "Lake Buena Vista, Florida", "link": "https://www.ectc.net/"},
-        {"abbrv": "isca",     "category": ["Sy"],  "deadline": {"Submission": "2019-11-26 11:59:59"}, "timezone": "CET", "abbrvC": "ISCA", "fullname": "International Symposium on Computer Architecture", "period": "May 30–June 3, 2020", "place": "Valencia, Spain", "link": "https://iscaconf.org/isca2020/"},
-        {"abbrv": "dac",      "category": ["Sy"],  "deadline": {"Submission": "2020-01-22 17:00:00"}, "timezone": "MST", "abbrvC": "DAC", "fullname": "Design Automation Conference", "period": "July 19-23, 2020", "place": "San Francisco, CA", "link": "https://www.dac.com/"},
-        {"abbrv": "vlsi",     "category": ["Sy"],  "deadline": {"Submission": "2020-02-10 23:59:59"}, "timezone": "PST", "abbrvC": "VLSI", "fullname": "Symposia on VLSI Technology and Circuits", "period": "June 14-19, 2020", "place": "Honolulu, Hawaii", "link": "https://vlsisymposium.org/"},
-        {"abbrv": "micro",    "category": ["Sy"],  "deadline": {"Submission": "2019-04-05 16:59:59"}, "timezone": "PDT", "abbrvC": "MICRO", "fullname": "IEEE/ACM International Symposium on Microarchitecture", "period": "October 12-16, 2019", "place": "Columbus, Ohio", "link": "https://www.microarch.org/"},
-        {"abbrv": "iedm",     "category": ["Sy"],  "deadline": {"Submission": "2019-07-29 23:59:59"}, "timezone": "PDT", "abbrvC": "IEDM", "fullname": "IEEE International Electronic Device Meeting", "period": "December 7-11, 2019", "place": "San Francisco, California", "link": "https://ieee-iedm.org/"}, 
-
+        {"abbrv": "ccs",      "deadline": {"First Submission": "2020-01-20 23:59:59", "Second Submission": "2020-05-04 23:59:59"}, "timezone": "AoE", "period": "November 9-13, 2020", "place": "Orlando, Florida", "link": "https://www.sigsac.org/ccs/CCS2020/"},
+        {"abbrv": "security", "deadline": {"Summer Submission": "2020-06-18 11:59:59", "Fall Submission": "2020-10-15 11:59:59", "Winter Submission": "2021-02-04 11:59:59"}, "timezone": "AoE", "period": "August 12–14, 2020", "place": "Boston, Massachusetts", "link": "https://www.usenix.org/conference/usenixsecurity20"},
+        {"abbrv": "sp",       "deadline": {"Jan Submission": "2020-01-01 15:00:00", "Feb Submission": "2020-02-01 15:00:00", "Mar Submission": "2020-03-01 15:00:00", "Apr Submission": "2020-04-01 15:00:00", "May Submission": "2020-05-01 15:00:00", "Jun Submission": "2020-06-01 15:00:00", "Jul Submission": "2020-07-01 15:00:00", "Aug Submission": "2020-08-01 15:00:00", "Sep Submission": "2020-09-01 15:00:00", "Oct Submission": "2020-10-01 15:00:00", "Nov Submission": "2020-11-01 15:00:00", "Dec Submission": "2020-12-01 15:00:00"}, "timezone": "PDT", "period": "May 18-20, 2020", "place": "San Francisco, California", "link": "https://www.ieee-security.org/TC/SP2020/"},
+        {"abbrv": "ndss",     "deadline": {"Summer Submission": "2019-06-14 23:59:59", "Fall Submission": "2019-09-13 23:59:59"}, "timezone": "AoE", "period": "February 23-26, 2020", "place": "San Diego, California", "link": "https://www.ndss-symposium.org/ndss2020"},
+        {"abbrv": "eurocrypt","deadline": {"Submission": "2019-09-26 23:59:59"}, "timezone": "CET", "period": "May 10-14, 2020", "place": "Zagreb, Croatia", "link": "https://eurocrypt.iacr.org/2020/"},
+        {"abbrv": "crypto",   "deadline": {"Submission": "2020-02-11 21:00:00"}, "timezone": "UTC", "period": "August 16-20, 2020", "place": "Santa Barbara, California", "link": "https://crypto.iacr.org/2020/"},
+        {"abbrv": "acsac",    "deadline": {"Submission": "2019-06-12 23:59:59"}, "timezone": "AoE", "period": "December 9-13, 2019", "place": "San Juan, Puerto Rico", "link": "https://www.acsac.org/"},
+        {"abbrv": "esorics",  "deadline": {"Submission": "2020-04-24 23:59:59"}, "timezone": "AoE", "period": "September 14-18, 2020", "place": "Guildford, Surrey, UK", "link": "http://esorics2020.sccs.surrey.ac.uk/"},
+        // {"abbrv": "pkc",      "deadline": {"Submission": "2019-11-02 21:59:59"}, "timezone": "UTC", "period": "May 4-7 2020", "place": "Edinburgh, Scotland", "link": "https://pkc.iacr.org/2020/"},
+        // {"abbrv": "pets",     "deadline": {"Spring Submission": "2020-05-31 23:59:59", "Summer Submission": "2020-08-31 23:59:59", "Fall Submission": "2020-11-30 23:59:59", "Winter Submission": "2020-02-29 23:59:59"}, "timezone": "AoE", "period": "July 14–18, 2020", "place": "Montréal, Canada", "link": "https://petsymposium.org/"},
+        {"abbrv": "isscc",    "deadline": {"Submission": "2019-09-09 15:00:00"}, "timezone": "EDT", "period": "February 16-20, 2020", "place": "San Francisco, California", "link": "http://isscc.org/"},
+        {"abbrv": "asplos",   "deadline": {"Submission": "2019-08-16 16:59:59"}, "timezone": "PDT", "period": "March 16-20, 2020", "place": "Lausanne, Switzerland", "link": "https://asplos-conference.org/"},
+        {"abbrv": "ectc",     "deadline": {"Submission": "2019-10-15 23:59:59"}, "timezone": "AoE", "period": "May 26-29, 2020", "place": "Lake Buena Vista, Florida", "link": "https://www.ectc.net/"},
+        {"abbrv": "isca",     "deadline": {"Submission": "2019-11-26 11:59:59"}, "timezone": "CET", "period": "May 30–June 3, 2020", "place": "Valencia, Spain", "link": "https://iscaconf.org/isca2020/"},
+        {"abbrv": "dac",      "deadline": {"Submission": "2020-01-22 17:00:00"}, "timezone": "MST", "period": "July 19-23, 2020", "place": "San Francisco, CA", "link": "https://www.dac.com/"},
+        {"abbrv": "vlsi",     "deadline": {"Submission": "2020-02-10 23:59:59"}, "timezone": "PST", "period": "June 14-19, 2020", "place": "Honolulu, Hawaii", "link": "https://vlsisymposium.org/"},
+        {"abbrv": "micro",    "deadline": {"Submission": "2019-04-05 16:59:59"}, "timezone": "PDT", "period": "October 12-16, 2019", "place": "Columbus, Ohio", "link": "https://www.microarch.org/"},
+        {"abbrv": "iedm",     "deadline": {"Submission": "2019-07-29 23:59:59"}, "timezone": "PDT", "period": "December 7-11, 2019", "place": "San Francisco, California", "link": "https://ieee-iedm.org/"}, 
 
       ];
+
+
+      conferenceConstants = {
+        "aaai":      {     "category": ["AI"],             "abbrvC": "AAAI",          "fullname": "AAAI Conference on Artificial Intelligence"}, 
+        "sysml":     {     "category": ["AI"],             "abbrvC": "MLSys",         "fullname": "Conference on Machine Learning and Systems"}, 
+        "iclr":      {     "category": ["AI"],             "abbrvC": "ICLR",          "fullname": "International Conference on Learning Representations"}, 
+        "icml":      {     "category": ["AI"],             "abbrvC": "ICML",          "fullname": "International Conference on Machine Learning"}, 
+        "cvpr":      {     "category": ["AI"],             "abbrvC": "CVPR",          "fullname": "IEEE Conference on Computer Vision and Pattern Recognition"}, 
+        "acl":       {     "category": ["AI"],             "abbrvC": "ACL",           "fullname": "Annual Conference of the Association for Computational Linguistics"}, 
+        "kdd":       {     "category": ["AI"],             "abbrvC": "KDD",           "fullname": "ACM SIGKDD Conference on Knowledge Discovery and Data Mining"},
+        "ijcai":     {     "category": ["AI"],             "abbrvC": "IJCAI-PRICAI",  "fullname": "International Joint Conference on Artificial Intelligence and Pacific Rim International Conference on Artificial Intelligence"}, 
+        "vldb":      {     "category": ["AI"],             "abbrvC": "VLDB",          "fullname": "International Conference on Very Large Data Bases"}, 
+        "nips":      {     "category": ["AI"],             "abbrvC": "NeurIPS",       "fullname": "Conference on Neural Information Processing Systems"}, 
+        "icse":      {     "category": ["HC"],             "abbrvC": "ICSE",          "fullname": "International Conference on Software Engineering"}, 
+        "fse":       {     "category": ["HC"],             "abbrvC": "ESEC/FSE",      "fullname": "ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering"}, 
+        "nsdi":      {     "category": ["HC"],             "abbrvC": "NSDI",          "fullname": "USENIX Symposium on Networked Systems Design and Implementation"}, 
+        "pldi":      {     "category": ["HC"],             "abbrvC": "PLDI",          "fullname": "ACM SIGPLAN Conference on Programming Language Design and Implementation"}, 
+        "osdi":      {     "category": ["HC", "Sy"],       "abbrvC": "OSDI",          "fullname": "USENIX Symposium on Operating Systems Design and Implementation"}, 
+        "sosp":      {     "category": ["HC", "Sy"],       "abbrvC": "SOSP",          "fullname": "ACM Symposium on Operating Systems Principles"}, 
+        "atc":       {     "category": ["HC"],             "abbrvC": "ATC",           "fullname": "USENIX Annual Technical Conference"}, 
+        "eurosys":   {     "category": ["HC"],             "abbrvC": "EuroSys",       "fullname": "European Conference on Computer Systems"}, 
+        "fast":      {     "category": ["HC", "Sy"],       "abbrvC": "FAST",          "fullname": "USENIX Conference on File and Storage Technologies"}, 
+        "socc":      {     "category": ["HC"],             "abbrvC": "SoCC",          "fullname": "ACM Symposium on Cloud Computing"}, 
+        "ccs":       {     "category": ["Se"],             "abbrvC": "CCS",           "fullname": "ACM Conference on Computer and Communications Security"}, 
+        "security":  {     "category": ["Se"],             "abbrvC": "Security",      "fullname": "USENIX Security Symposium"}, 
+        "sp":        {     "category": ["Se"],             "abbrvC": "S&P",           "fullname": "IEEE Symposium on Security and Privacy"}, 
+        "ndss":      {     "category": ["Se"],             "abbrvC": "NDSS",          "fullname": "ISOC Network and Distributed System Security Symposium"}, 
+        "eurocrypt": {     "category": ["Se"],             "abbrvC": "Eurocrypt",     "fullname": "European Cryptology Conference"}, 
+        "crypto":    {     "category": ["Se"],             "abbrvC": "Crypto",        "fullname": "International Cryptology Conference"}, 
+        "acsac":     {     "category": ["Se"],             "abbrvC": "ACSAC",         "fullname": "Annual Computer Security Applications Conference"}, 
+        "esorics":   {     "category": ["Se"],             "abbrvC": "ESORICS",       "fullname": "European Symposium on Research in Computer Security"}, 
+        "isscc":     {     "category": ["Sy"],             "abbrvC": "ISSCC",         "fullname": "IEEE International Solid State Circuits Conference"}, 
+        "asplos":    {     "category": ["Sy"],             "abbrvC": "ASPLOS",        "fullname": "ACM International Conference on Architectural Support for Programming Languages and Operating Systems"}, 
+        "ectc":      {     "category": ["Sy"],             "abbrvC": "ECTC",          "fullname": "IEEE Electronic Components and Technology Conferencee"}, 
+        "isca":      {     "category": ["Sy"],             "abbrvC": "ISCA",          "fullname": "International Symposium on Computer Architecture"}, 
+        "dac":       {     "category": ["Sy"],             "abbrvC": "DAC",           "fullname": "Design Automation Conference"}, 
+        "vlsi":      {     "category": ["Sy"],             "abbrvC": "VLSI",          "fullname": "Symposia on VLSI Technology and Circuits"}, 
+        "micro":     {     "category": ["Sy"],             "abbrvC": "MICRO",         "fullname": "IEEE/ACM International Symposium on Microarchitecture"}, 
+        "iedm":      {     "category": ["Sy"],             "abbrvC": "IEDM",          "fullname": "IEEE International Electronic Device Meeting"}, 
+      };
 
 
       timezones = {'AoE': 'UTC-12', 'EST': 'UTC-5', 'EDT': 'UTC-4', 'PDT': 'UTC-7', 'PST': 'UTC-8', 'UTC': 'UTC', 'UTC-10': 'UTC-10', 'EAT': 'UTC+3', 'PT': 'UTC-8', 'NUT': 'UTC-11', 'CET': 'UTC-1', 'MST': 'UTC-7'};
@@ -255,7 +294,8 @@
           
           var confddmap = conferences[j].localDDMap;
           var abbrv = conferences[j].abbrv;
-          var abbrvC = conferences[j].abbrvC;
+          // var abbrvC = conferences[j].abbrvC;
+          var abbrvC = conferenceConstants[abbrv]["abbrvC"];
           for (var type in confddmap) {//type is dd name
             if (type.includes('Abstract')) { //we don't focus on abstract deadline
               continue;
@@ -303,10 +343,11 @@
             var deadline = confddmap[type]; // deadline is the dd date
             var ddmonth = deadline.toString().substring(4, 7); //only keep the first 3 letters for the month abbreviation
             var filteredcate = [];
-            var catlen = conferences[j].category.length;
+            var category = conferenceConstants[abbrv]["category"];
+            var catlen = category.length;
             while(catlen--){
             // for(var cat in conferences[j].category){
-              var cat = conferences[j].category[catlen];
+              var cat = category[catlen];
               if(areas[cat] == true){
                 filteredcate.push(cat);
               }

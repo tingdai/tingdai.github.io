@@ -66,7 +66,7 @@
 
   </head>
 
-  <body data-gr-c-s-loaded="true">
+  <body>
 
     <button onclick="topFunction()" id="topBtn" title="Go to top"><i class="fa fa-arrow-up"></i></button>
 
@@ -388,14 +388,14 @@
         var i = months.length;//i = 12
         var insertednextyear = false;
         while(i--){
-          var classtype = "";
-          var confname = null;
+          var classtype = ""; // a month point with hanging bollons
+          var confname = "";
           var month = months[(thismonth+months.length-i-1)%months.length];
           if( month.includes('Jan') && !insertednextyear && i != 11) {
-            month = nextyear; //we need to assert 
+            month = nextyear; //we need to insert a new year point 
             i++;
             insertednextyear = true;
-            classtype = "ypoint";
+            classtype = "ypoint"; // year point
           }
           if(month !== nextyear){
             var ddlist = realDD[month];
@@ -405,8 +405,8 @@
             } else {
               oddOrEvenYear = thisyear%2;
             }
+            confname = "";
             if(ddlist.length > 0){
-              confname = "";
               var index = ddlist.length;
               while(index--){
                 // if(ddlist[index].includes('OSDI') && oddOrEvenYear == 1){
@@ -415,18 +415,23 @@
                 if (ddlist[index].includes('SOSP') && oddOrEvenYear == 0){
                   continue;
                 }
-                confname = confname + ddlist[index] + "</div><div>";
+                // confname = confname + "<a href='#" +ddlist[index]+ "'>" + ddlist[index] + "</a></div><div>";
+                confname = confname  + ddlist[index] + "</div><div>";
               }
-              if(confname.length > 11){
-                confname = confname.substring(0, confname.length - 11);
+              var divlen = "</div><div>".length;
+              if(confname.length > divlen){
+                confname = confname.substring(0, confname.length - divlen);
               }
             } else {
-              classtype = "point";
+              classtype = "point"; //empty month point
+              confname = "";
             } 
           }
+          // console.log(confname)
           var temp = _.template($('#conf-deadline-month-each').html());
           liItemTemps.push(temp({classtype: classtype, date: month, confname: confname}));
         }
+        
         
 
         var temp = _.template($('#conf-deadline-month').html());
@@ -446,6 +451,7 @@
           liItem13: liItemTemps[12],
           liItem14: liItemTemps[13],
         }));
+        // console.log($this);
       });
 
 
