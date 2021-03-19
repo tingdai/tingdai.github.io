@@ -180,6 +180,10 @@
       background-color: #f0ad4e;
     }
 
+    li div.bg-black {
+      background-color: black;
+    }
+
     li div.bg-Se {
       /*background-color: #5bc0de;*/
       background-color: #337ab7;

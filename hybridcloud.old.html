@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="css/font-awesome-animation.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/gh-fork-ribbon.css" />
-    <link rel="stylesheet" href="css/h-timeline2.css">
+    <link rel="stylesheet" href="css/h-timeline.css">
     <style>
         /* The default background color is #c00 */
         .github-fork-ribbon.right-bottom:before {
@@ -64,20 +64,6 @@
       }
     </style>
 
-    <style>
-      /* unvisited link */
-      a:link, a:visited {
-        color: white;
-        text-decoration: none;
-      }
-      
-      /* mouse over link */
-      a:hover {
-        color: hotpink;
-      }
-      
-    </style>
-
   </head>
 
   <body>
@@ -121,67 +107,7 @@
       </div>
 
 
-
       <div class="container">
-        <p>Conference submission deadlines in the next 12 months:</p>
-        <br><br>
-
-        <div id="conf-dd-twelve-month" conf-dd-twelve-month=""></div>
-
-        <div style="font-size:13px; text-align:center">
-          <div id="HCNote">
-          <p>ESEC/FSE: separated research track and industry track.&nbsp;&nbsp; 
-          ICSE: separated research track and industry track.&nbsp;&nbsp; 
-          NSDI: two submissions in spring and fall.</p>
-          </div>
-          <!-- <div id="SeNote">
-          <p>CCS: two submissions.</p>
-          <p>Usenix Security: three submissions in summer, fall, and winter.</p>
-          <p>S&P: twelve submissions in each month.</p> 
-          <p>NDSS: two submissions in summer and fall.</p>
-          </div> -->
-        </div>
-      </div>
-
-
-
-       <script type="text/template", id="conf-deadline-month">
-          <div class="timeline" style="font-size:12px;"> 
-          <ul>
-            <%= liItem1 %>
-            <%= liItem2 %>
-            <%= liItem3 %>
-            <%= liItem4 %>
-            <%= liItem5 %>
-            <%= liItem6 %>
-            <%= liItem7 %>
-            <%= liItem8 %>
-            <%= liItem9 %>
-            <%= liItem10 %>
-            <%= liItem11 %>
-            <%= liItem12 %>
-            <%= liItem13 %>
-            <%= liItem14 %>
-          </ul>
-          </div>
-        </script>
-
-        <script type="text/template", id="conf-deadline-month-each">
-            <li class="<%= classtype %>"><div data="<%= date %>"<%= confname %></div><p>FILLUP</p></li>
-        </script>
-
-
-        <!-- <script type="text/template", id="conf-deadline-month-each">
-            <li class="<%= classtype %>"><%= monthconfs %><p>JustFill</p></li>
-        </script> -->
-
-
-
-
-
-
-
-     <!--  <div class="container">
         <p>Submission deadlines in the next 12 months:</p>
       <div class="scrollrow">
         
@@ -217,7 +143,7 @@
 
         <script type="text/template", id="conf-deadline-month-each">
             <li class="<%= classtype %>"><div data="<%= date%>"><%= confname %></div></li>
-        </script> -->
+        </script>
 
 
 
@@ -372,16 +298,16 @@
       //Technical Submission, Research Submission, Spring Submission, Fall Submission, Submission, 
       //Other Tracks Submission, Industry Submission,
       conferenceConstants = {
-        "icse":    {"category": ["HC"], "abbrvC": "ICSE", "fullname": "International Conference on Software Engineering"},
-        "fse":     {"category": ["HC"], "abbrvC": "FSE", "fullname": "ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering"},
-        "nsdi":    {"category": ["HC"], "abbrvC": "NSDI", "fullname": "USENIX Symposium on Networked Systems Design and Implementation"},
-        "pldi":    {"category": ["HC"], "abbrvC": "PLDI", "fullname": "ACM SIGPLAN Conference on Programming Language Design and Implementation"},
-        "osdi":    {"category": ["HC"], "abbrvC": "OSDI", "fullname": "USENIX Symposium on Operating Systems Design and Implementation"},
-        "sosp":    {"category": ["HC"], "abbrvC": "SOSP", "fullname": "ACM Symposium on Operating Systems Principles"},
-        "atc":     {"category": ["HC"], "abbrvC": "ATC", "fullname": "USENIX Annual Technical Conference"},
-        "eurosys": {"category": ["HC"], "abbrvC": "EuroSys", "fullname": "European Conference on Computer Systems"},
-        "fast":    {"category": ["HC"], "abbrvC": "FAST", "fullname": "USENIX Conference on File and Storage Technologies"},
-        "socc":    {"category": ["HC"], "abbrvC": "SoCC", "fullname": "ACM Symposium on Cloud Computing"},
+        "icse": {"abbrvC": "ICSE", "fullname": "International Conference on Software Engineering"},
+        "fse":  {"abbrvC": "FSE", "fullname": "ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering"},
+        "nsdi": {"abbrvC": "NSDI", "fullname": "USENIX Symposium on Networked Systems Design and Implementation"},
+        "pldi": {"abbrvC": "PLDI", "fullname": "ACM SIGPLAN Conference on Programming Language Design and Implementation"},
+        "osdi": { "abbrvC": "OSDI", "fullname": "USENIX Symposium on Operating Systems Design and Implementation"},
+        "sosp": { "abbrvC": "SOSP", "fullname": "ACM Symposium on Operating Systems Principles"},
+        "atc":  {"abbrvC": "ATC", "fullname": "USENIX Annual Technical Conference"},
+        "eurosys": {"abbrvC": "EuroSys", "fullname": "European Conference on Computer Systems"},
+        "fast": {"abbrvC": "FAST", "fullname": "USENIX Conference on File and Storage Technologies"},
+        "socc": {"abbrvC": "SoCC", "fullname": "ACM Symposium on Cloud Computing"},
         // "asplos": {"abbrvC": "ASPLOS", "fullname": "ACM International Conference on Architectural Support for Programming Languages and Operating Systems"},
       };
 
@@ -402,36 +328,17 @@
         }
       }
       addUtcTimeZones();
-      try {
-        var local_timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-        $('.local-timezone').text(local_timezone.toString());
-      }
-      catch(err) {
-        $('.local-timezone-hide').hide();
-      }
-
-      areas = {'AI': true, 'HC': true, 'Se': true, 'Sy': true};
+      var local_timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
       months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
       $('[conf-dd-twelve-month]').each(function(){
-
-        // for(area in areas){
-        //   var label = area+"Label";
-        //   if (document.getElementById(label).className == "btn btn-default btn-sm"){//unclicked
-        //     areas[area] = false;
-        //   } else {
-        //     areas[area] = true;
-        //   }
-        // }
 
         var realDD = {
             "Jan": [], "Feb": [], "Mar": [], "Apr": [], 
             "May": [], "Jun": [], "Jul": [], "Aug": [],
             "Sep": [], "Oct": [], "Nov": [], "Dec": [],
         };
-        var abbrCNoteMap = {};
-        var abbrvCCateMap = {};
         var j = conferences.length;
         //Technical Submission, Research Submission, Spring Submission, Fall Submission, Submission, 
         //Other Tracks Submission, Industry Submission,
@@ -450,70 +357,22 @@
           
           var confddmap = conferences[j].localDDMap;
           var abbrv = conferences[j].abbrv;
-          // var abbrvC = conferences[j].abbrvC;
           var abbrvC = conferenceConstants[abbrv]["abbrvC"];
           for (var type in confddmap) {//type is dd name
             if (type.includes('Abstract')) { //we don't focus on abstract deadline
               continue;
             }
             var abbrvCNote = abbrvC;
-            if (type.includes('Other') || type.includes('Industry')) {
-              abbrvCNote = abbrvC + "<sup>ind</sup>";
-            } else if (type.includes('Spring')){
-              abbrvCNote = abbrvC + "<sup>spr</sup>";
-            } else if (type.includes('Summer')){
-              abbrvCNote = abbrvC + "<sup>sum</sup>";
-            } else if (type.includes('Fall')){
-              abbrvCNote = abbrvC + "<sup>fal</sup>";
-            } else if (type.includes('Winter')){
-              abbrvCNote = abbrvC + "<sup>win</sup>";
-            } else if (type.includes('First')){
-              abbrvCNote = abbrvC + "<sup>1st</sup>";
-            } else if(type.includes('Second')){
-              abbrvCNote = abbrvC + "<sup>2nd</sup>";
-            } else if(type.includes('Jan')){
-              abbrvCNote = abbrvC + "<sup>jan</sup>";
-            } else if(type.includes('Feb')){
-              abbrvCNote = abbrvC + "<sup>feb</sup>";
-            } else if(type.includes('Mar')){
-              abbrvCNote = abbrvC + "<sup>mar</sup>";
-            } else if(type.includes('Apr')){
-              abbrvCNote = abbrvC + "<sup>apr</sup>";
-            } else if(type.includes('May')){
-              abbrvCNote = abbrvC + "<sup>may</sup>";
-            } else if(type.includes('Jun')){
-              abbrvCNote = abbrvC + "<sup>jun</sup>";
-            } else if(type.includes('Jul')){
-              abbrvCNote = abbrvC + "<sup>jul</sup>";
-            } else if(type.includes('Aug')){
-              abbrvCNote = abbrvC + "<sup>aug</sup>";
-            } else if(type.includes('Sep')){
-              abbrvCNote = abbrvC + "<sup>sep</sup>";
-            } else if(type.includes('Oct')){
-              abbrvCNote = abbrvC + "<sup>oct</sup>";
-            } else if(type.includes('Nov')){
-              abbrvCNote = abbrvC + "<sup>nov</sup>";
-            } else if(type.includes('Dec')){
-              abbrvCNote = abbrvC + "<sup>dec</sup>";
+            if (type.includes('Other') || type.includes('Industry') || type.includes('Spring')) {
+              abbrvCNote = abbrvC + "*";
             } 
+            if (type.includes('Fall')){
+              abbrvCNote = abbrvC + "**";
+            }
             var deadline = confddmap[type]; // deadline is the dd date
-            var ddmonth = deadline.toString().substring(4, 7); //only keep the first 3 letters for the month abbreviation
-            var filteredcate = [];
-            var category = conferenceConstants[abbrv]["category"];
-            var catlen = category.length;
-            while(catlen--){
-            // for(var cat in conferences[j].category){
-              var cat = category[catlen];
-              if(areas[cat] == true){
-                filteredcate.push(cat);
-              }
-            }
-            if(filteredcate.length > 0){ 
-              realDD[ddmonth].push(abbrvCNote);
-              // abbrvCCateMap[abbrvCNote] = conferences[j].category;
-              abbrvCCateMap[abbrvCNote] = filteredcate;
-              abbrCNoteMap[abbrvCNote] = abbrv;
-            }
+            var ddmonth = deadline.toString().substring(4, 7);
+            // ddmonth = ddmonth.substring(0,3); //only keep the first 3 letters for the month abbreviation
+            realDD[ddmonth].push(abbrvCNote);
           }
         }
 
@@ -524,24 +383,19 @@
         var liItemTemps = [];
         //append the current year
         var temp0 = _.template($('#conf-deadline-month-each').html());
-        // var monthconfs = "<div date=\""+thisyear+ "\"></div>";
-        // liItemTemps.push(temp0({classtype:"ypoint", monthconfs:monthconfs}));
-        // alert(temp0({classtype:"ypoint", monthconfs:monthconfs}));
-        liItemTemps.push(temp0({classtype:"ypoint", date:thisyear, confname:">"}));
-        // alert(temp0({classtype:"ypoint", date:thisyear, confname:">"}));
+        liItemTemps.push(temp0({classtype:"ypoint", date:thisyear, confname:null}));
         //append all the conferences and nextyear
         var i = months.length;//i = 12
         var insertednextyear = false;
         while(i--){
-          var classtype = "";
-          var confname = null;
+          var classtype = ""; // a month point with hanging bollons
+          var confname = "";
           var month = months[(thismonth+months.length-i-1)%months.length];
-          if( month.includes('Jan') && !insertednextyear && i !== 11) {
-            month = nextyear; //we need to assert 
+          if( month.includes('Jan') && !insertednextyear && i != 11) {
+            month = nextyear; //we need to insert a new year point 
             i++;
             insertednextyear = true;
-            classtype = "ypoint";
-            confname = ">";
+            classtype = "ypoint"; // year point
           }
           if(month !== nextyear){
             var ddlist = realDD[month];
@@ -551,48 +405,34 @@
             } else {
               oddOrEvenYear = thisyear%2;
             }
+            confname = "";
             if(ddlist.length > 0){
-              confname = "";
               var index = ddlist.length;
               while(index--){
                 // if(ddlist[index].includes('OSDI') && oddOrEvenYear == 1){
                 //   continue;
-                // } else 
+                // } 
                 if (ddlist[index].includes('SOSP') && oddOrEvenYear == 0){
                   continue;
                 }
-                var confAbbrvC = ddlist[index];
-                var cate = abbrvCCateMap[confAbbrvC];
-                var bgclass;
-                // if(cate.length == 1){
-                //   bgclass = "bg-" + cate[0];
-                // } else if(cate.length == 2){ //we only observe that there are confs in both HC and Sy categories
-                //   bgclass = "bg-" + cate[0].substring(1,2) + cate[1].substring(1,2);
-                // }
-                bgclass = "bg-black";
-                // alert(bgclass);
-                var abbrv = abbrCNoteMap[confAbbrvC];
-                confname = confname + " class='"+bgclass+"'>" + "<a href='#" +abbrv+ "'>" + confAbbrvC + "</a></div><div";
-                // confname = confname + " class='"+bgclass+"'>" + confAbbrvC + "</div><div";
+                // confname = confname + "<a href='#" +ddlist[index]+ "'>" + ddlist[index] + "</a></div><div>";
+                confname = confname  + ddlist[index] + "</div><div>";
               }
-              var divlen = "</div><div".length;
+              var divlen = "</div><div>".length;
               if(confname.length > divlen){
                 confname = confname.substring(0, confname.length - divlen);
-              } else {
-                // classtype = "point";
               }
             } else {
-              // classtype = "point";
-              confname = ">";
+              classtype = "point"; //empty month point
+              confname = "";
             } 
           }
+          // console.log(confname)
           var temp = _.template($('#conf-deadline-month-each').html());
           liItemTemps.push(temp({classtype: classtype, date: month, confname: confname}));
-          // var monthconfs = "<div date="+month+ confname + "</div>"
-          // liItemTemps.push(temp({classtype: classtype, monthconfs: monthconfs}));
-          // <div data="<%= date %>"<%= confname %></div>
-          // alert(temp({classtype: classtype, date: month, confname: confname}));
         }
+        
+        
 
         var temp = _.template($('#conf-deadline-month').html());
         $this.append(temp({
@@ -610,7 +450,8 @@
           liItem12: liItemTemps[11],
           liItem13: liItemTemps[12],
           liItem14: liItemTemps[13],
-        }));      
+        }));
+        // console.log($this);
       });
 
 
