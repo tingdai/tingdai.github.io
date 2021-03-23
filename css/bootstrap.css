@@ -1458,7 +1458,7 @@ dd {
 @media (min-width: 768px) {
   .dl-horizontal dt {
     float: left;
-    width: 160px;
+    width: 100px;
     overflow: hidden;
     clear: left;
     text-align: right;
@@ -1466,7 +1466,7 @@ dd {
     white-space: nowrap;
   }
   .dl-horizontal dd {
-    margin-left: 180px;
+    margin-left: 120px;
   }
 }
 abbr[title],
@@ -3023,7 +3023,7 @@ select[multiple].input-lg {
       -ms-user-select: none;
           user-select: none;
   /*background-image: none;*/
-  /*border: 1px solid transparent;*/
+  border: 1px solid transparent;
   border-radius: 4px;
 }
 .btn:focus,
