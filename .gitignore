@@ -3,3 +3,4 @@ test/*
 collectedSVG.html
 openshift/*
 *.DS_Store
+push2git.sh
