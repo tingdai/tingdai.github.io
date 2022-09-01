@@ -30,6 +30,8 @@
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/colorcodeicon.css" rel="stylesheet">
     <link href="css/separator.css" rel="stylesheet">
+    <script src="js/jquery.min.js"></script>
+    <link href="css/bib.css" rel="stylesheet">
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-46464487-1"></script>
     <script>
@@ -557,8 +559,9 @@
             <img src="images/ccm.png" class="img-responsive" height=120 alt="[CCM]"/>
             <center><p style="padding-top: 20px">
             <!--<a class="btn btn-primary btn-sm"><i class="fa fa-file-powerpoint-o fa-fw"></i> Slides</a>&nbsp;-->
-            <a class="btn btn-danger btn-sm" href="https://drive.google.com/file/d/0B_SslUDRJzv9VHNwSHZNTC1qanM/view"><i class="ios ion-ios-film-outline fa-lg"></i> Demo</a>&nbsp;
-            <a class="btn btn-github btn-sm" href="https://github.com/insightfinder/CCM"><i class="fa fa-github"></i> Software</a>
+            <!-- <a class="btn btn-danger btn-sm" href="https://drive.google.com/file/d/0B_SslUDRJzv9VHNwSHZNTC1qanM/view"><i class="ios ion-ios-film-outline fa-lg"></i> Demo</a>&nbsp; -->
+            <a class="btn btn-danger btn-sm" onclick="$('#video_ccm').slideToggle('fast');return false;"><b><i class="fa fa-file-video-o"></i> Video</b></a>
+            <a class="btn btn-github btn-sm" href="https://github.com/insightfinder/CCM"><i class="fa fa-github"></i> Software</a>&nbsp;
             </p></center>
           </div>
           <div class="col-md-8">
@@ -588,6 +591,11 @@
               More importantly, it has an elastically auto-scaling mechanism 
               to handle overload conditions, resource contentions, and system anomalies.
             </p>
+          </div>
+          <div class="col-md-12">
+            <div id="video_ccm" class="bibtex well"> 
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/0NeyJS78xlo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
           </div>
         </div>
       </div>
