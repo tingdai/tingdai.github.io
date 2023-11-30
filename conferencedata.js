@@ -1,0 +1,13 @@
+var conferences = [
+        {"abbrv": "icse", "deadline": {"Technical Submission": "2020-08-28 23:59:59", "Other Tracks Submission": "2020-10-18 23:59:59"}, "timezone": "AoE", "period": "May 23-29, 2021", "place": "Madrid, Spain", "link": "https://conf.researchr.org/home/icse-2021"},
+        {"abbrv": "fse", "deadline": {"Industry Submission": "2021-05-07 23:59:59", "Research Submission": "2021-02-25 23:59:59"}, "timezone": "AoE", "period": "August 23-27, 2021", "place": "Athens, Greece", "link": "https://2021.esec-fse.org/"},
+        {"abbrv": "nsdi", "deadline": {"Spring Abstract": "2021-03-04 20:59:59", "Spring Submission": "2021-03-10 20:59:59", "Fall Abstract": "2021-09-09 20:59:59", "Fall Submission": "2021-09-15 20:59:59"}, "timezone": "PDT", "period": "April 4–6, 2022", "place": "Renton, Washington", "link": "https://www.usenix.org/conference/nsdi22"},
+        {"abbrv": "pldi", "deadline": {"Submission": "2020-11-20 23:59:59"}, "timezone": "AoE", "period": "June 20-25 2021", "place": "Virtual", "link": "https://conf.researchr.org/home/pldi-2021"},
+        {"abbrv": "osdi", "deadline": {"Abstract": "2020-12-03 15:00:00", "Submission": "2020-12-10 15:00:00"}, "timezone": "PDT", "period": "July 14–16, 2021", "place": "Santa Clara, California", "link": "https://www.usenix.org/conference/osdi21"},
+        {"abbrv": "sosp", "deadline": {"Abstract": "2021-04-30 14:59:59", "Submission": "2021-05-07 14:59:59"}, "timezone": "PST", "period": "October 25-28, 2021", "place": "Koblenz, Germany", "link": "https://sosp2021.mpi-sws.org/"},
+        {"abbrv": "atc", "deadline": {"Submission": "2021-01-12 23:59:59"}, "timezone": "UTC", "period": "July 14–16, 2021", "place": "Santa Clara, California", "link": "https://www.usenix.org/conference/atc21"},
+        {"abbrv": "eurosys", "deadline": {"Abstract": "2020-10-01 23:59:59", "Submission": "2020-10-09 23:59:59"}, "timezone": "UTC", "period": "April 26-29, 2021", "place": "Edinburgh, Scotland, UK", "link": "https://2021.eurosys.org/"},
+        {"abbrv": "fast", "deadline": {"Submission": "2020-09-24 23:59:59"}, "timezone": "PDT", "period": "February 22–25, 2021", "place": "Santa Clara, California", "link": "https://www.usenix.org/conference/fast21"},
+        {"abbrv": "socc", "deadline": {"Submission": "2021-05-28 23:59:59"}, "timezone": "EDT", "period": "November 1-3, 2021", "place": "Hybrid", "link": "https://acmsocc.github.io/2021/"},
+        // {"abbrv": "asplos", "deadline": {"Abstract": "2020-08-14 14:59:59", "Submission": "2020-08-21 14:59:59"}, "timezone": "PDT", "period": "April 2021", "place": "Detroit, Michigan", "link": "https://asplos-conference.org/"},
+]
