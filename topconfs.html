@@ -1,7 +1,7 @@
 <html lang="en-us">
   <head>
     <meta charset="UTF-8">
-    <title>Hybrid Cloud Conferences</title>
+    <title>Target Conferences</title>
     <meta name="author" content="Ting Dai">
     <link rel="shortcut icon" type="image/ico" href="images/favicon.ico">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -94,14 +94,14 @@
           <i class="fa fa-stack-1x fa-hourglass-end"></i>
           <i class="fa fa-stack-1x fa-hourglass-end spin"></i>
           </i>
-          Hybrid Cloud Conference Countdowns 
+          Target Top Conference Countdowns 
         </h1>
         
         <h3 class="project-tagline">
           <a class="btn btn-transparent btn-sm"><i class="fa fa-tag"></i>system</a> 
-          <a class="btn btn-transparent btn-sm"><i class="fa fa-tag"></i>network</a>
+          <a class="btn btn-transparent btn-sm"><i class="fa fa-tag"></i>security</a>
           <a class="btn btn-transparent btn-sm"><i class="fa fa-tag"></i>software engineering</a>
-          <a class="btn btn-transparent btn-sm"><i class="fa fa-tag"></i>programming language</a>
+          <!-- <a class="btn btn-transparent btn-sm"><i class="fa fa-tag"></i>programming language</a> -->
           <a class="btn btn-transparent btn-sm"><i class="fa fa-tag"></i>cloud computing</a>
         </h3>
         <!-- <h5>
@@ -130,9 +130,16 @@
 
         <div style="font-size:13px; text-align:center">
           <div id="HCNote">
-          <p>ESEC/FSE: separated research track and industry track.&nbsp;&nbsp; 
-          ICSE: separated research track and industry track.&nbsp;&nbsp; 
-          NSDI: two submissions in spring and fall.</p>
+          <p>
+          SOSP: biennial, always on odd years.&nbsp;&nbsp; 
+          EuroSys: two submission cycles.&nbsp;&nbsp; 
+          ASPLOS: three submission cycles.&nbsp;&nbsp;<br> 
+          Security: three submission cycles.&nbsp;&nbsp;
+          S&P: three submission cycles.&nbsp;&nbsp;
+          CCS: two submission cycles.&nbsp;&nbsp;<br>
+          ESEC/FSE: separated research track and industry track.&nbsp;&nbsp; 
+          ICSE: two cycles for research track; and has other tracks.&nbsp;&nbsp; 
+          <!-- NSDI: two submissions in spring and fall.</p> -->
           </div>
           <!-- <div id="SeNote">
           <p>CCS: two submissions.</p>
@@ -310,6 +317,43 @@
       </div>
     </script>
 
+
+    <script type="text/template" id="conf-container-template3">
+      <div id="<%= confabbr %>">
+        <div class="container"><hr>   
+          <div class="col-md-4">
+            <div data-abbrv="<%= confabbr %>" data-detail=""></div>
+          </div>
+          <div class="col-md-4">
+            <div class="main-example">
+              <div id="<%= type1id %>">
+                <div class="countdown-container" data-abbrv="<%= confabbr %>" data-countdown="" data-ddtype="<%= ddtype1 %>"></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="main-example">
+              <div id="<%= type2id %>">
+                <div class="countdown-container" data-abbrv="<%= confabbr %>" data-countdown="" data-ddtype="<%= ddtype2 %>"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container">   
+          <div class="col-md-4">
+            <div data-abbrv="<%= confabbr %>"></div>
+          </div>
+          <div class="col-md-4">
+            <div class="main-example">
+              <div id="<%= type3id %>">
+                <div class="countdown-container" data-abbrv="<%= confabbr %>" data-countdown="" data-ddtype="<%= ddtype3 %>"></div>
+              </div>
+            </div>
+          </div>
+        </div><br><br>
+      </div>
+    </script>
+
     <script type="text/template" id="conf-container-template4">
       <div id="<%= confabbr %>">
         <div class="container"><hr>   
@@ -353,22 +397,36 @@
       </div>
     </script>
 
+    <!-- <script type="text/javascript" language="javascript" src="conferencedata.js"></script>  -->
+
+
+    <script type="text/javascript" language="javascript" src="confdata/icse.js"></script> 
+    <script type="text/javascript" language="javascript" src="confdata/fse.js"></script> 
+    <script type="text/javascript" language="javascript" src="confdata/osdi.js"></script> 
+    <script type="text/javascript" language="javascript" src="confdata/sosp.js"></script> 
+    <script type="text/javascript" language="javascript" src="confdata/eurosys.js"></script> 
+    <script type="text/javascript" language="javascript" src="confdata/socc.js"></script> 
+    <script type="text/javascript" language="javascript" src="confdata/asplos.js"></script> 
+    <script type="text/javascript" language="javascript" src="confdata/security.js"></script> 
+    <script type="text/javascript" language="javascript" src="confdata/ccs.js"></script> 
+    <script type="text/javascript" language="javascript" src="confdata/sp.js"></script> 
 
     <script type="text/javascript">
     $(function() {
-      conferences = [
-        {"abbrv": "icse", "deadline": {"Technical Submission": "2020-08-28 23:59:59", "Other Tracks Submission": "2020-10-18 23:59:59"}, "timezone": "AoE", "period": "May 23-29, 2021", "place": "Madrid, Spain", "link": "https://conf.researchr.org/home/icse-2021"},
-        {"abbrv": "fse", "deadline": {"Industry Submission": "2021-05-07 23:59:59", "Research Submission": "2021-02-25 23:59:59"}, "timezone": "AoE", "period": "August 23-27, 2021", "place": "Athens, Greece", "link": "https://2021.esec-fse.org/"},
-        {"abbrv": "nsdi", "deadline": {"Spring Abstract": "2021-03-04 20:59:59", "Spring Submission": "2021-03-10 20:59:59", "Fall Abstract": "2021-09-09 20:59:59", "Fall Submission": "2021-09-15 20:59:59"}, "timezone": "PDT", "period": "April 4–6, 2022", "place": "Renton, Washington", "link": "https://www.usenix.org/conference/nsdi22"},
-        {"abbrv": "pldi", "deadline": {"Submission": "2020-11-20 23:59:59"}, "timezone": "AoE", "period": "June 20-25 2021", "place": "Virtual", "link": "https://conf.researchr.org/home/pldi-2021"},
-        {"abbrv": "osdi", "deadline": {"Abstract": "2020-12-03 15:00:00", "Submission": "2020-12-10 15:00:00"}, "timezone": "PDT", "period": "July 14–16, 2021", "place": "Santa Clara, California", "link": "https://www.usenix.org/conference/osdi21"},
-        {"abbrv": "sosp", "deadline": {"Abstract": "2021-04-30 14:59:59", "Submission": "2021-05-07 14:59:59"}, "timezone": "PST", "period": "October 25-28, 2021", "place": "Koblenz, Germany", "link": "https://sosp2021.mpi-sws.org/"},
-        {"abbrv": "atc", "deadline": {"Submission": "2021-01-12 23:59:59"}, "timezone": "UTC", "period": "July 14–16, 2021", "place": "Santa Clara, California", "link": "https://www.usenix.org/conference/atc21"},
-        {"abbrv": "eurosys", "deadline": {"Abstract": "2020-10-01 23:59:59", "Submission": "2020-10-09 23:59:59"}, "timezone": "UTC", "period": "April 26-29, 2021", "place": "Edinburgh, Scotland, UK", "link": "https://2021.eurosys.org/"},
-        {"abbrv": "fast", "deadline": {"Submission": "2020-09-24 23:59:59"}, "timezone": "PDT", "period": "February 22–25, 2021", "place": "Santa Clara, California", "link": "https://www.usenix.org/conference/fast21"},
-        {"abbrv": "socc", "deadline": {"Submission": "2021-05-28 23:59:59"}, "timezone": "EDT", "period": "November 1-3, 2021", "place": "Hybrid", "link": "https://acmsocc.github.io/2021/"},
-        // {"abbrv": "asplos", "deadline": {"Abstract": "2020-08-14 14:59:59", "Submission": "2020-08-21 14:59:59"}, "timezone": "PDT", "period": "April 2021", "place": "Detroit, Michigan", "link": "https://asplos-conference.org/"},
-      ];
+
+      conferences = [ 
+        icse[0],
+        fse[0],
+        osdi[0],
+        sosp[0],
+        eurosys[0],
+        socc[0],
+        asplos[0],
+        security[0],
+        ccs[0] ,
+        sp[0]  
+      ]
+      
       //Technical Submission, Research Submission, Spring Submission, Fall Submission, Submission, 
       //Other Tracks Submission, Industry Submission,
       conferenceConstants = {
@@ -382,7 +440,10 @@
         "eurosys": {"category": ["HC"], "abbrvC": "EuroSys", "fullname": "European Conference on Computer Systems"},
         "fast":    {"category": ["HC"], "abbrvC": "FAST", "fullname": "USENIX Conference on File and Storage Technologies"},
         "socc":    {"category": ["HC"], "abbrvC": "SoCC", "fullname": "ACM Symposium on Cloud Computing"},
-        // "asplos": {"abbrvC": "ASPLOS", "fullname": "ACM International Conference on Architectural Support for Programming Languages and Operating Systems"},
+        "asplos":  {"category": ["HC"],"abbrvC": "ASPLOS", "fullname": "ACM International Conference on Architectural Support for Programming Languages and Operating Systems"},
+        "security":  {"category": ["HC"],"abbrvC": "Security", "fullname": "USENIX Security Symposium"},
+        "ccs":  {"category": ["HC"],"abbrvC": "CCS", "fullname": "ACM Conference on Computer and Communications Security"},
+        "sp":  {"category": ["HC"],"abbrvC": "S&P", "fullname": "IEEE Symposium on Security and Privacy"},
       };
 
       timezones = {'AoE': 'UTC-12', 'EST': 'UTC-5', 'EDT': 'UTC-4', 'PDT': 'UTC-7', 'PST': 'UTC-8', 'UTC': 'UTC'};
@@ -459,6 +520,14 @@
             var abbrvCNote = abbrvC;
             if (type.includes('Other') || type.includes('Industry')) {
               abbrvCNote = abbrvC + "<sup>ind</sup>";
+            } else if (type.includes('1st Cycle')){
+              abbrvCNote = abbrvC + "<sup>1st</sup>";
+            } else if (type.includes('2nd Cycle')){
+              abbrvCNote = abbrvC + "<sup>2nd</sup>";
+            } else if (type.includes('NIER')){
+              abbrvCNote = abbrvC + "<sup>NIER</sup>";
+            } else if (type.includes('SEIP')){
+              abbrvCNote = abbrvC + "<sup>SEIP/SEIS</sup>";
             } else if (type.includes('Spring')){
               abbrvCNote = abbrvC + "<sup>spr</sup>";
             } else if (type.includes('Summer')){
@@ -709,7 +778,19 @@
               type1id: abbrv.concat(types[0]).replace(/\s/g, ''),
               type2id: abbrv.concat(types[1]).replace(/\s/g, '')
             })); 
-          } 
+          }
+          else if(types.length == 3){
+            var temp = _.template($('#conf-container-template3').html());
+            $this.append(temp({
+              confabbr: abbrv, 
+              ddtype1: types[0], 
+              ddtype2: types[1], 
+              ddtype3: types[2], 
+              type1id: abbrv.concat(types[0]).replace(/\s/g, ''),
+              type2id: abbrv.concat(types[1]).replace(/\s/g, ''),
+              type3id: abbrv.concat(types[2]).replace(/\s/g, '')
+            })); 
+          }
           else if(types.length == 4){
             var temp = _.template($('#conf-container-template4').html());
             var id = abbrv.concat(types[2]);
@@ -763,6 +844,18 @@
               type2id: abbrv.concat(types[1]).replace(/\s/g, '')
             })); 
           } 
+          else if(types.length == 3){
+            var temp = _.template($('#conf-container-template3').html());
+            $this.append(temp({
+              confabbr: abbrv, 
+              ddtype1: types[0], 
+              ddtype2: types[1], 
+              ddtype3: types[2], 
+              type1id: abbrv.concat(types[0]).replace(/\s/g, ''),
+              type2id: abbrv.concat(types[1]).replace(/\s/g, ''),
+              type3id: abbrv.concat(types[2]).replace(/\s/g, '')
+            })); 
+          }
           else if(types.length == 4){
             var temp = _.template($('#conf-container-template4').html());
             $this.append(temp({

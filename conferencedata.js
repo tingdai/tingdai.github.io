@@ -9,5 +9,5 @@ var conferences = [
         {"abbrv": "eurosys", "deadline": {"Abstract": "2020-10-01 23:59:59", "Submission": "2020-10-09 23:59:59"}, "timezone": "UTC", "period": "April 26-29, 2021", "place": "Edinburgh, Scotland, UK", "link": "https://2021.eurosys.org/"},
         {"abbrv": "fast", "deadline": {"Submission": "2020-09-24 23:59:59"}, "timezone": "PDT", "period": "February 22–25, 2021", "place": "Santa Clara, California", "link": "https://www.usenix.org/conference/fast21"},
         {"abbrv": "socc", "deadline": {"Submission": "2021-05-28 23:59:59"}, "timezone": "EDT", "period": "November 1-3, 2021", "place": "Hybrid", "link": "https://acmsocc.github.io/2021/"},
-        // {"abbrv": "asplos", "deadline": {"Abstract": "2020-08-14 14:59:59", "Submission": "2020-08-21 14:59:59"}, "timezone": "PDT", "period": "April 2021", "place": "Detroit, Michigan", "link": "https://asplos-conference.org/"},
+        {"abbrv": "asplos", "deadline": {"Abstract": "2020-08-14 14:59:59", "Submission": "2020-08-21 14:59:59"}, "timezone": "PDT", "period": "April 2021", "place": "Detroit, Michigan", "link": "https://asplos-conference.org/"},
 ]
