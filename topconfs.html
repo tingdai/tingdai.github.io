@@ -18,6 +18,9 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/gh-fork-ribbon.css" />
     <link rel="stylesheet" href="css/h-timeline2.css">
+    <script type='text/javascript' src='https://www.gstatic.com/charts/loader.js'></script>
+    <script type='text/javascript' src='https://www.google.com/jsapi'></script>
+    <script src="js/mapa_prueba.js"></script>
     <style>
         /* The default background color is #c00 */
         .github-fork-ribbon.right-bottom:before {
@@ -149,6 +152,9 @@
           </div> -->
         </div>
       </div>
+
+
+
 
 
 
@@ -411,6 +417,8 @@
     <script type="text/javascript" language="javascript" src="confdata/ccs.js"></script> 
     <script type="text/javascript" language="javascript" src="confdata/sp.js"></script> 
 
+    <script type="text/javascript" language="javascript" src="confdata/citipos.js"></script> 
+
     <script type="text/javascript">
     $(function() {
 
@@ -423,7 +431,7 @@
         socc[0],
         asplos[0],
         security[0],
-        ccs[0] ,
+        ccs[0],
         sp[0]  
       ]
       
@@ -991,6 +999,13 @@
     </script>
     <br>
 
+
+    <div class="container">
+        <hr>
+        <p>Conference venue locations:</p>
+        <div id='map'></div>
+      </div>
+
     <script>
       //Get the button
       var mybutton = document.getElementById("topBtn");
@@ -1009,6 +1024,9 @@
         document.documentElement.scrollTop = 0;
       }
     </script>
+
+
+
 
     <footer style="color:white" background-color="transparent">
       <iframe src="https://ghbtns.com/github-btn.html?user=tingdai&type=follow" allowtransparency="true" frameborder="0" scrolling="0" width="120" height="20"></iframe> <!--follow-->
