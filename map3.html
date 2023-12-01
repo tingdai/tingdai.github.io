@@ -1,0 +1,90 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="css/subccs/main.css">
+    <script type='text/javascript' src='https://www.gstatic.com/charts/loader.js'></script>
+    <script type='text/javascript'>
+
+google.charts.load('current', {
+  packages: ['geochart'],
+  mapsApiKey: 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY'
+}).then(function () {
+  var data = google.visualization.arrayToDataTable([
+    ['Country', 'value'],
+    ['United States', 1],
+    ['Canada', 1],
+  ]);
+
+  var options = {
+    sizeAxis: {
+      minValue: 0,
+      maxSize: 100
+    },
+    colorAxis: {
+      colors: ['#000000', '#000000'] //#8a4cab is purple
+    },
+    legend: 'none',
+    backgroundColor: 'transparent',
+    datalessRegionColor: 'transparent',
+    keepAspectRatio: true,
+    tooltip: {
+      isHtml: true
+    }
+  };
+
+  var container = document.getElementById('chart_div');
+  var chart = new google.visualization.GeoChart(container);
+
+  google.visualization.events.addListener(chart, 'ready', function () {
+    // change inactive stroke color
+    var countries = container.getElementsByTagName('path');
+    Array.prototype.forEach.call(countries, function (path) {
+      path.setAttribute('stroke', '#FFFFFF'); //#d2b9df is light purple
+    });
+
+    // change active stroke color, build mutation observer
+    var observer = new MutationObserver(function (nodes) {
+      Array.prototype.forEach.call(nodes, function(node) {
+        // check for new nodes
+        if (node.addedNodes.length > 0) {
+          Array.prototype.forEach.call(node.addedNodes, function(addedNode) {
+            // the tooltip element will also be here, we only want the group elements
+            if (addedNode.tagName === 'g') {
+              // find children of the group element
+              Array.prototype.forEach.call(addedNode.childNodes, function(childNode) {
+                // check for path element, change stroke
+                if (childNode.tagName === 'path') {
+                  childNode.setAttribute('stroke', '#ff0000');
+                  // if (childNode.getAttribute('stroke') === '#000000') { //#000000 black
+                  //   addedNode.removeChild(childNode);
+                  // } else {
+                  //   childNode.setAttribute('stroke', '#ff0000'); //#ff0000 red
+                  // }
+                }
+              });
+            }
+
+          });
+        }
+      });
+    });
+
+
+    // activate mutation observer
+    observer.observe(container, {
+      childList: true,
+      subtree: true
+    });
+  });
+
+  chart.draw(data, options);
+});
+
+
+</script>
+  </head>
+  <body>
+    <div class="home-welcome">
+      <div id="chart_div" style="width: 900px; height: 500px;"></div>
+    </div>
+  </body>
+</html>

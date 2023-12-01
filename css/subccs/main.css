@@ -380,11 +380,13 @@ footer a:visited:hover {
  * Home module
  */
 .home-welcome {
-  background-image: linear-gradient(45deg, #361752, #B31B67);
-  background-image: -webkit-linear-gradient(45deg, #361752, #B31B67);
+/*  background-image: linear-gradient(45deg, #361752, #B31B67);*/
+/*  background-image: linear-gradient(45deg, #1b30d1, #0ba2d9);*/
+  background-image: linear-gradient(45deg, #05ad81, #1733e8, #7a52f2);
+/*  background-image: -webkit-linear-gradient(45deg, #361752, #B31B67);
   background-image: -moz-linear-gradient(45deg, #361752, #B31B67);
   background-image: -ms-linear-gradient(45deg, #361752, #B31B67);
-  background-image: -o-linear-gradient(45deg, #361752, #B31B67);
+  background-image: -o-linear-gradient(45deg, #361752, #B31B67);*/
   color: white;
   padding: 2em 0 2em;
   font-size: 125%;
