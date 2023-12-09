@@ -142,7 +142,7 @@
       font-size: 3rem;
       color: white;
       /*position: absolute;*/
-      margin-top: -5.8rem;
+      margin-top: -5.5rem;
       /*left: 1.2em;*/
       /*z-index: -1;*/
     }
@@ -150,7 +150,7 @@
       content: attr(data);
       left: 50%; 
       top: -6rem;
-      margin: 0;
+      margin: 0.3rem;
       border: 1px solid white;
       padding: 0.5rem;
       border-radius: 3rem;
@@ -257,12 +257,12 @@
       left: 0;
       width: 100%;
       text-align: center;
-      margin-left: 5px;
+      margin-left: 0px;
     }
     
     /* ballon */
     li div {
-      margin: 1.25rem 1rem 0.8rem;
+      margin: 1.25rem 0.5rem 0.8rem;
       padding: 0.5rem;
       border-radius: 0.3rem;
       /*border: 1px solid white;*/
