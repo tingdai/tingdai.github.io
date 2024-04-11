@@ -1,4 +1,5 @@
 var asplos = [
+    {"abbrv": "asplos", "deadline": {"Spring Submission": "2024-03-01 23:59:59", "Summer Submission": "2024-06-24 23:59:59", "Fall Submission": "2024-10-11 23:59:59"}, "timezone": "AoE", "period": "March - April 2025", "place": "Rotterdam, Netherlands", "link": "https://www.asplos-conference.org/asplos-2025-call-for-papers/"},
     {"abbrv": "asplos", "deadline": {"1st Cycle Submission": "2023-04-20 15:00:00", "2nd Cycle Submission": "2023-08-10 15:00:00", "3rd Cycle Submission": "2023-11-30 15:00:00"}, "timezone": "ET", "period": "April 27 - May 1 2024", "place": "San Diego, CA", "link": "https://www.asplos-conference.org/asplos2024/"},
     {"abbrv": "asplos", "deadline": {"Abstract": "2020-08-14 14:59:59", "Submission": "2020-08-21 14:59:59"}, "timezone": "PDT", "period": "April 2021", "place": "Detroit, Michigan", "link": "https://asplos-conference.org/asplos2021"},
 ]

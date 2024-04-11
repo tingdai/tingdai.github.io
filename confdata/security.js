@@ -1,3 +1,4 @@
 var security = [
+    {"abbrv": "security", "deadline": {"First Cycle Submission": "2024-09-04 23:59:59", "Second Cycle Submission": "2025-01-22 23:59:59"}, "timezone": "AoE", "period": "August 13-15 2025", "place": "Seattle, WA", "link": "https://www.usenix.org/conference/usenixsecurity25"},
     {"abbrv": "security", "deadline": {"Summer Submission": "2023-06-06 23:59:59", "Fall Submission": "2023-10-17 23:59:59", "Winter Submission": "2024-02-08 23:59:59"}, "timezone": "AoE", "period": "August 14-16 2024", "place": "Philadelphia, PA", "link": "https://www.usenix.org/conference/usenixsecurity24"},
 ]
