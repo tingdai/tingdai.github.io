@@ -206,6 +206,7 @@ section[id] { scroll-margin-top: 72px; }
 .o-ds { fill: var(--muted); font-size: 11.5px; }
 .o-tag { font-family: var(--font-mono); font-size: 10px; font-weight: 600; letter-spacing: .04em; }
 .o-tag.s1 { fill: var(--accent); } .o-tag.s2 { fill: var(--c1); } .o-tag.s3 { fill: var(--c2); } .o-tag.s0 { fill: var(--muted); }
+.o-grp { fill: none; stroke: var(--c1); stroke-width: 1; stroke-opacity: .55; }
 .o-e { fill: none; stroke: var(--muted); stroke-width: 1.3; }
 .o-e.dash { stroke-dasharray: 4 3; }
 .o-ah { fill: var(--muted); }

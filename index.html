@@ -26,11 +26,11 @@
   </script>
   <style>
 /* Option A: profile + now. One screen of positioning, then a short, scannable set of cards. */
-.hero { display: grid; grid-template-columns: 168px 1fr; gap: 28px; align-items: center; }
+.hero { display: grid; grid-template-columns: 200px 1fr; gap: 28px; align-items: center; }
 .hero .photo { border-radius: 12px; border: 1px solid var(--line); width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
 .hero .eyebrow { color: var(--accent); }
 .hero h1 { font-size: 40px; margin-top: 4px; }
-.hero .pitch { font-size: 18px; line-height: 1.5; color: var(--fg); max-width: 60ch; margin: 12px 0 0; text-wrap: pretty; }
+.hero .pitch { font-size: 18px; line-height: 1.5; color: var(--fg); margin: 12px 0 0; text-wrap: pretty; }
 .hero .pitch b { font-weight: 600; }
 .hero .was { margin: 10px 0 0; color: var(--muted); font-size: 14.5px; }
 .hero .links { margin-top: 16px; }
@@ -60,22 +60,8 @@
 .theme .papers { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
 .theme .papers a { font: 600 11px var(--font-mono); letter-spacing: .04em; padding: 1px 7px; border-radius: 4px; border: 1px solid var(--line); color: var(--muted); white-space: nowrap; }
 .theme .papers a:hover { color: var(--accent); border-color: var(--accent); text-decoration: none; }
-.also { color: var(--muted); font-size: 13.5px; margin: 12px 0 0; }
 @media (max-width: 680px) { .themes { grid-template-columns: 1fr; } }
 
-/* Selected work strip */
-.strip { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
-.strip a.w { display: flex; flex-direction: column; gap: 6px; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; color: var(--fg); min-width: 0; }
-.strip a.w:hover { text-decoration: none; border-color: var(--accent); }
-.strip a.w:hover .t { color: var(--accent); }
-.strip .v { display: flex; align-items: baseline; gap: 8px; font: 600 12px var(--font-mono); color: var(--accent); }
-.strip .v span { color: var(--muted); font-weight: 400; }
-.strip .t { font-weight: 600; font-size: 14.5px; line-height: 1.35; text-wrap: balance; }
-.strip .s { color: var(--muted); font-size: 13px; flex: 1; }
-.strip .award { margin-top: 0; font-size: 12.5px; }
-.allpubs { margin: 12px 0 0; font-size: 14px; }
-@media (max-width: 900px) { .strip { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 520px) { .strip { grid-template-columns: 1fr; } }
 
 /* Footer row: where to go next */
 .next { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
@@ -84,8 +70,6 @@
 .next a:hover b { color: var(--accent); }
 .next b { display: block; font-weight: 600; }
 .next span { display: block; color: var(--muted); font-size: 13px; margin-top: 2px; }
-.service { color: var(--muted); font-size: 13.5px; margin: 14px 0 0; }
-.service b { color: var(--fg); font-weight: 600; }
 @media (max-width: 900px) { .next { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 420px) { .next { grid-template-columns: 1fr; } }
   </style>
@@ -152,21 +136,21 @@
           <h3>AI agents and LLMs for IT operations</h3>
           <p>Benchmarking agents on real-world SRE, compliance and FinOps tasks (ITBench); generating, assessing and
             refining operations scripts (ScriptSmith); validating generated code without references (CodeSift).</p>
-          <div class="papers"><a href="files/itbench_ICML25.pdf">ICML'25</a><a href="files/scriptsmith_AAAI25.pdf">AAAI'25</a><a href="files/codesift_CLOUD24.pdf">CLOUD'24</a></div>
+          <div class="papers"><a href="files/itbench_ICML25.pdf" title="ICML 2025 spotlight and oral">ICML'25 &#9733;</a><a href="files/scriptsmith_AAAI25.pdf">AAAI'25</a><a href="files/codesift_CLOUD24.pdf">CLOUD'24</a></div>
         </article>
         <article class="theme">
           <div class="n">02</div>
-          <h3>Evaluating and guarding LLM applications</h3>
-          <p>Hallucination, relevance, safety and bias evaluation of LLM and agent responses, guardrails, and side-by-side
-            comparison of models and prompt versions, shipped as InsightFinder's AI Evaluation.</p>
-          <div class="papers"><a href="Projects.html#llmeval">PROJECT</a></div>
-        </article>
-        <article class="theme">
-          <div class="n">03</div>
           <h3>Bug and vulnerability detection</h3>
           <p>Distributed concurrency bugs through RPC-driven, race-directed test generation and fuzzing (Themis);
             server-side request forgeries through LLM-assisted, path-sensitive taint analysis (Artemis).</p>
           <div class="papers"><a href="files/themis_NSDI26.pdf">NSDI'26</a><a href="files/artemis_OOPSLA25.pdf">OOPSLA'25</a><a href="files/ssrf_CCS24.pdf">CCS'24</a></div>
+        </article>
+        <article class="theme">
+          <div class="n">03</div>
+          <h3>Cloud and infrastructure security</h3>
+          <p>Detecting risky scripts embedded in Ansible infrastructure code (SecureCode); how well static and dynamic
+            schemes catch container exploits; privacy-preserving, auditable smart contracts on Hyperledger Fabric (FabZK).</p>
+          <div class="papers"><a href="files/securecode_SOCC20.pdf">SoCC'20</a><a href="files/study_IC2E19.pdf">IC2E'19</a><a href="files/fabzk_DSN19.pdf">DSN'19</a></div>
         </article>
         <article class="theme">
           <div class="n">04</div>
@@ -176,36 +160,6 @@
           <div class="papers"><a href="files/hytrace_TPDS19.pdf">TPDS'19</a><a href="files/dscope_SOCC18.pdf">SoCC'18</a><a href="files/hangfix_SOCC20.pdf">SoCC'20</a><a href="files/tfix_ICDCS19.pdf">ICDCS'19</a><a href="files/understanding_IC2E18.pdf">IC2E'18</a></div>
         </article>
       </div>
-      <p class="also">Also: energy-aware video streaming (GreenABR, MMSys'22 and TOMM'24), risky scripts in infrastructure code (SoCC'20),
-        container vulnerability detection (IC2E'19) and privacy-preserving smart contracts (FabZK, DSN'19). All of it is on <a href="Projects.html#more">Projects</a>.</p>
-    </section>
-
-    <section>
-      <h2>Selected work</h2>
-      <div class="strip">
-        <a class="w" href="Publications.html#themis">
-          <div class="v">NSDI <span>2026</span></div>
-          <div class="t">Themis</div>
-          <div class="s">Detecting distributed concurrency bugs through RPC-driven, race-directed test generation and fuzzing.</div>
-        </a>
-        <a class="w" href="Publications.html#itbench">
-          <div class="v">ICML <span>2025</span></div>
-          <div class="t">ITBench</div>
-          <div class="s">Evaluating AI agents across diverse real-world IT automation tasks.</div>
-          <span class="award">Spotlight and oral</span>
-        </a>
-        <a class="w" href="Publications.html#artemis">
-          <div class="v">OOPSLA <span>2025</span></div>
-          <div class="t">Artemis</div>
-          <div class="s">Accurate detection of server-side request forgeries with LLM-assisted inter-procedural taint analysis.</div>
-        </a>
-        <a class="w" href="Publications.html#papers">
-          <div class="v">AAAI <span>2025</span></div>
-          <div class="t">ScriptSmith</div>
-          <div class="s">A unified LLM framework for Bash script generation, assessment and refinement in IT operations.</div>
-        </a>
-      </div>
-      <p class="allpubs"><a href="Publications.html">All 27 papers, 10 patents and 2 theses &rarr;</a></p>
     </section>
 
     <section>
@@ -216,8 +170,6 @@
         <a href="Experience.html"><b>Experience</b><span>Work, teaching, mentoring, service</span></a>
         <a href="Awards.html"><b>Awards</b><span>IBM Research Accomplishment ×3, DASH-IF award, IC2E best paper nominee</span></a>
       </div>
-      <p class="service"><b>Service.</b> Industry Track chair, IC2E 2024 · Program committee: IC2E, IEEE CLOUD, ICDCS · Editorial board, Journal of Systems Research.
-        <a href="Experience.html#service">Details</a></p>
     </section>
   </main>
 

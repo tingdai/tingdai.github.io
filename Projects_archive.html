@@ -190,21 +190,16 @@
   <text class="o-lt" x="470" y="128">ENSEMBLE SYNTHESIS</text>
   <rect class="o-lane l3" x="16" y="210" width="868" height="114" rx="10"/>
   <text class="o-lt" x="160" y="228">SEMANTIC VALIDATION · SAME LLM · 3 PROMPTS</text>
-  <rect class="o-b s1" x="28" y="34" width="248" height="56" rx="7"/>
+  <rect class="o-b s1" x="28" y="34" width="400" height="56" rx="7"/>
   <text class="o-tt" x="40" y="54">Inputs</text>
-  <text class="o-tag s1" x="266" y="54" text-anchor="end">TASK + CODE</text>
+  <text class="o-tag s1" x="418" y="54" text-anchor="end">TASK + CODE</text>
   <text class="o-ds" x="40" y="70">natural-language task description</text>
   <text class="o-ds" x="40" y="84">+ LLM-generated code (Python / Bash)</text>
-  <rect class="o-b s1" x="324" y="34" width="248" height="56" rx="7"/>
-  <text class="o-tt" x="336" y="54">Benchmarks</text>
-  <text class="o-tag s1" x="562" y="54" text-anchor="end">3 DATASETS</text>
-  <text class="o-ds" x="336" y="70">HumanEval 164 · MBPP+ 399 (Python)</text>
-  <text class="o-ds" x="336" y="84">Bash: 100 new tasks with test cases</text>
-  <rect class="o-b s1" x="620" y="34" width="248" height="56" rx="7"/>
-  <text class="o-tt" x="632" y="54">Verdict</text>
+  <rect class="o-b s1" x="468" y="34" width="400" height="56" rx="7"/>
+  <text class="o-tt" x="480" y="54">Verdict</text>
   <text class="o-tag s1" x="858" y="54" text-anchor="end">FIRST-LINE FILTER</text>
-  <text class="o-ds" x="632" y="70">correct → expert review / sandbox</text>
-  <text class="o-ds" x="632" y="84">incorrect → filtered out early</text>
+  <text class="o-ds" x="480" y="70">correct → expert review / sandbox</text>
+  <text class="o-ds" x="480" y="84">incorrect → filtered out early</text>
   <rect class="o-b s2" x="28" y="134" width="180" height="56" rx="7"/>
   <text class="o-tt" x="40" y="154">Syntax check</text>
   <text class="o-tag s2" x="198" y="154" text-anchor="end">LINTERS</text>
@@ -215,16 +210,11 @@
   <text class="o-tag s2" x="422" y="154" text-anchor="end">ON ERROR</text>
   <text class="o-ds" x="264" y="170">error message + code →</text>
   <text class="o-ds" x="264" y="184">LLM rectifies the code</text>
-  <rect class="o-b s3" x="468" y="134" width="176" height="56" rx="7"/>
+  <rect class="o-b s3" x="468" y="134" width="400" height="56" rx="7"/>
   <text class="o-tt" x="480" y="154">Ensemble</text>
-  <text class="o-tag s3" x="634" y="154" text-anchor="end">AND</text>
+  <text class="o-tag s3" x="858" y="154" text-anchor="end">AND</text>
   <text class="o-ds" x="480" y="170">correct only if similar</text>
   <text class="o-ds" x="480" y="184">and no discrepancies</text>
-  <rect class="o-b s3" x="684" y="134" width="188" height="56" rx="7"/>
-  <text class="o-tt" x="696" y="154">Results</text>
-  <text class="o-tag s3" x="862" y="154" text-anchor="end">CLOUD 2024</text>
-  <text class="o-ds" x="696" y="170">beats ICE-Score &amp; reference</text>
-  <text class="o-ds" x="696" y="184">grading · SMEs agree 83%</text>
   <rect class="o-b s3" x="28" y="234" width="248" height="56" rx="7"/>
   <text class="o-tt" x="40" y="254">Code → functionality</text>
   <text class="o-tag s3" x="266" y="254" text-anchor="end">PROMPT 1</text>
@@ -273,72 +263,72 @@
             <p>Customers' running environments vary, which results in many observed deviations, so prioritizing those risks with the customer's environment in mind matters. We quantify environment-aware resistance strength risk to help customers handle the volume of non-compliant controls. The quantification scheme is integrated with IBM X-Force Red Vulnerability Management Services (VMS).</p>
             <div class="actions"><a class="act" href="https://github.ibm.com/X-Force-Red/debacle/tree/hc_integration">HealthCheck code</a></div>
             <div class="media">Media: <a href="https://research.ibm.com/blog/cloud-resistance-strength">IBM Research Blog</a><a href="https://mediacenter.ibm.com/media/t/1_j9k62b5d">IBM MediaCenter</a></div>
-            <figure class="dg opt"><svg viewBox="0 0 900 384" width="900" role="img" aria-label="Risk quantification architecture in three lanes: X-Force Red VMS, risk pipeline and storage, with eight numbered steps">
+            <figure class="dg opt"><svg viewBox="0 0 900 324" width="900" role="img" aria-label="Risk quantification architecture in three lanes: X-Force Red VMS, risk pipeline and storage, with eight numbered steps">
   <defs><marker id="m-healthcheck-ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="o-ah" d="M0 0 L10 5 L0 10 z"/></marker></defs>
-  <rect class="o-lane l1" x="16" y="30" width="868" height="98" rx="10"/>
-  <text class="o-lt" x="30" y="48">X-FORCE RED VMS</text>
-  <rect class="o-lane l2" x="16" y="162" width="868" height="98" rx="10"/>
-  <text class="o-lt" x="30" y="180">RISK PIPELINE · OURS</text>
-  <rect class="o-lane l3" x="16" y="294" width="868" height="80" rx="10"/>
-  <text class="o-lt" x="30" y="312">STORAGE</text>
-  <rect class="o-b s1" x="40" y="58" width="230" height="56" rx="7"/>
-  <text class="o-tt" x="52" y="78">Scanners</text>
-  <text class="o-tag s1" x="260" y="78" text-anchor="end">API · GUI</text>
-  <text class="o-ds" x="52" y="94">Ansible · Nessus · Qualys</text>
-  <text class="o-ds" x="52" y="108">plus analyst uploads</text>
-  <rect class="o-b s1" x="335" y="58" width="230" height="56" rx="7"/>
-  <text class="o-tt" x="347" y="78">X-Force VMS Web</text>
-  <text class="o-tag s1" x="555" y="78" text-anchor="end">WEB</text>
-  <text class="o-ds" x="347" y="94">receives raw scan files</text>
-  <text class="o-ds" x="347" y="108">serves risk queries</text>
-  <rect class="o-b s1" x="630" y="58" width="230" height="56" rx="7"/>
-  <text class="o-tt" x="642" y="78">VMS UI</text>
-  <text class="o-tag s1" x="850" y="78" text-anchor="end">UI</text>
-  <text class="o-ds" x="642" y="94">findings ranked by</text>
-  <text class="o-ds" x="642" y="108">environment-aware risk</text>
-  <rect class="o-b s2" x="40" y="190" width="230" height="56" rx="7"/>
-  <text class="o-tt" x="52" y="210">Filesystem</text>
-  <text class="o-tag s2" x="260" y="210" text-anchor="end">QUEUE</text>
-  <text class="o-ds" x="52" y="226">raw data saved by type,</text>
-  <text class="o-ds" x="52" y="240">one queue per type</text>
-  <rect class="o-b s2" x="335" y="190" width="230" height="56" rx="7"/>
-  <text class="o-tt" x="347" y="210">Data Feed</text>
-  <text class="o-tag s2" x="555" y="210" text-anchor="end">PYTHON</text>
-  <text class="o-ds" x="347" y="226">polls queues, enriches</text>
-  <text class="o-ds" x="347" y="240">with techspecs</text>
-  <rect class="o-b s2" x="630" y="190" width="230" height="56" rx="7"/>
-  <text class="o-tt" x="642" y="210">Risk Analyzer</text>
-  <text class="o-tag s2" x="850" y="210" text-anchor="end">PYTHON</text>
-  <text class="o-ds" x="642" y="226">environment-aware</text>
-  <text class="o-ds" x="642" y="240">risk quantification</text>
-  <rect class="o-b s3" x="40" y="322" width="820" height="40" rx="7"/>
-  <text class="o-tt" x="52" y="346.5">Database</text>
-  <text class="o-ds" x="130" y="346.5">techspecs · enriched findings · risk scores</text>
-  <text class="o-tag s3" x="850" y="346.5" text-anchor="end">POSTGRESQL</text>
-  <path class="o-e" d="M270 86 H333" marker-end="url(#m-healthcheck-ah)"/>
-  <text class="o-el" x="302" y="72" text-anchor="middle">upload</text>
-  <path class="o-e" d="M565 86 H628" marker-end="url(#m-healthcheck-ah)"/>
-  <text class="o-el" x="597" y="72" text-anchor="middle">display</text>
-  <path class="o-e" d="M380 114 V145 H230 V188" marker-end="url(#m-healthcheck-ah)"/>
-  <text class="o-el" x="266" y="140">save by type</text>
-  <path class="o-e" d="M270 218 H333" marker-end="url(#m-healthcheck-ah)"/>
-  <text class="o-el" x="302" y="204" text-anchor="middle">poll</text>
-  <path class="o-e" d="M565 218 H628" marker-end="url(#m-healthcheck-ah)"/>
-  <text class="o-el" x="597" y="204" text-anchor="middle">trigger</text>
-  <path class="o-e" d="M450 246 V320" marker-end="url(#m-healthcheck-ah)"/>
-  <text class="o-el" x="463" y="281">enrich + save</text>
-  <path class="o-e" d="M745 248 V320" marker-start="url(#m-healthcheck-ah)" marker-end="url(#m-healthcheck-ah)"/>
-  <text class="o-el" x="758" y="281">score + save</text>
-  <path class="o-e dash" d="M860 342 H892 V14 H480 V56" marker-end="url(#m-healthcheck-ah)"/>
+  <rect class="o-lane l1" x="16" y="30" width="868" height="90" rx="10"/>
+  <text class="o-lt" x="30" y="46">X-FORCE RED VMS</text>
+  <rect class="o-lane l2" x="16" y="144" width="868" height="90" rx="10"/>
+  <text class="o-lt" x="30" y="160">RISK PIPELINE · OURS</text>
+  <rect class="o-lane l3" x="16" y="258" width="868" height="56" rx="10"/>
+  <text class="o-lt" x="30" y="290">STORAGE</text>
+  <rect class="o-b s1" x="40" y="54" width="230" height="56" rx="7"/>
+  <text class="o-tt" x="52" y="74">Scanners</text>
+  <text class="o-tag s1" x="260" y="74" text-anchor="end">API · GUI</text>
+  <text class="o-ds" x="52" y="90">Ansible · Nessus · Qualys</text>
+  <text class="o-ds" x="52" y="104">plus analyst uploads</text>
+  <rect class="o-b s1" x="335" y="54" width="230" height="56" rx="7"/>
+  <text class="o-tt" x="347" y="74">X-Force VMS Web</text>
+  <text class="o-tag s1" x="555" y="74" text-anchor="end">WEB</text>
+  <text class="o-ds" x="347" y="90">receives raw scan files</text>
+  <text class="o-ds" x="347" y="104">serves risk queries</text>
+  <rect class="o-b s1" x="630" y="54" width="230" height="56" rx="7"/>
+  <text class="o-tt" x="642" y="74">VMS UI</text>
+  <text class="o-tag s1" x="850" y="74" text-anchor="end">UI</text>
+  <text class="o-ds" x="642" y="90">findings ranked by</text>
+  <text class="o-ds" x="642" y="104">environment-aware risk</text>
+  <rect class="o-b s2" x="40" y="168" width="230" height="56" rx="7"/>
+  <text class="o-tt" x="52" y="188">Filesystem</text>
+  <text class="o-tag s2" x="260" y="188" text-anchor="end">QUEUE</text>
+  <text class="o-ds" x="52" y="204">raw data saved by type,</text>
+  <text class="o-ds" x="52" y="218">one queue per type</text>
+  <rect class="o-b s2" x="335" y="168" width="230" height="56" rx="7"/>
+  <text class="o-tt" x="347" y="188">Data Feed</text>
+  <text class="o-tag s2" x="555" y="188" text-anchor="end">PYTHON</text>
+  <text class="o-ds" x="347" y="204">polls queues, enriches</text>
+  <text class="o-ds" x="347" y="218">with techspecs</text>
+  <rect class="o-b s2" x="630" y="168" width="230" height="56" rx="7"/>
+  <text class="o-tt" x="642" y="188">Risk Analyzer</text>
+  <text class="o-tag s2" x="850" y="188" text-anchor="end">PYTHON</text>
+  <text class="o-ds" x="642" y="204">environment-aware</text>
+  <text class="o-ds" x="642" y="218">risk quantification</text>
+  <rect class="o-b s3" x="110" y="266" width="750" height="40" rx="7"/>
+  <text class="o-tt" x="122" y="290.5">Database</text>
+  <text class="o-ds" x="200" y="290.5">techspecs · enriched findings · risk scores</text>
+  <text class="o-tag s3" x="850" y="290.5" text-anchor="end">POSTGRESQL</text>
+  <path class="o-e" d="M270 82 H333" marker-end="url(#m-healthcheck-ah)"/>
+  <text class="o-el" x="302" y="68" text-anchor="middle">upload</text>
+  <path class="o-e" d="M565 82 H628" marker-end="url(#m-healthcheck-ah)"/>
+  <text class="o-el" x="597" y="68" text-anchor="middle">display</text>
+  <path class="o-e" d="M380 110 V132 H230 V166" marker-end="url(#m-healthcheck-ah)"/>
+  <text class="o-el" x="266" y="128">save by type</text>
+  <path class="o-e" d="M270 196 H333" marker-end="url(#m-healthcheck-ah)"/>
+  <text class="o-el" x="302" y="182" text-anchor="middle">poll</text>
+  <path class="o-e" d="M565 196 H628" marker-end="url(#m-healthcheck-ah)"/>
+  <text class="o-el" x="597" y="182" text-anchor="middle">trigger</text>
+  <path class="o-e" d="M450 224 V264" marker-end="url(#m-healthcheck-ah)"/>
+  <text class="o-el" x="463" y="249">enrich + save</text>
+  <path class="o-e" d="M745 226 V264" marker-start="url(#m-healthcheck-ah)" marker-end="url(#m-healthcheck-ah)"/>
+  <text class="o-el" x="758" y="249">score + save</text>
+  <path class="o-e dash" d="M860 286 H892 V14 H480 V52" marker-end="url(#m-healthcheck-ah)"/>
   <text class="o-el" x="714" y="10">query risk</text>
-  <g class="o-n"><circle cx="302" cy="86" r="8"/><text x="302" y="89.5" text-anchor="middle">1</text></g>
-  <g class="o-n"><circle cx="250" cy="145" r="8"/><text x="250" y="148.5" text-anchor="middle">2</text></g>
-  <g class="o-n"><circle cx="302" cy="218" r="8"/><text x="302" y="221.5" text-anchor="middle">3</text></g>
-  <g class="o-n"><circle cx="450" cy="277" r="8"/><text x="450" y="280.5" text-anchor="middle">4</text></g>
-  <g class="o-n"><circle cx="597" cy="218" r="8"/><text x="597" y="221.5" text-anchor="middle">5</text></g>
-  <g class="o-n"><circle cx="745" cy="277" r="8"/><text x="745" y="280.5" text-anchor="middle">6</text></g>
+  <g class="o-n"><circle cx="302" cy="82" r="8"/><text x="302" y="85.5" text-anchor="middle">1</text></g>
+  <g class="o-n"><circle cx="250" cy="132" r="8"/><text x="250" y="135.5" text-anchor="middle">2</text></g>
+  <g class="o-n"><circle cx="302" cy="196" r="8"/><text x="302" y="199.5" text-anchor="middle">3</text></g>
+  <g class="o-n"><circle cx="450" cy="245" r="8"/><text x="450" y="248.5" text-anchor="middle">4</text></g>
+  <g class="o-n"><circle cx="597" cy="196" r="8"/><text x="597" y="199.5" text-anchor="middle">5</text></g>
+  <g class="o-n"><circle cx="745" cy="245" r="8"/><text x="745" y="248.5" text-anchor="middle">6</text></g>
   <g class="o-n"><circle cx="700" cy="14" r="8"/><text x="700" y="17.5" text-anchor="middle">7</text></g>
-  <g class="o-n"><circle cx="597" cy="86" r="8"/><text x="597" y="89.5" text-anchor="middle">8</text></g>
+  <g class="o-n"><circle cx="597" cy="82" r="8"/><text x="597" y="85.5" text-anchor="middle">8</text></g>
 </svg>
 <ol class="steps">
   <li><span>1</span><div><b>Upload:</b> scanners <em>(Ansible, Nessus, Qualys, or an analyst through the GUI)</em> upload raw data files to X-Force VMS Web</div></li>
@@ -667,35 +657,35 @@
 <article class="case" id="hytrace" data-short="Hytrace"><header class="case-h"><div><h2 class="ttl">A Hybrid Approach to Performance Bug Diagnosis in Production Cloud Infrastructures</h2><div class="one">Hybrid static and runtime diagnosis of performance bugs.</div></div><div class="case-meta"><span class="sw">08/2015 – 05/2018 · NC State</span></div></header><div class="tags"><span class="tag">LTTNG</span><span class="tag">CLUSTERING</span><span class="tag">LLVM</span><span class="tag">FINDBUGS</span><span class="tag">C/C++</span><span class="tag">JAVA</span></div><div class="project has-dg"><div>            <p>Server applications in production cloud infrastructures are prone to performance problems such as hangs and slowdowns, and developers often have little to go on when diagnosing them.</p>
             <p><b>Hytrace</b> combines rule-based static analysis with runtime inference to localize performance bugs more accurately than purely static or purely dynamic approaches. It needs no source code and works on both compiled and interpreted programs such as C/C++ and Java. Experiments with real bugs from seven common server applications show significantly better diagnosis accuracy than existing techniques.</p>
             <div class="actions"><a class="act" href="files/hytrace_SOCC17.pdf">SoCC'17 paper</a><a class="act" href="files/hytrace_TPDS19.pdf">TPDS'19 paper</a></div>
-            <figure class="dg opt"><svg viewBox="0 0 900 396" width="900" role="img" aria-label="Hytrace: an anomaly alert starts dynamic analysis of the kernel syscall trace, static analysis checks the application bitcode or bytecode, and both rankings are consolidated into root cause functions">
+            <figure class="dg opt"><svg viewBox="0 0 900 342" width="900" role="img" aria-label="Hytrace: an anomaly alert starts dynamic analysis of the kernel syscall trace, static analysis checks the application bitcode or bytecode, and both rankings are consolidated into root cause functions">
   <defs><marker id="m-hytrace-ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="o-ah" d="M0 0 L10 5 L0 10 z"/></marker></defs>
-  <rect class="o-lane l1" x="200" y="8" width="684" height="380" rx="10"/><text class="o-lt" x="214" y="26">PHYSICAL HOST</text>
-  <rect class="o-lane l1" x="216" y="36" width="652" height="86" rx="10"/><text class="o-lt" x="230" y="54">VM</text>
-  <rect class="o-b s1" x="232" y="62" width="300" height="52" rx="7"/><text class="o-tt" x="244" y="84">Kernel tracing module</text><text class="o-tag s1" x="522" y="84" text-anchor="end">LTTNG</text><text class="o-ds" x="244" y="101">kernel-level system call tracing</text>
-  <rect class="o-b s1" x="552" y="62" width="300" height="52" rx="7"/><text class="o-tt" x="564" y="84">Application</text><text class="o-tag s1" x="842" y="84" text-anchor="end">C/C++ · JAVA</text><text class="o-ds" x="564" y="101">server app, compiled or interpreted</text>
-  <rect class="o-lane l2" x="216" y="152" width="652" height="176" rx="10"/><text class="o-lt" x="230" y="170">HYTRACE</text>
-  <rect class="o-b s2" x="232" y="180" width="300" height="56" rx="7"/><text class="o-tt" x="244" y="202">Hytrace-dynamic</text><text class="o-tag s2" x="522" y="202" text-anchor="end">RUNTIME</text><text class="o-ds" x="244" y="219">runtime inference on the syscall trace</text>
-  <rect class="o-b s2" x="552" y="180" width="300" height="56" rx="7"/><text class="o-tt" x="564" y="202">Hytrace-static</text><text class="o-tag s2" x="842" y="202" text-anchor="end">LLVM · FINDBUGS</text><text class="o-ds" x="564" y="219">rule-based analysis of bitcode/bytecode</text>
-  <rect class="o-b s2" x="232" y="268" width="620" height="48" rx="7"/><text class="o-tt" x="244" y="290">Consolidated ranking</text><text class="o-tag s2" x="842" y="290" text-anchor="end">CODE</text><text class="o-ds" x="244" y="307">merges both rankings into likely root cause functions</text>
-  <rect class="o-b s0" x="216" y="340" width="652" height="36" rx="7"/><text class="o-tt" x="228" y="362.5">Xen/KVM hypervisor</text><text class="o-tag s0" x="858" y="362.5" text-anchor="end">HOST</text>
-  <rect class="o-b s3" x="16" y="180" width="150" height="56" rx="7"/><text class="o-tt" x="28" y="202">Anomaly alert</text><text class="o-ds" x="28" y="219">from monitoring</text>
-  <rect class="o-b s3" x="16" y="268" width="150" height="48" rx="7"/><text class="o-tt" x="28" y="290">Root causes</text><text class="o-tag s3" x="156" y="290" text-anchor="end">OUTPUT</text><text class="o-ds" x="28" y="307">ranked functions</text>
-  <path class="o-e" d="M166 208 H230" marker-end="url(#m-hytrace-ah)"/>
-  <g class="o-n"><circle cx="198" cy="208" r="8"/><text x="198" y="211.5" text-anchor="middle">1</text></g>
-  <path class="o-e" d="M382 114 V178" marker-end="url(#m-hytrace-ah)"/>
-  <g class="o-n"><circle cx="382" cy="137" r="8"/><text x="382" y="140.5" text-anchor="middle">2</text></g>
-  <text class="o-el" x="392" y="172">syscall trace</text>
-  <path class="o-e" d="M702 114 V178" marker-end="url(#m-hytrace-ah)"/>
-  <g class="o-n"><circle cx="702" cy="137" r="8"/><text x="702" y="140.5" text-anchor="middle">3</text></g>
-  <text class="o-el" x="712" y="172">bitcode / bytecode</text>
-  <path class="o-e" d="M382 236 V266" marker-end="url(#m-hytrace-ah)"/>
-  <g class="o-n"><circle cx="382" cy="250" r="8"/><text x="382" y="253.5" text-anchor="middle">4</text></g>
-  <text class="o-el" x="392" y="262">dynamic ranking</text>
-  <path class="o-e" d="M702 236 V266" marker-end="url(#m-hytrace-ah)"/>
-  <g class="o-n"><circle cx="702" cy="250" r="8"/><text x="702" y="253.5" text-anchor="middle">5</text></g>
-  <text class="o-el" x="712" y="262">static ranking</text>
-  <path class="o-e" d="M232 292 H168" marker-end="url(#m-hytrace-ah)"/>
-  <g class="o-n"><circle cx="198" cy="292" r="8"/><text x="198" y="295.5" text-anchor="middle">6</text></g>
+  <rect class="o-lane l1" x="200" y="8" width="684" height="326" rx="10"/><text class="o-lt" x="214" y="26">PHYSICAL HOST</text>
+  <rect class="o-lane l1" x="216" y="34" width="652" height="78" rx="10"/><text class="o-lt" x="230" y="52">VM</text>
+  <rect class="o-b s1" x="232" y="58" width="300" height="46" rx="7"/><text class="o-tt" x="244" y="78">Kernel tracing module</text><text class="o-tag s1" x="522" y="78" text-anchor="end">LTTNG</text><text class="o-ds" x="244" y="95">kernel-level system call tracing</text>
+  <rect class="o-b s1" x="552" y="58" width="300" height="46" rx="7"/><text class="o-tt" x="564" y="78">Application</text><text class="o-tag s1" x="842" y="78" text-anchor="end">C/C++ · JAVA</text><text class="o-ds" x="564" y="95">server app, compiled or interpreted</text>
+  <rect class="o-lane l2" x="216" y="136" width="652" height="150" rx="10"/><text class="o-lt" x="230" y="152">HYTRACE</text>
+  <rect class="o-b s2" x="232" y="160" width="300" height="48" rx="7"/><text class="o-tt" x="244" y="180">Hytrace-dynamic</text><text class="o-tag s2" x="522" y="180" text-anchor="end">RUNTIME</text><text class="o-ds" x="244" y="197">runtime inference on the syscall trace</text>
+  <rect class="o-b s2" x="552" y="160" width="300" height="48" rx="7"/><text class="o-tt" x="564" y="180">Hytrace-static</text><text class="o-tag s2" x="842" y="180" text-anchor="end">LLVM · FINDBUGS</text><text class="o-ds" x="564" y="197">rule-based analysis of bitcode/bytecode</text>
+  <rect class="o-b s2" x="232" y="232" width="620" height="44" rx="7"/><text class="o-tt" x="244" y="251">Consolidated ranking</text><text class="o-tag s2" x="842" y="251" text-anchor="end">CODE</text><text class="o-ds" x="244" y="267">merges both rankings into likely root cause functions</text>
+  <rect class="o-b s0" x="216" y="294" width="652" height="32" rx="7"/><text class="o-tt" x="228" y="314.5">Xen/KVM hypervisor</text><text class="o-tag s0" x="858" y="314.5" text-anchor="end">HOST</text>
+  <rect class="o-b s3" x="16" y="160" width="150" height="48" rx="7"/><text class="o-tt" x="28" y="180">Anomaly alert</text><text class="o-ds" x="28" y="197">from monitoring</text>
+  <rect class="o-b s3" x="16" y="232" width="150" height="44" rx="7"/><text class="o-tt" x="28" y="251">Root causes</text><text class="o-tag s3" x="156" y="251" text-anchor="end">OUTPUT</text><text class="o-ds" x="28" y="267">ranked functions</text>
+  <path class="o-e" d="M166 184 H230" marker-end="url(#m-hytrace-ah)"/>
+  <g class="o-n"><circle cx="198" cy="184" r="8"/><text x="198" y="187.5" text-anchor="middle">1</text></g>
+  <path class="o-e" d="M382 104 V158" marker-end="url(#m-hytrace-ah)"/>
+  <g class="o-n"><circle cx="382" cy="124" r="8"/><text x="382" y="127.5" text-anchor="middle">2</text></g>
+  <text class="o-el" x="396" y="128">syscall trace</text>
+  <path class="o-e" d="M702 104 V158" marker-end="url(#m-hytrace-ah)"/>
+  <g class="o-n"><circle cx="702" cy="124" r="8"/><text x="702" y="127.5" text-anchor="middle">3</text></g>
+  <text class="o-el" x="716" y="128">bitcode / bytecode</text>
+  <path class="o-e" d="M382 208 V230" marker-end="url(#m-hytrace-ah)"/>
+  <g class="o-n"><circle cx="382" cy="219" r="8"/><text x="382" y="222.5" text-anchor="middle">4</text></g>
+  <text class="o-el" x="396" y="223">dynamic ranking</text>
+  <path class="o-e" d="M702 208 V230" marker-end="url(#m-hytrace-ah)"/>
+  <g class="o-n"><circle cx="702" cy="219" r="8"/><text x="702" y="222.5" text-anchor="middle">5</text></g>
+  <text class="o-el" x="716" y="223">static ranking</text>
+  <path class="o-e" d="M232 254 H168" marker-end="url(#m-hytrace-ah)"/>
+  <g class="o-n"><circle cx="198" cy="254" r="8"/><text x="198" y="257.5" text-anchor="middle">6</text></g>
 </svg></figure>
           
           </div></div></article>
