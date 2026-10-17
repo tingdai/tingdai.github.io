@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <base href="../">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-46464487-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-46464487-1');
+    gtag('config', 'UA-124566132-1');
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Ting Dai">
+  <link rel="shortcut icon" type="image/ico" href="images/favicon.ico">
+  <title>Ting Dai</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Inter:wght@400;500;600&display=swap">
+  <style>
+    /* Editorial: serif reading column, warm paper, small-caps section labels. */
+    :root { --bg: #fbfaf7; --fg: #22201c; --muted: #6b665d; --line: #e4e0d7; --accent: #8a3b12; --hl: #f3ece0;
+      --serif: "Source Serif 4", Georgia, serif; --sans: "Inter", system-ui, -apple-system, sans-serif; color-scheme: light; }
+    @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+      --bg: #17161a; --fg: #ebe7df; --muted: #a39d92; --line: #2e2c30; --accent: #e8a27a; --hl: #26231f; color-scheme: dark } }
+    :root[data-theme="dark"] { --bg: #17161a; --fg: #ebe7df; --muted: #a39d92; --line: #2e2c30; --accent: #e8a27a; --hl: #26231f; color-scheme: dark }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--fg); font: 18px/1.65 var(--serif); }
+    a { color: var(--accent); text-decoration: underline; text-decoration-color: color-mix(in srgb, var(--accent) 35%, transparent); text-underline-offset: 3px; }
+    a:hover { text-decoration-color: var(--accent); }
+    .col { max-width: 700px; margin: 0 auto; padding: 0 20px; }
+    nav { font: 500 14px var(--sans); padding: 22px 0; display: flex; flex-wrap: wrap; gap: 6px 22px; align-items: center; border-bottom: 1px solid var(--line); }
+    nav a { color: var(--muted); text-decoration: none; }
+    nav a:hover, nav a[aria-current="page"] { color: var(--fg); }
+    nav button { margin-left: auto; font: 500 13px var(--sans); color: var(--muted); background: none; border: 1px solid var(--line); border-radius: 999px; padding: 3px 12px; cursor: pointer; }
+    header { display: flex; gap: 28px; align-items: center; padding: 56px 0 36px; }
+    header img { width: 132px; height: 132px; border-radius: 50%; object-fit: cover; flex: none; border: 1px solid var(--line); }
+    h1 { font-size: 44px; line-height: 1.1; margin: 0 0 6px; font-weight: 700; letter-spacing: -0.02em; }
+    .sub { font: 15px/1.5 var(--sans); color: var(--muted); margin: 0; }
+    .contact { font: 14px var(--sans); margin-top: 12px; display: flex; flex-wrap: wrap; gap: 4px 16px; }
+    h2 { font: 600 12px var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin: 48px 0 14px; }
+    p { margin: 0 0 1em; }
+    em.k { font-style: italic; background: var(--hl); padding: 0 4px; border-radius: 3px; }
+    .item { padding: 14px 0; border-top: 1px solid var(--line); }
+    .item:last-child { border-bottom: 1px solid var(--line); }
+    .item h3 { font-size: 19px; margin: 0 0 4px; }
+    .item p { margin: 0; color: var(--muted); font-size: 16.5px; }
+    .refs { font: 13px var(--sans); margin-top: 6px; display: flex; flex-wrap: wrap; gap: 4px 14px; }
+    footer { font: 13px var(--sans); color: var(--muted); padding: 48px 0 64px; }
+    @media (max-width: 560px) { header { flex-direction: column; align-items: flex-start; padding-top: 36px; } h1 { font-size: 36px; } body { font-size: 17px; } }
+  </style>
+  <script>try { var t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}</script>
+</head>
+<body>
+  <div class="col">
+    <nav>
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="Publications.html">Publications</a>
+      <a href="Projects.html">Projects</a>
+      <a href="Experience.html">Experience</a>
+      <a href="Awards.html">Awards</a>
+      <button type="button" id="theme-btn">Light / Dark</button>
+    </nav>
+
+    <header>
+      <img src="ting_dai_2025.jpg" alt="Photo of Ting Dai">
+      <div>
+        <h1>Ting Dai</h1>
+        <p class="sub">Staff Data Scientist &amp; Solution Architect, InsightFinder AI</p>
+        <div class="contact">
+          <a href="mailto:danielday1128@gmail.com">Email</a>
+          <a href="cv_ting.pdf">CV</a>
+          <a href="https://scholar.google.com/citations?user=Kv-OQscAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+          <a href="https://www.linkedin.com/in/ting-dai-b61579106/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <p>I am a Staff Data Scientist and Solution Architect at InsightFinder AI. Before that I was a Staff Research Scientist
+        at IBM Research. I received my Ph.D. in Computer Science from North Carolina State University, advised by
+        <a href="http://dance.csc.ncsu.edu/gu/" target="_blank" rel="noopener">Xiaohui (Helen) Gu</a>.</p>
+      <p>My research is in <em class="k">system reliability and security</em>, and my current focus is
+        <em class="k">LLM evaluation</em> and <em class="k">agentic systems</em>.</p>
+
+      <h2>Research highlights</h2>
+      <div class="item">
+        <h3>Performance bugs</h3>
+        <p>My dissertation: performance checking and repair on application bytecode and runtime syscall traces, covering diagnosis, hang detection and automatic fixing.</p>
+        <div class="refs">
+          <a href="files/hytrace_SOCC17.pdf">SoCC'17</a><a href="files/hytrace_TPDS19.pdf">TPDS'19</a>
+          <a href="files/dscope_SOCC18.pdf">SoCC'18</a><a href="files/hangfix_SOCC20.pdf">SoCC'20</a>
+        </div>
+      </div>
+      <div class="item">
+        <h3>Risky scripts in infrastructure code</h3>
+        <p>Scripts embedded in infrastructure-as-code that cause performance, reliability, security and availability problems.</p>
+        <div class="refs"><a href="files/securecode_SOCC20.pdf">SoCC'20</a></div>
+      </div>
+      <div class="item">
+        <h3>Timeout bugs</h3>
+        <p>Taxonomy, detection, classification and fixing.</p>
+        <div class="refs">
+          <a href="files/understanding_IC2E18.pdf">IC2E'18</a><a href="files/tscope_ICAC18.pdf">ICAC'18</a><a href="files/tfix_ICDCS19.pdf">ICDCS'19</a>
+        </div>
+      </div>
+      <div class="item">
+        <h3>Also</h3>
+        <p>Container vulnerabilities, privacy-preserving blockchain, and energy-efficient video streaming.</p>
+        <div class="refs">
+          <a href="files/study_IC2E19.pdf">IC2E'19</a><a href="files/fabzk_DSN19.pdf">DSN'19</a><a href="files/greenabr_MMSys22.pdf">MMSys'22</a>
+        </div>
+      </div>
+    </main>
+
+    <footer>Full list on the <a href="Publications.html">publications</a> page.</footer>
+  </div>
+  <script>
+    document.getElementById('theme-btn').addEventListener('click', function () {
+      var r = document.documentElement;
+      var dark = r.dataset.theme ? r.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+      r.dataset.theme = dark ? 'light' : 'dark';
+      try { localStorage.setItem('theme', r.dataset.theme); } catch (e) {}
+    });
+  </script>
+</body>
+</html>

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <base href="../">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -45,7 +46,6 @@
                 <li><a href="#projects" class="btn btn-outline" onclick="_gaq.push(['_trackEvent', 'button', 'clicked', 'projects']);"><span class="ios ion-ios-pulse fa-lg"></span> Projects</a></li>
                 <li><a href="#publications" class="btn btn-outline" onclick="_gaq.push(['_trackEvent', 'button', 'clicked', 'publications']);"><span class="ion-ios-book-outline fa-lg"></span> Publications</a></li>
                 <li><a href="#work" class="btn btn-outline" onclick="_gaq.push(['_trackEvent', 'button', 'clicked', 'work']);"><span class="ios ion-ios-people-outline fa-lg"></span> Work Experience</a></li>
-                <li><a href="#personal" class="btn btn-outline" onclick="_gaq.push(['_trackEvent', 'button', 'clicked', 'personal']);"><span class="ios ion-ios-personadd-outline fa-lg"></span> Personal</a></li>
               </ul>
             </div>
           </div>
@@ -62,7 +62,12 @@
         <div class="row">
           <div class="col-md-3">
             <center><a><img src="images/ting_dai.JPG" class="img-responsive" width="150" alt="[Ting Dai]"/></a></center>
-            <center><p style="padding-top: 20px"><a class="btn btn-primary btn-sm" width="150" href="Ting_Dai_2017.pdf">&nbsp;<i class="fa fa-file-pdf-o  fa-fw"></i> R&eacute;sum&eacute;&nbsp;</a></p></center>
+            <center><p style="padding-top: 20px">
+              <a href="https://scholar.google.com/citations?user=W7Z_Mz4AAAAJ" class="btn btn-social-icon btn-google-scholar" onclick="_gaq.push(['_trackEvent', 'btn-social-icon', 'click', 'btn-google-scholar']);"><span class="ai ai-google-scholar"></span></a> &nbsp;
+              <a href="https://github.com/tingdai" class="btn btn-social-icon btn-github" onclick="_gaq.push(['_trackEvent', 'btn-social-icon', 'click', 'btn-github']);"><span class="fa fa-github"></span></a> &nbsp;
+              <!--<a href="https://github.ncsu.edu/tdai" class="btn btn-social-icon btn-github" onclick="_gaq.push(['_trackEvent', 'btn-social-icon', 'click', 'btn-github']);"><span class="fa fa-github"></span></a> &nbsp;-->
+              <a href="https://www.linkedin.com/in/ting-dai-b61579106" class="btn btn-social-icon btn-linkedin" onclick="_gaq.push(['_trackEvent', 'btn-social-icon', 'click', 'btn-linkedin']);"><span class="fa fa-linkedin"></span></a> &nbsp;
+            </p></center>
           </div>
           <div class="col-md-9">
             <div class="row">
@@ -80,13 +85,14 @@
             <div class="row">
               <div class="col-md-12">
                 <p style="font-size: 16px; padding-left: 10px">
-                  I am a third year PhD student in Computer Science at  North Carolina State University.<br>                  
+                  I am a fifth year PhD student in Computer Science at North Carolina State University.<br>                  
                   My advisor is <a href="http://www.csc.ncsu.edu/faculty/gu/" target="_blank" style="color:black">Prof. Xiaohui (Helen) Gu</a>. I am a member of <span style="font-weight: bold;"><a href="http://dance.csc.ncsu.edu"><span style="color: rgb(204, 0, 0);">DANCE</span></a> </span>(<span style="color: rgb(204, 0, 0); font-weight: bold;">D</span>istributed system research on <span style="color: rgb(204, 0, 0); font-weight: bold; ">A</span>utonomy, resilie<span style="font-weight: bold; color: rgb(204, 0, 0);">N</span>ce, <span style="font-weight: bold; color: rgb(153, 0, 0);">C</span>ollaboration, and <span style="font-weight: bold; color: rgb(153, 0, 0);">E</span>nergy) Group.<br>
-                  My research interests include 
-                  <!--i class="ios ion-ios-pricetags-outline"></i--> performance diagnosis,
-                  <!--i class="ios ion-ios-pricetags-outline"></i--> debugging, and
-                  <!--i class="ios ion-ios-pricetags-outline"></i--> distributed systems.<br><br>
-                  I received my Master degree in 2014 and Bachelor degree in 2011 from Nanjing University of Posts and Telecommunications, China.<br>
+                  My general research interests are in the areas of systems, 
+                  with a current focus on applying static code analysis and machine learning techniques 
+                  on cloud computing and system reliability.<br>
+                  I received my Master degree in 2014 and Bachelor degree in 2011 from Nanjing University of Posts and Telecommunications, China.<br><br>
+                  <a class="btn btn-primary btn-sm" width="150" href="TingDai_Resume.pdf">&nbsp;<i class="fa fa-file-pdf-o  fa-fw"></i> R&eacute;sum&eacute;&nbsp;</a>
+                  <span style="font-weight: bold; color: rgb(204, 0, 0);">I am on the job market now!</span>
                 </p>
               </div>
             </div>
@@ -104,36 +110,53 @@
             <div style="font-size: 14px;">
               <ul class="nav nav-list">
                 <li style="color: black">
+                  <strong>Aug 4, 2018</strong><br>
+                  <p>DScope is accepted by SoCC'18 research track.</p>
+                </li>
+                <li style="color: black">
+                  <strong>Mar 15, 2018</strong><br>
+                  <p>Hytrace is accepted by TPDS.</p>
+                </li>
+                <li style="color: black">
+                  <strong>Mar 8, 2018</strong><br>
+                  <p>Timeout bug survey paper received <a href="http://conferences.computer.org/IC2E/2018/best_paper_candidates.htm"><span style="color: black">best paper nomination</span></a> in IC2E'18.</p>
+                </li>
+                <li style="color: black">
+                  <strong>Dec 7, 2017</strong><br>
+                  <p>Timeout bug survey paper is accepted by <a href="http://conferences.computer.org/IC2E/2018/">
+                    <span style="color: black">IC2E'18</span></a> research track.</p>
+                </li>
+                <li style="color: black">
+                  <strong>Aug 17, 2017</strong><br>
+                  <p>Hytrace is accepted by <a href="https://acmsocc.github.io/2017/accepted-posters.html">
+                    <span style="color: black">SoCC'17 poster session.</span></a></p>
+                </li>
+                <li style="color: black">
                   <strong>Jan 13 - May 12, 2017</strong><br>
                   <p>Co-ordinator of <a href="http://moss.csc.ncsu.edu/~mueller/seminar/spring17/">
-                    <span style="color: black">CSC801 System Seminar</span></a></p>
+                    <span style="color: black">CSC801 System Seminar.</span></a></p>
                 </li>
                 <li style="color: black">
                   <strong>Nov 10, 2016</strong><br>
                   <p>Passed my PhD Written Prelimary Exam. Yah!</p>
                 </li>
-                <li style="color: black">
+                <!--li style="color: black">
                   <strong>Aug 29, 2016</strong><br>
                   <p>Apache JIRA tool Demo on <span style="color: black">CSC791 Automated Program Repair</span></p>
-                </li>
-                <li style="color: black">
+                </li-->
+                <!--li style="color: black">
                   <strong>Apr 18 &amp; Mar 28, 2016</strong><br>
                   <p>Speak on <a href="http://people.engr.ncsu.edu/gjin2/Classes/591/Spring2016/index.html">
                     <span style="color: black">CSC791 Reliable Software Systems</span></a></p>
-                </li>
-                <!--li style="color: black">
-                  <strong>Mar 28, 2016</strong><br>
-                  <p>Speak on <a href="http://people.engr.ncsu.edu/gjin2/Classes/591/Spring2016/index.html">
-                    <span style="color: black">CSC791 Reliable Software Systems</span></a></p>
                 </li-->
-                <li style="color: black">
+                <!--li style="color: black">
                   <strong>Feb 19, 2016</strong><br>
                   <p>Speak on <a href="http://moss.csc.ncsu.edu/~mueller/seminar/spring16/">
                     <span style="color: black">CSC801 System Seminar</span></a></p>
-                </li>
+                </li-->
                 <li style="color: black">
                   <strong>Aug 26, 2015</strong><br>
-                  Show a Demo of CCM at Credit Suisse
+                  Show a demo of the CCM project at Credit Suisse.
                 </li>
                 <!--li style="color: #B3B6B7">
                   <strong></strong><br>
@@ -141,28 +164,7 @@
                 </li-->
               </ul>
             </div>
-          </div>
-          
-
-          <div>
-            <h2 id="personal" class="page-header"><i class="ios ion-ios-personadd-outline fa-lg"></i> Personal</h2>
-            <div style="padding-left:25px;">
-              <p>
-                <!--<a href="https://www.facebook.com/profile.php?id=1424485999" class="btn btn-social-icon btn-facebook" onclick="_gaq.push(['_trackEvent', 'btn-social-icon', 'click', 'btn-facebook']);"><span class="fa fa-facebook"></span></a> &nbsp;-->
-                <a href="https://github.com/tingdai" class="btn btn-social-icon btn-github" onclick="_gaq.push(['_trackEvent', 'btn-social-icon', 'click', 'btn-github']);"><span class="fa fa-github"></span></a> &nbsp;
-                <a href="https://github.ncsu.edu/tdai" class="btn btn-social-icon btn-github" onclick="_gaq.push(['_trackEvent', 'btn-social-icon', 'click', 'btn-github']);"><span class="fa fa-github"></span></a> &nbsp;
-                <!--<a href="https://plus.google.com/107245807513175444523/" class="btn btn-social-icon btn-google" onclick="_gaq.push(['_trackEvent', 'btn-social-icon', 'click', 'btn-google']);"><span class="fa fa-google-plus"></span></a> &nbsp;-->
-                <a href="https://www.linkedin.com/in/ting-dai-b61579106" class="btn btn-social-icon btn-linkedin" onclick="_gaq.push(['_trackEvent', 'btn-social-icon', 'click', 'btn-linkedin']);"><span class="fa fa-linkedin"></span></a> &nbsp;
-              </p>
-              <!--p>
-                <a href="https://scholar.google.com/citations?user=W7Z_Mz4AAAAJ" class="btn btn-social-icon btn-google-scholar" onclick="_gaq.push(['_trackEvent', 'btn-social-icon', 'click', 'btn-google-scholar']);"><span class="ai ai-google-scholar"></span></a> &nbsp;
-                <a href="http://weibo.com/1128daidai" class="btn btn-social-icon btn-weibo" onclick="_gaq.push(['_trackEvent', 'btn-social-icon', 'click', 'btn-weibo']);"><span class="fa fa-weibo"></span></a> &nbsp;
-                <a class="btn btn-social-icon btn-skype" onclick="_gaq.push(['_trackEvent', 'btn-social-icon', 'click', 'btn-skype']);"><span class="fa fa-skype"></span></a> &nbsp;
-                <a class="btn btn-social-icon btn-wechat" onclick="_gaq.push(['_trackEvent', 'btn-social-icon', 'click', 'btn-wechat']);"><span class="fa fa-wechat"></span></a> &nbsp;>
-                <a class="btn btn-social-icon btn-google-hangout" onclick="_gaq.push(['_trackEvent', 'btn-social-icon', 'click', 'btn-google-hangout']);"><span class="android ion-android-hangout"></span></a> &nbsp;
-              </p-->
-            </div>
-            <div style="padding-top: 15px">
+            <div style="padding-top: 80px">
               <a class="twitter-timeline" href="https://twitter.com/DustinDai" data-widget-id="712077665520521220">Tweets by @DustinDai</a>
               <script>
                 !function(d,s,id){
@@ -189,6 +191,7 @@
               </script>
             </div>
           </div>
+          
           
         </div>
         
@@ -244,16 +247,54 @@
                 </div>
               </div>
             </div>
+            
           </div>
 
           <div class="sectionPublications">
             <h2 id="publications" class="page-header"><i class="ios ion-ios-book-outline fa-lg"></i> Publications
             <div class="pull-right text-default margin-top padding-top-sm hidden-xs">
-              <a class="btn btn-primary btn-sm" href="https://scholar.google.com/citations?user=W7Z_Mz4AAAAJ"><i class="ai ai-google-scholar"></i> Google Scholar</a>
+              <!--a class="btn btn-primary btn-sm" href="https://scholar.google.com/citations?user=W7Z_Mz4AAAAJ"><i class="ai ai-google-scholar"></i> Google Scholar</a-->
             </div>
             </h2>
             <dl class="dl-horizontal">
-                <dt class="conference"><b><a href="http://www.hindawi.com/journals/js/2016/" class="nodec">Journal'16</a></b></dt>
+                <dt class="conference"><b><a href="https://acmsocc.github.io/2018/" class="nodec">SoCC'18</a></b></dt>
+                <dd class="pubitem">
+                    <b>DScope: Detecting Real-World Data Corruption Hang Bugs in Cloud Server Systems</b><br>
+                    <b>Ting Dai</b>, Jingzhu He, Xiaohui Gu, Shan Lu, and Peipei Wang<br>
+                    Proc. of ACM Symposium on Cloud Computing, Carlsbad, CA, October, 2018 (accepted).<br>
+                    [<a target="_blank" href="" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');">to appear</a>]
+                </dd>
+                <dt class="conference"><b><a href="http://icac2018.informatik.uni-wuerzburg.de/" class="nodec">ICAC'18</a></b></dt>
+                <dd class="pubitem">
+                    <b>TScope: Timeout Bug Detection on Cloud Server Systems</b><br>
+                    Jingzhu He, <b>Ting Dai</b>, and Xiaohui Gu<br>
+                    Proc. of IEEE International Conference on Autonomic Computing, Trento, Italy, September, 2018 (accepted).<br>
+                    [<a target="_blank" href="" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');">to appear</a>]
+                </dd>
+                <dt class="conference"><b><a href="" class="nodec">TPDS'18</a></b></dt>
+                <dd class="pubitem">
+                    <b>Hytrace: A Hybrid Approach to Performance Bug Diagnosis in Production Cloud Infrastructures</b><br>
+                    <b>Ting Dai</b>, Daniel Dean, Peipei Wang, Xiaohui Gu, and Shan Lu<br>
+                    IEEE Transactions on Parallel and Distributed Systems, 2018 (accepted).<br>
+                    [<a target="_blank" href="" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');">to appear</a>]
+                </dd>
+                <dt class="conference"><b><a href="http://conferences.computer.org/IC2E/2018/" class="nodec">IC2E'18</a></b></dt>
+                <dd class="pubitem">
+                    <b>Understanding Real-World Timeout Problems in Cloud Server Systems</b><br>
+                    <b>Ting Dai</b>, Jingzhu He, Xiaohui Gu, and Shan Lu<br>
+                    Proc. of IEEE International Conference on Cloud Engineering, Orlando, FL, April, 2018.<br>
+                    [<a target="_blank" href="http://dance.csc.ncsu.edu/papers/IC2E18.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');">PDF</a>]
+                    <a class="btn btn-danger btn-xs" href="http://conferences.computer.org/IC2E/2018/best_paper_candidates.htm"><i class="ios ion-ribbon-b fa-lg"></i> Best paper nominee</a>
+                    <!--a class="btn btn-danger btn-xs" href="http://conferences.computer.org/IC2E/2018/best_paper_candidates.htm"><i class="ios ion-ribbon-a fa-lg"></i> Best paper nominee</a-->
+                </dd>
+                <dt class="conference"><b><a href="https://acmsocc.github.io/2017/accepted-posters.html" class="nodec">SoCC'17</a></b></dt>
+                <dd class="pubitem">
+                    <b>Hytrace: A Hybrid Approach to Performance Bug Diagnosis in Production Cloud Infrastructures</b><br>
+                    <b>Ting Dai</b>, Daniel Dean, Peipei Wang, Xiaohui Gu, and Shan Lu<br>
+                    Proc. of ACM Symposium on Cloud Computing, poster session, Santa Clara, CA, September, 2017.<br>
+                    [<a target="_blank" href="http://dance.csc.ncsu.edu/papers/socc2017.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');">PDF</a>]
+                </dd>
+                <dt class="conference"><b><a href="http://www.hindawi.com/journals/js/2016/" class="nodec">J. Sensors'16</a></b></dt>
                 <dd class="pubitem">
                     <b>An Improved μTESLA Protocol Based on Queuing Theory and Benaloh-Leichter SSS in WSNs</b><br>
                     Haiping Huang, Tianhe Gong, Tao Chen, Mingliang Xiong, Xinxing Pan, and <b>Ting Dai</b><br>
@@ -273,15 +314,15 @@
                     International Journal of Distributed Sensor Networks, Vol. 2013, Article ID 642986, 13 pages, 2013.<br>
                     [<a target="_blank" href="https://drive.google.com/file/d/0B_SslUDRJzv9bXRod3hzWDRVTjA/view?usp=sharing" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');">PDF</a>]
                 </dd>
-                <dt class="conference"><b><a href="http://www.joconline.com.cn/CN/volumn/volumn_173.shtml" class="nodec">Journal'13</a></b></dt>
+                <dt class="conference"><b><a href="http://www.joconline.com.cn/CN/volumn/volumn_173.shtml" class="nodec">JoC'13</a></b></dt>
                 <dd class="pubitem">
-                    <b>self-renewal hash chain based on (t, n) threshold and division tree (in Chinese)</b><br>
+                    <b>A Novel Self-Renewal Hash Chain Scheme based on (t, n)-Threshold and Division Tree (in Chinese)</b><br>
                     基于(t, n)门限和划分树的可再生散列链构造方案<br>
                     Haiping Huang, <b>Ting Dai</b>, Ruchuan Wang, Xiaolin Qin, and Jiutian Chen<br>
                     Journal of Communications, Vol. 34, No. 4, pp. 70-81, Apr. 2013.<br>
                     [<a target="_blank" href="https://drive.google.com/file/d/0B_SslUDRJzv9ZE43Z0d0OFc1eVk/view?usp=sharing" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');">PDF</a>]
                 </dd>
-                <dt class="conference"><b><a href="http://www.sciencedirect.com/science/journal/10058885/19/supp/S2" class="nodec">Journal'12</a></b></dt>
+                <dt class="conference"><b><a href="http://www.sciencedirect.com/science/journal/10058885/19/supp/S2" class="nodec">JCUPT'12</a></b></dt>
                 <dd class="pubitem">
                     <b>Novel self-renewal Hash Chain based on Ito-Saito-Nishizeki secret sharing scheme</b><br>
                     <b>Ting Dai</b>, Haiping Huang, Ruchuan Wang, and Xinxing Pan<br>
@@ -301,26 +342,40 @@
           <div>
             <h2 id="work" class="page-header"><i class="ios ion-ios-people-outline fa-lg"></i> Work Experience</h2>
             <dl class="dl-horizontal">
-              <dt>Summer 2017</dt>
-              <dd>&nbsp;&nbsp;&nbsp;&nbsp;NC State&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Research Assistant</dd>
-              <dt>Spring 2017</dt>
-              <dd>&nbsp;&nbsp;&nbsp;&nbsp;NC State&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Research Assistant</dd>
-              <dt>Fall 2016</dt>
-              <dd>&nbsp;&nbsp;&nbsp;&nbsp;NC State&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Research Assistant</dd>
-              <dt>Summer 2016</dt>
-              <dd><a href="https://insightfinder.com/">
-                    <span style="color: black">InsightFinder</span></a>
-                &nbsp;&nbsp;&nbsp;Software Engineer</dd>
-              <dt>Spring 2016</dt>
-              <dd>&nbsp;&nbsp;&nbsp;&nbsp;NC State&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Research Assistant</dd>
-              <dt>Fall 2015</dt>
-              <dd>&nbsp;&nbsp;&nbsp;&nbsp;NC State&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Research Assistant</dd>
-              <dt>Summer 2015</dt>
-              <dd>&nbsp;&nbsp;&nbsp;&nbsp;NC State&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Research Assistant</dd>
-              <dt>Spring 2015</dt>
-              <dd>&nbsp;&nbsp;&nbsp;&nbsp;NC State&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Teaching Assistant for CSC 226 - Discrete Math for Computer Scientists</dd>
-              <dt>Fall 2014</dt>
-              <dd>&nbsp;&nbsp;&nbsp;&nbsp;NC State&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Teaching Assistant for CSC 226 - Discrete Math for Computer Scientists</dd>
+              <dt><a href="https://www.csc.ncsu.edu/">
+                  <img src="images/ncsu_logo.jpeg" alt="NC State University" style="width: 140px; padding: 5px 0 0 5px;" />
+                </a>
+              </dt>
+              <dd>
+                Research Assistant<span style="margin-left:64px"></span>  
+                <a class="btn btn-default btn-xs"><i class="ios ion-ios-timer-outline fa-lg"></i> Summer 2015&#45;Spring 2016</a>
+                <a class="btn btn-default btn-xs"><i class="ios ion-ios-timer-outline fa-lg"></i> Fall 2016&#45;Spring 2018</a>
+                <br>
+                Teaching Assistant<span style="margin-left:66px"></span>  
+                <a class="btn btn-default btn-xs"><i class="ios ion-ios-timer-outline fa-lg"></i> Fall 2014&#45;Spring 2015</a>
+                <br>
+                <a href="https://www.computer.org/web/tpds"><span style="color: black">TPDS</span></a> reviewer<span style="margin-left:95px"></span>  
+                <a class="btn btn-default btn-xs"><i class="ios ion-ios-timer-outline fa-lg"></i> Spring 2017</a>
+              </dd>
+              <br>
+              <dt><a href="http://www.research.ibm.com/labs/watson/index.shtml">
+                    <img src="images/ibm-research.jpeg" style="width: 140px; padding: 0px 0 0 0px;" />
+                  </a>
+              </dt>
+              <dd>
+                Graduate Intern<span style="margin-left:90px"></span> 
+                <a class="btn btn-default btn-xs"><i class="ios ion-ios-timer-outline fa-lg"></i> Summer 2018</a>
+              </dd>
+              <br>
+              <dt><a href="https://insightfinder.com/">
+                    <img src="images/Insight_logo_h_400w.jpeg" style="width: 140px; padding: 5px 0 0 5px;" />
+                  </a>
+              </dt>
+              <dd><br>
+                Software Engineer Intern<span style="margin-left:21px"></span> 
+                <a class="btn btn-default btn-xs"><i class="ios ion-ios-timer-outline fa-lg"></i> Summer 2016</a>
+              </dd>
+              <br>
             </dl>
           </div>
 
@@ -335,7 +390,7 @@
    <div>
     <div style="padding-top: 75px;">
       <div style="font-size: 12px;" class="jumbotron3R">
-            <p id="copyright">Copyright &copy; 2017 Ting Dai. All rights reserved.</p>
+            <p id="copyright">Copyright &copy; 2018 Ting Dai. All rights reserved.</p>
             <p>Thanks to <a style="color:white" href="https://fortawesome.github.io/Font-Awesome/"><i class="fa fa-flag fa-fw"></i> Font Awesome</a>, <a style="color:white" href="http://ionicons.com/"><i class="ion-ionic fa-lg"></i> Ionicons</a>, <a style="color:white" href="https://github.com/jpswalsh/academicons"><i class="fa fa-github"></i> Academicons</a>, <a style="color:white" href="https://github.com/lipis/bootstrap-social"><i class="fa fa-github"></i> Social Buttons for Bootstrap</a>, <a style="color:white" href="https://github.com/noizwaves/bootstrap-social-buttons"><i class="fa fa-github"></i> Social Buttons for Twitter Bootstrap</a> for providing excellent fonts, logos and buttons.<br>
             Thanks to <a style="color:white" href="http://htmlcolorcodes.com/"><img src="images/htmlcolorcodeicon.ico" width="12" /> HTML Color Codes</a> for providing great color codes, and <a style="color:white" href="https://developers.google.com/analytics/devguides/collection/analyticsjs/events"><img src="images/google-developers-logo-color.png" width="12" /> Google Developers</a> for providing detailed event tracking explanation.
             </p>      

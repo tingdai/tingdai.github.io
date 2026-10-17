@@ -1,317 +1,226 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
-"http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!doctype html>
+<html lang="en" data-theme="dark">
 <head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-124566132-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-    
-      gtag('config', 'UA-124566132-1');
-    </script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-46464487-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-46464487-1');
+    gtag('config', 'UA-124566132-1');
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Ting Dai">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="icon" href="images/favicon.ico" sizes="16x16 32x32 48x48">
+  <title>Ting Dai</title>
+  <meta name="description" content="Ting Dai, Senior Staff Data Scientist at InsightFinder AI. LLM evaluation, agentic systems, system reliability and security.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+  <link rel="stylesheet" href="css/site.css">
+  <script>
+    try { var t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
+  <style>
+/* Option A: profile + now. One screen of positioning, then a short, scannable set of cards. */
+.hero { display: grid; grid-template-columns: 168px 1fr; gap: 28px; align-items: center; }
+.hero .photo { border-radius: 12px; border: 1px solid var(--line); width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+.hero .eyebrow { color: var(--accent); }
+.hero h1 { font-size: 40px; margin-top: 4px; }
+.hero .pitch { font-size: 18px; line-height: 1.5; color: var(--fg); max-width: 60ch; margin: 12px 0 0; text-wrap: pretty; }
+.hero .pitch b { font-weight: 600; }
+.hero .was { margin: 10px 0 0; color: var(--muted); font-size: 14.5px; }
+.hero .links { margin-top: 16px; }
+@media (max-width: 680px) {
+  .hero { grid-template-columns: 1fr; gap: 18px; }
+  .hero .photo { width: 132px; }
+  .hero h1 { font-size: 32px; }
+  .hero .pitch { font-size: 16.5px; }
+}
 
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!--meta name="viewport" content="width=device-width, initial-scale=1"-->
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="author" content="Ting Dai">
-    <link rel="shortcut icon" type="image/ico" href="images/favicon.ico" />
-    <title>Ting Dai</title>
-    <!-- Bootstrap -->   
-    <link href="css/bootstrap-social.css" rel="stylesheet">
-    <link href="css/social-button-3.css" rel="stylesheet">
-    <link href="css/ionicons.min.css" rel="stylesheet">
-    <link href="css/academicons.min.css" rel="stylesheet">
-    <link href="css/bootstrap.css" rel="stylesheet" media="screen">
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/colorcodeicon.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
-    <link rel="stylesheet" href="css/timeline.css">
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-46464487-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-    
-      gtag('config', 'UA-46464487-1');
-    </script>
+/* Two "now" cards side by side */
+.now { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.now .panel { display: flex; flex-direction: column; gap: 8px; border-top: 3px solid var(--tc, var(--accent)); }
+.now .panel.ev { --tc: var(--c1); }
+.now .kicker { font: 600 11px var(--font-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--tc, var(--accent)); }
+.now h3 { margin: 0; font-size: 17px; line-height: 1.3; }
+.now p { margin: 0; color: var(--muted); font-size: 14px; flex: 1; }
+.now .more { display: flex; flex-wrap: wrap; gap: 6px; }
+@media (max-width: 680px) { .now { grid-template-columns: 1fr; } }
+
+/* Research themes: compact 2x2 */
+.themes { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.theme { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px 18px; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.theme .n { font: 600 11px var(--font-mono); letter-spacing: .06em; color: var(--muted); }
+.theme h3 { margin: 0; font-size: 15.5px; line-height: 1.35; }
+.theme p { margin: 0; color: var(--muted); font-size: 13.5px; flex: 1; }
+.theme .papers { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+.theme .papers a { font: 600 11px var(--font-mono); letter-spacing: .04em; padding: 1px 7px; border-radius: 4px; border: 1px solid var(--line); color: var(--muted); white-space: nowrap; }
+.theme .papers a:hover { color: var(--accent); border-color: var(--accent); text-decoration: none; }
+.also { color: var(--muted); font-size: 13.5px; margin: 12px 0 0; }
+@media (max-width: 680px) { .themes { grid-template-columns: 1fr; } }
+
+/* Selected work strip */
+.strip { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.strip a.w { display: flex; flex-direction: column; gap: 6px; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; color: var(--fg); min-width: 0; }
+.strip a.w:hover { text-decoration: none; border-color: var(--accent); }
+.strip a.w:hover .t { color: var(--accent); }
+.strip .v { display: flex; align-items: baseline; gap: 8px; font: 600 12px var(--font-mono); color: var(--accent); }
+.strip .v span { color: var(--muted); font-weight: 400; }
+.strip .t { font-weight: 600; font-size: 14.5px; line-height: 1.35; text-wrap: balance; }
+.strip .s { color: var(--muted); font-size: 13px; flex: 1; }
+.strip .award { margin-top: 0; font-size: 12.5px; }
+.allpubs { margin: 12px 0 0; font-size: 14px; }
+@media (max-width: 900px) { .strip { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 520px) { .strip { grid-template-columns: 1fr; } }
+
+/* Footer row: where to go next */
+.next { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.next a { display: block; padding: 14px 16px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); color: var(--fg); min-width: 0; }
+.next a:hover { text-decoration: none; border-color: var(--accent); }
+.next a:hover b { color: var(--accent); }
+.next b { display: block; font-weight: 600; }
+.next span { display: block; color: var(--muted); font-size: 13px; margin-top: 2px; }
+.service { color: var(--muted); font-size: 13.5px; margin: 14px 0 0; }
+.service b { color: var(--fg); font-weight: 600; }
+@media (max-width: 900px) { .next { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 420px) { .next { grid-template-columns: 1fr; } }
+  </style>
 </head>
-
 <body>
 
-  <!-- Fixed navbar -->
-  <nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-              <li class="active"><a href="index.html">Home<span class="sr-only">(current)</span></a></li>
-              <li><a href="Publications.html">Publications</a></li>
-              <li><a href="Projects.html">Projects</a></li>
-              <li><a href="Experience.html">Experience</a></li>
-              <li><a href="Awards.html">Awards</a></li>
-              <!-- <li><a href="topconfs.html">Conferences</a></li> -->
-              <!-- <li><a href="AISysSecCC.html">Target Conferences</a></li> -->
-            </ul>
-        </div>
+  <nav class="topnav">
+    <div class="inner">
+      <a class="brand" href="index.html">Ting Dai</a>
+      <ul>
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="Publications.html">Publications</a></li>
+        <li><a href="Projects.html">Projects</a></li>
+        <li><a href="Experience.html">Experience</a></li>
+        <li><a href="Awards.html">Awards</a></li>
+      </ul>
+      <button class="theme-btn" type="button" id="theme-btn">&#9728; Light</button>
     </div>
   </nav>
 
-
-  <!--script type="text/javascript" src="obfuscate.js"></script-->
-  <div class="container">
-    <br>
-    <div class="page-header" id="banner">
-      <div class="row">
-        <div class="col-lg-3 col-md-4 col-sm-5">
-          <div class="panel"> 
-            <div class="panel-body", style="padding-left: 0px">
-              <img src="ting_dai_2025.jpg" align="middle" width="100%" alt=""><br>
-              <!-- <b>Contact Information</b-->
-              <br>
-              <i class="ios ion-android-mail fa-lg"> </i>danielday1128@gmail.com<br>
-              <!-- <p><i class="ios ion-search fa-lg"> </i> Job Search Material:<br>
-              <a href="jobsearch/tingdai_cv.pdf">CV</a>,&nbsp;
-              <a href="jobsearch/tingdai_rs.pdf">Research</a>,&nbsp;
-              <a href="jobsearch/tingdai_ts.pdf">Teaching</a>,&nbsp;
-              <a href="jobsearch/tingdai_ds.pdf">Diversity</a>,&nbsp;
-              <a href="jobsearch/tingdai_transcript.pdf">Transcript</a>.
-              </p> -->
-              <i class="ios ion-android-document fa-lg"> </i><a href="cv_ting.pdf"> CV</a> <i style="font-size:0.8em">(last update: May 30, 2023)</i><br>
-              <i class="ai ai-google-scholar fa-lg"></i> Google Scholar <a href="https://scholar.google.com/citations?user=Kv-OQscAAAAJ">@Ting Dai</a>
-              <!-- <i class="ai ai-google-scholar fa-lg"></i> Google Scholar <a href="https://scholar.google.com/citations?user=W7Z_Mz4AAAAJ">@Ting Dai</a> -->
-              <br>
-              <!-- <i class="ios ion-social-twitter fa-lg"> </i>Twitter <a class="twitter-timeline" href="https://twitter.com/DustinDai" data-widget-id="712077665520521220">@DustinDai</a> -->
-              <i class="ios ion-social-linkedin fa-lg"> </i>LinkedIn <a class="twitter-timeline" href="https://www.linkedin.com/in/ting-dai-b61579106/" data-widget-id="712077665520521220">@Ting Dai</a>
-              <br>
-            </div>
-          </div>
+  <main class="wrap">
+    <header class="hero">
+      <img class="photo" src="ting_dai_2025.jpg" alt="Photo of Ting Dai">
+      <div>
+        <div class="eyebrow">Senior Staff Data Scientist · InsightFinder AI</div>
+        <h1>Ting Dai</h1>
+        <p class="pitch">I work on <b>LLM evaluation, agentic systems and AI SRE</b>: making AI systems, and the
+          infrastructure under them, measurable, debuggable and trustworthy in production.</p>
+        <p class="was">Previously Staff Research Scientist at IBM Research. Ph.D. in Computer Science, NC State University, advised by <a href="http://dance.csc.ncsu.edu/gu/" target="_blank" rel="noopener">Xiaohui (Helen) Gu</a>.</p>
+        <div class="links">
+          <a href="mailto:danielday1128@gmail.com"><span class="k">EMAIL</span>danielday1128@gmail.com</a>
+          <!-- hidden until a new CV is ready: <a href="cv_ting.pdf"><span class="k">CV</span>PDF</a> -->
+          <a href="https://scholar.google.com/citations?user=Kv-OQscAAAAJ" target="_blank" rel="noopener"><span class="k">SCHOLAR</span>Google Scholar</a>
+          <a href="https://www.linkedin.com/in/ting-dai-b61579106/" target="_blank" rel="noopener"><span class="k">IN</span>LinkedIn</a>
         </div>
-
-        <!--<div class="col-lg-8 col-md-6 col-sm-6">--><!--narrow template-->
-        <div class="col-lg-9 col-md-6 col-sm-6"><!--wide template-->
-          <h1> <img src="images/TingDai_Transparent3.png" class="img-responsive" padding-left: 10px width="140" alt="[signature]"/></h1>
-          <!-- <img style="vertical-align:middle" src="images/suitcase.png" height=17/>  -->
-          My name is Ting Dai. I am a Staff Data Scientist and Solution Architect at InsightFinder AI.<br>
-          I was a Staff Research Scientist at IBM Research.<br>
-          <!-- <img style="vertical-align:middle" src="images/graduation-hat.png" height=17/> -->
-          I graduated from North Carolina State University with a Ph.D. degree in Computer Science, supervised by <a href="http://dance.csc.ncsu.edu/gu/" target="_blank" style="color:black">Xiaohui (Helen) Gu</a>.<br>
-          <!-- <img style="vertical-align:middle" src="images/interest.png" height=17/> --> 
-          My research interests are in the areas of <i style="color: steelblue;"><b>system reliability and security</b></i>, with the current focus on <i style="color: steelblue;"><b>LLM Evaluations</b></i> and <i style="color: steelblue;"><b>Agentic Systems</b></i>.
-          <!--i style="color: steelblue;"><b>program analysis</b></i>, and <i style="color: steelblue;"><b>cloud computing</b></i>.
-          The goal of my research is to make software systems and cloud infrastructures reliable and secure.!-->
-          <br><br>
-          <h3>Research Highlights</h3>
-          My dissertation research combating <i style="color: steelblue;"><b>performance bugs</b></i> is to conduct performance checking and repair on application bytecode or runtime syscall traces to enable generic performance bug diagnosis [<a href='files/hytrace_SOCC17.pdf' style="color: black;">SoCC'17</a>, <a href='files/hytrace_TPDS19.pdf' style="color: black;">TPDS'19</a>], data-corruption caused hang bug detection [<a href='files/dscope_SOCC18.pdf' style="color: black;">SoCC'18</a>], and corruption or inter-process communication failure induced hang bug fixing [<a href='files/hangfix_SOCC20.pdf' style="color: black;">SoCC'20</a>]. <br>
-          <!-- My research on <i>timeout bugs</i> ranging from timeout taxonomy [<a href=''>IC2E'18</a>], timeout bug detection and classification [<a href=''>ICAC'18</a>], misused timeout bug fixing [<a href=''>ICDCS'19</a>], and missing timeout bug fixing [<a href=''>arXiv'21</a>]. <br> -->
-          My recent research targets <i style="color: steelblue;"><b>risky scripts</b></i> in infrastructure code that cause not only performance issues but also reliability, security, and availability problems [<a href='files/securecode_SOCC20.pdf' style="color: black;">SoCC'20</a>]. <br>
-          Moreover, I have also worked on <i style="color: steelblue;"><b>timeout bugs</b></i> [<a href='files/understanding_IC2E18.pdf' style="color: black;">IC2E'18</a>, <a href='files/tscope_ICAC18.pdf' style="color: black;">ICAC'18</a>, <a href='files/tfix_ICDCS19.pdf' style="color: black;">ICDCS'19</a>], <i style="color: steelblue;"><b>container vulnerabilities</b></i> [<a href='files/study_IC2E19.pdf' style="color: black;">IC2E'19</a>], <i style="color: steelblue;" ><b>privacy-preserving blockchain</b></i> [<a href='files/fabzk_DSN19.pdf' style="color: black;">DSN'19</a>], and <i style="color: steelblue;" ><b>energy-efficient video streaming</b></i> [<a href='files/greenabr_MMSys22.pdf' style="color: black;">MMSys'22</a>].
-          <br><br>
-          <!-- olivedrab,steelblue,cadetblue,slateblue,darkblue -->
-          <!--span style="font-weight: bold; color: rgb(204, 0, 0);">I am on the job market now!</span><br--> 
-          <!-- <h3>Recent News</h3> -->
-          <!-- <div class="t-timeline">
-            <li style="color: black">
-              <p class=t-timeline-date>Sep 7, 2023</p>
-                <div class=t-timeline-content>
-                  <p>Excited to receive <a href="https://w3.ibm.com/w3publisher/tcap/tcap-awardees/tcap-honorees-2023-2024-wave-1/tcap-significant-contributors"><span style="color: black">IBM TCAP Significant Contributor</span></a>.</p>
-                </div>
-            </li>
-            <li style="color: black">
-              <p class=t-timeline-date>Jul 8, 2022</p>
-                <div class=t-timeline-content>
-                  <p>I am promoted to Staff Research Scientist.</p>
-                </div>
-            </li>
-            <li style="color: black">
-              <p class=t-timeline-date>Jul 6, 2022</p>
-                <div class=t-timeline-content>
-                  <p>GreenABR wins the <a href="https://mmsys2022.ie/program/awards"><span style="color: black">3rd place Excellence in DASH Award</span></a>.</p>
-                </div>
-            </li>
-            <li style="color: black">
-              <p class=t-timeline-date>Mar 3, 2022</p>
-                <div class=t-timeline-content>
-                  <p>GreenABR, energy-efficient ABR with RL, is accepted to <a href="https://mmsys2022.ie/"><span style="color: black">MMSys'22</span></a>.</p>
-                </div>
-            </li>
-            <li style="color: black">
-              <p class=t-timeline-date>Dec 9, 2021</p>
-                <div class=t-timeline-content>
-                  <p>Super excited to receive <b>three</b> <a href="https://w3.ibm.com/w3publisher/ibm-research/recognition/2021-ibm-research-accomplishments/research-accomplishments"><span style="color: black">2021 IBM Research Accomplishment Awards</span></a>.</p>
-                </div>
-            </li>
-            <li style="color: black">
-              <p class=t-timeline-date>Dec 9, 2020</p>
-                <div class=t-timeline-content>
-                  <p>Invited to join <a href="https://www.jsys.org/cfp_confManagement/"><span style="color: black">JSys editorial board</span></a>.</p>
-                </div>
-            </li>
-            <li style="color: black">
-              <p class=t-timeline-date>Aug 8, 2020</p>
-                <div class=t-timeline-content>
-                  <p>SecureCode, detecting risky IaC embedded scripts, is accepted to <a href="https://acmsocc.github.io/2020/accepted-papers.html"><span style="color: black">SoCC'20</span></a>.</p>
-                </div>
-            </li>
-            <li style="color: black">
-              <p class=t-timeline-date>Aug 8, 2020</p>
-                <div class=t-timeline-content>
-                  <p>HangFix is accepted to <a href="https://acmsocc.github.io/2020/accepted-papers.html"><span style="color: black">SoCC'20</span></a>. HangFix is part of my PhD thesis.</p>
-                </div>
-            </li>
-            <li style="color: black">
-              <p class=t-timeline-date>May 20, 2020</p>
-                <div class=t-timeline-content>
-                  <p>Received IBM First Patent Application Invention Achievement Award.</p>
-                </div>
-            </li>
-            <li style="color: black">
-              <p class=t-timeline-date>Sep 16, 2019</p>
-                <div class=t-timeline-content>
-                  <p>My first day as a Research Staff Member at IBM Research.</p>
-                </div>
-            </li>
-            <li style="color: black">
-              <p class=t-timeline-date>Jul 23, 2019</p>
-                <div class=t-timeline-content>
-                  <p>Successfully passed my PhD defense! I am Dr. Dai :)</p>
-                </div>
-            </li>
-            <li style="color: black">
-              <p class=t-timeline-date>Mar 18, 2019</p>
-                <div class=t-timeline-content>
-                  <p>TFix is accepted to ICDCS'19.</p>
-                </div>
-            </li>
-            <li style="color: black">
-              <p class=t-timeline-date>Mar 4, 2019</p>
-                <div class=t-timeline-content>
-                  <p>My first blockchain paper FabZK is accepted to DSN'19.</p>
-                </div>
-            </li>
-            <li style="color: black">
-              <p class=t-timeline-date>Feb 8, 2019</p>
-                <div class=t-timeline-content>
-                  <p>Container vulnerability study paper is accepted to IC2E'19.</p>
-                </div>
-            </li>
-            <li style="color: black">
-              <p class=t-timeline-date>Oct 30, 2018</p>
-                <div class=t-timeline-content>
-                  <p>Passed my oral preliminary exam. Now I am a PhD candidate, officially!</p>
-                </div>
-            </li>
-            <li style="color: black">
-              <p class=t-timeline-date>Aug 4, 2018</p>
-                <div class=t-timeline-content>
-                  <p>DScope is accepted to <a href="https://acmsocc.github.io/2018/schedule.html"><span style="color: black">SoCC'18</span></a>.</p>
-                </div>
-            </li>
-            <li style="color: black">
-              <p class=t-timeline-date>Jun 11, 2018</p>
-                <div class=t-timeline-content>
-                  <p>TScope is accepted to <a href="http://icac2018.informatik.uni-wuerzburg.de/program/accepted-papers/"><span style="color: black">ICAC'18</span></a>.</p>
-                </div>
-            </li>
-            <li style="color: black">
-              <p class=t-timeline-date>Mar 15, 2018</p>
-                <div class=t-timeline-content>
-                  <p>Hytrace is accepted to TPDS.</p>
-                </div>
-            </li>
-            <li style="color: black">
-              <p class=t-timeline-date>Mar 9, 2018</p>
-                <div class=t-timeline-content>
-                  <p>Received summer internship offer from IBM T. J. Watson Research.</p>
-                </div>
-            </li>
-            <li style="color: black">
-              <p class=t-timeline-date>Mar 8, 2018</p>
-                <div class=t-timeline-content>
-                  <p>Timeout bug survey paper received <a href="http://conferences.computer.org/IC2E/2018/best_paper_candidates.htm"><span style="color: black">best paper nomination</span></a> in IC2E'18.</p>
-                </div>
-            </li>
-            <li style="color: black">
-              <p class=t-timeline-date>Dec 7, 2017</p>
-                <div class=t-timeline-content>
-                  <p>Timeout bug survey paper is accepted to <a href="http://conferences.computer.org/IC2E/2018/accepted_papers.htm"><span style="color: black">IC2E'18</span></a>.</p>
-                </div>
-            </li>
-            <li style="color: black">
-              <p class=t-timeline-date>Aug 17, 2017</p>
-                <div class=t-timeline-content>
-                  <p>Hytrace is accepted to <a href="https://acmsocc.github.io/2017/accepted-posters.html">
-                  <span style="color: black">SoCC'17 poster session.</span></a></p>
-                </div>
-            </li>
-            <li style="color: black">
-              <p class=t-timeline-date>Nov 10, 2016</p>
-                <div class=t-timeline-content>
-                  <p>Passed my PhD Written Prelimary Exam. Yah!</p>
-                </div>
-            </li>
-            <li style="color: black">
-              <p class=t-timeline-date>Apr 8, 2016</p>
-                <div class=t-timeline-content>
-                  <p>Received summer internship offer from InsightFinder Inc.</p>
-                </div>
-            </li>
-            <li style="color: black">
-              <p class=t-timeline-date>Aug 26, 2015</p>
-                <div class=t-timeline-content>
-                  <p>Show CCM project final presentation demo at Credit Suisse.</p>
-                </div>
-            </li>
-          </div> -->
-        </div>
-        <div class="col-lg-4.5 col-md-4 col-sm-3"></div>
       </div>
-      <br><br>
-    </div>
-  
-  
-    
-    <br>
-    <div class="col-lg-9">
-    
-    </div>
+    </header>
 
-    <div class="col-lg-3">
-      
-    </div>
-
-    <!-- <div> Gerald Q. Maguire Jr(KTH) -> Jonathan M. Smith(Upenn) -> Klara Nahrstedt(UIUC) -> Xiaohui Gu
-    </div> -->
-
-  </div>
-
-
-<!--   <div>
-    <div style="padding-top: 75px;">
-      <div style="font-size: 12px;" class="jumbotron3R">
-            <i class="ios ion-ios-timer-outline fa-lg"></i>
-            <script>
-              const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-              function lastModified() {
-                var modiDate = new Date(document.lastModified);
-                var showAs = monthNames[modiDate.getMonth()] + " " + modiDate.getFullYear();
-                return showAs
-              }
-              document.write("Last updated in " + lastModified()); 
-            </script>
+    <section>
+      <h2>Now <span class="count">INSIGHTFINDER AI · 2025 – NOW</span></h2>
+      <div class="now">
+        <article class="panel">
+          <div class="kicker">AI SRE · Agents</div>
+          <h3><a href="Projects.html#ari">ARI: Predictive AI SRE</a></h3>
+          <p>InsightFinder's predictive reliability agent. It predicts failures hours before impact, identifies root causes
+            and resolves issues across the stack, from AI agents and applications to IT infrastructure, with engineer approval.</p>
+          <div class="more"><a class="act" href="Projects.html#ari">Project</a><a class="act" href="https://insightfinder.com/" target="_blank" rel="noopener">insightfinder.com</a></div>
+        </article>
+        <article class="panel ev">
+          <div class="kicker">LLM evaluation · Guardrails</div>
+          <h3><a href="Projects.html#llmeval">AI Evaluation &amp; Guardrails</a></h3>
+          <p>Evaluates LLM and agent responses for hallucination, relevance, safety and bias, guards against jailbreaks,
+            prompt injection and PII leakage, and compares models and prompt versions side by side before they ship.</p>
+          <div class="more"><a class="act" href="Projects.html#llmeval">Project</a></div>
+        </article>
       </div>
-    </div>
-  </div> -->
+    </section>
+
+    <section>
+      <h2>Research themes</h2>
+      <div class="themes">
+        <article class="theme">
+          <div class="n">01</div>
+          <h3>AI agents and LLMs for IT operations</h3>
+          <p>Benchmarking agents on real-world SRE, compliance and FinOps tasks (ITBench); generating, assessing and
+            refining operations scripts (ScriptSmith); validating generated code without references (CodeSift).</p>
+          <div class="papers"><a href="files/itbench_ICML25.pdf">ICML'25</a><a href="files/scriptsmith_AAAI25.pdf">AAAI'25</a><a href="files/codesift_CLOUD24.pdf">CLOUD'24</a></div>
+        </article>
+        <article class="theme">
+          <div class="n">02</div>
+          <h3>Evaluating and guarding LLM applications</h3>
+          <p>Hallucination, relevance, safety and bias evaluation of LLM and agent responses, guardrails, and side-by-side
+            comparison of models and prompt versions, shipped as InsightFinder's AI Evaluation.</p>
+          <div class="papers"><a href="Projects.html#llmeval">PROJECT</a></div>
+        </article>
+        <article class="theme">
+          <div class="n">03</div>
+          <h3>Bug and vulnerability detection</h3>
+          <p>Distributed concurrency bugs through RPC-driven, race-directed test generation and fuzzing (Themis);
+            server-side request forgeries through LLM-assisted, path-sensitive taint analysis (Artemis).</p>
+          <div class="papers"><a href="files/themis_NSDI26.pdf">NSDI'26</a><a href="files/artemis_OOPSLA25.pdf">OOPSLA'25</a><a href="files/ssrf_CCS24.pdf">CCS'24</a></div>
+        </article>
+        <article class="theme">
+          <div class="n">04</div>
+          <h3>Performance, hang and timeout bugs in cloud systems</h3>
+          <p>Hybrid static and runtime diagnosis, data-corruption hang detection, automatic hang and timeout fixing.
+            The subject of my Ph.D. dissertation.</p>
+          <div class="papers"><a href="files/hytrace_TPDS19.pdf">TPDS'19</a><a href="files/dscope_SOCC18.pdf">SoCC'18</a><a href="files/hangfix_SOCC20.pdf">SoCC'20</a><a href="files/tfix_ICDCS19.pdf">ICDCS'19</a><a href="files/understanding_IC2E18.pdf">IC2E'18</a></div>
+        </article>
+      </div>
+      <p class="also">Also: energy-aware video streaming (GreenABR, MMSys'22 and TOMM'24), risky scripts in infrastructure code (SoCC'20),
+        container vulnerability detection (IC2E'19) and privacy-preserving smart contracts (FabZK, DSN'19). All of it is on <a href="Projects.html#more">Projects</a>.</p>
+    </section>
+
+    <section>
+      <h2>Selected work</h2>
+      <div class="strip">
+        <a class="w" href="Publications.html#themis">
+          <div class="v">NSDI <span>2026</span></div>
+          <div class="t">Themis</div>
+          <div class="s">Detecting distributed concurrency bugs through RPC-driven, race-directed test generation and fuzzing.</div>
+        </a>
+        <a class="w" href="Publications.html#itbench">
+          <div class="v">ICML <span>2025</span></div>
+          <div class="t">ITBench</div>
+          <div class="s">Evaluating AI agents across diverse real-world IT automation tasks.</div>
+          <span class="award">Spotlight and oral</span>
+        </a>
+        <a class="w" href="Publications.html#artemis">
+          <div class="v">OOPSLA <span>2025</span></div>
+          <div class="t">Artemis</div>
+          <div class="s">Accurate detection of server-side request forgeries with LLM-assisted inter-procedural taint analysis.</div>
+        </a>
+        <a class="w" href="Publications.html#papers">
+          <div class="v">AAAI <span>2025</span></div>
+          <div class="t">ScriptSmith</div>
+          <div class="s">A unified LLM framework for Bash script generation, assessment and refinement in IT operations.</div>
+        </a>
+      </div>
+      <p class="allpubs"><a href="Publications.html">All 27 papers, 10 patents and 2 theses &rarr;</a></p>
+    </section>
+
+    <section>
+      <h2>More</h2>
+      <div class="next">
+        <a href="Publications.html"><b>Publications</b><span>27 papers · 10 patents · 2 theses</span></a>
+        <a href="Projects.html"><b>Projects</b><span>ARI, AI Evaluation, ITBench and 12 more</span></a>
+        <a href="Experience.html"><b>Experience</b><span>Work, teaching, mentoring, service</span></a>
+        <a href="Awards.html"><b>Awards</b><span>IBM Research Accomplishment ×3, DASH-IF award, IC2E best paper nominee</span></a>
+      </div>
+      <p class="service"><b>Service.</b> Industry Track chair, IC2E 2024 · Program committee: IC2E, IEEE CLOUD, ICDCS · Editorial board, Journal of Systems Research.
+        <a href="Experience.html#service">Details</a></p>
+    </section>
+  </main>
+
+  <script src="js/site.js"></script>
 </body>
 </html>
