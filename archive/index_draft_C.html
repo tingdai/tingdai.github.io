@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <base href="../">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-46464487-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-46464487-1');
+    gtag('config', 'UA-124566132-1');
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Ting Dai">
+  <link rel="shortcut icon" type="image/ico" href="images/favicon.ico">
+  <title>Ting Dai</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap">
+  <style>
+    /* Sidebar portfolio: sticky profile column on the left, cards on the right. */
+    :root { --bg: #f4f5f8; --side: #0f1b2d; --side-fg: #e6ebf3; --side-muted: #93a1b8; --surface: #fff; --fg: #18202c;
+      --muted: #5d6778; --line: #e1e5ec; --accent: #2f6fde; --accent-bg: #eaf1fd;
+      --sans: "Inter", system-ui, -apple-system, sans-serif; --mono: "JetBrains Mono", ui-monospace, Menlo, monospace; color-scheme: light; }
+    @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+      --bg: #0d1117; --side: #0a0f18; --surface: #161b24; --fg: #e4e9f0; --muted: #98a3b4; --line: #262e3b; --accent: #6ea2ff; --accent-bg: #18243a; color-scheme: dark } }
+    :root[data-theme="dark"] { --bg: #0d1117; --side: #0a0f18; --surface: #161b24; --fg: #e4e9f0; --muted: #98a3b4; --line: #262e3b; --accent: #6ea2ff; --accent-bg: #18243a; color-scheme: dark }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--fg); font: 15px/1.6 var(--sans); }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; text-underline-offset: 3px; }
+    .layout { display: grid; grid-template-columns: 300px 1fr; min-height: 100vh; }
+    aside { background: var(--side); color: var(--side-fg); padding: 40px 28px; position: sticky; top: 0; height: 100vh; overflow-y: auto; display: flex; flex-direction: column; gap: 22px; }
+    aside img { width: 140px; height: 140px; border-radius: 50%; object-fit: cover; border: 3px solid rgba(255,255,255,.12); }
+    aside h1 { font-size: 26px; margin: 0; letter-spacing: -0.01em; }
+    aside .title { color: var(--side-muted); font-size: 14px; margin: 4px 0 0; }
+    aside nav { display: flex; flex-direction: column; gap: 2px; }
+    aside nav a { color: var(--side-muted); padding: 7px 10px; border-radius: 6px; font-weight: 500; font-size: 14px; }
+    aside nav a:hover { color: var(--side-fg); background: rgba(255,255,255,.06); text-decoration: none; }
+    aside nav a[aria-current="page"] { color: var(--side-fg); background: rgba(255,255,255,.1); }
+    .contact { display: flex; flex-direction: column; gap: 6px; font-size: 13.5px; }
+    .contact a { color: var(--side-fg); }
+    .contact .k { display: inline-block; width: 64px; font: 600 10.5px var(--mono); letter-spacing: .06em; color: var(--side-muted); }
+    aside button { margin-top: auto; align-self: flex-start; font: 600 11px var(--mono); letter-spacing: .05em; color: var(--side-muted);
+      background: none; border: 1px solid rgba(255,255,255,.18); border-radius: 6px; padding: 5px 10px; cursor: pointer; }
+    main { padding: 48px 40px 64px; max-width: 860px; display: flex; flex-direction: column; gap: 28px; }
+    .hello { font-size: 28px; font-weight: 700; line-height: 1.25; letter-spacing: -0.015em; margin: 0; text-wrap: balance; }
+    .hello span { color: var(--accent); }
+    .intro { color: var(--muted); font-size: 16px; max-width: 64ch; margin: 0; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip { font-size: 13px; font-weight: 600; padding: 4px 12px; border-radius: 999px; background: var(--accent-bg); color: var(--accent); }
+    h2 { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); margin: 8px 0 0; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; }
+    .card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 18px; display: flex; flex-direction: column; gap: 8px;
+      transition: border-color .15s, transform .15s; }
+    .card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .card h3 { font-size: 16px; margin: 0; }
+    .card p { margin: 0; color: var(--muted); font-size: 14px; flex: 1; }
+    .card .venues { display: flex; flex-wrap: wrap; gap: 6px; }
+    .card .venues a { font: 600 11px var(--mono); padding: 2px 7px; border: 1px solid var(--line); border-radius: 5px; color: var(--fg); }
+    .card .venues a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+    .card.wide { grid-column: 1 / -1; }
+    .badge { align-self: flex-start; font: 600 10.5px var(--mono); letter-spacing: .05em; color: var(--accent); }
+    @media (max-width: 820px) {
+      .layout { grid-template-columns: 1fr; }
+      aside { position: static; height: auto; padding: 28px 16px; }
+      aside nav { flex-direction: row; flex-wrap: wrap; }
+      aside button { margin-top: 0; }
+      main { padding: 28px 16px 48px; }
+    }
+  </style>
+  <script>try { var t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}</script>
+</head>
+<body>
+  <div class="layout">
+    <aside>
+      <img src="ting_dai_2025.jpg" alt="Photo of Ting Dai">
+      <div>
+        <h1>Ting Dai</h1>
+        <p class="title">Staff Data Scientist &amp; Solution Architect · InsightFinder AI</p>
+      </div>
+      <nav>
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="Publications.html">Publications</a>
+        <a href="Projects.html">Projects</a>
+        <a href="Experience.html">Experience</a>
+        <a href="Awards.html">Awards</a>
+      </nav>
+      <div class="contact">
+        <div><span class="k">EMAIL</span><a href="mailto:danielday1128@gmail.com">danielday1128@gmail.com</a></div>
+        <div><span class="k">CV</span><a href="cv_ting.pdf">cv_ting.pdf</a></div>
+        <div><span class="k">SCHOLAR</span><a href="https://scholar.google.com/citations?user=Kv-OQscAAAAJ" target="_blank" rel="noopener">Google Scholar</a></div>
+        <div><span class="k">LINKEDIN</span><a href="https://www.linkedin.com/in/ting-dai-b61579106/" target="_blank" rel="noopener">Ting Dai</a></div>
+      </div>
+      <button type="button" id="theme-btn">THEME</button>
+    </aside>
+
+    <main>
+      <p class="hello">I build ways to <span>evaluate LLMs and agentic systems</span> so they can be trusted in production.</p>
+      <p class="intro">Staff Data Scientist and Solution Architect at InsightFinder AI, previously Staff Research Scientist at IBM Research.
+        Ph.D. in Computer Science from North Carolina State University, advised by
+        <a href="http://dance.csc.ncsu.edu/gu/" target="_blank" rel="noopener">Xiaohui (Helen) Gu</a>.
+        My research is in system reliability and security.</p>
+      <div class="chips">
+        <span class="chip">LLM Evaluation</span><span class="chip">Agentic Systems</span>
+        <span class="chip">Reliability</span><span class="chip">Security</span>
+      </div>
+
+      <h2>Research highlights</h2>
+      <div class="grid">
+        <div class="card wide">
+          <span class="badge">PH.D. DISSERTATION</span>
+          <h3>Performance bugs</h3>
+          <p>Performance checking and repair on application bytecode and runtime syscall traces: generic performance bug diagnosis,
+            data-corruption hang detection, and fixing hangs caused by corruption or inter-process communication failures.</p>
+          <div class="venues">
+            <a href="files/hytrace_SOCC17.pdf">SoCC'17</a><a href="files/hytrace_TPDS19.pdf">TPDS'19</a>
+            <a href="files/dscope_SOCC18.pdf">SoCC'18</a><a href="files/hangfix_SOCC20.pdf">SoCC'20</a>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Risky IaC scripts</h3>
+          <p>Embedded scripts in infrastructure code that hurt performance, reliability, security and availability.</p>
+          <div class="venues"><a href="files/securecode_SOCC20.pdf">SoCC'20</a></div>
+        </div>
+        <div class="card">
+          <h3>Timeout bugs</h3>
+          <p>Taxonomy, detection, classification and automatic fixing.</p>
+          <div class="venues">
+            <a href="files/understanding_IC2E18.pdf">IC2E'18</a><a href="files/tscope_ICAC18.pdf">ICAC'18</a><a href="files/tfix_ICDCS19.pdf">ICDCS'19</a>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Container vulnerabilities</h3>
+          <p>Empirical study of vulnerabilities in container images.</p>
+          <div class="venues"><a href="files/study_IC2E19.pdf">IC2E'19</a></div>
+        </div>
+        <div class="card">
+          <h3>Privacy-preserving blockchain</h3>
+          <p>Zero-knowledge proofs for private, auditable transactions.</p>
+          <div class="venues"><a href="files/fabzk_DSN19.pdf">DSN'19</a></div>
+        </div>
+        <div class="card">
+          <h3>Energy-efficient streaming</h3>
+          <p>Reinforcement-learning ABR that cuts video streaming energy.</p>
+          <div class="venues"><a href="files/greenabr_MMSys22.pdf">MMSys'22</a></div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script>
+    document.getElementById('theme-btn').addEventListener('click', function () {
+      var r = document.documentElement;
+      var dark = r.dataset.theme ? r.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+      r.dataset.theme = dark ? 'light' : 'dark';
+      try { localStorage.setItem('theme', r.dataset.theme); } catch (e) {}
+    });
+  </script>
+</body>
+</html>

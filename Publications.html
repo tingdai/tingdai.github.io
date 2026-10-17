@@ -1,953 +1,754 @@
-
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
-"http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!doctype html>
+<html lang="en" data-theme="dark">
 <head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-124566132-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'UA-124566132-1');
-    </script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-46464487-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-46464487-1');
+    gtag('config', 'UA-124566132-1');
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Ting Dai">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="icon" href="images/favicon.ico" sizes="16x16 32x32 48x48">
+  <title>Publications · Ting Dai</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+  <link rel="stylesheet" href="css/site.css">
+  <script>
+    try { var t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
+  <style>
 
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!--meta name="viewport" content="width=device-width, initial-scale=1"-->
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="author" content="Ting Dai">
-    <link rel="shortcut icon" type="image/ico" href="images/favicon.ico">
-    <title>Ting Dai</title>
-    <!-- Bootstrap -->   
-    <link href="css/bootstrap-social.css" rel="stylesheet">
-    <link href="css/social-button-3.css" rel="stylesheet">
-    <link href="css/ionicons.min.css" rel="stylesheet">
-    <link href="css/academicons.min.css" rel="stylesheet">
-    <link href="css/bootstrap.css" rel="stylesheet" media="screen">
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/colorcodeicon.css" rel="stylesheet">
-    <script src="js/jquery.min.js"></script>
-    <link href="css/bib.css" rel="stylesheet">
-    <script>
-    function updownFun (name) {
-      if (document.getElementById(name).className == "fa fa-chevron-down"){
-        document.getElementById(name).className = "fa fa-chevron-up";
-      } else {
-        document.getElementById(name).className = "fa fa-chevron-down";
-      }
-    };
-    </script>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-46464487-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-    
-      gtag('config', 'UA-46464487-1');
-    </script>
+/* quiet text links shared by the variants */
+.qls { display: flex; flex-wrap: wrap; align-items: center; gap: 2px 14px; margin-top: 6px; }
+.ql, button.ql { font: 600 11px var(--font-mono); letter-spacing: .05em; text-transform: uppercase; color: var(--accent);
+  background: none; border: 0; padding: 0; border-radius: 0; cursor: pointer; }
+.ql:hover, button.ql:hover { text-decoration: underline; text-underline-offset: 3px; }
+button.ql.toggle[aria-expanded="true"] { color: var(--fg); }
+.qls .note { font-size: 12px; }
 
+.feat { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; align-items: stretch; }
+.card { display: flex; flex-direction: column; gap: 6px; padding: 16px; min-width: 0; scroll-margin-top: 72px; }
+.card .top { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+.card .vn { font-weight: 700; color: var(--accent); font-size: 15px; }
+.card .vy { font: 12px var(--font-mono); color: var(--muted); }
+.card .ct { font-weight: 600; line-height: 1.4; font-size: 15px; }
+.card:target .ct { color: var(--accent); }
+.card .ca { font-size: 13px; color: var(--muted); } .card .ca .me { color: var(--fg); font-weight: 600; }
+.card .award { margin-top: 0; font-size: 12.5px; }
+.card .qls { margin-top: auto; padding-top: 6px; }
+.card .reveal pre { font-size: 11px; }
+@media (max-width: 860px) { .feat { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .feat { grid-template-columns: 1fr; } }
+/* filter bar */
+.filters { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 12px; }
+.filters .grp { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.filters .lbl { font: 600 11px var(--font-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin-right: 2px; }
+.chip { font: 600 11.5px var(--font-mono); letter-spacing: .04em; padding: 4px 10px; border: 1px solid var(--line); border-radius: 999px;
+  background: var(--surface); color: var(--muted); cursor: pointer; }
+.chip:hover { color: var(--accent); border-color: var(--accent); }
+.chip[aria-pressed="true"] { color: var(--accent); border-color: var(--accent); background: var(--accent-bg); }
+.filters .sep { width: 1px; height: 18px; background: var(--line); margin: 0 4px; }
+.filters input { font: 13.5px var(--font-body); color: var(--fg); background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 5px 10px; min-width: 0; flex: 1 1 160px; }
+.filters input:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+.showing { font: 12px var(--font-mono); color: var(--muted); margin: 0 0 8px; }
+/* index rows */
+.idx { list-style: none; margin: 0; padding: 0; }
+.idx .yh { font: 600 11.5px var(--font-mono); letter-spacing: .06em; color: var(--muted); padding: 16px 0 6px; border-top: 1px solid var(--line); }
+.idx .yh:first-child { padding-top: 0; border-top: 0; }
+.idx .yh.off { display: none; }
+.idx .r { display: grid; grid-template-columns: 76px minmax(0, 1fr) auto; gap: 2px 14px; align-items: baseline; padding: 8px 0; scroll-margin-top: 72px; }
+.idx .r.off { display: none; }
+.idx .r + .r { border-top: 1px dashed var(--line); }
+.idx .rv { font-weight: 700; color: var(--accent); font-size: 13.5px; white-space: nowrap; }
+.idx .rv small { display: block; font: 11px var(--font-mono); color: var(--muted); font-weight: 400; }
+.idx a.rv:hover { text-decoration: underline; text-underline-offset: 3px; }
+.idx .rt { font-weight: 600; line-height: 1.4; }
+.idx .r:target .rt { color: var(--accent); }
+.idx .ra { font-size: 13px; color: var(--muted); margin-top: 1px; } .idx .ra .me { color: var(--fg); font-weight: 600; }
+.idx .rw { font-size: 12.5px; color: var(--muted); margin-top: 1px; }
+.idx .zh { font-size: 12.5px; color: var(--muted); }
+.idx .kind { font: 600 10px var(--font-mono); letter-spacing: .05em; color: var(--muted); border: 1px solid var(--line); border-radius: 4px; padding: 0 5px; margin-left: 6px; vertical-align: 2px; }
+.idx .award { margin-top: 2px; font-size: 12.5px; }
+.idx .qls { grid-column: 3; justify-content: flex-end; margin-top: 0; gap: 2px 10px; max-width: 200px; }
+.idx .rw .note { font-size: 12px; }
+.idx .reveal { grid-column: 1 / -1; }
+.idx .empty { color: var(--muted); font-size: 14px; padding: 8px 0; display: none; }
+@media (max-width: 640px) { .filters .sep { display: none; } .idx .r { grid-template-columns: 1fr; } .idx .rv { display: flex; gap: 8px; } .idx .rv small { display: inline; }
+  .idx .qls { grid-column: 1; justify-content: flex-start; margin-top: 4px; max-width: none; } }
+
+.grp-sec { scroll-margin-top: 72px; }
+.grp-sec + .grp-sec { margin-top: 28px; }
+.grp-sec.off { display: none; }
+h3.sub { font-size: 17px; margin: 0 0 10px; }
+.idx .yh ~ .r .rv small { display: none; }
+@media (max-width: 640px) { .idx .yh ~ .r .rv small { display: none; } }
+#index > .filters { margin-top: 4px; }
+  </style>
 </head>
-
 <body>
 
-  <nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-              <li><a href="index.html">Home</a></li>
-              <li class="active"><a href="Publications.html">Publications<span class="sr-only">(current)</span></a></li>
-              <li><a href="Projects.html">Projects</a></li>
-              <li><a href="Experience.html">Experience</a></li>
-              <li><a href="Awards.html">Awards</a></li>
-              <!-- <li><a href="topconfs.html">Conferences</a></li> -->
-              <!-- <li><a href="AISysSecCC.html">Target Conferences</a></li> -->
-            </ul>
-        </div>
+  <nav class="topnav">
+    <div class="inner">
+      <a class="brand" href="index.html">Ting Dai</a>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="Publications.html" aria-current="page">Publications</a></li>
+        <li><a href="Projects.html">Projects</a></li>
+        <li><a href="Experience.html">Experience</a></li>
+        <li><a href="Awards.html">Awards</a></li>
+      </ul>
+      <button class="theme-btn" type="button" id="theme-btn">&#9728; Light</button>
     </div>
   </nav>
 
-    
-  <!--script type="text/javascript" src="obfuscate.js"></script-->
-  <div class="container">
-    <!-- <script src="Header.js"></script> -->
-    <br><br><br><br>
-    <p>Most of my publications are shown below. <a href="https://scholar.google.com/citations?user=Kv-OQscAAAAJ">Google scholar</a> has a slightly more complete list.</p>
-    <!-- <a href="https://academic.microsoft.com/profile/4gi7g571-f201-4400-99hj-8356h06276eh/Dai/">Microsoft academic</a> -->
+  <main class="wrap">
+    <header class="pagehead">
+      <div class="eyebrow">Publications</div>
+      <h1>Papers, patents, and theses</h1>
+      <p class="lede">Most of my publications are listed below. <a href="https://scholar.google.com/citations?user=Kv-OQscAAAAJ" target="_blank" rel="noopener">Google Scholar</a> has a slightly more complete list.</p>
+      <nav class="jump" aria-label="Sections"><a href="#papers">PAPERS · 27</a><a href="#patents">PATENTS · 10</a><a href="#theses">THESES · 2</a></nav>
+    </header>
 
-    <h3>Papers</h3> 
-    <br>
-    <div>
-    <dl class="dl-horizontal">
-        <dt class="conference"><b><a href="https://www.usenix.org/conference/nsdi26" class="nodec">NSDI'26</a></b></dt>
-        <dd class="pubitem">
-            <b>Themis: Detecting Distributed Concurrency Bugs through RPC-Driven Race-Directed Test Generation and Fuzzing</b><br>
-            Hongchen Cao, Jingzhu He, <b>Ting Dai</b>, Guoliang Jin<br>
-            Proc. of the 23rd USENIX Symposium on Networked Systems Design and Implementation, Renton, WA, USA, May 4–6, 2026.<br>
-            <a target="_blank" class="btn btn-default btn-xs" href="files/themis_NSDI26.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><b><i class="fa fa-file-pdf-o"></i> pdf</b></a>
-            <!-- <a target="_blank" class="btn btn-default btn-xs" href="https://arxiv.org/pdf/2602.21026" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><b><i class="fa fa-file-pdf-o"></i> pre-print</b></a> -->
-            <a class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);" onclick="updownFun('arrowbutton_themis2026');$('#bibtex_themis2026').slideToggle('fast');return false;"><b><div id="arrowbutton_themis2026" class="fa fa-chevron-down"></div> bibtex</b></a>
-            <i style="font-size:0.8em">(acceptance rate 150/659=22.8%)</i><br>
-            <!-- <a class="btn btn-default btn-xs" href="https://github.com/bekiroguzhan/GreenABR-MMSys22"><b><i class="fa fa-github"></i> code</b></a> -->
-            <div id="bibtex_themis2026" class="bibtex well"> 
-              @inproceedings{themis2026,<br>
-                &nbsp;&nbsp;author = {Cao, Hongchen and He, Jingzhu and Dai, Ting and Jin, Guoliang},<br>
-                &nbsp;&nbsp;title = {Themis: Detecting Distributed Concurrency Bugs through {RPC-Driven} {Race-Directed} Test Generation and Fuzzing},<br>
-                &nbsp;&nbsp;booktitle = {23rd USENIX Symposium on Networked Systems Design and Implementation (NSDI 26)},<br>
-                &nbsp;&nbsp;year = {2026},<br>
-                &nbsp;&nbsp;isbn = {978-1-939133-54-0},<br>
-                &nbsp;&nbsp;address = {Renton, WA},<br>
-                &nbsp;&nbsp;pages = {1685--1706},<br>
-                &nbsp;&nbsp;url = {https://www.usenix.org/conference/nsdi26/presentation/cao},<br>
-                &nbsp;&nbsp;publisher = {USENIX Association},<br>
-                &nbsp;&nbsp;month = may<br>
-              }
-            </div>
-        </dd>
-    </dl>
-    <dl class="dl-horizontal">
-        <dt class="conference"><b><a href="https://2025.splashcon.org/track/OOPSLA" class="nodec">OOPSLA'25</a></b></dt>
-        <dd class="pubitem">
-            <b>Artemis: Toward Accurate Detection of Server-Side Request Forgeries through LLM-Assisted Inter-Procedural Path-Sensitive Taint Analysis</b><br>
-            Yuchen Ji, <b>Ting Dai</b>, Zhichao Zhou, Yutian Tang, Jingzhu He<br>
-            Proc. of the ACM on Programming Languages, Volume 9, Issue OOPSLA1, Singapore October, 2025.<br>
-            <a target="_blank" class="btn btn-default btn-xs" href="files/artemis_OOPSLA25.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><b><i class="fa fa-file-pdf-o"></i> pdf</b></a>
-            <a target="_blank" class="btn btn-default btn-xs" href="https://arxiv.org/pdf/2502.21026" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><b><i class="fa fa-file-pdf-o"></i> pre-print</b></a>
-            <a class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);" onclick="updownFun('arrowbutton_artemis2025');$('#bibtex_artemis2025').slideToggle('fast');return false;"><b><div id="arrowbutton_artemis2025" class="fa fa-chevron-down"></div> bibtex</b></a>
-            <!-- <i style="font-size:0.8em">(acceptance rate 16.33%)</i><br> -->
-            <!-- <a class="btn btn-default btn-xs" href="https://github.com/bekiroguzhan/GreenABR-MMSys22"><b><i class="fa fa-github"></i> code</b></a> -->
-            <div id="bibtex_artemis2025" class="bibtex well"> 
-              @article{artemis2025,<br>
-                &nbsp;&nbsp;author = {Ji, Yuchen and Dai, Ting and Zhou, Zhichao and Tang, Yutian and He, Jingzhu},<br>
-                &nbsp;&nbsp;title = {Artemis: Toward Accurate Detection of Server-Side Request Forgeries through LLM-Assisted Inter-procedural Path-Sensitive Taint Analysis},<br>
-                &nbsp;&nbsp;year = {2025},<br>
-                &nbsp;&nbsp;issue_date = {April 2025},<br>
-                &nbsp;&nbsp;publisher = {Association for Computing Machinery},<br>
-                &nbsp;&nbsp;volume = {9},<br>
-                &nbsp;&nbsp;number = {OOPSLA1},<br>
-                &nbsp;&nbsp;url = {https://doi.org/10.1145/3720488},<br>
-                &nbsp;&nbsp;doi = {10.1145/3720488},<br>
-                &nbsp;&nbsp;journal = {Proc. ACM Program. Lang.},<br>
-                &nbsp;&nbsp;month = apr,<br>
-                &nbsp;&nbsp;articleno = {128},<br>
-                &nbsp;&nbsp;numpages = {29},<br>
-              }
-            </div>
-        </dd>
-    </dl>
-    <dl class="dl-horizontal">
-        <dt class="conference"><b><a href="https://icml.cc/Conferences/2025" class="nodec">ICML'25</a></b></dt>
-        <dd class="pubitem">
-            <b>ITBench: Evaluating AI Agents across Diverse Real-World IT Automation Tasks</b><br>
-            Saurabh Jha, Rohan Arora, Yuji Watanabe, Takumi Yanagawa, Yinfang Chen, Jackson Clark, Bhavya Bhavya, Mudit Verma, Harshit Kumar, Hirokuni Kitahara, Noah Zheutlin, Saki Takano, Divya Pathak, Felix George, Xinbo Wu, Bekir O Turkkan, Gerard Vanloo, Michael Nidd, <b>Ting Dai</b>, Oishik Chatterjee, Pranjal Gupta, Suranjana Samanta, Pooja Aggarwal, Rong Lee, Pavankumar Murali, Jae-wook Ahn, Debanjana Kar, Ameet Rahane, Carlos Fonseca, Amit Paradkar, Yu Deng, Pratibha Moogi, Prateeti Mohapatra, Naoki Abe, Chandrasekhar Narayanaswami, Tianyin Xu, Lav R Varshney, Ruchi Mahindru, Anca Sailer, Laura Shwartz, Daby Sow, Nicholas Fuller, Ruchir Puri<br>
-            Proc. of Forty-second International Conference on Machine Learning, Vancouver, Canada, July, 2025.<br>
-            <a target="_blank" class="btn btn-default btn-xs" href="files/itbench_ICML25.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><b><i class="fa fa-file-pdf-o"></i> pdf</b></a>
-            <a target="_blank" class="btn btn-default btn-xs" href="https://arxiv.org/pdf/2502.05352" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><b><i class="fa fa-file-pdf-o"></i> pre-print</b></a>
-            <a class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);" onclick="updownFun('arrowbutton_itbench2025');$('#bibtex_itbench2025').slideToggle('fast');return false;"><b><div id="arrowbutton_itbench2025" class="fa fa-chevron-down"></div> bibtex</b></a>
-            <a class="btn btn-default btn-xs" href="https://github.com/itbench-hub"><b><i class="fa fa-github"></i> code</b></a>
-            <i style="font-size:0.8em">(acceptance rate 26.93%, spotlight rate 2.59%, oral rate 0.89%)</i><br>
-            <a style="color:red" href="https://icml.cc/virtual/2025/poster/44303"><b><i class="ios ion-ribbon-b fa-lg"></i> Spotlight and Oral Presentation</b></a>
-            <div id="bibtex_itbench2025" class="bibtex well"> 
-              @inproceedings{itbench2025,<br>
-              &nbsp;&nbsp;title={{ITB}ench: Evaluating {AI} Agents across Diverse Real-World {IT} Automation Tasks},<br>
-              &nbsp;&nbsp;author={Saurabh Jha and Rohan R. Arora and Yuji Watanabe and Takumi Yanagawa and Yinfang Chen and Jackson Clark and Bhavya Bhavya and Mudit Verma and Harshit Kumar and Hirokuni Kitahara and Noah Zheutlin and Saki Takano and Divya Pathak and Felix George and Xinbo Wu and Bekir O Turkkan and Gerard Vanloo and Michael Nidd and Ting Dai and Oishik Chatterjee and Pranjal Gupta and Suranjana Samanta and Pooja Aggarwal and Rong Lee and Jae-wook Ahn and Debanjana Kar and Amit Paradkar and Yu Deng and Pratibha Moogi and Prateeti Mohapatra and Naoki Abe and Chandrasekhar Narayanaswami and Tianyin Xu and Lav R. Varshney and Ruchi Mahindru and Anca Sailer and Laura Shwartz and Daby Sow and Nicholas C. M. Fuller and Ruchir Puri},<br>
-              &nbsp;&nbsp;booktitle={Forty-second International Conference on Machine Learning},<br>
-              &nbsp;&nbsp;year={2025},<br>
-              &nbsp;&nbsp;url={https://openreview.net/forum?id=jP59rz1bZk}<br>
-              }
-            </div>
-        </dd>
-    </dl>
-    <dl class="dl-horizontal">
-        <dt class="conference"><b><a href="https://aaai.org/conference/aaai/aaai-25/iaai-25-call/" class="nodec">AAAI'25</a></b></dt>
-        <dd class="pubitem">
-            <b>ScriptSmith: A Unified LLM Framework for Enhancing IT Operations via Automated Bash Script Generation, Assessment, and Refinement</b><br>
-            Pooja Aggarwal, Oishik Chatterjee, <b>Ting Dai</b>, Suranjana Samanta, Prateeti Mohapatra, Debanjana Kar, Ruchi Mahindru, Steve Barbier, Eugen Postea, Brad Blancett, Arthur De Magalhaes<br>
-            Proc. of the AAAI Conference on Artificial Intelligence, IAAI Track, Philadelphia, USA, Feb-Mar, 2025.<br>
-            <a target="_blank" class="btn btn-default btn-xs" href="files/scriptsmith_AAAI25.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><b><i class="fa fa-file-pdf-o"></i> pdf</b></a>
-            <a class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);" onclick="updownFun('arrowbutton_scriptsmith2025');$('#bibtex_scriptsmith2025').slideToggle('fast');return false;"><b><div id="arrowbutton_scriptsmith2025" class="fa fa-chevron-down"></div> bibtex</b></a>
-            <i style="font-size:0.8em">(acceptance rate 16.33%)</i><br>
-            <div id="bibtex_scriptsmith2025" class="bibtex well"> 
-              @article{scriptsmith2025, <br>
-                &nbsp;&nbsp;title={ScriptSmith: A Unified LLM Framework for Enhancing IT Operations via Automated Bash Script Generation, Assessment, and Refinement},<br>
-                &nbsp;&nbsp;author={Aggarwal, Pooja and Chatterjee, Oishik and Dai, Ting and Samanta, Suranjana and Mohapatra, Prateeti and Kar, Debanjana and Mahindru, Ruchi and Barbier, Steve and Postea, Eugen and Blancett, Brad and de Magalhaes, Arthur},  <br>
-                &nbsp;&nbsp;volume={39}, <br>
-                &nbsp;&nbsp;url={https://ojs.aaai.org/index.php/AAAI/article/view/35147}, <br>
-                &nbsp;&nbsp;DOI={10.1609/aaai.v39i28.35147}, <br>
-                &nbsp;&nbsp;number={28}, <br>
-                &nbsp;&nbsp;journal={Proceedings of the AAAI Conference on Artificial Intelligence}, <br>
-                &nbsp;&nbsp;year={2025}, <br>
-                &nbsp;&nbsp;month={Apr.}, <br>
-                &nbsp;&nbsp;pages={28829-28835} <br>
-                }<br>
-            </div>
-        </dd>
-    </dl>
-    <dl class="dl-horizontal">
-        <dt class="conference"><b><a href="https://www.sigsac.org/ccs/CCS2024/" class="nodec">CCS'24</a></b></dt>
-        <dd class="pubitem">
-            <b>Poster: Whether We Are Good Enough to Detect Server-Side Request Forgeries in PHP-native Applications?</b><br>
-            Yuchen Ji, <b>Ting Dai</b>, Yutian Tang, Jingzhu He<br>
-            Proc. of ACM Conference on Computer and Communications Security, Poster Session, Salt Lake City, USA, October, 2024.<br>
-            <a target="_blank" class="btn btn-default btn-xs" href="files/ssrf_CCS24.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><b><i class="fa fa-file-pdf-o"></i> pdf</b></a>
-            <a class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);" onclick="updownFun('arrowbutton_ssrf2024');$('#bibtex_ssrf2024').slideToggle('fast');return false;"><b><div id="arrowbutton_ssrf2024" class="fa fa-chevron-down"></div> bibtex</b></a>
-            <!-- <a class="btn btn-default btn-xs" href="https://github.com/bekiroguzhan/GreenABR-MMSys22"><b><i class="fa fa-github"></i> code</b></a> -->
-            <div id="bibtex_ssrf2024" class="bibtex well"> 
-              @inproceedings{ssrf2024,<br>
-              &nbsp;&nbsp;author = {Ji, Yuchen and Dai, Ting and Tang, Yutian and He, Jingzhu},<br>
-              &nbsp;&nbsp;title = {Poster: Whether We Are Good Enough to Detect Server-Side Request Forgeries in PHP-native Applications?},<br>
-              &nbsp;&nbsp;year = {2024},<br>
-              &nbsp;&nbsp;isbn = {9798400706363},<br>
-              &nbsp;&nbsp;publisher = {Association for Computing Machinery},<br>
-              &nbsp;&nbsp;address = {New York, NY, USA},<br>
-              &nbsp;&nbsp;url = {https://doi.org/10.1145/3658644.3691419},<br>
-              &nbsp;&nbsp;doi = {10.1145/3658644.3691419},<br>
-              &nbsp;&nbsp;booktitle = {Proceedings of the 2024 on ACM SIGSAC Conference on Computer and Communications Security},<br>
-              &nbsp;&nbsp;pages = {4928–4930},<br>
-              &nbsp;&nbsp;numpages = {3},<br>
-              &nbsp;&nbsp;keywords = {PHP, server-side request forgery, taint analysis},<br>
-              &nbsp;&nbsp;location = {Salt Lake City, UT, USA},<br>
-              &nbsp;&nbsp;series = {CCS '24}<br>
-              &nbsp;&nbsp;}<br>
-            </div>
-        </dd>
-    </dl>
-    <dl class="dl-horizontal">
-        <dt class="conference"><b><a href="https://cloud.conferences.computer.org/2024/" class="nodec">CLOUD'24</a></b></dt>
-        <dd class="pubitem">
-            <b>CodeSift: An LLM-Based Reference-Less Framework for Automatic Code Validation</b><br>
-            Pooja Aggarwal, Oishik Chatterjee, <b>Ting Dai</b>, Prateeti Mohapatra, Brent Paulovicks, Brad Blancett, Arthur De Magalhaes<br>
-            Proc. of IEEE International Conference on Cloud Computing, Shenzhen, China, July, 2024.<br>
-            <a target="_blank" class="btn btn-default btn-xs" href="files/codesift_CLOUD24.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><b><i class="fa fa-file-pdf-o"></i> pdf</b></a>
-            <a class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);" onclick="updownFun('arrowbutton_codesift2024');$('#bibtex_codesift2024').slideToggle('fast');return false;"><b><div id="arrowbutton_codesift2024" class="fa fa-chevron-down"></div> bibtex</b></a>
-            <!-- <a class="btn btn-default btn-xs" href="https://github.com/bekiroguzhan/GreenABR-MMSys22"><b><i class="fa fa-github"></i> code</b></a> -->
-            <i style="font-size:0.8em">(acceptance rate 27.7%)</i><br>
-            <div id="bibtex_codesift2024" class="bibtex well"> 
-              @inproceedings{codesift2024,<br>
-              &nbsp;&nbsp;author={Aggarwal, Pooja and Chatterjee, Oishik and Dai, Ting and Mohapatra, Prateeti and Paulovicks, Brent and Blancett, Brad and De Magalhaes, Arthur},<br>
-              &nbsp;&nbsp;booktitle={2024 IEEE 17th International Conference on Cloud Computing (CLOUD)}, <br>
-              &nbsp;&nbsp;title={CodeSift: An LLM-Based Reference-Less Framework for Automatic Code Validation}, <br>
-              &nbsp;&nbsp;year={2024},<br>
-              &nbsp;&nbsp;volume={},<br>
-              &nbsp;&nbsp;number={},<br>
-              &nbsp;&nbsp;pages={404-410},<br>
-              &nbsp;&nbsp;keywords={Cloud computing;Computer languages;Codes;Subject matter experts;Large language models;Computational modeling;Testing;code generation;validation;large language models;generative AI},<br>
-              &nbsp;&nbsp;doi={10.1109/CLOUD62652.2024.00052}<br>
-              }
-            </div>
-        </dd>
-    </dl>
-    <dl class="dl-horizontal">
-        <dt class="conference"><b><a href="https://dl.acm.org/journal/tomm" class="nodec">TOMM'24</a></b></dt>
-        <dd class="pubitem">
-            <b>GreenABR+: Generalized Energy-Aware Adaptive Bitrate Streaming</b><br>
-            Bekir Turkkan, <b>Ting Dai</b>, Adithya Raman, Tevfik Kosar, Changyou Chen, Muhammed Fatih Bulut, Jaroslaw Zola, Daby Sow<br>
-            ACM Transactions on Multimedia Computing, Communications, and Applications, 2024.<br>
-            <a target="_blank" class="btn btn-default btn-xs" href="files/greenabr_TOMM24.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><b><i class="fa fa-file-pdf-o"></i> pdf</b></a>
-            <a class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);" onclick="updownFun('arrowbutton_greenabr2024');$('#bibtex_greenabr2024').slideToggle('fast');return false;"><b><div id="arrowbutton_greenabr2024" class="fa fa-chevron-down"></div> bibtex</b></a>
-            <!-- <a class="btn btn-default btn-xs" href="https://github.com/bekiroguzhan/GreenABR-MMSys22"><b><i class="fa fa-github"></i> code</b></a> -->
-            <div id="bibtex_greenabr2024" class="bibtex well"> 
-              @article{greenabr2024,<br>
-              &nbsp;&nbsp;author = {Turkkan, Bekir Oguzhan and Dai, Ting and Raman, Adithya and Kosar, Tevfik and Chen, Changyou and Bulut, Muhammed Fatih and Zola, Jaroslaw and Sow, Daby},<br>
-              &nbsp;&nbsp;title = {GreenABR+: Generalized Energy-Aware Adaptive Bitrate Streaming},<br>
-              &nbsp;&nbsp;year = {2024},<br>
-              &nbsp;&nbsp;publisher = {Association for Computing Machinery},<br>
-              &nbsp;&nbsp;address = {New York, NY, USA},<br>
-              &nbsp;&nbsp;issn = {1551-6857},<br>
-              &nbsp;&nbsp;url = {https://doi.org/10.1145/3649898},<br>
-              &nbsp;&nbsp;doi = {10.1145/3649898},<br>
-              &nbsp;&nbsp;journal = {ACM Trans. Multimedia Comput. Commun. Appl.},<br>
-              &nbsp;&nbsp;month = {mar},<br>
-              &nbsp;&nbsp;series = {TOMM'24}<br>
-              }
-            </div>
-        </dd>
-    </dl>
-    <dl class="dl-horizontal">
-        <dt class="conference"><b><a href="https://mmsys2022.ie/" class="nodec">MMSys'22</a></b></dt>
-        <dd class="pubitem">
-            <b>GreenABR: Energy-Aware Adaptive Bitrate Streaming with Deep Reinforcement Learning</b><br>
-            Bekir Turkkan, <b>Ting Dai</b>, Adithya Raman, Tevfik Kosar, Changyou Chen, Muhammed Fatih Bulut, Jaroslaw Zola, Daby Sow<br>
-            Proc. of ACM Multimedia Systems Conference, Athlone, Ireland, June, 2022.<br>
-            <a target="_blank" class="btn btn-default btn-xs" href="files/greenabr_MMSys22.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><b><i class="fa fa-file-pdf-o"></i> pdf</b></a>
-            <a target="_blank" class="btn btn-default btn-xs" href="files/greenabr_MMSys22_slides.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><b><i class="fa fa-file-powerpoint-o"></i> slides</b></a>
-            <a class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);" onclick="updownFun('arrowbutton_greenabr2022');$('#bibtex_greenabr2022').slideToggle('fast');return false;"><b><div id="arrowbutton_greenabr2022" class="fa fa-chevron-down"></div> bibtex</b></a>
-            <!-- <a class="btn btn-default btn-xs" href="code/GreenABR-MMSys22-v.1.3.zip"><b><i class="fa fa-github"></i> code</b></a> -->
-            <a class="btn btn-default btn-xs" href="https://github.com/bekiroguzhan/GreenABR-MMSys22"><b><i class="fa fa-github"></i> code</b></a>
-            <i style="font-size:0.8em">(acceptance rate 15/43=34.9%)</i><br>
-            <a style="color:red" href="https://mmsys2022.ie/program/awards"><b><i class="ios ion-ribbon-b fa-lg"></i> DASH-IF Excellence in DASH Award (3rd place)</b></a><br>
-            <!-- <span style="color:red"><b><i class="ios ion-ios-paperplane fa-lg"></i> Invited to publish in ACM TOMM</b></span> -->
-            <div id="bibtex_greenabr2022" class="bibtex well"> 
-              @inproceedings{greenabr2022,<br>
-              &nbsp;&nbsp;title = {GreenABR: Energy-Aware Adaptive Bitrate Streaming with Deep Reinforcement Learning},<br>
-              &nbsp;&nbsp;author = {Turkkan, Bekir Oguzhan and Dai, Ting and Raman, Adithya and Kosar, Tevfik and Chen, Changyou and Bulut, Muhammed Fatih and Zola, Jaroslaw and Sow, Daby},<br>
-              &nbsp;&nbsp;year = {2022},<br>
-              &nbsp;&nbsp;address = {New York, NY, USA},<br>
-              &nbsp;&nbsp;doi = {10.1145/3524273.3528188},<br>
-              &nbsp;&nbsp;booktitle = {Proceedings of the 13th ACM Multimedia Systems Conference},<br>
-              &nbsp;&nbsp;series = {MMSys'22}<br>
-              }
-            </div>
-        </dd>
-    </dl>
-    <dl class="dl-horizontal">
-        <dt class="conference"><b><a href="https://arxiv.org/abs/2110.04101" class="nodec">arXiv'21</a></b></dt>
-        <dd class="pubitem">
-            <b>TFix+: Self-configuring Hybrid Timeout Bug Fixing for Cloud Systems</b><br>
-            Jingzhu He, <b>Ting Dai</b>, Xiaohui Gu<br>
-            arXiv:2110.04101, October, 2021.<br>
-            <a target="_blank" class="btn btn-default btn-xs" href="https://arxiv.org/pdf/2110.04101.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><b><i class="fa fa-file-pdf-o"></i> pdf</b></a>
-            <a class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);" onclick="updownFun('arrowbutton_tfix2021');$('#bibtex_tfix2021').slideToggle('fast');return false;"><b><div id="arrowbutton_tfix2021" class="fa fa-chevron-down"></div> bibtex</b></a>
-            <div id="bibtex_tfix2021" class="bibtex well"> 
-              @misc{tfix2021,<br>
-              &nbsp;&nbsp;title={TFix+: Self-configuring Hybrid Timeout Bug Fixing for Cloud Systems},<br>
-              &nbsp;&nbsp;author={Jingzhu He and Ting Dai and Xiaohui Gu},<br>
-              &nbsp;&nbsp;year={2021},<br>
-              &nbsp;&nbsp;eprint={2110.04101},<br>
-              &nbsp;&nbsp;archivePrefix={arXiv},<br>
-              &nbsp;&nbsp;primaryClass={cs.SE}<br>
-              }
-            </div>
-        </dd>
-    </dl>
-    <dl class="dl-horizontal">
-        <dt class="conference"><b><a href="https://acmsocc.github.io/2020/" class="nodec">SoCC'20</a></b></dt>
-        <dd class="pubitem">
-            <b>Automatically Detecting Risky Scripts in Infrastructure Code</b><br>
-            <b>Ting Dai</b>, Alexei Karve, Grzegorz Koper, Sai Zeng<br>
-            Proc. of ACM Symposium on Cloud Computing, Virtual Event, October, 2020.<br>
-            <a target="_blank" class="btn btn-default btn-xs" href="files/securecode_SOCC20.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><b><i class="fa fa-file-pdf-o"></i> pdf</b></a>
-            <a target="_blank" class="btn btn-default btn-xs" href="files/securecode_SOCC20_slides.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><b><i class="fa fa-file-powerpoint-o"></i> slides</b></a>
-            <!-- <a target="_blank" class="btn btn-defaultoo btn-xs" href="https://dl.acm.org/action/downloadSupplement?doi=10.1145%2F3419111.3421303&file=p358-dai-presentation.mp4&download=true" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><b><i class="fa fa-file-video-o"></i> video</b></a> -->
-            <a class="btn btn-default btn-xs" onclick="$('#video_securecode').slideToggle('fast');return false;"><b><i class="fa fa-file-video-o"></i> video</b></a>
-            <a target="_blank" class="btn btn-default btn-xs" href="files/securecode_SOCC20_poster.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><b><i class="fa fa-file-picture-o"></i> poster</b></a>
-            <a class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);" onclick="updownFun('arrowbutton_securecode');$('#bibtex_securecode').slideToggle('fast');return false;"><b><div id="arrowbutton_securecode" class="fa fa-chevron-down"></div> bibtex</b></a>
-            <a class="btn btn-default btn-xs" href="https://github.ibm.com/Ting-Dai/SecureCode"><b><i class="fa fa-github"></i> code</b></a>
-            <i style="font-size:0.8em">(acceptance rate 35/143=24.5%)</i><br>
-            <div id="video_securecode" class="bibtex well"> 
-              <iframe width="560" height="315" src="https://www.youtube.com/embed/g21legEUdAk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            <div id="bibtex_securecode" class="bibtex well"> 
-              @inproceedings{securecode2020,<br>
-              &nbsp;&nbsp;author = {Dai, Ting and Karve, Alexei and Koper, Grzegorz and Zeng, Sai},<br>
-              &nbsp;&nbsp;title = {Automatically Detecting Risky Scripts in Infrastructure Code},<br>
-              &nbsp;&nbsp;year = {2020},<br>
-              &nbsp;&nbsp;booktitle = {Proceedings of the 11th ACM Symposium on Cloud Computing},<br>
-              &nbsp;&nbsp;location = {Virtual Event, USA},<br>
-              &nbsp;&nbsp;series = {SoCC '20},<br>
-              &nbsp;&nbsp;url = {https://doi.org/10.1145/3419111.3421303},<br>
-              &nbsp;&nbsp;doi = {10.1145/3419111.3421303},<br>
-              }
-            </div>
-        </dd>
-    </dl>
-    <dl class="dl-horizontal">
-        <dt class="conference"><b><a href="https://acmsocc.github.io/2020/" class="nodec">SoCC'20</a></b></dt>
-        <dd class="pubitem">
-            <b>HangFix: Automatically Fixing Software Hang Bugs for Production Cloud Systems</b><br>
-            Jingzhu He, <b>Ting Dai</b>, Xiaohui Gu, Guoliang Jin<br>
-            Proc. of ACM Symposium on Cloud Computing, Virtual Event, October, 2020.<br>
-            <a target="_blank" class="btn btn-default btn-xs" href="files/hangfix_SOCC20.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><b><i class="fa fa-file-pdf-o"></i> pdf</b></a>
-            <a target="_blank" class="btn btn-default btn-xs" href="files/hangfix_SOCC20_slides.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><b><i class="fa fa-file-powerpoint-o"></i> slides</b></a>
-            <!-- <a target="_blank" class="btn btn-defaultoo btn-xs" href="https://dl.acm.org/action/downloadSupplement?doi=10.1145%2F3419111.3421288&file=p344-he-presentation.mov&download=true" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><b><i class="fa fa-file-video-o"></i> video</b></a> -->
-            <a class="btn btn-default btn-xs" onclick="$('#video_hangfix').slideToggle('fast');return false;"><b><i class="fa fa-file-video-o"></i> video</b></a>
-            <a target="_blank" class="btn btn-default btn-xs" href="files/hangfix_SOCC20_poster.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><b><i class="fa fa-file-picture-o"></i> poster</b></a>
-            <a class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);" onclick="updownFun('arrowbutton_hangfix');$('#bibtex_hangfix').slideToggle('fast');return false;"><b><div id="arrowbutton_hangfix" class="fa fa-chevron-down"></div> bibtex</b></a>
-            <a class="btn btn-default btn-xs" href="https://github.com/NCSU-DANCE-Research-Group/HangFix"><b><i class="fa fa-github"></i> code</b></a>
-            <i style="font-size:0.8em">(acceptance rate 35/143=24.5%)</i>
-            <div id="video_hangfix" class="bibtex well"> 
-              <iframe width="560" height="315" src="https://www.youtube.com/embed/RHW2izrA3zs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            <div id="bibtex_hangfix" class="bibtex well"> 
-              @inproceedings{hangfix2020,<br>
-              &nbsp;&nbsp;author = {He, Jingzhu and Dai, Ting and Gu, Xiaohui and Jin, Guoliang},<br>
-              &nbsp;&nbsp;title = {HangFix: Automatically Fixing Software Hang Bugs for Production Cloud Systems},<br>
-              &nbsp;&nbsp;year = {2020},<br>
-              &nbsp;&nbsp;booktitle = {Proceedings of the 11th ACM Symposium on Cloud Computing},<br>
-              &nbsp;&nbsp;location = {Virtual Event, USA},<br>
-              &nbsp;&nbsp;series = {SoCC '20},<br>
-              &nbsp;&nbsp;url = {https://doi.org/10.1145/3419111.3421288},<br>
-              &nbsp;&nbsp;doi = {10.1145/3419111.3421288},<br>
-              }
-            </div>
-        </dd>
-    </dl>
-    <dl class="dl-horizontal">
-        <dt class="conference"><b><a href="https://www.hindawi.com/journals/scn/" class="nodec">SCN'20</a></b></dt>
-        <dd class="pubitem">
-            <b>An Improved Broadcast Authentication Protocol for Wireless Sensor Networks Based on the Self-Reinitializable Hash Chains</b><br>
-            Haiping Huang, Qinglong Huang, Fu Xiao, Wenming Wang, Qi Li, <b>Ting Dai</b><br>
-            Security and Communication Networks, 2020.<br>
-            <a target="_blank" class="btn btn-default btn-xs" href="files/dh-miuTesla_SCN2020.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><b><i class="fa fa-file-pdf-o"></i> pdf</b></a>
-            <a class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);" onclick="updownFun('arrowbutton_tfix');$('#bibtex_dh-miuTesla').slideToggle('fast');return false;"><b><div id="arrowbutton_hangfix" class="fa fa-chevron-down"></div> bibtex</b></a>
-            <div id="bibtex_dh-miuTesla" class="bibtex well"> 
-              @article{dh-miuTesla2020,<br>
-              &nbsp;&nbsp;author    = {Haiping Huang and Qinglong Huang and Fu Xiao and Wenming Wang and Qi Li and Ting Dai},<br>
-              &nbsp;&nbsp;title     = {An Improved Broadcast Authentication Protocol for Wireless Sensor Networks Based on the Self-Reinitializable Hash Chains},<br>
-              &nbsp;&nbsp;journal   = {Security and Communication Networks},<br>
-              &nbsp;&nbsp;volume    = {2020},<br>
-              &nbsp;&nbsp;year      = {2020},<br>
-              &nbsp;&nbsp;url       = {https://doi.org/10.1155/2020/8897282},<br>
-              &nbsp;&nbsp;doi       = {10.1155/2020/8897282},<br>
-              }
-            </div>
-        </dd>
-    </dl>
-    <dl class="dl-horizontal">
-        <dt class="conference"><b><a href="https://theory.utdallas.edu/ICDCS2019/" class="nodec">ICDCS'19</a></b></dt>
-        <dd class="pubitem">
-            <b>TFix: Automatic Timeout Bug Fixing in Production Server Systems</b><br>
-            Jingzhu He, <b>Ting Dai</b>, Xiaohui Gu<br>
-            Proc. of IEEE International Conference on Distributed Computing Systems, Dallas, Texas, July, 2019.<br>
-            <a target="_blank" class="btn btn-default btn-xs" href="files/tfix_ICDCS19.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><b><i class="fa fa-file-pdf-o"></i> pdf</b></a>
-            <a target="_blank" class="btn btn-default btn-xs" href="files/tfix_ICDCS19_slides.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><b><i class="fa fa-file-powerpoint-o"></i> slides</b></a>
-            <!-- <a class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);" onclick="$('#bibtex_tfix').slideToggle('fast');return false;"><i class="fa fa-chevron-down"></i> bibtex</a> -->
-            <a class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);" onclick="updownFun('arrowbutton_tfix');$('#bibtex_tfix').slideToggle('fast');return false;"><b><div id="arrowbutton_tfix" class="fa fa-chevron-down"></div> bibtex</b></a>
-            <a class="btn btn-default btn-xs" href="https://github.com/NCSU-DANCE-Research-Group/TFix"><b><i class="fa fa-github"></i> code</b></a>
-            <i style="font-size:0.8em">(acceptance rate 19.6%)</i>
-             <div id="bibtex_tfix" class="bibtex well"> 
-                @inproceedings{tfix2019,<br>
-                &nbsp;&nbsp;author    = {Jingzhu He and Ting Dai and Xiaohui Gu},<br>
-                &nbsp;&nbsp;title     = {TFix: Automatic Timeout Bug Fixing in Production Server Systems},<br>
-                &nbsp;&nbsp;booktitle = {39th {IEEE} International Conference on Distributed Computing Systems, {ICDCS} 2019, Dallas, TX, USA, July 7-10, 2019},<br>
-                &nbsp;&nbsp;pages     = {612--623},<br>
-                &nbsp;&nbsp;publisher = {{IEEE}},<br>
-                &nbsp;&nbsp;year      = {2019},<br>
-                &nbsp;&nbsp;url       = {https://doi.org/10.1109/ICDCS.2019.00067},<br>
-                &nbsp;&nbsp;doi       = {10.1109/ICDCS.2019.00067},<br>
-                }
-            </div>
-        </dd>
-      </dl>
-      <dl class="dl-horizontal">
-        <dt class="conference"><b><a href="http://2019.dsn.org/" class="nodec">DSN'19</a></b></dt>
-        <dd class="pubitem">
-            <b>FabZK: Supporting Privacy-Preserving, Auditable Smart Contracts in Hyperledger Fabric</b><br>
-            Hui Kang*, <b>Ting Dai*</b>, Nerla Jean-Louis, Shu Tao, Xiaohui Gu<br> (* equal contribution)<br>
-            Proc. of IEEE/IFIP International Conference on Dependable Systems and Networks, Portland, Oregon, June, 2019.<br>
-            <a target="_blank" class="btn btn-default btn-xs" href="files/fabzk_DSN19.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><b><i class="fa fa-file-pdf-o"></i> pdf</b></a>
-            <a target="_blank" class="btn btn-default btn-xs" href="files/fabzk_DSN19_slides.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><b><i class="fa fa-file-powerpoint-o"></i> slides</b></a>
-            <a class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);" onclick="updownFun('arrowbutton_fabzk');$('#bibtex_fabzk').slideToggle('fast');return false;"><b><div id="arrowbutton_fabzk" class="fa fa-chevron-down"></div> bibtex</b></a>
-            <i style="font-size:0.8em">(acceptance rate 54/252=21.4%)</i>
-            <div id="bibtex_fabzk" class="bibtex well">
-              @inproceedings{fabzk2019,<br>
-              &nbsp;&nbsp;author    = {Hui Kang and Ting Dai and Nerla Jean{-}Louis and Shu Tao and Xiaohui Gu},<br>
-              &nbsp;&nbsp;title     = {FabZK: Supporting Privacy-Preserving, Auditable Smart Contracts in Hyperledger Fabric},<br>
-              &nbsp;&nbsp;booktitle = {49th Annual {IEEE/IFIP} International Conference on Dependable Systems and Networks, {DSN} 2019, Portland, OR, USA, June 24-27, 2019},<br>
-              &nbsp;&nbsp;pages     = {543--555},<br>
-              &nbsp;&nbsp;publisher = {{IEEE}},<br>
-              &nbsp;&nbsp;year      = {2019},<br>
-              &nbsp;&nbsp;url       = {https://doi.org/10.1109/DSN.2019.00061},<br>
-              &nbsp;&nbsp;doi       = {10.1109/DSN.2019.00061},<br>
-              }
-            </div>
-        </dd>
-      </dl>
-      <dl class="dl-horizontal">
-        <dt class="conference"><b><a href="http://conferences.computer.org/IC2E/2019/" class="nodec">IC2E'19</a></b></dt>
-        <dd class="pubitem">
-            <b>A Study on Container Vulnerability Exploit Detection</b><br>
-            Olufogorehan Tunde-Onadele, Jingzhu He, <b>Ting Dai</b>, Xiaohui Gu<br>
-            Proc. of IEEE International Conference on Cloud Engineering, Prague, Czech Republic, June, 2019.<br>            
-            <a target="_blank" class="btn btn-default btn-xs" href="files/study_IC2E19.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><b><i class="fa fa-file-pdf-o"></i> pdf</b></a>
-            <a target="_blank" class="btn btn-default btn-xs" href="files/study_IC2E19_slides.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><b><i class="fa fa-file-powerpoint-o"></i> slides</b></a>
-            <a class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);" onclick="updownFun('arrowbutton_convulstudy');$('#bibtex_convulstudy').slideToggle('fast');return false;"><b><div id="arrowbutton_convulstudy" class="fa fa-chevron-down"></div> bibtex</b></a>
-            <i style="font-size:0.8em">(acceptance rate 26%)</i>
-             <div id="bibtex_convulstudy" class="bibtex well">
-              @inproceedings{convulstudy2019,<br>
-              &nbsp;&nbsp;author    = {Olufogorehan Tunde{-}Onadele and Jingzhu He and Ting Dai and Xiaohui Gu},<br>
-              &nbsp;&nbsp;title     = {A Study on Container Vulnerability Exploit Detection},<br>
-              &nbsp;&nbsp;booktitle = {{IEEE} International Conference on Cloud Engineering, {IC2E} 2019, Prague, Czech Republic, June 24-27, 2019},<br>
-              &nbsp;&nbsp;pages     = {121--127},<br>
-              &nbsp;&nbsp;publisher = {{IEEE}},<br>
-              &nbsp;&nbsp;year      = {2019},<br>
-              &nbsp;&nbsp;url       = {https://doi.org/10.1109/IC2E.2019.00026},<br>
-              &nbsp;&nbsp;doi       = {10.1109/IC2E.2019.00026},<br>
-              }
-            </div>
-        </dd>
-      </dl>
-      <dl class="dl-horizontal">
-        <dt class="conference"><b><a href="" class="nodec">TPDS'19</a></b></dt>
-        <dd class="pubitem">
-            <b>Hytrace: A Hybrid Approach to Performance Bug Diagnosis in Production Cloud Infrastructures</b><br>
-            <b>Ting Dai</b>, Daniel Dean, Peipei Wang, Xiaohui Gu, Shan Lu<br>
-            IEEE Transactions on Parallel and Distributed Systems, 2019.<br>
-            <a target="_blank" class="btn btn-default btn-xs" href="files/hytrace_TPDS19.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><b><i class="fa fa-file-pdf-o"></i> pdf</b></a>
-            <a target="_blank" class="btn btn-default btn-xs" href="files/hytrace_TPDS19_sup.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><b><i class="fa fa-file-pdf-o"></i> supplemental</b></a>
-            <a class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);" onclick="updownFun('arrowbutton_hytrace');$('#bibtex_hytrace').slideToggle('fast');return false;"><b><div id="arrowbutton_hytrace" class="fa fa-chevron-down"></div> bibtex</b></a>
-             <div id="bibtex_hytrace" class="bibtex well">
-              @article{hytrace2019,<br>
-              &nbsp;&nbsp;author    = {Ting Dai and Daniel Joseph Dean and Peipei Wang and Xiaohui Gu and Shan Lu},<br>
-              &nbsp;&nbsp;title     = {Hytrace: {A} Hybrid Approach to Performance Bug Diagnosis in Production Cloud Infrastructures},<br>
-              &nbsp;&nbsp;journal   = {{IEEE} Trans. Parallel Distrib. Syst.},<br>
-              &nbsp;&nbsp;volume    = {30},<br>
-              &nbsp;&nbsp;number    = {1},<br>
-              &nbsp;&nbsp;pages     = {107--118},<br>
-              &nbsp;&nbsp;year      = {2019},<br>
-              &nbsp;&nbsp;url       = {https://doi.org/10.1109/TPDS.2018.2858800},<br>
-              &nbsp;&nbsp;doi       = {10.1109/TPDS.2018.2858800},<br>
-              }
-            </div>
-        </dd>
-      </dl>
-      <dl class="dl-horizontal">
-        <dt class="conference"><b><a href="https://acmsocc.github.io/2018/" class="nodec">SoCC'18</a></b></dt>
-        <dd class="pubitem">
-            <b>DScope: Detecting Real-World Data Corruption Hang Bugs in Cloud Server Systems</b><br>
-            <b>Ting Dai</b>, Jingzhu He, Xiaohui Gu, Shan Lu, Peipei Wang<br>
-            Proc. of ACM Symposium on Cloud Computing, Carlsbad, CA, October, 2018.<br>
-            <a target="_blank" class="btn btn-default btn-xs" href="files/dscope_SOCC18.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><b><i class="fa fa-file-pdf-o"></i> pdf</b></a>
-            <a target="_blank" class="btn btn-default btn-xs" href="files/dscope_SOCC18_slides.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><b><i class="fa fa-file-powerpoint-o"></i> slides</b></a>
-            <a target="_blank" class="btn btn-default btn-xs" href="files/dscope_SOCC18_poster.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><b><i class="fa fa-file-picture-o"></i> poster</b></a>
-            <a class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);" onclick="updownFun('arrowbutton_dscope');$('#bibtex_dscope').slideToggle('fast');return false;"><b><div id="arrowbutton_dscope" class="fa fa-chevron-down"></div> bibtex</b></a>
-            <a class="btn btn-default btn-xs" href="https://github.com/NCSU-DANCE-Research-Group/DScope"><b><i class="fa fa-github"></i> code</b></a>
-            <i style="font-size:0.8em">(acceptance rate 39/160=24.4%)</i>
-             <div id="bibtex_dscope" class="bibtex well">
-              @inproceedings{dscope2018,<br>
-              &nbsp;&nbsp;author    = {Ting Dai and Jingzhu He and Xiaohui Gu and Shan Lu and Peipei Wang},<br>
-              &nbsp;&nbsp;title     = {DScope: Detecting Real-World Data Corruption Hang Bugs in Cloud Server Systems},<br>
-              &nbsp;&nbsp;booktitle = {Proceedings of the {ACM} Symposium on Cloud Computing, SoCC 2018, Carlsbad, CA, USA, October 11-13, 2018},<br>
-              &nbsp;&nbsp;pages     = {313--325},<br>
-              &nbsp;&nbsp;publisher = {{ACM}},<br>
-              &nbsp;&nbsp;year      = {2018},<br>
-              &nbsp;&nbsp;url       = {https://doi.org/10.1145/3267809.3267844},<br>
-              &nbsp;&nbsp;doi       = {10.1145/3267809.3267844},<br>
-              }
-            </div>
-        </dd>
-      </dl>
-      <dl class="dl-horizontal">
-        <dt class="conference"><b><a href="http://icac2018.informatik.uni-wuerzburg.de/" class="nodec">ICAC'18</a></b></dt>
-        <dd class="pubitem">
-            <b>TScope: Automatic Timeout Bug Identification for Server Systems</b><br>
-            Jingzhu He, <b>Ting Dai</b>, Xiaohui Gu<br>
-            Proc. of IEEE International Conference on Autonomic Computing, Trento, Italy, September, 2018.<br>
-            <a target="_blank" class="btn btn-default btn-xs" href="files/tscope_ICAC18.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><b><i class="fa fa-file-pdf-o"></i> pdf</b></a>
-            <a target="_blank" class="btn btn-default btn-xs" href="files/tscope_ICAC18_slides.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><b><i class="fa fa-file-powerpoint-o"></i> slides</b></a>
-            <a class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);" onclick="updownFun('arrowbutton_tscope');$('#bibtex_tscope').slideToggle('fast');return false;"><b><div id="arrowbutton_tscope" class="fa fa-chevron-down"></div> bibtex</b></a>
-            <a class="btn btn-default btn-xs" href="https://github.com/NCSU-DANCE-Research-Group/TScope"><b><i class="fa fa-github"></i> code</b></a>
-             <div id="bibtex_tscope" class="bibtex well">
-              @inproceedings{tscope2018,<br>
-              &nbsp;&nbsp;author    = {Jingzhu He and Ting Dai and Xiaohui Gu},<br>
-              &nbsp;&nbsp;title     = {TScope: Automatic Timeout Bug Identification for Server Systems},<br>
-              &nbsp;&nbsp;booktitle = {2018 {IEEE} International Conference on Autonomic Computing, {ICAC} 2018, Trento, Italy, September 3-7, 2018},<br>
-              &nbsp;&nbsp;pages     = {1--10},<br>
-              &nbsp;&nbsp;publisher = {{IEEE} Computer Society},<br>
-              &nbsp;&nbsp;year      = {2018}, <br>
-              &nbsp;&nbsp;url       = {https://doi.org/10.1109/ICAC.2018.00010},<br>
-              &nbsp;&nbsp;doi       = {10.1109/ICAC.2018.00010},<br>
-              }
-            </div>
-        </dd>
-      </dl>
-      <dl class="dl-horizontal">
-        <dt class="conference"><b><a href="http://conferences.computer.org/IC2E/2018/" class="nodec">IC2E'18</a></b></dt>
-        <dd class="pubitem">
-            <b>Understanding Real-World Timeout Problems in Cloud Server Systems</b><br>
-            <b>Ting Dai</b>, Jingzhu He, Xiaohui Gu, Shan Lu<br>
-            Proc. of IEEE International Conference on Cloud Engineering, Orlando, FL, April, 2018.<br>
-            <a target="_blank" class="btn btn-default btn-xs" href="files/understanding_IC2E18.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><b><i class="fa fa-file-pdf-o"></i> pdf</b></a>
-            <a target="_blank" class="btn btn-default btn-xs" href="files/understanding_IC2E18_slides.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><b><i class="fa fa-file-powerpoint-o"></i> slides</b></a>
-            <a class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);" onclick="updownFun('arrowbutton_timeoutstudy');$('#bibtex_timeoutstudy').slideToggle('fast');return false;"><b><div id="arrowbutton_timeoutstudy" class="fa fa-chevron-down"></div> bibtex</b></a>
-            <i style="font-size:0.8em">(acceptance rate 12/63=19%)</i>
-            <br>
-            <a style="color:red" href="http://conferences.computer.org/IC2E/2018/best_paper_candidates.htm"><b><i class="ios ion-ribbon-b fa-lg"></i> Best paper nominee</b></a>
-             <div id="bibtex_timeoutstudy" class="bibtex well">
-              @inproceedings{timeoutstudy2018,<br>
-              &nbsp;&nbsp;author    = {Ting Dai and Jingzhu He and Xiaohui Gu and Shan Lu},<br>
-              &nbsp;&nbsp;title     = {Understanding Real-World Timeout Problems in Cloud Server Systems},<br>
-              &nbsp;&nbsp;booktitle = {2018 {IEEE} International Conference on Cloud Engineering, {IC2E} 2018, Orlando, FL, USA, April 17-20, 2018},<br>
-              &nbsp;&nbsp;pages     = {1--11},<br>
-              &nbsp;&nbsp;publisher = {{IEEE} Computer Society},<br>
-              &nbsp;&nbsp;year      = {2018},<br>
-              &nbsp;&nbsp;url       = {https://doi.org/10.1109/IC2E.2018.00022},<br>
-              &nbsp;&nbsp;doi       = {10.1109/IC2E.2018.00022},<br>
-              }
-            </div>
-        </dd>
-      </dl>
-      <dl class="dl-horizontal">
-        <dt class="conference"><b><a href="https://acmsocc.github.io/2017/accepted-posters.html" class="nodec">SoCC'17</a></b></dt>
-        <dd class="pubitem">
-            <b>Hytrace: A Hybrid Approach to Performance Bug Diagnosis in Production Cloud Infrastructures</b><br>
-            <b>Ting Dai</b>, Daniel Dean, Peipei Wang, Xiaohui Gu, Shan Lu<br>
-            Proc. of ACM Symposium on Cloud Computing, Poster Session, Santa Clara, CA, September, 2017.<br>
-            <a target="_blank" class="btn btn-default btn-xs" href="files/hytrace_SOCC17.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><b><i class="fa fa-file-pdf-o"></i> pdf</b></a>
-            <a target="_blank" class="btn btn-default btn-xs" href="files/hytrace_SOCC17_poster.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><b><i class="fa fa-file-picture-o"></i> poster</b></a>
-            <a class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);" onclick="updownFun('arrowbutton_hytraceposter');$('#bibtex_hytraceposter').slideToggle('fast');return false;"><b><div id="arrowbutton_hytraceposter" class="fa fa-chevron-down"></div> bibtex</b></a>
-             <div id="bibtex_hytraceposter" class="bibtex well">
-              @inproceedings{hytrace2017,<br>
-              &nbsp;&nbsp;author    = {Ting Dai and Daniel Dean and Peipei Wang and Xiaohui Gu and Shan Lu},<br>
-              &nbsp;&nbsp;title     = {Hytrace: a hybrid approach to performance bug diagnosis in production cloud infrastructures},<br>
-              &nbsp;&nbsp;booktitle = {Proceedings of the 2017 Symposium on Cloud Computing, SoCC 2017, Santa Clara, CA, USA, September 24-27, 2017},<br>
-              &nbsp;&nbsp;pages     = {641},<br>
-              &nbsp;&nbsp;publisher = {{ACM}},<br>
-              &nbsp;&nbsp;year      = {2017},<br>
-              &nbsp;&nbsp;url       = {https://doi.org/10.1145/3127479.3132562},<br>
-              &nbsp;&nbsp;doi       = {10.1145/3127479.3132562},<br>
-              }
-            </div>
-        </dd>
-      </dl>
-      <dl class="dl-horizontal">
-        <dt class="conference"><b><a href="http://www.hindawi.com/journals/js/2016/" class="nodec">JS'16</a></b></dt>
-        <dd class="pubitem">
-            <b>An Improved μTESLA Protocol Based on Queuing Theory and Benaloh-Leichter SSS in WSNs</b><br>
-            Haiping Huang, Tianhe Gong, Tao Chen, Mingliang Xiong, Xinxing Pan, <b>Ting Dai</b><br>
-            Journal of Sensors, Vol. 2016, Article ID 9021650, 13 pages, 2016.<br>
-            <a target="_blank" class="btn btn-default btn-xs" href="files/miuTESLA_JS16.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><b><i class="fa fa-file-pdf-o"></i> pdf</b></a>
-            <a class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);" onclick="updownFun('arrowbutton_μTESLA');$('#bibtex_μTESLA').slideToggle('fast');return false;"><b><div id="arrowbutton_μTESLA" class="fa fa-chevron-down"></div> bibtex</b></a>
-             <div id="bibtex_μTESLA" class="bibtex well">
-              @article{advμTESLA2016,<br>
-              &nbsp;&nbsp;author    = {Haiping Huang and Tianhe Gong and Tao Chen and Mingliang Xiong and Xinxing Pan and Ting Dai},<br>
-              &nbsp;&nbsp;title     = {An Improved \emph{{\(\mu\)}}TESLA Protocol Based on Queuing Theory and Benaloh-Leichter {SSS} in WSNs},<br>
-              &nbsp;&nbsp;journal   = {J. Sensors},<br>
-              &nbsp;&nbsp;volume    = {2016},<br>
-              &nbsp;&nbsp;pages     = {9021650:1--9021650:13},<br>
-              &nbsp;&nbsp;year      = {2016},<br>
-              &nbsp;&nbsp;url       = {https://doi.org/10.1155/2016/9021650},<br>
-              &nbsp;&nbsp;doi       = {10.1155/2016/9021650},<br>
-              }
-            </div>
-        </dd>
-      </dl>
-      <dl class="dl-horizontal">
-        <dt class="conference"><b><a href="http://www.hindawi.com/journals/ijdsn/2013/2/" class="nodec">IJDSN'13</a></b></dt>
-        <dd class="pubitem">
-            <b>Research on Migration Strategy of Mobile Agent in Wireless Sensor Networks</b><br>
-            <b>Ting Dai</b>, Haiping Huang, Yang Lu, Ruchuan Wang, Xinxing Pan<br>
-            International Journal of Distributed Sensor Networks, Vol. 2013, Article ID 642986, 13 pages, 2013.<br>
-            <a target="_blank" class="btn btn-default btn-xs" href="files/migration_IJDSN13.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><b><i class="fa fa-file-pdf-o"></i> pdf</b></a>
-            <a class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);" onclick="updownFun('arrowbutton_migration');$('#bibtex_migration').slideToggle('fast');return false;"><b><div id="arrowbutton_migration" class="fa fa-chevron-down"></div> bibtex</b></a>
-             <div id="bibtex_migration" class="bibtex well">
-              @article{migration2013,<br>
-              &nbsp;&nbsp;author    = {Ting Dai and Haiping Huang and Lu Yang and Ruchuan Wang and Xinxing Pan},<br>
-              &nbsp;&nbsp;title     = {Research on Migration Strategy of Mobile Agent in Wireless Sensor Networks},<br>
-              &nbsp;&nbsp;journal   = {{IJDSN}},<br>
-              &nbsp;&nbsp;volume    = {9},<br>
-              &nbsp;&nbsp;year      = {2013},<br>
-              &nbsp;&nbsp;url       = {https://doi.org/10.1155/2013/642986},<br>
-              &nbsp;&nbsp;doi       = {10.1155/2013/642986},<br>
-              }
-            </div>
-        </dd>
-      </dl>
-      <dl class="dl-horizontal">
-        <dt class="conference"><b><a href="http://www.joconline.com.cn/CN/volumn/volumn_173.shtml" class="nodec">JoC'13</a></b></dt>
-        <dd class="pubitem">
-            <b>A Novel Self-Renewal Hash Chain Scheme based on (t, n)-Threshold and Division Tree</b><br>
-            <b>基于(t, n)门限和划分树的可再生散列链构造方案</b><br>
-            Haiping Huang, <b>Ting Dai</b>, Ruchuan Wang, Xiaolin Qin, Jiutian Chen<br>
-            Journal of Communications(通信学报), Vol. 34, No. 4, pp. 70-81, Apr. 2013.<br>
-            <a target="_blank" class="btn btn-default btn-xs" href="files/hashchain_JOC13.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><b><i class="fa fa-file-pdf-o"></i> pdf</b></a>
-            <a class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);" onclick="updownFun('arrowbutton_hashchainJoC');$('#bibtex_hashchainJoC').slideToggle('fast');return false;"><b><div id="arrowbutton_hashchainJoC" class="fa fa-chevron-down"></div> bibtex</b></a>
-            <div id="bibtex_hashchainJoC" class="bibtex well">
-              @article{hashchainJoC13,<br>
-              &nbsp;&nbsp;author = {Haiping Huang, Ting Dai, Ruchuan Wang, Xiaolin Qin, Jiutian Chen},<br>
-              &nbsp;&nbsp;title = {A Novel Self-Renewal Hash Chain Scheme based on (t, n)-Threshold and Division Tree},<br>
-              &nbsp;&nbsp;year = {2013},<br>
-              &nbsp;&nbsp;journal = {Journal of Communications},<br>
-              &nbsp;&nbsp;volume = {34},<br>
-              &nbsp;&nbsp;number = {4},<br>
-              &nbsp;&nbsp;doi = {10.3969/j.issn.1000-436x.2013.04.008}<br>
-              }<br>
-              <br>
-              @article{hashchainJoC13,<br>
-              &nbsp;&nbsp;author = {黄海平, 戴庭, 王汝传, 秦小麟, 陈九天},<br>
-              &nbsp;&nbsp;title = {基于(t,n)门限和划分树的可再生散列链构造方案},<br>
-              &nbsp;&nbsp;year = {2013},<br>
-              &nbsp;&nbsp;journal = {通信学报},<br>
-              &nbsp;&nbsp;volume = {34},<br>
-              &nbsp;&nbsp;number = {4},<br>
-              &nbsp;&nbsp;doi = {10.3969/j.issn.1000-436x.2013.04.008}<br>
-              }   
-            </div>
-        </dd>
-      </dl>
-      <dl class="dl-horizontal">
-        <dt class="conference"><b><a href="http://www.sciencedirect.com/science/journal/10058885/19/supp/S2" class="nodec">JCUPT'12</a></b></dt>
-        <dd class="pubitem">
-            <b>Novel self-renewal Hash Chain based on Ito-Saito-Nishizeki secret sharing scheme</b><br>
-            <b>Ting Dai</b>, Haiping Huang, Ruchuan Wang, Xinxing Pan<br>
-            The Journal of China Universities of Posts and Telecommunications, Vol. 19(Suppl. 2), pp. 122-127, Oct. 2012.<br>
-            <a target="_blank" class="btn btn-default btn-xs" href="files/hashchain_JCUPT12.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><b><i class="fa fa-file-pdf-o"></i> pdf</b></a>
-            <a class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);" onclick="updownFun('arrowbutton_hashchainJCUPT');$('#bibtex_hashchainJCUPT').slideToggle('fast');return false;"><b><div id="arrowbutton_hashchainJCUPT" class="fa fa-chevron-down"></div> bibtex</b></a>
-            <div id="bibtex_hashchainJCUPT" class="bibtex well">
-              @article{hashchainJCUPT12,<br>
-              &nbsp;&nbsp;title = {Novel self-renewal Hash chain based on Ito-Saito-Nishizeki secret sharing scheme},<br>
-              &nbsp;&nbsp;author = {Ting Dai, Haiping Huang, Ruchuan Wang, Xinxing Pan}<br>
-              &nbsp;&nbsp;journal = {The Journal of China Universities of Posts and Telecommunications},<br>
-              &nbsp;&nbsp;volume = {19},<br>
-              &nbsp;&nbsp;pages = {122-127},<br>
-              &nbsp;&nbsp;year = {2012},<br>
-              &nbsp;&nbsp;doi = {https://doi.org/10.1016/S1005-8885(11)60433-0},<br>
-              } 
-            </div>
-        </dd>
-      </dl>
-      <dl class="dl-horizontal">
-        <dt class="conference"><b><a href="" class="nodec">IR'11</a></b></dt>
-        <dd class="pubitem">
-            <b>Semi-dependent Base Station Key Management Scheme for Wireless Multimedia Sensor Networks</b><br>
-            <b>WMSN的半依赖基站密钥管理方案</b><br>
-            Hao Chen, Ruchuan Wang, Haiping Huang, Lijuan Sun, <b>Ting Dai</b><br>
-            Informatization Research(信息化研究), Vol. 37, No. 5, pp. 1-5, 2011.<br>
-            <a target="_blank" class="btn btn-default btn-xs" href="files/keymanagement_IR2011.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><b><i class="fa fa-file-pdf-o"></i> pdf</b></a>
-            <a class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);" onclick="updownFun('arrowbutton_km_IR');$('#bibtex_km_IR').slideToggle('fast');return false;"><b><div id="arrowbutton_km_IR" class="fa fa-chevron-down"></div> bibtex</b></a>
-            <div id="bibtex_km_IR" class="bibtex well">
-              @article{keymanagementIR2011,<br>
-              &nbsp;&nbsp;author = {Chen, Hao and Wang, Ruchuan and Huang, Haiping and Sun, Lijuan and Dai, Ting},<br>
-              &nbsp;&nbsp;title = {Semi-dependent Base Station Key Management Scheme for Wireless Multimedia Sensor Networks},<br>
-              &nbsp;&nbsp;year = {2011},<br>
-              &nbsp;&nbsp;volume = {37},<br>
-              &nbsp;&nbsp;number = {5},<br>
-              &nbsp;&nbsp;pages = {1-5},<br>
-              &nbsp;&nbsp;journal = {Informatization Research},<br>
-              }<br>
-              <br>
-              @article{keymanagementIR2011,<br>
-              &nbsp;&nbsp;author = {陈昊, 王汝传, 黄海平, 孙力娟, 戴庭},<br>
-              &nbsp;&nbsp;title = {WMSN的半依赖基站密钥管理方案},<br>
-              &nbsp;&nbsp;year = {2011},<br>
-              &nbsp;&nbsp;volume = {37},<br>
-              &nbsp;&nbsp;number = {5},<br>
-              &nbsp;&nbsp;pages = {1-5},<br>
-              &nbsp;&nbsp;journal = {信息化研究},<br>
-              }  
-            </div>
-        </dd>
-      </dl>
+    <section id="selected" hidden>
+      <h2>Featured</h2>
+      <div class="feat">
+<article class="panel card" id="themis">
+  <div class="top"><a class="vn" href="https://www.usenix.org/conference/nsdi26" target="_blank" rel="noopener">NSDI</a><span class="vy">2026</span></div>
+  <div class="ct">Themis: Detecting Distributed Concurrency Bugs through RPC-Driven Race-Directed Test Generation and Fuzzing</div>
+  <div class="ca">Hongchen Cao, Jingzhu He, <span class="me">Ting Dai</span>, Guoliang Jin</div>
+  <div class="qls"><a class="ql" href="files/themis_NSDI26.pdf">PDF</a><button class="act toggle ql" type="button" aria-expanded="false" aria-controls="bib-nsdi-26-themis-detecting-distri">BibTeX</button><span class="note">(acceptance rate 150/659=22.8%)</span></div><div class="reveal" id="bib-nsdi-26-themis-detecting-distri"><div><pre>@inproceedings{themis2026,
+  author = {Cao, Hongchen and He, Jingzhu and Dai, Ting and Jin, Guoliang},
+  title = {Themis: Detecting Distributed Concurrency Bugs through {RPC-Driven} {Race-Directed} Test Generation and Fuzzing},
+  booktitle = {23rd USENIX Symposium on Networked Systems Design and Implementation (NSDI 26)},
+  year = {2026},
+  isbn = {978-1-939133-54-0},
+  address = {Renton, WA},
+  pages = {1685--1706},
+  url = {https://www.usenix.org/conference/nsdi26/presentation/cao},
+  publisher = {USENIX Association},
+  month = may
+}</pre></div></div>
+</article><article class="panel card" id="artemis">
+  <div class="top"><a class="vn" href="https://2025.splashcon.org/track/OOPSLA" target="_blank" rel="noopener">OOPSLA</a><span class="vy">2025</span></div>
+  <div class="ct">Artemis: Toward Accurate Detection of Server-Side Request Forgeries through LLM-Assisted Inter-Procedural Path-Sensitive Taint Analysis</div>
+  <div class="ca">Yuchen Ji, <span class="me">Ting Dai</span>, Zhichao Zhou, Yutian Tang, Jingzhu He</div>
+  <div class="qls"><a class="ql" href="files/artemis_OOPSLA25.pdf">PDF</a><a class="ql" href="https://arxiv.org/pdf/2502.21026" target="_blank" rel="noopener">Preprint</a><a class="ql" href="https://doi.org/10.1145/3720488" target="_blank" rel="noopener">DOI</a><button class="act toggle ql" type="button" aria-expanded="false" aria-controls="bib-oopsla-25-artemis-toward-accurate">BibTeX</button></div><div class="reveal" id="bib-oopsla-25-artemis-toward-accurate"><div><pre>@article{artemis2025,
+  author = {Ji, Yuchen and Dai, Ting and Zhou, Zhichao and Tang, Yutian and He, Jingzhu},
+  title = {Artemis: Toward Accurate Detection of Server-Side Request Forgeries through LLM-Assisted Inter-procedural Path-Sensitive Taint Analysis},
+  year = {2025},
+  issue_date = {April 2025},
+  publisher = {Association for Computing Machinery},
+  volume = {9},
+  number = {OOPSLA1},
+  url = {https://doi.org/10.1145/3720488},
+  doi = {10.1145/3720488},
+  journal = {Proc. ACM Program. Lang.},
+  month = apr,
+  articleno = {128},
+  numpages = {29},
+}</pre></div></div>
+</article><article class="panel card" id="itbench">
+  <div class="top"><a class="vn" href="https://icml.cc/Conferences/2025" target="_blank" rel="noopener">ICML</a><span class="vy">2025</span></div>
+  <div class="ct">ITBench: Evaluating AI Agents across Diverse Real-World IT Automation Tasks</div>
+  <div class="ca"><span class="au-short">Saurabh Jha, Rohan Arora, Yuji Watanabe, …, <span class="me">Ting Dai</span>, …, Ruchir Puri</span><span class="au-full" id="au-itbench" hidden>Saurabh Jha, Rohan Arora, Yuji Watanabe, Takumi Yanagawa, Yinfang Chen, Jackson Clark, Bhavya Bhavya, Mudit Verma, Harshit Kumar, Hirokuni Kitahara, Noah Zheutlin, Saki Takano, Divya Pathak, Felix George, Xinbo Wu, Bekir O Turkkan, Gerard Vanloo, Michael Nidd, <span class="me">Ting Dai</span>, Oishik Chatterjee, Pranjal Gupta, Suranjana Samanta, Pooja Aggarwal, Rong Lee, Jae-wook Ahn, Debanjana Kar, Amit Paradkar, Yu Deng, Pratibha Moogi, Prateeti Mohapatra, Naoki Abe, Chandrasekhar Narayanaswami, Tianyin Xu, Lav R Varshney, Ruchi Mahindru, Anca Sailer, Laura Shwartz, Daby Sow, Nicholas Fuller, Ruchir Puri</span> <button class="au-more" type="button" aria-expanded="false" aria-controls="au-itbench">all 40 authors</button></div>
+  <a class="award" href="https://icml.cc/virtual/2025/poster/44303" target="_blank" rel="noopener">Spotlight and Oral Presentation</a><div class="qls"><a class="ql" href="files/itbench_ICML25.pdf">PDF</a><a class="ql" href="https://arxiv.org/pdf/2502.05352" target="_blank" rel="noopener">Preprint</a><a class="ql" href="https://github.com/itbench-hub" target="_blank" rel="noopener">Code</a><button class="act toggle ql" type="button" aria-expanded="false" aria-controls="bib-icml-25-itbench-evaluating-ai-a">BibTeX</button><span class="note">(acceptance rate 26.93%, spotlight rate 2.59%, oral rate 0.89%)</span></div><div class="reveal" id="bib-icml-25-itbench-evaluating-ai-a"><div><pre>@inproceedings{itbench2025,
+  title={{ITB}ench: Evaluating {AI} Agents across Diverse Real-World {IT} Automation Tasks},
+  author={Saurabh Jha and Rohan R. Arora and Yuji Watanabe and Takumi Yanagawa and Yinfang Chen and Jackson Clark and Bhavya Bhavya and Mudit Verma and Harshit Kumar and Hirokuni Kitahara and Noah Zheutlin and Saki Takano and Divya Pathak and Felix George and Xinbo Wu and Bekir O Turkkan and Gerard Vanloo and Michael Nidd and Ting Dai and Oishik Chatterjee and Pranjal Gupta and Suranjana Samanta and Pooja Aggarwal and Rong Lee and Jae-wook Ahn and Debanjana Kar and Amit Paradkar and Yu Deng and Pratibha Moogi and Prateeti Mohapatra and Naoki Abe and Chandrasekhar Narayanaswami and Tianyin Xu and Lav R. Varshney and Ruchi Mahindru and Anca Sailer and Laura Shwartz and Daby Sow and Nicholas C. M. Fuller and Ruchir Puri},
+  booktitle={Forty-second International Conference on Machine Learning},
+  year={2025},
+  url={https://openreview.net/forum?id=jP59rz1bZk}
+}</pre></div></div>
+</article>
+      </div>
+    </section>
 
-      <dl class="dl-horizontal">
-        <dt class="conference"><b><a href="" class="nodec">I&C'11</a></b></dt>
-        <dd class="pubitem">
-            <b>Jini-based IoT Service Framework</b><br>
-            <b>基于Jini的物联网服务框架</b><br>
-            Li Liu, Yi Dou, <b>Ting Dai</b>, Haiping Huang, Shengwei Zhao<br>
-            Information & Communications(信息通信), Vol. 5, pp. 26-28, 2011.<br>
-            <a target="_blank" class="btn btn-default btn-xs" href="files/jiniIoT_IC2011.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><b><i class="fa fa-file-pdf-o"></i> pdf</b></a>
-            <a class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);" onclick="updownFun('arrowbutton_jiniIoT');$('#bibtex_jiniIoT').slideToggle('fast');return false;"><b><div id="arrowbutton_jiniIoT" class="fa fa-chevron-down"></div> bibtex</b></a>
-            <div id="bibtex_jiniIoT" class="bibtex well">
-              @article{jiniIoTIC2011,<br>
-              &nbsp;&nbsp;author = {Liu, Li and Dou, Yi and Dai, Ting and Huang, Haiping and Zhao, Shengwei},<br>
-              &nbsp;&nbsp;title = {Jini-based IoT Service Framework},<br>
-              &nbsp;&nbsp;year = {2011},<br>
-              &nbsp;&nbsp;volume = {5},<br>
-              &nbsp;&nbsp;pages = {26-28},<br>
-              &nbsp;&nbsp;journal = {Information & Communications},<br>
-              }<br>
-              <br>
-              @article{jiniIoTIC2011,<br>
-              &nbsp;&nbsp;author = {刘莉, 窦轶, 戴庭, 黄海平, 赵生伟},<br>
-              &nbsp;&nbsp;title = {基于Jini的物联网服务框架},<br>
-              &nbsp;&nbsp;year = {2011},<br>
-              &nbsp;&nbsp;volume = {5},<br>
-              &nbsp;&nbsp;pages = {26-28},<br>
-              &nbsp;&nbsp;journal = {信息通信},<br>
-              } 
-            </div>
-        </dd>
-      </dl>
-      <dl class="dl-horizontal">
-        <dt class="conference"><b><a href="http://www.scientific.net/AMR.317-319.2133" class="nodec">AMR'11</a></b></dt>
-        <dd class="pubitem">
-            <b>Simulation of the Park Behaviors in a Shopping Mall of Dalian</b><br>
-            Li Liu, <b>Ting Dai</b>, Yi Dou, Haiping Huang, Junjie Huang, Ning Ye<br>
-            Advanced Material Research, Vol. 317-319, pp. 2133-2137, Aug. 2011.<br>
-            <a target="_blank" class="btn btn-default btn-xs" href="files/parking_AMR2011.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><b><i class="fa fa-file-pdf-o"></i> pdf</b></a>
-            <a class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);" onclick="updownFun('arrowbutton_parkingAMR');$('#bibtex_parkingAMR').slideToggle('fast');return false;"><b><div id="arrowbutton_parkingAMR" class="fa fa-chevron-down"></div> bibtex</b></a>
-            <div id="bibtex_parkingAMR" class="bibtex well">
-              @article{parkingAMR11,<br>
-              &nbsp;&nbsp;author = {Liu, Li and Dai, Ting and Dou, Yi and Huang, Haiping and Huang, Junjie and Ye, Ning},<br>
-              &nbsp;&nbsp;title = {Simulation of the Parking Behaviors in a Shopping Mall of Dalian},<br>
-              &nbsp;&nbsp;year = {2011},<br>
-              &nbsp;&nbsp;month = {9},<br>
-              &nbsp;&nbsp;volume = {317},<br>
-              &nbsp;&nbsp;pages = {2133--2137},<br>
-              &nbsp;&nbsp;booktitle = {Equipment Manufacturing Technology and Automation},<br>
-              &nbsp;&nbsp;series = {Advanced Materials Research},<br>
-              &nbsp;&nbsp;publisher = {Trans Tech Publications Ltd},<br>
-              &nbsp;&nbsp;doi = {10.4028/www.scientific.net/AMR.317-319.2133},<br>
-              } 
-            </div>
-        </dd>
-      </dl>
-    </div>
+    <section id="index">
+      <h2>All publications<span class="count">39</span></h2>
+      <div class="filters" id="filters">
+          <div class="grp" data-filter="topic"><span class="lbl">Topic</span>
+            <button class="chip" type="button" aria-pressed="true" data-v="">All</button>
+            <button class="chip" type="button" aria-pressed="false" data-v="llm" title="LLM agents for IT operations">LLM for IT ops</button>
+            <button class="chip" type="button" aria-pressed="false" data-v="cloud" title="Cloud reliability and performance bugs">Cloud bugs</button>
+            <button class="chip" type="button" aria-pressed="false" data-v="sec" title="Security and privacy">Security</button>
+            <button class="chip" type="button" aria-pressed="false" data-v="video" title="Energy-aware video streaming">Video streaming</button>
+            <button class="chip" type="button" aria-pressed="false" data-v="wsn" title="Wireless sensor networks and early work">Sensor networks</button>
+          </div>
+          <input type="search" id="q" placeholder="Search title, author, venue…" aria-label="Search publications">
+        </div>
+        <p class="showing" id="showing"></p>
+      <div class="grp-sec" id="papers">
+        <h3 class="sub">Papers<span class="count">27</span></h3>
+        <div class="panel">
+        <ol class="idx">
+<li class="yh" data-year="2026" aria-hidden="true">2026</li>
+<li class="r" id="themis-row" data-kind="paper" data-topic="cloud" data-text="themis: detecting distributed concurrency bugs through rpc-driven race-directed test generation and fuzzing hongchen cao, jingzhu he, ting dai, guoliang jin proc. of the 23rd usenix symposium on networked systems design and implementation, renton, wa, usa, may 4–6, 2026. nsdi">
+  <a class="rv" href="https://www.usenix.org/conference/nsdi26" target="_blank" rel="noopener">NSDI<small>2026</small></a>
+  <div><div class="rt">Themis: Detecting Distributed Concurrency Bugs through RPC-Driven Race-Directed Test Generation and Fuzzing</div><div class="ra">Hongchen Cao, Jingzhu He, <span class="me">Ting Dai</span>, Guoliang Jin</div><div class="rw">Proc. of the 23rd USENIX Symposium on Networked Systems Design and Implementation, Renton, WA, USA, May 4–6, 2026. <span class="note">(acceptance rate 150/659=22.8%)</span></div></div>
+  <div class="qls"><a class="ql" href="files/themis_NSDI26.pdf">PDF</a><button class="act toggle ql" type="button" aria-expanded="false" aria-controls="bib-nsdi-26-themis-detecting-distri-row">BibTeX</button></div><div class="reveal" id="bib-nsdi-26-themis-detecting-distri-row"><div><pre>@inproceedings{themis2026,
+  author = {Cao, Hongchen and He, Jingzhu and Dai, Ting and Jin, Guoliang},
+  title = {Themis: Detecting Distributed Concurrency Bugs through {RPC-Driven} {Race-Directed} Test Generation and Fuzzing},
+  booktitle = {23rd USENIX Symposium on Networked Systems Design and Implementation (NSDI 26)},
+  year = {2026},
+  isbn = {978-1-939133-54-0},
+  address = {Renton, WA},
+  pages = {1685--1706},
+  url = {https://www.usenix.org/conference/nsdi26/presentation/cao},
+  publisher = {USENIX Association},
+  month = may
+}</pre></div></div>
+</li>
+<li class="yh" data-year="2025" aria-hidden="true">2025</li>
+<li class="r" id="artemis-row" data-kind="paper" data-topic="sec" data-text="artemis: toward accurate detection of server-side request forgeries through llm-assisted inter-procedural path-sensitive taint analysis yuchen ji, ting dai, zhichao zhou, yutian tang, jingzhu he proc. of the acm on programming languages, volume 9, issue oopsla1, april 2025. presented at splash 2025, singapore, october 2025. oopsla">
+  <a class="rv" href="https://2025.splashcon.org/track/OOPSLA" target="_blank" rel="noopener">OOPSLA<small>2025</small></a>
+  <div><div class="rt">Artemis: Toward Accurate Detection of Server-Side Request Forgeries through LLM-Assisted Inter-Procedural Path-Sensitive Taint Analysis</div><div class="ra">Yuchen Ji, <span class="me">Ting Dai</span>, Zhichao Zhou, Yutian Tang, Jingzhu He</div><div class="rw">Proc. of the ACM on Programming Languages, Volume 9, Issue OOPSLA1, April 2025. Presented at SPLASH 2025, Singapore, October 2025.</div></div>
+  <div class="qls"><a class="ql" href="files/artemis_OOPSLA25.pdf">PDF</a><a class="ql" href="https://arxiv.org/pdf/2502.21026" target="_blank" rel="noopener">Preprint</a><a class="ql" href="https://doi.org/10.1145/3720488" target="_blank" rel="noopener">DOI</a><button class="act toggle ql" type="button" aria-expanded="false" aria-controls="bib-oopsla-25-artemis-toward-accurate-row">BibTeX</button></div><div class="reveal" id="bib-oopsla-25-artemis-toward-accurate-row"><div><pre>@article{artemis2025,
+  author = {Ji, Yuchen and Dai, Ting and Zhou, Zhichao and Tang, Yutian and He, Jingzhu},
+  title = {Artemis: Toward Accurate Detection of Server-Side Request Forgeries through LLM-Assisted Inter-procedural Path-Sensitive Taint Analysis},
+  year = {2025},
+  issue_date = {April 2025},
+  publisher = {Association for Computing Machinery},
+  volume = {9},
+  number = {OOPSLA1},
+  url = {https://doi.org/10.1145/3720488},
+  doi = {10.1145/3720488},
+  journal = {Proc. ACM Program. Lang.},
+  month = apr,
+  articleno = {128},
+  numpages = {29},
+}</pre></div></div>
+</li>
+<li class="r" id="itbench-row" data-kind="paper" data-topic="llm" data-text="itbench: evaluating ai agents across diverse real-world it automation tasks saurabh jha, rohan arora, yuji watanabe, …, ting dai, …, ruchir purisaurabh jha, rohan arora, yuji watanabe, takumi yanagawa, yinfang chen, jackson clark, bhavya bhavya, mudit verma, harshit kumar, hirokuni kitahara, noah zheutlin, saki takano, divya pathak, felix george, xinbo wu, bekir o turkkan, gerard vanloo, michael nidd, ting dai, oishik chatterjee, pranjal gupta, suranjana samanta, pooja aggarwal, rong lee, jae-wook ahn, debanjana kar, amit paradkar, yu deng, pratibha moogi, prateeti mohapatra, naoki abe, chandrasekhar narayanaswami, tianyin xu, lav r varshney, ruchi mahindru, anca sailer, laura shwartz, daby sow, nicholas fuller, ruchir puri all 40 authors proc. of forty-second international conference on machine learning, vancouver, canada, july, 2025. icml">
+  <a class="rv" href="https://icml.cc/Conferences/2025" target="_blank" rel="noopener">ICML<small>2025</small></a>
+  <div><div class="rt">ITBench: Evaluating AI Agents across Diverse Real-World IT Automation Tasks</div><div class="ra"><span class="au-short">Saurabh Jha, Rohan Arora, Yuji Watanabe, …, <span class="me">Ting Dai</span>, …, Ruchir Puri</span><span class="au-full" id="au-itbench-row" hidden>Saurabh Jha, Rohan Arora, Yuji Watanabe, Takumi Yanagawa, Yinfang Chen, Jackson Clark, Bhavya Bhavya, Mudit Verma, Harshit Kumar, Hirokuni Kitahara, Noah Zheutlin, Saki Takano, Divya Pathak, Felix George, Xinbo Wu, Bekir O Turkkan, Gerard Vanloo, Michael Nidd, <span class="me">Ting Dai</span>, Oishik Chatterjee, Pranjal Gupta, Suranjana Samanta, Pooja Aggarwal, Rong Lee, Jae-wook Ahn, Debanjana Kar, Amit Paradkar, Yu Deng, Pratibha Moogi, Prateeti Mohapatra, Naoki Abe, Chandrasekhar Narayanaswami, Tianyin Xu, Lav R Varshney, Ruchi Mahindru, Anca Sailer, Laura Shwartz, Daby Sow, Nicholas Fuller, Ruchir Puri</span> <button class="au-more" type="button" aria-expanded="false" aria-controls="au-itbench-row">all 40 authors</button></div><div class="rw">Proc. of Forty-second International Conference on Machine Learning, Vancouver, Canada, July, 2025. <span class="note">(acceptance rate 26.93%, spotlight rate 2.59%, oral rate 0.89%)</span></div><a class="award" href="https://icml.cc/virtual/2025/poster/44303" target="_blank" rel="noopener">Spotlight and Oral Presentation</a></div>
+  <div class="qls"><a class="ql" href="files/itbench_ICML25.pdf">PDF</a><a class="ql" href="https://arxiv.org/pdf/2502.05352" target="_blank" rel="noopener">Preprint</a><a class="ql" href="https://github.com/itbench-hub" target="_blank" rel="noopener">Code</a><button class="act toggle ql" type="button" aria-expanded="false" aria-controls="bib-icml-25-itbench-evaluating-ai-a-row">BibTeX</button></div><div class="reveal" id="bib-icml-25-itbench-evaluating-ai-a-row"><div><pre>@inproceedings{itbench2025,
+  title={{ITB}ench: Evaluating {AI} Agents across Diverse Real-World {IT} Automation Tasks},
+  author={Saurabh Jha and Rohan R. Arora and Yuji Watanabe and Takumi Yanagawa and Yinfang Chen and Jackson Clark and Bhavya Bhavya and Mudit Verma and Harshit Kumar and Hirokuni Kitahara and Noah Zheutlin and Saki Takano and Divya Pathak and Felix George and Xinbo Wu and Bekir O Turkkan and Gerard Vanloo and Michael Nidd and Ting Dai and Oishik Chatterjee and Pranjal Gupta and Suranjana Samanta and Pooja Aggarwal and Rong Lee and Jae-wook Ahn and Debanjana Kar and Amit Paradkar and Yu Deng and Pratibha Moogi and Prateeti Mohapatra and Naoki Abe and Chandrasekhar Narayanaswami and Tianyin Xu and Lav R. Varshney and Ruchi Mahindru and Anca Sailer and Laura Shwartz and Daby Sow and Nicholas C. M. Fuller and Ruchir Puri},
+  booktitle={Forty-second International Conference on Machine Learning},
+  year={2025},
+  url={https://openreview.net/forum?id=jP59rz1bZk}
+}</pre></div></div>
+</li>
+<li class="r" data-kind="paper" data-topic="llm" data-text="scriptsmith: a unified llm framework for enhancing it operations via automated bash script generation, assessment, and refinement pooja aggarwal, oishik chatterjee, ting dai, suranjana samanta, prateeti mohapatra, debanjana kar, ruchi mahindru, steve barbier, eugen postea, brad blancett, arthur de magalhaes proc. of the aaai conference on artificial intelligence, iaai track, philadelphia, usa, feb-mar, 2025. aaai">
+  <a class="rv" href="https://aaai.org/conference/aaai/aaai-25/iaai-25-call/" target="_blank" rel="noopener">AAAI<small>2025</small></a>
+  <div><div class="rt">ScriptSmith: A Unified LLM Framework for Enhancing IT Operations via Automated Bash Script Generation, Assessment, and Refinement</div><div class="ra">Pooja Aggarwal, Oishik Chatterjee, <span class="me">Ting Dai</span>, Suranjana Samanta, Prateeti Mohapatra, Debanjana Kar, Ruchi Mahindru, Steve Barbier, Eugen Postea, Brad Blancett, Arthur De Magalhaes</div><div class="rw">Proc. of the AAAI Conference on Artificial Intelligence, IAAI Track, Philadelphia, USA, Feb-Mar, 2025. <span class="note">(acceptance rate 16.33%)</span></div></div>
+  <div class="qls"><a class="ql" href="files/scriptsmith_AAAI25.pdf">PDF</a><a class="ql" href="https://doi.org/10.1609/aaai.v39i28.35147" target="_blank" rel="noopener">DOI</a><button class="act toggle ql" type="button" aria-expanded="false" aria-controls="bib-aaai-25-scriptsmith-a-unified-l">BibTeX</button></div><div class="reveal" id="bib-aaai-25-scriptsmith-a-unified-l"><div><pre>@article{scriptsmith2025,
+  title={ScriptSmith: A Unified LLM Framework for Enhancing IT Operations via Automated Bash Script Generation, Assessment, and Refinement},
+  author={Aggarwal, Pooja and Chatterjee, Oishik and Dai, Ting and Samanta, Suranjana and Mohapatra, Prateeti and Kar, Debanjana and Mahindru, Ruchi and Barbier, Steve and Postea, Eugen and Blancett, Brad and de Magalhaes, Arthur},
+  volume={39},
+  url={https://ojs.aaai.org/index.php/AAAI/article/view/35147},
+  DOI={10.1609/aaai.v39i28.35147},
+  number={28},
+  journal={Proceedings of the AAAI Conference on Artificial Intelligence},
+  year={2025},
+  month={Apr.},
+  pages={28829-28835}
+}</pre></div></div>
+</li>
+<li class="yh" data-year="2024" aria-hidden="true">2024</li>
+<li class="r" data-kind="paper" data-topic="sec" data-text="poster: whether we are good enough to detect server-side request forgeries in php-native applications? yuchen ji, ting dai, yutian tang, jingzhu he proc. of acm conference on computer and communications security, poster session, salt lake city, usa, october, 2024. ccs">
+  <a class="rv" href="https://www.sigsac.org/ccs/CCS2024/" target="_blank" rel="noopener">CCS<small>2024</small></a>
+  <div><div class="rt">Poster: Whether We Are Good Enough to Detect Server-Side Request Forgeries in PHP-native Applications?</div><div class="ra">Yuchen Ji, <span class="me">Ting Dai</span>, Yutian Tang, Jingzhu He</div><div class="rw">Proc. of ACM Conference on Computer and Communications Security, Poster Session, Salt Lake City, USA, October, 2024.</div></div>
+  <div class="qls"><a class="ql" href="files/ssrf_CCS24.pdf">PDF</a><a class="ql" href="https://doi.org/10.1145/3658644.3691419" target="_blank" rel="noopener">DOI</a><button class="act toggle ql" type="button" aria-expanded="false" aria-controls="bib-ccs-24-poster-whether-we-are-g">BibTeX</button></div><div class="reveal" id="bib-ccs-24-poster-whether-we-are-g"><div><pre>@inproceedings{ssrf2024,
+  author = {Ji, Yuchen and Dai, Ting and Tang, Yutian and He, Jingzhu},
+  title = {Poster: Whether We Are Good Enough to Detect Server-Side Request Forgeries in PHP-native Applications?},
+  year = {2024},
+  isbn = {9798400706363},
+  publisher = {Association for Computing Machinery},
+  address = {New York, NY, USA},
+  url = {https://doi.org/10.1145/3658644.3691419},
+  doi = {10.1145/3658644.3691419},
+  booktitle = {Proceedings of the 2024 on ACM SIGSAC Conference on Computer and Communications Security},
+  pages = {4928–4930},
+  numpages = {3},
+  keywords = {PHP, server-side request forgery, taint analysis},
+  location = {Salt Lake City, UT, USA},
+  series = {CCS &#x27;24}
+}</pre></div></div>
+</li>
+<li class="r" data-kind="paper" data-topic="llm" data-text="codesift: an llm-based reference-less framework for automatic code validation pooja aggarwal, oishik chatterjee, ting dai, prateeti mohapatra, brent paulovicks, brad blancett, arthur de magalhaes proc. of ieee international conference on cloud computing, shenzhen, china, july, 2024. cloud">
+  <a class="rv" href="https://cloud.conferences.computer.org/2024/" target="_blank" rel="noopener">CLOUD<small>2024</small></a>
+  <div><div class="rt">CodeSift: An LLM-Based Reference-Less Framework for Automatic Code Validation</div><div class="ra">Pooja Aggarwal, Oishik Chatterjee, <span class="me">Ting Dai</span>, Prateeti Mohapatra, Brent Paulovicks, Brad Blancett, Arthur De Magalhaes</div><div class="rw">Proc. of IEEE International Conference on Cloud Computing, Shenzhen, China, July, 2024. <span class="note">(acceptance rate 27.7%)</span></div></div>
+  <div class="qls"><a class="ql" href="files/codesift_CLOUD24.pdf">PDF</a><a class="ql" href="https://doi.org/10.1109/CLOUD62652.2024.00052" target="_blank" rel="noopener">DOI</a><button class="act toggle ql" type="button" aria-expanded="false" aria-controls="bib-cloud-24-codesift-an-llm-based-r">BibTeX</button></div><div class="reveal" id="bib-cloud-24-codesift-an-llm-based-r"><div><pre>@inproceedings{codesift2024,
+  author={Aggarwal, Pooja and Chatterjee, Oishik and Dai, Ting and Mohapatra, Prateeti and Paulovicks, Brent and Blancett, Brad and De Magalhaes, Arthur},
+  booktitle={2024 IEEE 17th International Conference on Cloud Computing (CLOUD)},
+  title={CodeSift: An LLM-Based Reference-Less Framework for Automatic Code Validation},
+  year={2024},
+  volume={},
+  number={},
+  pages={404-410},
+  keywords={Cloud computing;Computer languages;Codes;Subject matter experts;Large language models;Computational modeling;Testing;code generation;validation;large language models;generative AI},
+  doi={10.1109/CLOUD62652.2024.00052}
+}</pre></div></div>
+</li>
+<li class="r" data-kind="paper" data-topic="video" data-text="greenabr+: generalized energy-aware adaptive bitrate streaming bekir turkkan, ting dai, adithya raman, tevfik kosar, changyou chen, muhammed fatih bulut, jaroslaw zola, daby sow acm transactions on multimedia computing, communications, and applications, 2024. tomm">
+  <a class="rv" href="https://dl.acm.org/journal/tomm" target="_blank" rel="noopener">TOMM<small>2024</small></a>
+  <div><div class="rt">GreenABR+: Generalized Energy-Aware Adaptive Bitrate Streaming</div><div class="ra">Bekir Turkkan, <span class="me">Ting Dai</span>, Adithya Raman, Tevfik Kosar, Changyou Chen, Muhammed Fatih Bulut, Jaroslaw Zola, Daby Sow</div><div class="rw">ACM Transactions on Multimedia Computing, Communications, and Applications, 2024.</div></div>
+  <div class="qls"><a class="ql" href="files/greenabr_TOMM24.pdf">PDF</a><a class="ql" href="https://doi.org/10.1145/3649898" target="_blank" rel="noopener">DOI</a><button class="act toggle ql" type="button" aria-expanded="false" aria-controls="bib-tomm-24-greenabr-generalized-e">BibTeX</button></div><div class="reveal" id="bib-tomm-24-greenabr-generalized-e"><div><pre>@article{greenabr2024,
+  author = {Turkkan, Bekir Oguzhan and Dai, Ting and Raman, Adithya and Kosar, Tevfik and Chen, Changyou and Bulut, Muhammed Fatih and Zola, Jaroslaw and Sow, Daby},
+  title = {GreenABR+: Generalized Energy-Aware Adaptive Bitrate Streaming},
+  year = {2024},
+  publisher = {Association for Computing Machinery},
+  address = {New York, NY, USA},
+  issn = {1551-6857},
+  url = {https://doi.org/10.1145/3649898},
+  doi = {10.1145/3649898},
+  journal = {ACM Trans. Multimedia Comput. Commun. Appl.},
+  month = {mar},
+  series = {TOMM&#x27;24}
+}</pre></div></div>
+</li>
+<li class="yh" data-year="2022" aria-hidden="true">2022</li>
+<li class="r" id="greenabr-row" data-kind="paper" data-topic="video" data-text="greenabr: energy-aware adaptive bitrate streaming with deep reinforcement learning bekir turkkan, ting dai, adithya raman, tevfik kosar, changyou chen, muhammed fatih bulut, jaroslaw zola, daby sow proc. of acm multimedia systems conference, athlone, ireland, june, 2022. mmsys">
+  <a class="rv" href="https://mmsys2022.ie/" target="_blank" rel="noopener">MMSys<small>2022</small></a>
+  <div><div class="rt">GreenABR: Energy-Aware Adaptive Bitrate Streaming with Deep Reinforcement Learning</div><div class="ra">Bekir Turkkan, <span class="me">Ting Dai</span>, Adithya Raman, Tevfik Kosar, Changyou Chen, Muhammed Fatih Bulut, Jaroslaw Zola, Daby Sow</div><div class="rw">Proc. of ACM Multimedia Systems Conference, Athlone, Ireland, June, 2022. <span class="note">(acceptance rate 15/43=34.9%)</span></div><a class="award" href="https://mmsys2022.ie/program/awards" target="_blank" rel="noopener">DASH-IF Excellence in DASH Award (3rd place)</a></div>
+  <div class="qls"><a class="ql" href="files/greenabr_MMSys22.pdf">PDF</a><a class="ql" href="files/greenabr_MMSys22_slides.pdf">Slides</a><a class="ql" href="https://github.com/bekiroguzhan/GreenABR-MMSys22" target="_blank" rel="noopener">Code</a><a class="ql" href="https://doi.org/10.1145/3524273.3528188" target="_blank" rel="noopener">DOI</a><button class="act toggle ql" type="button" aria-expanded="false" aria-controls="bib-mmsys-22-greenabr-energy-aware-a-row">BibTeX</button></div><div class="reveal" id="bib-mmsys-22-greenabr-energy-aware-a-row"><div><pre>@inproceedings{greenabr2022,
+  title = {GreenABR: Energy-Aware Adaptive Bitrate Streaming with Deep Reinforcement Learning},
+  author = {Turkkan, Bekir Oguzhan and Dai, Ting and Raman, Adithya and Kosar, Tevfik and Chen, Changyou and Bulut, Muhammed Fatih and Zola, Jaroslaw and Sow, Daby},
+  year = {2022},
+  address = {New York, NY, USA},
+  doi = {10.1145/3524273.3528188},
+  booktitle = {Proceedings of the 13th ACM Multimedia Systems Conference},
+  series = {MMSys&#x27;22}
+}</pre></div></div>
+</li>
+<li class="yh" data-year="2021" aria-hidden="true">2021</li>
+<li class="r" data-kind="paper" data-topic="cloud" data-text="tfix+: self-configuring hybrid timeout bug fixing for cloud systems jingzhu he, ting dai, xiaohui gu arxiv:2110.04101, october, 2021. arxiv">
+  <a class="rv" href="https://arxiv.org/abs/2110.04101" target="_blank" rel="noopener">arXiv<small>2021</small></a>
+  <div><div class="rt">TFix+: Self-configuring Hybrid Timeout Bug Fixing for Cloud Systems</div><div class="ra">Jingzhu He, <span class="me">Ting Dai</span>, Xiaohui Gu</div><div class="rw">arXiv:2110.04101, October, 2021.</div></div>
+  <div class="qls"><a class="ql" href="https://arxiv.org/pdf/2110.04101.pdf" target="_blank" rel="noopener">PDF</a><button class="act toggle ql" type="button" aria-expanded="false" aria-controls="bib-arxiv-21-tfix-self-configuring">BibTeX</button></div><div class="reveal" id="bib-arxiv-21-tfix-self-configuring"><div><pre>@misc{tfix2021,
+  title={TFix+: Self-configuring Hybrid Timeout Bug Fixing for Cloud Systems},
+  author={Jingzhu He and Ting Dai and Xiaohui Gu},
+  year={2021},
+  eprint={2110.04101},
+  archivePrefix={arXiv},
+  primaryClass={cs.SE}
+}</pre></div></div>
+</li>
+<li class="yh" data-year="2020" aria-hidden="true">2020</li>
+<li class="r" data-kind="paper" data-topic="sec" data-text="automatically detecting risky scripts in infrastructure code ting dai, alexei karve, grzegorz koper, sai zeng proc. of acm symposium on cloud computing, virtual event, october, 2020. socc">
+  <a class="rv" href="https://acmsocc.github.io/2020/" target="_blank" rel="noopener">SoCC<small>2020</small></a>
+  <div><div class="rt">Automatically Detecting Risky Scripts in Infrastructure Code</div><div class="ra"><span class="me">Ting Dai</span>, Alexei Karve, Grzegorz Koper, Sai Zeng</div><div class="rw">Proc. of ACM Symposium on Cloud Computing, Virtual Event, October, 2020. <span class="note">(acceptance rate 35/143=24.5%)</span></div></div>
+  <div class="qls"><a class="ql" href="files/securecode_SOCC20.pdf">PDF</a><a class="ql" href="files/securecode_SOCC20_slides.pdf">Slides</a><a class="ql" href="files/securecode_SOCC20_poster.pdf">Poster</a><a class="ql" href="https://doi.org/10.1145/3419111.3421303" target="_blank" rel="noopener">DOI</a><button class="act toggle ql" type="button" aria-expanded="false" aria-controls="vid-socc-20-automatically-detecting">Video</button><button class="act toggle ql" type="button" aria-expanded="false" aria-controls="bib-socc-20-automatically-detecting">BibTeX</button></div><div class="reveal" id="vid-socc-20-automatically-detecting"><div><div class="video"><iframe loading="lazy" src="https://www.youtube.com/embed/g21legEUdAk" title="Talk video" allow="encrypted-media; picture-in-picture" allowfullscreen></iframe></div></div></div><div class="reveal" id="bib-socc-20-automatically-detecting"><div><pre>@inproceedings{securecode2020,
+  author = {Dai, Ting and Karve, Alexei and Koper, Grzegorz and Zeng, Sai},
+  title = {Automatically Detecting Risky Scripts in Infrastructure Code},
+  year = {2020},
+  booktitle = {Proceedings of the 11th ACM Symposium on Cloud Computing},
+  location = {Virtual Event, USA},
+  series = {SoCC &#x27;20},
+  url = {https://doi.org/10.1145/3419111.3421303},
+  doi = {10.1145/3419111.3421303},
+}</pre></div></div>
+</li>
+<li class="r" data-kind="paper" data-topic="cloud" data-text="hangfix: automatically fixing software hang bugs for production cloud systems jingzhu he, ting dai, xiaohui gu, guoliang jin proc. of acm symposium on cloud computing, virtual event, october, 2020. socc">
+  <a class="rv" href="https://acmsocc.github.io/2020/" target="_blank" rel="noopener">SoCC<small>2020</small></a>
+  <div><div class="rt">HangFix: Automatically Fixing Software Hang Bugs for Production Cloud Systems</div><div class="ra">Jingzhu He, <span class="me">Ting Dai</span>, Xiaohui Gu, Guoliang Jin</div><div class="rw">Proc. of ACM Symposium on Cloud Computing, Virtual Event, October, 2020. <span class="note">(acceptance rate 35/143=24.5%)</span></div></div>
+  <div class="qls"><a class="ql" href="files/hangfix_SOCC20.pdf">PDF</a><a class="ql" href="files/hangfix_SOCC20_slides.pdf">Slides</a><a class="ql" href="files/hangfix_SOCC20_poster.pdf">Poster</a><a class="ql" href="https://github.com/NCSU-DANCE-Research-Group/HangFix" target="_blank" rel="noopener">Code</a><a class="ql" href="https://doi.org/10.1145/3419111.3421288" target="_blank" rel="noopener">DOI</a><button class="act toggle ql" type="button" aria-expanded="false" aria-controls="vid-socc-20-hangfix-automatically-f">Video</button><button class="act toggle ql" type="button" aria-expanded="false" aria-controls="bib-socc-20-hangfix-automatically-f">BibTeX</button></div><div class="reveal" id="vid-socc-20-hangfix-automatically-f"><div><div class="video"><iframe loading="lazy" src="https://www.youtube.com/embed/RHW2izrA3zs" title="Talk video" allow="encrypted-media; picture-in-picture" allowfullscreen></iframe></div></div></div><div class="reveal" id="bib-socc-20-hangfix-automatically-f"><div><pre>@inproceedings{hangfix2020,
+  author = {He, Jingzhu and Dai, Ting and Gu, Xiaohui and Jin, Guoliang},
+  title = {HangFix: Automatically Fixing Software Hang Bugs for Production Cloud Systems},
+  year = {2020},
+  booktitle = {Proceedings of the 11th ACM Symposium on Cloud Computing},
+  location = {Virtual Event, USA},
+  series = {SoCC &#x27;20},
+  url = {https://doi.org/10.1145/3419111.3421288},
+  doi = {10.1145/3419111.3421288},
+}</pre></div></div>
+</li>
+<li class="r" data-kind="paper" data-topic="wsn" data-text="an improved broadcast authentication protocol for wireless sensor networks based on the self-reinitializable hash chains haiping huang, qinglong huang, fu xiao, wenming wang, qi li, ting dai security and communication networks, 2020. scn">
+  <a class="rv" href="https://www.hindawi.com/journals/scn/" target="_blank" rel="noopener">SCN<small>2020</small></a>
+  <div><div class="rt">An Improved Broadcast Authentication Protocol for Wireless Sensor Networks Based on the Self-Reinitializable Hash Chains</div><div class="ra">Haiping Huang, Qinglong Huang, Fu Xiao, Wenming Wang, Qi Li, <span class="me">Ting Dai</span></div><div class="rw">Security and Communication Networks, 2020.</div></div>
+  <div class="qls"><a class="ql" href="files/dh-miuTesla_SCN2020.pdf">PDF</a><a class="ql" href="https://doi.org/10.1155/2020/8897282" target="_blank" rel="noopener">DOI</a><button class="act toggle ql" type="button" aria-expanded="false" aria-controls="bib-scn-20-an-improved-broadcast-au">BibTeX</button></div><div class="reveal" id="bib-scn-20-an-improved-broadcast-au"><div><pre>@article{dh-miuTesla2020,
+  author    = {Haiping Huang and Qinglong Huang and Fu Xiao and Wenming Wang and Qi Li and Ting Dai},
+  title     = {An Improved Broadcast Authentication Protocol for Wireless Sensor Networks Based on the Self-Reinitializable Hash Chains},
+  journal   = {Security and Communication Networks},
+  volume    = {2020},
+  year      = {2020},
+  url       = {https://doi.org/10.1155/2020/8897282},
+  doi       = {10.1155/2020/8897282},
+}</pre></div></div>
+</li>
+<li class="yh" data-year="2019" aria-hidden="true">2019</li>
+<li class="r" data-kind="paper" data-topic="cloud" data-text="tfix: automatic timeout bug fixing in production server systems jingzhu he, ting dai, xiaohui gu proc. of ieee international conference on distributed computing systems, dallas, texas, july, 2019. icdcs">
+  <a class="rv" href="https://theory.utdallas.edu/ICDCS2019/" target="_blank" rel="noopener">ICDCS<small>2019</small></a>
+  <div><div class="rt">TFix: Automatic Timeout Bug Fixing in Production Server Systems</div><div class="ra">Jingzhu He, <span class="me">Ting Dai</span>, Xiaohui Gu</div><div class="rw">Proc. of IEEE International Conference on Distributed Computing Systems, Dallas, Texas, July, 2019. <span class="note">(acceptance rate 19.6%)</span></div></div>
+  <div class="qls"><a class="ql" href="files/tfix_ICDCS19.pdf">PDF</a><a class="ql" href="files/tfix_ICDCS19_slides.pdf">Slides</a><a class="ql" href="https://github.com/NCSU-DANCE-Research-Group/TFix" target="_blank" rel="noopener">Code</a><a class="ql" href="https://doi.org/10.1109/ICDCS.2019.00067" target="_blank" rel="noopener">DOI</a><button class="act toggle ql" type="button" aria-expanded="false" aria-controls="bib-icdcs-19-tfix-automatic-timeout">BibTeX</button></div><div class="reveal" id="bib-icdcs-19-tfix-automatic-timeout"><div><pre>@inproceedings{tfix2019,
+  author    = {Jingzhu He and Ting Dai and Xiaohui Gu},
+  title     = {TFix: Automatic Timeout Bug Fixing in Production Server Systems},
+  booktitle = {39th {IEEE} International Conference on Distributed Computing Systems, {ICDCS} 2019, Dallas, TX, USA, July 7-10, 2019},
+  pages     = {612--623},
+  publisher = {{IEEE}},
+  year      = {2019},
+  url       = {https://doi.org/10.1109/ICDCS.2019.00067},
+  doi       = {10.1109/ICDCS.2019.00067},
+}</pre></div></div>
+</li>
+<li class="r" data-kind="paper" data-topic="sec" data-text="fabzk: supporting privacy-preserving, auditable smart contracts in hyperledger fabric hui kang*, ting dai*, nerla jean-louis, shu tao, xiaohui gu proc. of ieee/ifip international conference on dependable systems and networks, portland, oregon, june, 2019. dsn">
+  <a class="rv" href="http://2019.dsn.org/" target="_blank" rel="noopener">DSN<small>2019</small></a>
+  <div><div class="rt">FabZK: Supporting Privacy-Preserving, Auditable Smart Contracts in Hyperledger Fabric</div><div class="ra">Hui Kang*, <span class="me">Ting Dai</span>*, Nerla Jean-Louis, Shu Tao, Xiaohui Gu (* equal contribution)</div><div class="rw">Proc. of IEEE/IFIP International Conference on Dependable Systems and Networks, Portland, Oregon, June, 2019. <span class="note">(acceptance rate 54/252=21.4%)</span></div></div>
+  <div class="qls"><a class="ql" href="files/fabzk_DSN19.pdf">PDF</a><a class="ql" href="files/fabzk_DSN19_slides.pdf">Slides</a><a class="ql" href="https://doi.org/10.1109/DSN.2019.00061" target="_blank" rel="noopener">DOI</a><button class="act toggle ql" type="button" aria-expanded="false" aria-controls="bib-dsn-19-fabzk-supporting-privac">BibTeX</button></div><div class="reveal" id="bib-dsn-19-fabzk-supporting-privac"><div><pre>@inproceedings{fabzk2019,
+  author    = {Hui Kang and Ting Dai and Nerla Jean{-}Louis and Shu Tao and Xiaohui Gu},
+  title     = {FabZK: Supporting Privacy-Preserving, Auditable Smart Contracts in Hyperledger Fabric},
+  booktitle = {49th Annual {IEEE/IFIP} International Conference on Dependable Systems and Networks, {DSN} 2019, Portland, OR, USA, June 24-27, 2019},
+  pages     = {543--555},
+  publisher = {{IEEE}},
+  year      = {2019},
+  url       = {https://doi.org/10.1109/DSN.2019.00061},
+  doi       = {10.1109/DSN.2019.00061},
+}</pre></div></div>
+</li>
+<li class="r" data-kind="paper" data-topic="sec" data-text="a study on container vulnerability exploit detection olufogorehan tunde-onadele, jingzhu he, ting dai, xiaohui gu proc. of ieee international conference on cloud engineering, prague, czech republic, june, 2019. ic2e">
+  <a class="rv" href="http://conferences.computer.org/IC2E/2019/" target="_blank" rel="noopener">IC2E<small>2019</small></a>
+  <div><div class="rt">A Study on Container Vulnerability Exploit Detection</div><div class="ra">Olufogorehan Tunde-Onadele, Jingzhu He, <span class="me">Ting Dai</span>, Xiaohui Gu</div><div class="rw">Proc. of IEEE International Conference on Cloud Engineering, Prague, Czech Republic, June, 2019. <span class="note">(acceptance rate 26%)</span></div></div>
+  <div class="qls"><a class="ql" href="files/study_IC2E19.pdf">PDF</a><a class="ql" href="files/study_IC2E19_slides.pdf">Slides</a><a class="ql" href="https://doi.org/10.1109/IC2E.2019.00026" target="_blank" rel="noopener">DOI</a><button class="act toggle ql" type="button" aria-expanded="false" aria-controls="bib-ic2e-19-a-study-on-container-vul">BibTeX</button></div><div class="reveal" id="bib-ic2e-19-a-study-on-container-vul"><div><pre>@inproceedings{convulstudy2019,
+  author    = {Olufogorehan Tunde{-}Onadele and Jingzhu He and Ting Dai and Xiaohui Gu},
+  title     = {A Study on Container Vulnerability Exploit Detection},
+  booktitle = {{IEEE} International Conference on Cloud Engineering, {IC2E} 2019, Prague, Czech Republic, June 24-27, 2019},
+  pages     = {121--127},
+  publisher = {{IEEE}},
+  year      = {2019},
+  url       = {https://doi.org/10.1109/IC2E.2019.00026},
+  doi       = {10.1109/IC2E.2019.00026},
+}</pre></div></div>
+</li>
+<li class="r" id="hytrace-row" data-kind="paper" data-topic="cloud" data-text="hytrace: a hybrid approach to performance bug diagnosis in production cloud infrastructures ting dai, daniel dean, peipei wang, xiaohui gu, shan lu ieee transactions on parallel and distributed systems, 2019. tpds">
+  <a class="rv" href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=71" target="_blank" rel="noopener">TPDS<small>2019</small></a>
+  <div><div class="rt">Hytrace: A Hybrid Approach to Performance Bug Diagnosis in Production Cloud Infrastructures</div><div class="ra"><span class="me">Ting Dai</span>, Daniel Dean, Peipei Wang, Xiaohui Gu, Shan Lu</div><div class="rw">IEEE Transactions on Parallel and Distributed Systems, 2019. <span class="note">(journal version of the SoCC 2017 poster)</span></div></div>
+  <div class="qls"><a class="ql" href="files/hytrace_TPDS19.pdf">PDF</a><a class="ql" href="files/hytrace_TPDS19_sup.pdf">Supplemental</a><a class="ql" href="https://doi.org/10.1109/TPDS.2018.2858800" target="_blank" rel="noopener">DOI</a><button class="act toggle ql" type="button" aria-expanded="false" aria-controls="bib-tpds-19-hytrace-a-hybrid-approa-row">BibTeX</button></div><div class="reveal" id="bib-tpds-19-hytrace-a-hybrid-approa-row"><div><pre>@article{hytrace2019,
+  author    = {Ting Dai and Daniel Joseph Dean and Peipei Wang and Xiaohui Gu and Shan Lu},
+  title     = {Hytrace: {A} Hybrid Approach to Performance Bug Diagnosis in Production Cloud Infrastructures},
+  journal   = {{IEEE} Trans. Parallel Distrib. Syst.},
+  volume    = {30},
+  number    = {1},
+  pages     = {107--118},
+  year      = {2019},
+  url       = {https://doi.org/10.1109/TPDS.2018.2858800},
+  doi       = {10.1109/TPDS.2018.2858800},
+}</pre></div></div>
+</li>
+<li class="yh" data-year="2018" aria-hidden="true">2018</li>
+<li class="r" id="dscope-row" data-kind="paper" data-topic="cloud" data-text="dscope: detecting real-world data corruption hang bugs in cloud server systems ting dai, jingzhu he, xiaohui gu, shan lu, peipei wang proc. of acm symposium on cloud computing, carlsbad, ca, october, 2018. socc">
+  <a class="rv" href="https://acmsocc.github.io/2018/" target="_blank" rel="noopener">SoCC<small>2018</small></a>
+  <div><div class="rt">DScope: Detecting Real-World Data Corruption Hang Bugs in Cloud Server Systems</div><div class="ra"><span class="me">Ting Dai</span>, Jingzhu He, Xiaohui Gu, Shan Lu, Peipei Wang</div><div class="rw">Proc. of ACM Symposium on Cloud Computing, Carlsbad, CA, October, 2018. <span class="note">(acceptance rate 39/160=24.4%)</span></div></div>
+  <div class="qls"><a class="ql" href="files/dscope_SOCC18.pdf">PDF</a><a class="ql" href="files/dscope_SOCC18_slides.pdf">Slides</a><a class="ql" href="files/dscope_SOCC18_poster.pdf">Poster</a><a class="ql" href="https://github.com/NCSU-DANCE-Research-Group/DScope" target="_blank" rel="noopener">Code</a><a class="ql" href="https://doi.org/10.1145/3267809.3267844" target="_blank" rel="noopener">DOI</a><button class="act toggle ql" type="button" aria-expanded="false" aria-controls="bib-socc-18-dscope-detecting-real-w-row">BibTeX</button></div><div class="reveal" id="bib-socc-18-dscope-detecting-real-w-row"><div><pre>@inproceedings{dscope2018,
+  author    = {Ting Dai and Jingzhu He and Xiaohui Gu and Shan Lu and Peipei Wang},
+  title     = {DScope: Detecting Real-World Data Corruption Hang Bugs in Cloud Server Systems},
+  booktitle = {Proceedings of the {ACM} Symposium on Cloud Computing, SoCC 2018, Carlsbad, CA, USA, October 11-13, 2018},
+  pages     = {313--325},
+  publisher = {{ACM}},
+  year      = {2018},
+  url       = {https://doi.org/10.1145/3267809.3267844},
+  doi       = {10.1145/3267809.3267844},
+}</pre></div></div>
+</li>
+<li class="r" data-kind="paper" data-topic="cloud" data-text="tscope: automatic timeout bug identification for server systems jingzhu he, ting dai, xiaohui gu proc. of ieee international conference on autonomic computing, trento, italy, september, 2018. icac">
+  <a class="rv" href="http://icac2018.informatik.uni-wuerzburg.de/" target="_blank" rel="noopener">ICAC<small>2018</small></a>
+  <div><div class="rt">TScope: Automatic Timeout Bug Identification for Server Systems</div><div class="ra">Jingzhu He, <span class="me">Ting Dai</span>, Xiaohui Gu</div><div class="rw">Proc. of IEEE International Conference on Autonomic Computing, Trento, Italy, September, 2018.</div></div>
+  <div class="qls"><a class="ql" href="files/tscope_ICAC18.pdf">PDF</a><a class="ql" href="files/tscope_ICAC18_slides.pdf">Slides</a><a class="ql" href="https://github.com/NCSU-DANCE-Research-Group/TScope" target="_blank" rel="noopener">Code</a><a class="ql" href="https://doi.org/10.1109/ICAC.2018.00010" target="_blank" rel="noopener">DOI</a><button class="act toggle ql" type="button" aria-expanded="false" aria-controls="bib-icac-18-tscope-automatic-timeou">BibTeX</button></div><div class="reveal" id="bib-icac-18-tscope-automatic-timeou"><div><pre>@inproceedings{tscope2018,
+  author    = {Jingzhu He and Ting Dai and Xiaohui Gu},
+  title     = {TScope: Automatic Timeout Bug Identification for Server Systems},
+  booktitle = {2018 {IEEE} International Conference on Autonomic Computing, {ICAC} 2018, Trento, Italy, September 3-7, 2018},
+  pages     = {1--10},
+  publisher = {{IEEE} Computer Society},
+  year      = {2018},
+  url       = {https://doi.org/10.1109/ICAC.2018.00010},
+  doi       = {10.1109/ICAC.2018.00010},
+}</pre></div></div>
+</li>
+<li class="r" data-kind="paper" data-topic="cloud" data-text="understanding real-world timeout problems in cloud server systems ting dai, jingzhu he, xiaohui gu, shan lu proc. of ieee international conference on cloud engineering, orlando, fl, april, 2018. ic2e">
+  <a class="rv" href="http://conferences.computer.org/IC2E/2018/" target="_blank" rel="noopener">IC2E<small>2018</small></a>
+  <div><div class="rt">Understanding Real-World Timeout Problems in Cloud Server Systems</div><div class="ra"><span class="me">Ting Dai</span>, Jingzhu He, Xiaohui Gu, Shan Lu</div><div class="rw">Proc. of IEEE International Conference on Cloud Engineering, Orlando, FL, April, 2018. <span class="note">(acceptance rate 12/63=19%)</span></div><a class="award" href="http://conferences.computer.org/IC2E/2018/best_paper_candidates.htm" target="_blank" rel="noopener">Best paper nominee</a></div>
+  <div class="qls"><a class="ql" href="files/understanding_IC2E18.pdf">PDF</a><a class="ql" href="files/understanding_IC2E18_slides.pdf">Slides</a><a class="ql" href="https://doi.org/10.1109/IC2E.2018.00022" target="_blank" rel="noopener">DOI</a><button class="act toggle ql" type="button" aria-expanded="false" aria-controls="bib-ic2e-18-understanding-real-world">BibTeX</button></div><div class="reveal" id="bib-ic2e-18-understanding-real-world"><div><pre>@inproceedings{timeoutstudy2018,
+  author    = {Ting Dai and Jingzhu He and Xiaohui Gu and Shan Lu},
+  title     = {Understanding Real-World Timeout Problems in Cloud Server Systems},
+  booktitle = {2018 {IEEE} International Conference on Cloud Engineering, {IC2E} 2018, Orlando, FL, USA, April 17-20, 2018},
+  pages     = {1--11},
+  publisher = {{IEEE} Computer Society},
+  year      = {2018},
+  url       = {https://doi.org/10.1109/IC2E.2018.00022},
+  doi       = {10.1109/IC2E.2018.00022},
+}</pre></div></div>
+</li>
+<li class="yh" data-year="2017" aria-hidden="true">2017</li>
+<li class="r" data-kind="paper" data-topic="cloud" data-text="hytrace: a hybrid approach to performance bug diagnosis in production cloud infrastructures ting dai, daniel dean, peipei wang, xiaohui gu, shan lu proc. of acm symposium on cloud computing, poster session, santa clara, ca, september, 2017. socc">
+  <a class="rv" href="https://acmsocc.github.io/2017/accepted-posters.html" target="_blank" rel="noopener">SoCC<small>2017</small></a>
+  <div><div class="rt">Hytrace: A Hybrid Approach to Performance Bug Diagnosis in Production Cloud Infrastructures</div><div class="ra"><span class="me">Ting Dai</span>, Daniel Dean, Peipei Wang, Xiaohui Gu, Shan Lu</div><div class="rw">Proc. of ACM Symposium on Cloud Computing, Poster Session, Santa Clara, CA, September, 2017. <span class="note">(poster; journal version in TPDS 2019)</span></div></div>
+  <div class="qls"><a class="ql" href="files/hytrace_SOCC17.pdf">PDF</a><a class="ql" href="files/hytrace_SOCC17_poster.pdf">Poster</a><a class="ql" href="https://doi.org/10.1145/3127479.3132562" target="_blank" rel="noopener">DOI</a><button class="act toggle ql" type="button" aria-expanded="false" aria-controls="bib-socc-17-hytrace-a-hybrid-approa">BibTeX</button></div><div class="reveal" id="bib-socc-17-hytrace-a-hybrid-approa"><div><pre>@inproceedings{hytrace2017,
+  author    = {Ting Dai and Daniel Dean and Peipei Wang and Xiaohui Gu and Shan Lu},
+  title     = {Hytrace: a hybrid approach to performance bug diagnosis in production cloud infrastructures},
+  booktitle = {Proceedings of the 2017 Symposium on Cloud Computing, SoCC 2017, Santa Clara, CA, USA, September 24-27, 2017},
+  pages     = {641},
+  publisher = {{ACM}},
+  year      = {2017},
+  url       = {https://doi.org/10.1145/3127479.3132562},
+  doi       = {10.1145/3127479.3132562},
+}</pre></div></div>
+</li>
+<li class="yh" data-year="2016" aria-hidden="true">2016</li>
+<li class="r" data-kind="paper" data-topic="wsn" data-text="an improved μtesla protocol based on queuing theory and benaloh-leichter sss in wsns haiping huang, tianhe gong, tao chen, mingliang xiong, xinxing pan, ting dai journal of sensors, vol. 2016, article id 9021650, 13 pages, 2016. js">
+  <a class="rv" href="http://www.hindawi.com/journals/js/2016/" target="_blank" rel="noopener">JS<small>2016</small></a>
+  <div><div class="rt">An Improved μTESLA Protocol Based on Queuing Theory and Benaloh-Leichter SSS in WSNs</div><div class="ra">Haiping Huang, Tianhe Gong, Tao Chen, Mingliang Xiong, Xinxing Pan, <span class="me">Ting Dai</span></div><div class="rw">Journal of Sensors, Vol. 2016, Article ID 9021650, 13 pages, 2016.</div></div>
+  <div class="qls"><a class="ql" href="files/miuTESLA_JS16.pdf">PDF</a><a class="ql" href="https://doi.org/10.1155/2016/9021650" target="_blank" rel="noopener">DOI</a><button class="act toggle ql" type="button" aria-expanded="false" aria-controls="bib-js-16-an-improved-tesla-proto">BibTeX</button></div><div class="reveal" id="bib-js-16-an-improved-tesla-proto"><div><pre>@article{miuTESLA2016,
+  author    = {Haiping Huang and Tianhe Gong and Tao Chen and Mingliang Xiong and Xinxing Pan and Ting Dai},
+  title     = {An Improved \emph{{\(\mu\)}}TESLA Protocol Based on Queuing Theory and Benaloh-Leichter {SSS} in WSNs},
+  journal   = {J. Sensors},
+  volume    = {2016},
+  pages     = {9021650:1--9021650:13},
+  year      = {2016},
+  url       = {https://doi.org/10.1155/2016/9021650},
+  doi       = {10.1155/2016/9021650},
+}</pre></div></div>
+</li>
+<li class="yh" data-year="2013" aria-hidden="true">2013</li>
+<li class="r" data-kind="paper" data-topic="wsn" data-text="research on migration strategy of mobile agent in wireless sensor networks ting dai, haiping huang, yang lu, ruchuan wang, xinxing pan international journal of distributed sensor networks, vol. 2013, article id 642986, 13 pages, 2013. ijdsn">
+  <a class="rv" href="http://www.hindawi.com/journals/ijdsn/2013/2/" target="_blank" rel="noopener">IJDSN<small>2013</small></a>
+  <div><div class="rt">Research on Migration Strategy of Mobile Agent in Wireless Sensor Networks</div><div class="ra"><span class="me">Ting Dai</span>, Haiping Huang, Yang Lu, Ruchuan Wang, Xinxing Pan</div><div class="rw">International Journal of Distributed Sensor Networks, Vol. 2013, Article ID 642986, 13 pages, 2013.</div></div>
+  <div class="qls"><a class="ql" href="files/migration_IJDSN13.pdf">PDF</a><a class="ql" href="https://doi.org/10.1155/2013/642986" target="_blank" rel="noopener">DOI</a><button class="act toggle ql" type="button" aria-expanded="false" aria-controls="bib-ijdsn-13-research-on-migration-st">BibTeX</button></div><div class="reveal" id="bib-ijdsn-13-research-on-migration-st"><div><pre>@article{migration2013,
+  author    = {Ting Dai and Haiping Huang and Yang Lu and Ruchuan Wang and Xinxing Pan},
+  title     = {Research on Migration Strategy of Mobile Agent in Wireless Sensor Networks},
+  journal   = {{IJDSN}},
+  volume    = {9},
+  year      = {2013},
+  url       = {https://doi.org/10.1155/2013/642986},
+  doi       = {10.1155/2013/642986},
+}</pre></div></div>
+</li>
+<li class="r" data-kind="paper" data-topic="wsn" data-text="a novel self-renewal hash chain scheme based on (t, n)-threshold and division tree haiping huang, ting dai, ruchuan wang, xiaolin qin, jiutian chen journal of communications (通信学报), vol. 34, no. 4, pp. 70-81, apr. 2013. joc">
+  <a class="rv" href="http://www.joconline.com.cn/CN/volumn/volumn_173.shtml" target="_blank" rel="noopener">JoC<small>2013</small></a>
+  <div><div class="rt">A Novel Self-Renewal Hash Chain Scheme based on (t, n)-Threshold and Division Tree</div><div class="zh" lang="zh-Hans">基于(t, n)门限和划分树的可再生散列链构造方案</div><div class="ra">Haiping Huang, <span class="me">Ting Dai</span>, Ruchuan Wang, Xiaolin Qin, Jiutian Chen</div><div class="rw">Journal of Communications (<span lang="zh-Hans">通信学报</span>), Vol. 34, No. 4, pp. 70-81, Apr. 2013.</div></div>
+  <div class="qls"><a class="ql" href="files/hashchain_JOC13.pdf">PDF</a><a class="ql" href="https://doi.org/10.3969/j.issn.1000-436x.2013.04.008" target="_blank" rel="noopener">DOI</a><button class="act toggle ql" type="button" aria-expanded="false" aria-controls="bib-joc-13-a-novel-self-renewal-has">BibTeX</button></div><div class="reveal" id="bib-joc-13-a-novel-self-renewal-has"><div><pre>@article{hashchainJoC13,
+  author = {Haiping Huang and Ting Dai and Ruchuan Wang and Xiaolin Qin and Jiutian Chen},
+  title = {A Novel Self-Renewal Hash Chain Scheme based on (t, n)-Threshold and Division Tree},
+  year = {2013},
+  journal = {Journal of Communications},
+  volume = {34},
+  number = {4},
+  doi = {10.3969/j.issn.1000-436x.2013.04.008}
+}
+@article{hashchainJoC13-zh,
+  author = {黄海平 and 戴庭 and 王汝传 and 秦小麟 and 陈九天},
+  title = {基于(t,n)门限和划分树的可再生散列链构造方案},
+  year = {2013},
+  journal = {通信学报},
+  volume = {34},
+  number = {4},
+  doi = {10.3969/j.issn.1000-436x.2013.04.008}
+}</pre></div></div>
+</li>
+<li class="yh" data-year="2012" aria-hidden="true">2012</li>
+<li class="r" data-kind="paper" data-topic="wsn" data-text="novel self-renewal hash chain based on ito-saito-nishizeki secret sharing scheme ting dai, haiping huang, ruchuan wang, xinxing pan the journal of china universities of posts and telecommunications, vol. 19(suppl. 2), pp. 122-127, oct. 2012. jcupt">
+  <a class="rv" href="http://www.sciencedirect.com/science/journal/10058885/19/supp/S2" target="_blank" rel="noopener">JCUPT<small>2012</small></a>
+  <div><div class="rt">Novel self-renewal Hash Chain based on Ito-Saito-Nishizeki secret sharing scheme</div><div class="ra"><span class="me">Ting Dai</span>, Haiping Huang, Ruchuan Wang, Xinxing Pan</div><div class="rw">The Journal of China Universities of Posts and Telecommunications, Vol. 19(Suppl. 2), pp. 122-127, Oct. 2012.</div></div>
+  <div class="qls"><a class="ql" href="files/hashchain_JCUPT12.pdf">PDF</a><a class="ql" href="https://doi.org/10.1016/S1005-8885(11)60433-0" target="_blank" rel="noopener">DOI</a><button class="act toggle ql" type="button" aria-expanded="false" aria-controls="bib-jcupt-12-novel-self-renewal-hash">BibTeX</button></div><div class="reveal" id="bib-jcupt-12-novel-self-renewal-hash"><div><pre>@article{hashchainJCUPT12,
+  title = {Novel self-renewal Hash chain based on Ito-Saito-Nishizeki secret sharing scheme},
+  author = {Ting Dai and Haiping Huang and Ruchuan Wang and Xinxing Pan},
+  journal = {The Journal of China Universities of Posts and Telecommunications},
+  volume = {19},
+  pages = {122-127},
+  year = {2012},
+  doi = {10.1016/S1005-8885(11)60433-0},
+}</pre></div></div>
+</li>
+<li class="yh" data-year="2011" aria-hidden="true">2011</li>
+<li class="r" data-kind="paper" data-topic="wsn" data-text="semi-dependent base station key management scheme for wireless multimedia sensor networks hao chen, ruchuan wang, haiping huang, lijuan sun, ting dai informatization research (信息化研究), vol. 37, no. 5, pp. 1-5, 2011. ir">
+  <span class="rv">IR<small>2011</small></span>
+  <div><div class="rt">Semi-dependent Base Station Key Management Scheme for Wireless Multimedia Sensor Networks</div><div class="zh" lang="zh-Hans">WMSN的半依赖基站密钥管理方案</div><div class="ra">Hao Chen, Ruchuan Wang, Haiping Huang, Lijuan Sun, <span class="me">Ting Dai</span></div><div class="rw">Informatization Research (<span lang="zh-Hans">信息化研究</span>), Vol. 37, No. 5, pp. 1-5, 2011.</div></div>
+  <div class="qls"><a class="ql" href="files/keymanagement_IR2011.pdf">PDF</a><button class="act toggle ql" type="button" aria-expanded="false" aria-controls="bib-ir-11-semi-dependent-base-stat">BibTeX</button></div><div class="reveal" id="bib-ir-11-semi-dependent-base-stat"><div><pre>@article{keymanagementIR2011,
+  author = {Chen, Hao and Wang, Ruchuan and Huang, Haiping and Sun, Lijuan and Dai, Ting},
+  title = {Semi-dependent Base Station Key Management Scheme for Wireless Multimedia Sensor Networks},
+  year = {2011},
+  volume = {37},
+  number = {5},
+  pages = {1-5},
+  journal = {Informatization Research},
+}
+@article{keymanagementIR2011-zh,
+  author = {陈昊 and 王汝传 and 黄海平 and 孙力娟 and 戴庭},
+  title = {WMSN的半依赖基站密钥管理方案},
+  year = {2011},
+  volume = {37},
+  number = {5},
+  pages = {1-5},
+  journal = {信息化研究},
+}</pre></div></div>
+</li>
+<li class="r" data-kind="paper" data-topic="wsn" data-text="jini-based iot service framework li liu, yi dou, ting dai, haiping huang, shengwei zhao information &amp; communications (信息通信), vol. 5, pp. 26-28, 2011. i&amp;c">
+  <span class="rv">I&amp;C<small>2011</small></span>
+  <div><div class="rt">Jini-based IoT Service Framework</div><div class="zh" lang="zh-Hans">基于Jini的物联网服务框架</div><div class="ra">Li Liu, Yi Dou, <span class="me">Ting Dai</span>, Haiping Huang, Shengwei Zhao</div><div class="rw">Information &amp; Communications (<span lang="zh-Hans">信息通信</span>), Vol. 5, pp. 26-28, 2011.</div></div>
+  <div class="qls"><a class="ql" href="files/jiniIoT_IC2011.pdf">PDF</a><button class="act toggle ql" type="button" aria-expanded="false" aria-controls="bib-i-c-11-jini-based-iot-service-f">BibTeX</button></div><div class="reveal" id="bib-i-c-11-jini-based-iot-service-f"><div><pre>@article{jiniIoTIC2011,
+  author = {Liu, Li and Dou, Yi and Dai, Ting and Huang, Haiping and Zhao, Shengwei},
+  title = {Jini-based IoT Service Framework},
+  year = {2011},
+  volume = {5},
+  pages = {26-28},
+  journal = {Information &amp; Communications},
+}
+@article{jiniIoTIC2011-zh,
+  author = {刘莉 and 窦轶 and 戴庭 and 黄海平 and 赵生伟},
+  title = {基于Jini的物联网服务框架},
+  year = {2011},
+  volume = {5},
+  pages = {26-28},
+  journal = {信息通信},
+}</pre></div></div>
+</li>
+<li class="r" data-kind="paper" data-topic="wsn" data-text="simulation of the parking behaviors in a shopping mall of dalian li liu, ting dai, yi dou, haiping huang, junjie huang, ning ye advanced materials research, vol. 317-319, pp. 2133-2137, aug. 2011. amr">
+  <a class="rv" href="http://www.scientific.net/AMR.317-319.2133" target="_blank" rel="noopener">AMR<small>2011</small></a>
+  <div><div class="rt">Simulation of the Parking Behaviors in a Shopping Mall of Dalian</div><div class="ra">Li Liu, <span class="me">Ting Dai</span>, Yi Dou, Haiping Huang, Junjie Huang, Ning Ye</div><div class="rw">Advanced Materials Research, Vol. 317-319, pp. 2133-2137, Aug. 2011.</div></div>
+  <div class="qls"><a class="ql" href="files/parking_AMR2011.pdf">PDF</a><a class="ql" href="https://doi.org/10.4028/www.scientific.net/AMR.317-319.2133" target="_blank" rel="noopener">DOI</a><button class="act toggle ql" type="button" aria-expanded="false" aria-controls="bib-amr-11-simulation-of-the-park-b">BibTeX</button></div><div class="reveal" id="bib-amr-11-simulation-of-the-park-b"><div><pre>@article{parkingAMR11,
+  author = {Liu, Li and Dai, Ting and Dou, Yi and Huang, Haiping and Huang, Junjie and Ye, Ning},
+  title = {Simulation of the Parking Behaviors in a Shopping Mall of Dalian},
+  year = {2011},
+  month = {9},
+  volume = {317},
+  pages = {2133--2137},
+  booktitle = {Equipment Manufacturing Technology and Automation},
+  series = {Advanced Materials Research},
+  publisher = {Trans Tech Publications Ltd},
+  doi = {10.4028/www.scientific.net/AMR.317-319.2133},
+}</pre></div></div>
+</li>
+                </ol>
+        </div>
+      </div>
 
-    <br><br>
-    <h3>Patents</h3>
-    <br>
-    <div>
+      <div class="grp-sec" id="patents">
+        <h3 class="sub">Patents<span class="count">10</span></h3>
+        <div class="panel">
+        <ol class="idx">
+<li class="r" data-kind="patent" data-topic="patent" data-text="software package update handling ting dai, muhammed fatih bulut, shripad nadgowda, daby mousse sow filed on mar 24, 2022. published as us20230305827a1 on sep 28, 2023. granted on feb 24, 2026. us">
+  <a class="rv" href="https://patents.google.com/patent/US12561122B2/en" target="_blank" rel="noopener">US<small>12561122</small></a>
+  <div><div class="rt">Software package update handling</div><div class="ra"><span class="me">Ting Dai</span>, Muhammed Fatih Bulut, Shripad Nadgowda, Daby Mousse Sow</div><div class="rw">Filed on Mar 24, 2022. Published as US20230305827A1 on Sep 28, 2023. Granted on Feb 24, 2026.</div></div>
+  <div class="qls"></div>
+</li>
+<li class="r" data-kind="patent" data-topic="patent" data-text="combining policy compliance and vulnerability management for risk assessment muhammed fatih bulut, abdulhamid adebowale adebayo, lilian mathias ngweta, ting dai, constantin mircea adam, daby mousse sow, steven ocepek filed on dec 8, 2021. published as us20230177169a1 on jun 8, 2023. granted on aug 12, 2025. us">
+  <a class="rv" href="https://patents.google.com/patent/US12386970B2/en" target="_blank" rel="noopener">US<small>12386970</small></a>
+  <div><div class="rt">Combining policy compliance and vulnerability management for risk assessment</div><div class="ra">Muhammed Fatih Bulut, Abdulhamid Adebowale Adebayo, Lilian Mathias Ngweta, <span class="me">Ting Dai</span>, Constantin Mircea Adam, Daby Mousse Sow, Steven Ocepek</div><div class="rw">Filed on Dec 8, 2021. Published as US20230177169A1 on Jun 8, 2023. Granted on Aug 12, 2025.</div></div>
+  <div class="qls"></div>
+</li>
+<li class="r" data-kind="patent" data-topic="patent" data-text="modification of codified infrastructure for orchestration in a multi-cloud environment alexei karve, sai zeng, ting dai filed on may 14, 2020. granted on dec 14, 2021. us">
+  <a class="rv" href="https://patents.google.com/patent/US11200048B2/en" target="_blank" rel="noopener">US<small>11200048</small></a>
+  <div><div class="rt">Modification of Codified Infrastructure for Orchestration in a Multi-Cloud Environment</div><div class="ra">Alexei Karve, Sai Zeng, <span class="me">Ting Dai</span></div><div class="rw">Filed on May 14, 2020. Granted on Dec 14, 2021.</div></div>
+  <div class="qls"></div>
+</li>
+<li class="r" data-kind="patent" data-topic="patent" data-text="the cluster-dividing method of mobile node in a kind of wireless sensor network ruchuan wang, xinxing pan, haiping huang, dan sha, ting dai, linyun jiang, chao sha, jia xu, fu xiao filed on dec 12, 2012. granted on jun 8, 2016. cn">
+  <a class="rv" href="https://patents.google.com/patent/CN103124421B" target="_blank" rel="noopener">CN<small>103124421</small></a>
+  <div><div class="rt">The cluster-dividing method of mobile node in a kind of wireless sensor network</div><div class="zh" lang="zh-Hans">一种无线传感器网络中移动节点的分簇方法</div><div class="ra">Ruchuan Wang, Xinxing Pan, Haiping Huang, Dan Sha, <span class="me">Ting Dai</span>, Linyun Jiang, Chao Sha, Jia Xu, Fu Xiao</div><div class="rw">Filed on Dec 12, 2012. Granted on Jun 8, 2016.</div></div>
+  <div class="qls"></div>
+</li>
+<li class="r" data-kind="patent" data-topic="patent" data-text="internet of things application scene-based protection method of privacy query and private identity verification haiping huang, yi dou, ruchuan wang, haitao zhang, liang xu, lijuan sun, ting dai, haiyan wang, linyun jiang, chao sha, fu xiao, lin zhang, jian guo, zhigang tan, li liu, xiang gu filed on may 13, 2011. granted on oct 22, 2014. cn">
+  <a class="rv" href="https://patents.google.com/patent/CN102196431B" target="_blank" rel="noopener">CN<small>102196431</small></a>
+  <div><div class="rt">Internet of things application scene-based protection method of privacy query and private identity verification</div><div class="zh" lang="zh-Hans">基于物联网应用场景的隐私查询和隐私身份验证的保护方法</div><div class="ra">Haiping Huang, Yi Dou, Ruchuan Wang, Haitao Zhang, Liang Xu, Lijuan Sun, <span class="me">Ting Dai</span>, Haiyan Wang, Linyun Jiang, Chao Sha, Fu Xiao, Lin Zhang, Jian Guo, Zhigang Tan, Li Liu, Xiang Gu</div><div class="rw">Filed on May 13, 2011. Granted on Oct 22, 2014.</div></div>
+  <div class="qls"></div>
+</li>
+<li class="r" data-kind="patent" data-topic="patent" data-text="method for tracking and locating container by adopting label sensor network haiping huang, yi dou, ruchuan wang, lijuan sun, haitao zhang, liang xu, chao sha, ting dai, jia xu, jian guo, zhigang tan, li liu, linyun jiang, yin ma filed on jun 13, 2011. granted on sep 10, 2014. cn">
+  <a class="rv" href="https://patents.google.com/patent/CN102325344B" target="_blank" rel="noopener">CN<small>102325344</small></a>
+  <div><div class="rt">Method for tracking and locating container by adopting label sensor network</div><div class="zh" lang="zh-Hans">一种采用标签传感网跟踪与定位集装箱的方法</div><div class="ra">Haiping Huang, Yi Dou, Ruchuan Wang, Lijuan Sun, Haitao Zhang, Liang Xu, Chao Sha, <span class="me">Ting Dai</span>, Jia Xu, Jian Guo, Zhigang Tan, Li Liu, Linyun Jiang, Yin Ma</div><div class="rw">Filed on Jun 13, 2011. Granted on Sep 10, 2014.</div></div>
+  <div class="qls"></div>
+</li>
+<li class="r" data-kind="patent" data-topic="patent" data-text="secure multi-party computation privacy-protecting evaluation method based on scenes of internet of things lijuan sun, xuan zhou, haiping huang, ruchuan wang, jia xu, yachao lv, qi yan, shang shang, ting dai, yi dou, chao sha, fu xiao filed on feb 17, 2012. granted on sep 10, 2014. cn">
+  <a class="rv" href="https://patents.google.com/patent/CN102594820B" target="_blank" rel="noopener">CN<small>102594820</small></a>
+  <div><div class="rt">Secure multi-party computation privacy-protecting evaluation method based on scenes of internet of things</div><div class="zh" lang="zh-Hans">基于物联网场景的安全多方计算隐私保护测评方法</div><div class="ra">Lijuan Sun, Xuan Zhou, Haiping Huang, Ruchuan Wang, Jia Xu, Yachao Lv, Qi Yan, Shang Shang, <span class="me">Ting Dai</span>, Yi Dou, Chao Sha, Fu Xiao</div><div class="rw">Filed on Feb 17, 2012. Granted on Sep 10, 2014.</div></div>
+  <div class="qls"></div>
+</li>
+<li class="r" data-kind="patent" data-topic="patent" data-text="container logistic tracking and positioning method based on tag sensor network haiping huang, ting dai, ruchuan wang, biao liang, lijuan sun, chao sha, qiang zhao, fu xiao, yi dou, jia xu, linyun jiang, zhigang tan, jian guo filed on jun 13, 2011. granted on nov 27, 2013. cn">
+  <a class="rv" href="https://patents.google.com/patent/CN102325345B" target="_blank" rel="noopener">CN<small>102325345</small></a>
+  <div><div class="rt">Container logistic tracking and positioning method based on tag sensor network</div><div class="zh" lang="zh-Hans">一种基于标签传感网的集装箱物流跟踪与定位方法</div><div class="ra">Haiping Huang, <span class="me">Ting Dai</span>, Ruchuan Wang, Biao Liang, Lijuan Sun, Chao Sha, Qiang Zhao, Fu Xiao, Yi Dou, Jia Xu, Linyun Jiang, Zhigang Tan, Jian Guo</div><div class="rw">Filed on Jun 13, 2011. Granted on Nov 27, 2013.</div></div>
+  <div class="qls"></div>
+</li>
+<li class="r" data-kind="patent" data-topic="patent" data-text="method for broadcast authentication of wireless sensor network based on automaton and game of life haiping huang, ting dai, ruchuan wang, lijuan sun, yi dou, zhigang tan, li liu, wei zhang, xuan zhou, wencong huang, hao chen, chao sha filed on may 13, 2011. granted on sep 25, 2013. cn">
+  <a class="rv" href="https://patents.google.com/patent/CN102164369B" target="_blank" rel="noopener">CN<small>102164369</small></a>
+  <div><div class="rt">Method for broadcast authentication of wireless sensor network based on automaton and game of life</div><div class="zh" lang="zh-Hans">基于自动机和生命游戏的无线传感器网络广播认证方法</div><div class="ra">Haiping Huang, <span class="me">Ting Dai</span>, Ruchuan Wang, Lijuan Sun, Yi Dou, Zhigang Tan, Li Liu, Wei Zhang, Xuan Zhou, Wencong Huang, Hao Chen, Chao Sha</div><div class="rw">Filed on May 13, 2011. Granted on Sep 25, 2013.</div></div>
+  <div class="qls"></div>
+</li>
+<li class="r" data-kind="patent" data-topic="patent" data-text="method for setting intelligent electronic alarm clock based on applied statistical method and embedded computing haiping huang, baoyang she, ruchuan wang, yun zhang, qiwang cai, lijuan sun, xiao cao, di gao, junjie huang, pingfan ji, zhigang tan, ting dai filed on mar 18, 2011. granted on apr 10, 2013. cn">
+  <a class="rv" href="https://patents.google.com/patent/CN102193498B" target="_blank" rel="noopener">CN<small>102193498</small></a>
+  <div><div class="rt">Method for setting intelligent electronic alarm clock based on applied statistical method and embedded computing</div><div class="zh" lang="zh-Hans">基于应用统计方法和嵌入式计算的智能电子闹钟设定方法</div><div class="ra">Haiping Huang, Baoyang She, Ruchuan Wang, Yun Zhang, Qiwang Cai, Lijuan Sun, Xiao Cao, Di Gao, Junjie Huang, Pingfan Ji, Zhigang Tan, <span class="me">Ting Dai</span></div><div class="rw">Filed on Mar 18, 2011. Granted on Apr 10, 2013.</div></div>
+  <div class="qls"></div>
+</li>
+        </ol>
+        </div>
+      </div>
 
-      <dl class="dl-horizontal">
-        <dt class="conference"><b><a href="https://patents.google.com/patent/US20230305827A1/en" class="nodec">US20230305827</a></b></dt>
-        <dd class="pubitem">
-            <b>Software package update handling</b><br>
-            <b>Ting Dai</b>, Muhammed Fatih Bulut, Shripad Nadgowda, Daby Mousse Sow<br>
-            Filed on Mar 24, 2022. Granted on Sep 28, 2023.
-        </dd>
-      </dl>
+      <div class="grp-sec" id="theses">
+        <h3 class="sub">Theses<span class="count">2</span></h3>
+        <div class="panel">
+        <ol class="idx">
+<li class="r" data-kind="thesis" data-topic="cloud" data-text="a hybrid approach to cloud system performance bug detection, diagnosis and fix ting dai north carolina state university, raleigh, north carolina, july, 2019 phd">
+  <a class="rv" href="https://repository.lib.ncsu.edu/handle/1840.20/37018" target="_blank" rel="noopener">PhD<small>2019</small></a>
+  <div><div class="rt">A Hybrid Approach to Cloud System Performance Bug Detection, Diagnosis and Fix</div><div class="ra"><span class="me">Ting Dai</span></div><div class="rw">North Carolina State University, Raleigh, North Carolina, July, 2019</div></div>
+  <div class="qls"><a class="ql" href="https://repository.lib.ncsu.edu/bitstream/handle/1840.20/37018/etd.pdf?sequence=1" target="_blank" rel="noopener">PDF</a><a class="ql" href="files/Ting_Defense_2019.pdf">Slides</a><button class="act toggle ql" type="button" aria-expanded="false" aria-controls="bib-phd-19-a-hybrid-approach-to-clo">BibTeX</button></div><div class="reveal" id="bib-phd-19-a-hybrid-approach-to-clo"><div><pre>@phdthesis{perfbugthesis2019,
+  author    = {Ting Dai},
+  title     = {A Hybrid Approach to Cloud System Performance Bug Detection, Diagnosis and Fix},
+  school    = {North Carolina State University},
+  year      = {2019},
+  address   = {Raleigh, North Carolina},
+  month     = {July},
+}</pre></div></div>
+</li>
+<li class="r" data-kind="thesis" data-topic="wsn" data-text="broadcast authentication protocols and intrusion detection in wireless sensor networks ting dai nanjing university of posts and telecommunications, nanjing, china, april, 2014 master">
+  <a class="rv" href="http://cnki.scstl.org/KCMS/detail/detail.aspx?filename=1015544799.nh&amp;dbcode=CMFD&amp;dbname=CMFD2015" target="_blank" rel="noopener">Master<small>2014</small></a>
+  <div><div class="rt">Broadcast Authentication Protocols and Intrusion Detection in Wireless Sensor Networks</div><div class="zh" lang="zh-Hans">无线传感器网络广播认证协议及入侵检测研究</div><div class="ra"><span class="me">Ting Dai</span></div><div class="rw">Nanjing University of Posts and Telecommunications, Nanjing, China, April, 2014</div></div>
+  <div class="qls"><a class="ql" href="files/Ting_Defense_2014.pdf">PDF</a><button class="act toggle ql" type="button" aria-expanded="false" aria-controls="bib-master-14-broadcast-authentication">BibTeX</button></div><div class="reveal" id="bib-master-14-broadcast-authentication"><div><pre>@mastersthesis{wsnBaIdThesis2014,
+  author    = {Ting Dai},
+  title     = {Research on Broadcast Authentication Protocols and Intrusion Detection in Wireless Sensor Networks},
+  school    = {Nanjing University of Posts and Telecommunications},
+  year      = {2014},
+  address   = {Nanjing, China},
+  month     = {April},
+}</pre></div></div>
+</li>
+        </ol>
+        </div>
+      </div>
+      <p class="empty" id="empty">Nothing matches these filters.</p>
+    </section>
+  </main>
 
-      <dl class="dl-horizontal">
-        <dt class="conference"><b><a href="https://patents.google.com/patent/US20230177169A1/en" class="nodec">US20230177169</a></b></dt>
-        <dd class="pubitem">
-            <b>Combining policy compliance and vulnerability management for risk assessment</b><br>
-            Muhammed Fatih Bulut, Abdulhamid Adebowale Adebayo, Lilian Mathias Ngweta, <b>Ting Dai</b>, Constantin Mircea Adam, Daby Mousse Sow, Steven Ocepek<br>
-            Filed on Dec 08, 2021. Granted on Jun 8, 2023.
-        </dd>
-      </dl>
-
-      <dl class="dl-horizontal">
-        <dt class="conference"><b><a href="https://patents.google.com/patent/US11200048B2/en" class="nodec">US11200048</a></b></dt>
-        <dd class="pubitem">
-            <b>Modification of Codified Infrastructure for Orchestration in a Multi-Cloud Environment</b><br>
-            Alexei Karve, Sai Zeng, <b>Ting Dai</b><br>
-            Filed on May 14, 2020. Granted on Dec 14, 2021.<br>
-        </dd>
-      </dl>
-
-      <dl class="dl-horizontal">
-        <dt class="conference"><b><a href="https://patents.google.com/patent/CN103124421B" class="nodec">CN103124421</a></b></dt>
-        <dd class="pubitem">
-            <b>The cluster-dividing method of mobile node in a kind of wireless sensor network</b><br>
-            <b>一种无线传感器网络中移动节点的分簇方法</b><br>
-            Ruchuan Wang, Xinxin Pan, Haiping Huang, Dan Sha, <b>Ting Dai</b>, Linyun Jiang, Chao Sha, Jia Xu, Fu Xiao<br>
-            <!-- Filed by Nanjing University of Posts and Telecommunications.<br> -->
-            Filed on Dec 12, 2012. Granted on Jun 8, 2016.<br>
-            <!-- <a target="_blank" class="btn btn-default btn-xs" href="https://patentimages.storage.googleapis.com/85/15/6c/2180d822d0e49a/CN103124421B.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><b><i class="fa fa-file-pdf-o"></i> pdf</b></a> -->
-        </dd>
-      </dl>
-      <dl class="dl-horizontal">
-        <dt class="conference"><b><a href="https://patents.google.com/patent/CN102196431B" class="nodec">CN102196431</a></b></dt>
-        <dd class="pubitem">
-            <b>Internet of things application scene-based protection method of privacy query and private identity verification</b><br>
-            <b>基于物联网应用场景的隐私查询和隐私身份验证的保护方法</b><br>
-            Haingping Huang, Yi Dou, Ruchuan Wang, Haitao Zhang, Liang Xu, Lijuan Sun, <b>Ting Dai</b>, Haiyan Wang, Linyun Jiang, Chao Sha, Fu Xiao, Lin Zhang, Jian Guo, Zhigang Tan, Li Liu, Xiang Gu<br>
-            <!-- Filed by Nanjing University of Posts and Telecommunications.<br> -->
-            Filed on May 13, 2011. Granted on Oct 22, 2014.<br>
-            <!-- <a target="_blank" class="btn btn-default btn-xs" href="https://patentimages.storage.googleapis.com/bb/94/1e/cf50949bfba963/CN102196431B.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><b><i class="fa fa-file-pdf-o"></i> pdf</b></a> -->
-        </dd>
-      </dl>
-      <dl class="dl-horizontal">
-        <dt class="conference"><b><a href="https://patents.google.com/patent/CN102325344B" class="nodec">CN102325344</a></b></dt>
-        <dd class="pubitem">
-            <b>Method for tracking and locating container by adopting label sensor network</b><br>
-            <b>一种采用标签传感网跟踪与定位集装箱的方法</b><br>
-            Haingping Huang, Yi Dou, Ruchuan Wang, Lijuan Sun, Haitao Zhang, Liang Xu, Chao Sha, <b>Ting Dai</b>, Jia Xu, Jian Guo, Zhigang Tan, Li Liu, Linyun Jiang, Yin Ma<br>
-            <!-- Filed by Nanjing University of Posts and Telecommunications.<br> -->
-            Filed on Jun 13, 2011. Granted on Sep 10, 2014.<br>
-            <!-- <a target="_blank" class="btn btn-default btn-xs" href="https://patentimages.storage.googleapis.com/41/27/12/e0c07334e3416d/CN102325344B.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><b><i class="fa fa-file-pdf-o"></i> pdf</b></a> -->
-        </dd>
-      </dl>
-      <dl class="dl-horizontal">
-        <dt class="conference"><b><a href="https://patents.google.com/patent/CN102594820B" class="nodec">CN102594820</a></b></dt>
-        <dd class="pubitem">
-            <b>Secure multi-party computation privacy-protecting evaluation method based on scenes of internet of things</b><br>
-            <b>基于物联网场景的安全多方计算隐私保护测评方法</b><br>
-            Lijuan Sun, Xuan Zhou, Haiping Huang, Ruchuan Wang, Jia Xu, Yachao Lv, Qi Yan, Shang Shang, <b>Ting Dai</b>, Yi Dou, Chao Sha, Fu Xiao<br>
-            <!-- Filed by Nanjing University of Posts and Telecommunications.<br>  -->
-            Filed on Feb 17, 2012. Granted on Sep 10, 2014.<br>
-            <!-- <a target="_blank" class="btn btn-default btn-xs" href="hhttps://patentimages.storage.googleapis.com/f8/5c/13/f1a8c72e8a2359/CN102594820B.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><b><i class="fa fa-file-pdf-o"></i> pdf</b></a> -->
-        </dd>
-      </dl>
-      <dl class="dl-horizontal">
-        <dt class="conference"><b><a href="https://patents.google.com/patent/CN102325345B" class="nodec">CN102325345</a></b></dt>
-        <dd class="pubitem">
-            <b>Container logistic tracking and positioning method based on tag sensor network</b><br>
-            <b>一种基于标签传感网的集装箱物流跟踪与定位方法</b><br>
-            Haiping Huang, <b>Ting Dai</b>, Ruchuan Wang, Biao Liang, Lijuan Sun, Chao Sha, Qiang Zhao, Fu Xiao, Yi Dou, Jia Xu, Linyun Jiang, Zhigang Tan, Jian Guo<br>
-            <!-- Filed by Nanjing University of Posts and Telecommunications & Nanjing Sample Technology Company Limited.<br> -->
-            Filed on Jun 13, 2011. Granted on Nov 27, 2013.<br>
-            <!-- <a target="_blank" class="btn btn-default btn-xs" href="https://patentimages.storage.googleapis.com/9d/5d/dd/4c26718692920c/CN102325345B.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><b><i class="fa fa-file-pdf-o"></i> pdf</b></a> -->
-        </dd>
-      </dl>
-      <dl class="dl-horizontal">
-        <dt class="conference"><b><a href="https://patents.google.com/patent/CN102164369B" class="nodec">CN102164369</a></b></dt>
-        <dd class="pubitem">
-            <b>Method for broadcast authentication of wireless sensor network based on automaton and game of life</b><br>
-            <b>基于自动机和生命游戏的无线传感器网络广播认证方法</b><br>
-            Haiping Huang, <b>Ting Dai</b>, Ruchuan Wang, Lijuan Sun, Yi Dou, Zhigang Tan, Li Liu, Wei Zhang, Xuan Zhou, Wencong Huang, Hao Chen, Chao Sha<br>
-            <!-- Filed by Nanjing Universi ty of Posts and Telecommunications.<br> -->
-            Filed on May 13, 2011. Granted on Sep 25, 2013.<br>
-            <!-- <a target="_blank" class="btn btn-default btn-xs" href="https://patentimages.storage.googleapis.com/f5/02/cb/59bc18b5b473db/CN102164369B.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><b><i class="fa fa-file-pdf-o"></i> pdf</b></a> -->
-        </dd>
-      </dl>
-      <dl class="dl-horizontal">
-        <dt class="conference"><b><a href="https://patents.google.com/patent/CN102193498B" class="nodec">CN102193498</a></b></dt>
-        <dd class="pubitem">
-            <b>Method for setting intelligent electronic alarm clock based on applied statistical method and embedded computing</b><br>
-            <b>基于应用统计方法和嵌入式计算的智能电子闹钟设定方法</b><br>
-            Haiping Huang, Baoyang She, Ruchuan Wang, Yun Zhang, Qiwang Cai, Lijuan Sun, Xiao Cao, Di Gao, Junjie Huang, Pingfan Ji, Zhigang Tan, <b>Ting Dai</b>. <br>
-            <!-- Filed by Nanjing University of Posts and Telecommunications.<br> -->
-            Filed on Mar 18, 2011. Granted on Apr 10, 2013.<br>
-            <!-- <a target="_blank" class="btn btn-default btn-xs" href="https://patentimages.storage.googleapis.com/f5/02/cb/59bc18b5b473db/CN102164369B.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><b><i class="fa fa-file-pdf-o"></i> pdf</b></a> -->
-        </dd>
-      </dl>
-    </div>
-
-    <br><br>
-    <h3>Theses</h3>
-    <br>
-    <div>
-      <dl class="dl-horizontal">
-        <dt class="conference"><b><a href="https://repository.lib.ncsu.edu/handle/1840.20/37018" class="nodec">PhD'19</a></b></dt>
-        <dd class="pubitem">
-            <b>A Hybrid Approach to Cloud System Performance Bug Detection, Diagnosis and Fix</b><br>
-            <b>Ting Dai</b><br>
-            North Carolina State University, Raleigh, North Carolina, July, 2019<br>
-            <a target="_blank" class="btn btn-default btn-xs" href="https://repository.lib.ncsu.edu/bitstream/handle/1840.20/37018/etd.pdf?sequence=1" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><b><i class="fa fa-file-pdf-o"></i> pdf</b></a>
-            <a target="_blank" class="btn btn-default btn-xs" href="files/Ting_Defense_2019.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><b><i class="fa fa-file-powerpoint-o"></i> slides</b></a>
-            <a class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);" onclick="updownFun('arrowbutton_phdthesis');$('#bibtex_phdthesis').slideToggle('fast');return false;"><b><div id="arrowbutton_phdthesis" class="fa fa-chevron-down"></div> bibtex</b></a>
-             <div id="bibtex_phdthesis" class="bibtex well">
-              @phdthesis{perfbugthesis2019,<br>
-              &nbsp;&nbsp;author    = {Ting Dai},<br>
-              &nbsp;&nbsp;title     = {A Hybrid Approach to Cloud System Performance Bug Detection, Diagnosis and Fix},<br>
-              &nbsp;&nbsp;school    = {North Carolina State University},<br>
-              &nbsp;&nbsp;year      = {2019},<br>
-              &nbsp;&nbsp;address   = {Raleigh, North Carolina},<br>
-              &nbsp;&nbsp;month     = {July},<br>
-              }
-            </div>
-        </dd>
-      </dl>
-      <dl class="dl-horizontal">
-        <dt class="conference"><b><a href="http://cnki.scstl.org/KCMS/detail/detail.aspx?filename=1015544799.nh&dbcode=CMFD&dbname=CMFD2015" class="nodec">Master'14</a></b></dt>
-        <dd class="pubitem">
-            <b>Broadcast Authentication Protocols and Intrusion Detection in Wireless Sensor Networks</b><br>
-            <b>无线传感器网络广播认证协议及入侵检测研究</b><br>
-            <b>Ting Dai</b><br>
-            Nanjing Univeristy of Posts and Telecommunications, Nanjing, China, April, 2014<br>
-            <a target="_blank" class="btn btn-default btn-xs" href="files/Ting_Defense_2014.pdf" onClick="ga('send', 'event', 'Downloads', 'p2pfakefile.pdf', 'publication');"><b><i class="fa fa-file-pdf-o"></i> pdf</b></a>
-            <a class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);" onclick="updownFun('arrowbutton_masterthesis');$('#bibtex_masterthesis').slideToggle('fast');return false;"><b><div id="arrowbutton_masterthesis" class="fa fa-chevron-down"></div> bibtex</b></a>
-             <div id="bibtex_masterthesis" class="bibtex well">
-              @phdthesis{wsnBaIdThesis2014,<br>
-              &nbsp;&nbsp;author    = {Ting Dai},<br>
-              &nbsp;&nbsp;title     = {Research on Broadcast Authentication Protocols and Intrusion Detection in Wireless Sensor Networks},<br>
-              &nbsp;&nbsp;school    = {Nanjing Univeristy of Posts and Telecommunications},<br>
-              &nbsp;&nbsp;year      = {2014},<br>
-              &nbsp;&nbsp;address   = {Nanjing, China},<br>
-              &nbsp;&nbsp;month     = {April},<br>
-              }
-            </div>
-        </dd>
-      </dl>
-      <br><br><br>
-    </div>
-  </div>
-
-
-
+  <script src="js/site.js"></script>
+  <script>
+  (function () {
+    var state = { topic: '', q: '' };
+    var rows = [].slice.call(document.querySelectorAll('.idx .r'));
+    var heads = [].slice.call(document.querySelectorAll('.idx .yh'));
+    var groups = [].slice.call(document.querySelectorAll('.grp-sec'));
+    var showing = document.getElementById('showing'), empty = document.getElementById('empty');
+    function apply() {
+      var n = 0;
+      rows.forEach(function (r) {
+        var ok = (!state.topic || r.dataset.topic === state.topic) &&
+                 (!state.q || r.dataset.text.indexOf(state.q) !== -1);
+        r.classList.toggle('off', !ok);
+        if (ok) n++;
+      });
+      heads.forEach(function (h) {
+        var any = false, el = h.nextElementSibling;
+        while (el && !el.classList.contains('yh')) { if (!el.classList.contains('off')) any = true; el = el.nextElementSibling; }
+        h.classList.toggle('off', !any);
+      });
+      groups.forEach(function (g) { g.classList.toggle('off', !g.querySelector('.r:not(.off)')); });
+      showing.textContent = 'Showing ' + n + ' of ' + rows.length;
+      empty.style.display = n ? 'none' : 'block';
+    }
+    document.querySelectorAll('#filters .grp').forEach(function (g) {
+      var key = g.dataset.filter;
+      g.querySelectorAll('.chip').forEach(function (b) {
+        b.addEventListener('click', function () {
+          state[key] = b.dataset.v;
+          g.querySelectorAll('.chip').forEach(function (o) { o.setAttribute('aria-pressed', String(o === b)); });
+          apply();
+        });
+      });
+    });
+    document.getElementById('q').addEventListener('input', function (e) { state.q = e.target.value.trim().toLowerCase(); apply(); });
+    apply();
+  })();
+  </script>
 
 </body>
 </html>
