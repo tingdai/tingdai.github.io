@@ -123,3 +123,47 @@ document.querySelectorAll('.au-more').forEach(function (btn) {
     btn.textContent = open ? 'fewer authors' : label;
   });
 });
+
+// Phone view of project diagrams: each SVG is shrunk to fit; tapping it opens the full-size diagram in a viewer.
+// Opening the viewer adds a history entry, so the phone's back gesture closes it instead of leaving the page.
+(function () {
+  var figs = document.querySelectorAll('figure.dg.opt');
+  if (!figs.length) return;
+  var phone = matchMedia('(max-width: 640px)');
+  function mk(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text) e.textContent = text; return e; }
+
+  var dlg = mk('dialog', 'dg-view'), bar = mk('div', 'dg-view-bar'), stage = mk('div', 'dg-view-stage');
+  var back = mk('button', 'act', '‹ Back');
+  back.type = 'button';
+  bar.appendChild(back);
+  bar.appendChild(mk('span', null, 'Scroll or pinch to explore · rotate for a wider view'));
+  dlg.appendChild(bar); dlg.appendChild(stage);
+  document.body.appendChild(dlg);
+  var home = null;
+  function restore() { if (home) { home.parent.insertBefore(home.svg, home.next); home = null; } }
+  // Back button and Esc pop the history entry; the phone's back gesture pops it directly. Either way popstate closes.
+  function shut() { if (history.state && history.state.dgView) history.back(); else { dlg.close(); restore(); } }
+  back.addEventListener('click', shut);
+  dlg.addEventListener('cancel', function (e) { e.preventDefault(); shut(); });
+  dlg.addEventListener('close', restore);
+  addEventListener('popstate', function () { if (dlg.open) dlg.close(); restore(); });
+
+  function open(svg) {
+    if (!phone.matches) return;
+    home = { svg: svg, parent: svg.parentNode, next: svg.nextSibling };
+    stage.appendChild(svg);
+    dlg.showModal();
+    history.pushState({ dgView: true }, '');
+    stage.scrollLeft = 0; stage.scrollTop = 0;
+  }
+
+  figs.forEach(function (fig) {
+    var svg = fig.querySelector(':scope > svg');
+    if (!svg) return;
+    var fit = mk('div', 'dg-fit'), zoom = mk('button', 'dg-zoom', '⤢ Tap to zoom');
+    zoom.type = 'button';
+    fig.insertBefore(fit, svg);
+    fit.appendChild(svg); fit.appendChild(zoom);
+    fit.addEventListener('click', function () { if (home === null) open(svg); });
+  });
+})();
