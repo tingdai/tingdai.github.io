@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Ting Dai">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="icon" href="images/favicon.ico" sizes="16x16 32x32 48x48">
+  <title>Experience · Ting Dai</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+  <link rel="stylesheet" href="css/site.css">
+  <script defer src="js/analytics.js"></script>
+  <script>
+    try { var t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
+  <style>
+/* Option C: hero card for the current role, earlier experience as compact side-by-side cards,
+   teaching/mentoring paired, service as venue chips with year pills. */
+.lg { display: inline-flex; align-items: center; color: var(--fg); height: 40px; max-width: 100%; }
+.lg:hover { text-decoration: none; opacity: .85; }
+.lg .mk { display: block; max-width: 100%; height: auto; font-family: var(--font-body); }
+.k { font: 600 11.5px var(--font-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.lg .lt { margin-left: 6px; font-size: 9.5px; line-height: 1.25; font-weight: 600; color: var(--muted); white-space: nowrap; }
+
+.hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 0 36px; align-items: start; padding: 24px;
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--line));
+  background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 12%, var(--surface)), var(--surface) 65%); }
+.hero .eyebrow { color: var(--accent); }
+.hero > .path, .hero > .hl { grid-column: 1 / -1; }
+.hero-side { display: flex; align-items: center; gap: 20px; }
+.hero .lg.big { height: auto; margin-top: 2px; }
+.hero .lg.big .mk { width: 200px; height: 40px; }
+.hero-t { font-size: 26px; font-weight: 700; letter-spacing: -0.015em; line-height: 1.2; margin-top: 8px; text-wrap: balance; }
+.hero-m { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 10px; }
+.pill { display: inline-block; font: 600 11.5px/1.8 var(--font-mono); letter-spacing: .03em; padding: 0 10px; border-radius: 999px;
+  border: 1px solid var(--line); color: var(--muted); background: var(--surface); }
+.pill.on { color: var(--accent); border-color: var(--accent); background: var(--accent-bg); }
+.path { list-style: none; margin: 16px 0 0; padding: 12px 0 0; border-top: 1px solid var(--line); }
+.path .k { margin-bottom: 4px; }
+.path li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 16px; align-items: baseline; padding: 3px 0; }
+.path .d { font: 12.5px var(--font-mono); color: var(--muted); text-align: right; white-space: nowrap; }
+.stat { min-width: 170px; padding: 12px 16px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); text-align: center; }
+.stat .n { font: 600 24px/1.1 var(--font-mono); color: var(--accent); letter-spacing: -0.02em; }
+.stat .l { margin-top: 6px; font-size: 13px; color: var(--muted); line-height: 1.4; }
+.stat .l b { color: var(--fg); font-weight: 600; }
+
+.earlier { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
+.earlier .panel { display: flex; flex-direction: column; gap: 4px; }
+.eh { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 4px 12px; padding-bottom: 10px; border-bottom: 1px solid var(--line); }
+.eh .lg { height: 36px; }
+.eh .span { font: 12px var(--font-mono); color: var(--muted); }
+.eh .span b { color: var(--fg); font-weight: 600; }
+.rl { list-style: none; margin: 6px 0 0; padding: 0; }
+.rl li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 14px; align-items: baseline; padding: 4px 0; }
+.rl .t { font-weight: 500; }
+.path .k, .eh .k { font-weight: 600; }
+.rl .d { font: 12.5px var(--font-mono); color: var(--muted); text-align: right; white-space: nowrap; }
+.rl small { display: block; color: var(--muted); font-size: 12.5px; }
+/* Education: one card per school, headed by its logo like the Work cards. The NJUPT calligraphy is a CSS mask
+   over a theme-tinted fill so it stays legible on both themes; the English name sits beside it as text. */
+.edu .eh .lg { height: 40px; }
+.edu .lg.njupt .wm { display: block; flex: none; height: 24px; width: 117px; background: #213e9b;
+  -webkit-mask: url(images/njupt_calligraphy.svg) center / contain no-repeat; mask: url(images/njupt_calligraphy.svg) center / contain no-repeat; }
+:root[data-theme="dark"] .edu .lg.njupt .wm { background: #a9bcf0; }
+.edu .lg.njupt .lt { margin-left: 10px; font-size: 11px; }
+.edu .rl .k { padding: 8px 0 2px; }
+/* Highlights: what I did in each role. Also read by CV.html for the resume's Experience bullets. */
+.hl { margin: 14px 0 0; padding: 12px 0 0 1.1em; border-top: 1px solid var(--line); color: var(--fg); font-size: 14px; }
+.hl li { margin: 5px 0; }
+.hl li::marker { color: var(--accent); }
+.earlier .hl { margin-top: 8px; }
+
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 36px 16px; }
+.two { align-items: start; }
+.grp + .grp { margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--line); }
+.grp .lg { height: 30px; margin-bottom: 4px; }
+.grp .lg .socc { height: 30px; }
+
+.sv { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 8px 20px; align-items: start; }
+.sv + .sv { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--line); }
+.sv .k { padding-top: 7px; }
+.vcs { display: flex; flex-wrap: wrap; gap: 8px; }
+.vc { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; max-width: 100%; padding: 5px 6px 5px 11px;
+  border: 1px solid var(--line); border-radius: 8px; background: var(--bg); font-size: 13.5px; line-height: 1.4; }
+.vc .yp { display: inline-block; font: 600 11px/1.75 var(--font-mono); padding: 0 8px; border-radius: 999px; color: var(--accent); background: var(--accent-bg); }
+.vc .yp:hover { text-decoration: none; box-shadow: inset 0 0 0 1px var(--accent); }
+.vc .yps { display: inline-flex; flex-wrap: wrap; gap: 4px; }
+
+@media (max-width: 760px) { .earlier, .two { grid-template-columns: 1fr; } }
+@media (max-width: 560px) {
+  .hero { grid-template-columns: 1fr; padding: 20px 16px; }
+  .hero-side { flex-wrap: wrap; margin-top: 14px; }
+  .hero-t { font-size: 22px; }
+  .stat { text-align: left; display: flex; align-items: center; gap: 14px; padding: 12px 14px; }
+  .stat .n { white-space: nowrap; font-size: 22px; }
+  .stat .l { margin-top: 0; }
+  .path li, .rl li { grid-template-columns: 1fr; gap: 0; }
+  .path .d, .rl .d { text-align: left; white-space: normal; }
+  .sv { grid-template-columns: 1fr; gap: 6px; }
+  .sv .k { padding-top: 0; }
+}
+  </style>
+</head>
+<body>
+
+  <nav class="topnav">
+    <div class="inner">
+      <a class="brand" href="index.html">Ting Dai</a>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="Publications.html">Publications</a></li>
+        <li><a href="Projects.html">Projects</a></li>
+        <li><a href="Experience.html" aria-current="page">Experience</a></li>
+        <li><a href="Awards.html">Awards</a></li>
+      </ul>
+      <button class="theme-btn" type="button" id="theme-btn">&#9728; Light</button>
+    </div>
+  </nav>
+
+  <main class="wrap">
+    <header class="pagehead">
+      <div class="eyebrow">Experience</div>
+      <h1>Work, education, teaching, and service</h1>
+      <nav class="jump" aria-label="Sections">
+        <a href="#work">WORK</a><a href="#education">EDUCATION</a><a href="#teaching">TEACHING</a><a href="#mentoring">MENTORING</a><a href="#service">ACADEMIC SERVICE</a>
+      </nav>
+    </header>
+
+    <section id="work">
+      <h2>Work</h2>
+      <div class="panel hero">
+        <div>
+          <div class="eyebrow">Current role</div>
+          <div class="hero-t">Senior Staff Data Scientist</div>
+          <div class="hero-m"><span class="pill on">Apr 2026 – now</span><span class="pill ten" data-from="2026-04"></span></div>
+        </div>
+        <div class="hero-side">
+          <a class="lg big" href="https://insightfinder.com/"><svg class="mk" viewBox="0 0 150 30" width="150" height="30" role="img" aria-label="InsightFinder AI"><circle cx="12" cy="12" r="9.2" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M19 19 L25.5 25.5" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/><path d="M5.2 12.6 H8.3 L10 8.4 L12.6 16.4 L14.4 11 L15.4 12.6 H18.8" fill="none" stroke="#FF4342" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/><text x="31" y="19" fill="currentColor" font-size="14.2" font-weight="500" letter-spacing="-0.25">InsightFinder<tspan font-weight="700"> AI</tspan></text></svg></a>
+          <div class="stat"><div class="n ten" data-from="2025-03"></div><div class="l"><b>Mar 2025 – now</b><br>at InsightFinder AI</div></div>
+        </div>
+        <ul class="path">
+          <li class="k">Earlier at InsightFinder AI</li>
+          <li><span class="t">Staff Data Scientist</span><span class="d">Mar 2025 – Apr 2026</span></li>
+          <li><span class="t">Software Engineer Intern</span><span class="d">Jun 2016 – Aug 2016</span></li>
+        </ul>
+        <ul class="hl">
+          <li>Lead the development of <b>ARI, a multi-agent predictive AI SRE agent</b>: a coordinator agent orchestrates specialist sub-agents for incident prediction, anomaly detection, root cause analysis, code analysis and patch fixing, Kubernetes deployment, Jira tickets and Slack/email notifications, with human-in-the-loop approval.</li>
+          <li>Designed ARI's <b>model-agnostic agent stack</b>: LangGraph agents with tool use over MCP, per-agent LLM choice across OpenAI, Anthropic, Google and AWS Bedrock, live streaming, source citations and OpenTelemetry tracing.</li>
+          <li>Built a <b>RAG-grounded, claim-level LLM-as-a-judge (98% accuracy)</b> for multi-agent workflows: each claim is verified against evidence from vector search, with deterministic number, date and rule checks first, on a self-hosted small language model without fine-tuning.</li>
+          <li>Developed <b>AI Evaluation &amp; Guardrails</b>: hallucination, relevance, safety and bias evaluation, jailbreak, prompt-injection and PII guardrails, RAG/GraphRAG answer evaluation, and statistically gated A/B releases of judge versions.</li>
+        </ul>
+      </div>
+
+      <div class="earlier">
+        <div class="panel">
+          <div class="eh"><a class="lg" href="http://www.research.ibm.com/labs/watson/index.shtml"><svg class="mk" viewBox="0 0 134 22" width="134" height="22" role="img" aria-label="IBM Research"><g fill="currentColor" transform="translate(0 2.5) scale(0.5556)"><rect x="0" y="0" width="14" height="2.6"/><rect x="17" y="0" width="21" height="2.6"/><rect x="45" y="0" width="12" height="2.6"/><rect x="68" y="0" width="12" height="2.6"/><rect x="0" y="4" width="14" height="2.6"/><rect x="17" y="4" width="23" height="2.6"/><rect x="45" y="4" width="13.5" height="2.6"/><rect x="66.5" y="4" width="13.5" height="2.6"/><rect x="3.5" y="8" width="7" height="2.6"/><rect x="20.5" y="8" width="7" height="2.6"/><rect x="34" y="8" width="7.5" height="2.6"/><rect x="48.5" y="8" width="11.5" height="2.6"/><rect x="65" y="8" width="11.5" height="2.6"/><rect x="3.5" y="12" width="7" height="2.6"/><rect x="20.5" y="12" width="18.5" height="2.6"/><rect x="48.5" y="12" width="6.5" height="2.6"/><rect x="57" y="12" width="11" height="2.6"/><rect x="70" y="12" width="6.5" height="2.6"/><rect x="3.5" y="16" width="7" height="2.6"/><rect x="20.5" y="16" width="20" height="2.6"/><rect x="48.5" y="16" width="6.5" height="2.6"/><rect x="59" y="16" width="7" height="2.6"/><rect x="70" y="16" width="6.5" height="2.6"/><rect x="3.5" y="20" width="7" height="2.6"/><rect x="20.5" y="20" width="7" height="2.6"/><rect x="34" y="20" width="8" height="2.6"/><rect x="48.5" y="20" width="6.5" height="2.6"/><rect x="60.5" y="20" width="4" height="2.6"/><rect x="70" y="20" width="6.5" height="2.6"/><rect x="0" y="24" width="14" height="2.6"/><rect x="17" y="24" width="24" height="2.6"/><rect x="45" y="24" width="10" height="2.6"/><rect x="61.5" y="24" width="2" height="2.6"/><rect x="70" y="24" width="10" height="2.6"/><rect x="0" y="28" width="14" height="2.6"/><rect x="17" y="28" width="22" height="2.6"/><rect x="45" y="28" width="10" height="2.6"/><rect x="70" y="28" width="10" height="2.6"/></g><text x="51" y="19.5" fill="currentColor" font-size="19" font-weight="600" letter-spacing="-0.2">Research</text></svg></a><span class="span">Sep 2019 – Mar 2025 · <b class="ten" data-from="2019-09" data-to="2025-03"></b></span></div>
+          <ul class="rl">
+            <li><span class="t">Staff Research Scientist</span><span class="d">Jul 2022 – Mar 2025</span></li>
+            <li><span class="t">Research Staff Member</span><span class="d">Sep 2019 – Jul 2022</span></li>
+            <li><span class="t">Graduate Intern</span><span class="d">May 2018 – Aug 2018</span></li>
+          </ul>
+          <ul class="hl">
+            <li>Contributed to <b>ITBench (ICML 2025 spotlight and oral)</b>, an open benchmark for AI agents on real-world SRE, compliance and FinOps tasks; implemented benchmark scenarios.</li>
+            <li>Built <b>LLM tools for SREs</b>: ScriptSmith (AAAI'25), retrieval-augmented Bash script generation with self-refinement, and CodeSift (CLOUD'24), reference-free validation of LLM-generated code.</li>
+            <li>Co-developed the Kestrel <b>threat-hunting pipeline</b> with STIX-shifter connectors (IBM TCAP Significant Contributor) and integrated Keylime remote attestation with IBM Cloud Satellite and Red Hat CoreOS.</li>
+            <li>Developed <b>SecureCode</b> (SoCC'20), deployed in IBM Cloud's DevOps pipeline to catch risky scripts in infrastructure code, and co-developed multi-cloud compliance and vulnerability risk ranking integrated with IBM AIOps (3&times; IBM Research Accomplishment).</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <div class="eh"><a class="lg" href="https://www.csc.ncsu.edu/"><svg class="mk" viewBox="0 0 182 22" width="182" height="22" role="img" aria-label="NC State University"><text x="0" y="17.5" fill="#CC0000" font-size="18"><tspan font-weight="800" textLength="87" lengthAdjust="spacingAndGlyphs">NC STATE</tspan><tspan dx="6" font-weight="400" textLength="87" lengthAdjust="spacingAndGlyphs">UNIVERSITY</tspan></text></svg></a><span class="span">May 2015 – Jul 2019 · <b class="ten" data-from="2015-05" data-to="2019-07"></b></span></div>
+          <ul class="rl">
+            <li><span class="t">Research Assistant</span><span class="d">May 2015 – Jul 2019</span></li>
+          </ul>
+          <ul class="hl">
+            <li>Built <b>performance-bug detection and fixing systems</b> for cloud servers, Hytrace (SoCC'17, TPDS'19), DScope (SoCC'18) and HangFix (SoCC'20), combining static code analysis with ML-based anomaly detection on system-call traces.</li>
+            <li>Co-developed <b>timeout-bug detection and fixing</b>, TScope (ICAC'18) and TFix (ICDCS'19), and a study of real-world timeout problems (IC2E'18, best paper nominee).</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <h2>Education</h2>
+      <div class="earlier edu">
+        <div class="panel">
+          <div class="eh"><a class="lg" href="https://www.csc.ncsu.edu/"><svg class="mk" viewBox="0 0 182 22" width="182" height="22" role="img" aria-label="NC State University"><text x="0" y="17.5" fill="#CC0000" font-size="18"><tspan font-weight="800" textLength="87" lengthAdjust="spacingAndGlyphs">NC STATE</tspan><tspan dx="6" font-weight="400" textLength="87" lengthAdjust="spacingAndGlyphs">UNIVERSITY</tspan></text></svg></a><span class="span">USA · <b>2014 – 2019</b></span></div>
+          <ul class="rl">
+            <li class="k">North Carolina State University</li>
+            <li><span class="t">Ph.D. in Computer Science<small>Advisor: <a href="http://dance.csc.ncsu.edu/gu/">Xiaohui (Helen) Gu</a> · Dissertation: <a href="Publications.html#theses">A Hybrid Approach to Cloud System Performance Bug Detection, Diagnosis and Fix</a></small></span><span class="d">2014 – 2019</span></li>
+          </ul>
+        </div>
+        <div class="panel">
+          <div class="eh"><a class="lg njupt" href="https://www.njupt.edu.cn/"><span class="wm" aria-hidden="true"></span><span class="lt">Nanjing University of<br>Posts and Telecommunications</span></a><span class="span">China · <b>2007 – 2014</b></span></div>
+          <ul class="rl">
+            <li class="k">Nanjing University of Posts and Telecommunications</li>
+            <li><span class="t">Master's in Computer Software and Theory</span><span class="d">2011 – 2014</span></li>
+            <li><span class="t">Bachelor's in Information Security</span><span class="d">2007 – 2011</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <div class="two">
+      <section id="teaching">
+        <h2>Teaching</h2>
+        <div class="panel">
+          <div class="grp">
+            <a class="lg" href="https://www.csc.ncsu.edu/"><svg class="mk" viewBox="0 0 182 22" width="182" height="22" role="img" aria-label="NC State University"><text x="0" y="17.5" fill="#CC0000" font-size="18"><tspan font-weight="800" textLength="87" lengthAdjust="spacingAndGlyphs">NC STATE</tspan><tspan dx="6" font-weight="400" textLength="87" lengthAdjust="spacingAndGlyphs">UNIVERSITY</tspan></text></svg></a>
+            <ul class="rl">
+              <li><span class="t">Teaching Assistant · <a href="https://wordpress-courses1819.wolfware.ncsu.edu/csc724-sprg-2019-yh55qbm/index/">CSC 724 Advanced Distributed Systems</a></span><span class="d">Spring 2019</span></li>
+              <li><span class="t">Teaching Assistant · CSC 226 Discrete Mathematics</span><span class="d">Fall 2014, Spring 2015</span></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="mentoring">
+        <h2>Mentoring</h2>
+        <div class="panel">
+          <div class="grp">
+            <a class="lg" href="http://www.research.ibm.com/labs/watson/index.shtml"><svg class="mk" viewBox="0 0 134 22" width="134" height="22" role="img" aria-label="IBM Research"><g fill="currentColor" transform="translate(0 2.5) scale(0.5556)"><rect x="0" y="0" width="14" height="2.6"/><rect x="17" y="0" width="21" height="2.6"/><rect x="45" y="0" width="12" height="2.6"/><rect x="68" y="0" width="12" height="2.6"/><rect x="0" y="4" width="14" height="2.6"/><rect x="17" y="4" width="23" height="2.6"/><rect x="45" y="4" width="13.5" height="2.6"/><rect x="66.5" y="4" width="13.5" height="2.6"/><rect x="3.5" y="8" width="7" height="2.6"/><rect x="20.5" y="8" width="7" height="2.6"/><rect x="34" y="8" width="7.5" height="2.6"/><rect x="48.5" y="8" width="11.5" height="2.6"/><rect x="65" y="8" width="11.5" height="2.6"/><rect x="3.5" y="12" width="7" height="2.6"/><rect x="20.5" y="12" width="18.5" height="2.6"/><rect x="48.5" y="12" width="6.5" height="2.6"/><rect x="57" y="12" width="11" height="2.6"/><rect x="70" y="12" width="6.5" height="2.6"/><rect x="3.5" y="16" width="7" height="2.6"/><rect x="20.5" y="16" width="20" height="2.6"/><rect x="48.5" y="16" width="6.5" height="2.6"/><rect x="59" y="16" width="7" height="2.6"/><rect x="70" y="16" width="6.5" height="2.6"/><rect x="3.5" y="20" width="7" height="2.6"/><rect x="20.5" y="20" width="7" height="2.6"/><rect x="34" y="20" width="8" height="2.6"/><rect x="48.5" y="20" width="6.5" height="2.6"/><rect x="60.5" y="20" width="4" height="2.6"/><rect x="70" y="20" width="6.5" height="2.6"/><rect x="0" y="24" width="14" height="2.6"/><rect x="17" y="24" width="24" height="2.6"/><rect x="45" y="24" width="10" height="2.6"/><rect x="61.5" y="24" width="2" height="2.6"/><rect x="70" y="24" width="10" height="2.6"/><rect x="0" y="28" width="14" height="2.6"/><rect x="17" y="28" width="22" height="2.6"/><rect x="45" y="28" width="10" height="2.6"/><rect x="70" y="28" width="10" height="2.6"/></g><text x="51" y="19.5" fill="currentColor" font-size="19" font-weight="600" letter-spacing="-0.2">Research</text></svg></a>
+            <ul class="rl">
+              <li><span class="t"><a href="https://github.com/seyyedaliayati">Seyyed Ali Ayati</a><small>IBM-TAMU, NSF RINGs program</small></span><span class="d">Aug 2023 – Oct 2023</span></li>
+              <li><span class="t"><a href="https://www.linkedin.com/in/bekir-oguzhan-turkkan">Bekir Turkkan</a><small>IBM internship</small></span><span class="d">May 2021 – Jan 2022</span></li>
+              <li><span class="t"><a href="https://sampalomad.github.io/">RunXiang (Sam) Cheng</a><small>IBM-UIUC program</small></span><span class="d">May 2020 – Aug 2020</span></li>
+            </ul>
+          </div>
+          <div class="grp">
+            <a class="lg" href="https://acmsocc.org/"><svg class="mk socc" viewBox="0 0 100 42" width="96" height="40" role="img" aria-label="ACM Symposium on Cloud Computing (SoCC)"><defs><linearGradient id="socc-cloud" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#29c4ec" stop-opacity="0"/><stop offset="1" stop-color="#29c4ec"/></linearGradient></defs><path d="M61.4 11.42 A11.71 11.71 0 0 1 84.54 14.66 A2.57 2.57 0 0 0 87.5 17.38 A8.0 8.0 0 0 1 88.71 33.29 H57.43 A6.29 6.29 0 0 1 57.43 20.71 L61.4 11.42 Z" fill="url(#socc-cloud)"/><g fill="none" stroke="currentColor" stroke-width="3.7" stroke-linecap="round" stroke-linejoin="round"><path d="M19.43 20.71 H8.29 A3.14 3.14 0 0 0 8.29 27.0 H9.71 A3.14 3.14 0 0 1 9.71 33.29 H2.57"/><circle cx="25.57" cy="27.0" r="6.57"/><path d="M46.43 20.71 H42.14 A6.29 6.29 0 0 0 42.14 33.29 H46.43"/><path d="M61.71 20.71 H57.43 A6.29 6.29 0 0 0 57.43 33.29 H61.71"/><path d="M61.4 11.42 A11.71 11.71 0 0 1 84.54 14.66 A2.57 2.57 0 0 0 87.5 17.38 A8.0 8.0 0 0 1 88.71 33.29 H73.71 C70.86 33.29 71.43 39.29 67.71 39.29 H58.86"/></g></svg><span class="lt" aria-hidden="true">ACM Symposium<br>on Cloud Computing</span></a>
+            <ul class="rl">
+              <li><span class="t"><a href="https://www.linkedin.com/in/abhi-thadeshwar">Abhi Thadeshwar</a><small><a href="http://acmsocc.org/2020/mentoring.html">SoCC mentoring program</a></small></span><span class="d">Oct 2020</span></li>
+            </ul>
+          </div>
+          <div class="grp">
+            <a class="lg" href="https://www.csc.ncsu.edu/"><svg class="mk" viewBox="0 0 182 22" width="182" height="22" role="img" aria-label="NC State University"><text x="0" y="17.5" fill="#CC0000" font-size="18"><tspan font-weight="800" textLength="87" lengthAdjust="spacingAndGlyphs">NC STATE</tspan><tspan dx="6" font-weight="400" textLength="87" lengthAdjust="spacingAndGlyphs">UNIVERSITY</tspan></text></svg></a>
+            <ul class="rl">
+              <li><span class="t"><a href="https://www.linkedin.com/in/pavithraiyer/">Pavithra Iyer</a><small><a href="http://dance.csc.ncsu.edu/">DANCE</a> lab</small></span><span class="d">Fall 2017</span></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <section id="service">
+      <h2>Academic service</h2>
+      <div class="panel">
+        <div class="sv">
+          <div class="k">Track chair</div>
+          <div class="vcs">
+            <span class="vc">IEEE International Conference on Cloud Engineering (IC2E), Industry Track<span class="yps"><a class="yp" href="https://conferences.computer.org/IC2E/2024/organization.html">2024</a></span></span>
+          </div>
+        </div>
+        <div class="sv">
+          <div class="k">Program committee</div>
+          <div class="vcs">
+            <span class="vc">IEEE International Conference on Cloud Engineering (IC2E)<span class="yps"><a class="yp" href="https://conferences.computer.org/IC2E/2026/pc-research.html">2026</a><a class="yp" href="https://conferences.computer.org/IC2E/2025/pc-research.html">2025</a><a class="yp" href="https://conferences.computer.org/IC2E/2024/program-committee.html">2024</a></span></span>
+            <span class="vc">IEEE International Conference on Cloud Computing (CLOUD)<span class="yps"><a class="yp" href="https://services.conferences.computer.org/2025/cloud/cloud-organizers/">2025</a><a class="yp" href="https://cloud.conferences.computer.org/2024/organizers/">2024</a><a class="yp" href="https://conferences.computer.org/cloud/2023/committee/">2023</a><a class="yp" href="https://conferences.computer.org/cloud/2022/committee/">2022</a><a class="yp" href="https://conferences.computer.org/cloud/2021/committee/">2021</a></span></span>
+            <span class="vc">IEEE International Conference on Distributed Computing Systems (ICDCS)<span class="yps"><a class="yp" href="https://icdcs2023.icdcs.org/technical-committee/">2023</a></span></span>
+          </div>
+        </div>
+        <div class="sv">
+          <div class="k">Editorial board</div>
+          <div class="vcs">
+            <span class="vc">Journal of Systems Research (JSys)<span class="yps"><a class="yp" href="https://www.jsys.org/cfp_confManagement/">2021 – now</a></span></span>
+          </div>
+        </div>
+        <div class="sv">
+          <div class="k">Journal reviewer</div>
+          <div class="vcs">
+            <span class="vc">IEEE Transactions on Network Science and Engineering (TNSE)<span class="yps"><a class="yp" href="https://www.comsoc.org/publications/journals/ieee-tnse">2023</a></span></span>
+            <span class="vc">IEEE Transactions on Dependable and Secure Computing (TDSC)<span class="yps"><a class="yp" href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=8858">2023</a></span></span>
+          </div>
+        </div>
+        <div class="sv">
+          <div class="k">Panelist</div>
+          <div class="vcs">
+            <span class="vc">Workshop on Hot Topics in Operating Systems (HotOS)<span class="yps"><a class="yp" href="https://fut-shell.github.io">2021</a></span></span>
+          </div>
+        </div>
+        <div class="sv">
+          <div class="k">External reviewer</div>
+          <div class="vcs">
+            <span class="vc">IEEE International Conference on Autonomic Computing (ICAC)<span class="yps"><a class="yp" href="https://icac2019.cs.umu.se/">2019</a></span></span>
+            <span class="vc">ACM Asia-Pacific Workshop on Systems (APSys)<span class="yps"><a class="yp" href="https://apsys18.kaist.ac.kr/">2018</a></span></span>
+            <span class="vc">IEEE Transactions on Parallel and Distributed Systems (TPDS)<span class="yps"><a class="yp" href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=71">2017</a></span></span>
+            <span class="vc">IEEE International Conference on Cloud Engineering (IC2E)<span class="yps"><a class="yp" href="https://conferences.computer.org/IC2E/2017/index.htm">2017</a></span></span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/site.js"></script>
+  <script>
+    (function () {
+      var now = new Date(), ny = now.getFullYear(), nm = now.getMonth() + 1;
+      function fmt(n) {
+        var y = Math.floor(n / 12), m = n % 12, s = [];
+        if (y) s.push(y + (y > 1 ? ' yrs' : ' yr'));
+        if (m) s.push(m + (m > 1 ? ' mos' : ' mo'));
+        return s.join(' ');
+      }
+      document.querySelectorAll('.ten[data-from]').forEach(function (el) {
+        var f = el.dataset.from.split('-').map(Number);
+        var t = el.dataset.to ? el.dataset.to.split('-').map(Number) : [ny, nm];
+        el.textContent = fmt((t[0] - f[0]) * 12 + (t[1] - f[1]) + 1);
+      });
+    })();
+  </script>
+</body>
+</html>

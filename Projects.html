@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Ting Dai">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="icon" href="images/favicon.ico" sizes="16x16 32x32 48x48">
+  <title>Projects · Ting Dai</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+  <link rel="stylesheet" href="css/site.css">
+  <script defer src="js/analytics.js"></script>
+  <script>
+    try { var t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
+</head>
+<body>
+
+  <nav class="topnav">
+    <div class="inner">
+      <a class="brand" href="index.html">Ting Dai</a>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="Publications.html">Publications</a></li>
+        <li><a href="Projects.html" aria-current="page">Projects</a></li>
+        <li><a href="Experience.html">Experience</a></li>
+        <li><a href="Awards.html">Awards</a></li>
+      </ul>
+      <button class="theme-btn" type="button" id="theme-btn">&#9728; Light</button>
+    </div>
+  </nav>
+
+  <main class="wrap">
+    <header class="pagehead">
+      <h1>Projects</h1>
+      <p class="lede">Three featured projects in depth, followed by the rest of my work at a glance.</p>
+      <nav class="jump" aria-label="Sections"><a href="#ari">ARI</a><a href="#llmeval">AI EVALUATION</a><a href="#itbench">ITBENCH</a><a href="#more">MORE PROJECTS</a></nav>
+    </header>
+<style>
+.case { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 22px; scroll-margin-top: 72px; }
+.case + .case { margin-top: 18px; }
+.case-h { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 24px; align-items: flex-start; }
+.case-h .ttl { font-size: 20px; margin: 0; line-height: 1.3; text-wrap: balance; }
+.case .one { color: var(--muted); font-size: 14.5px; margin-top: 3px; }
+.case-h .ttl .pmk { display: inline-block; width: 46px; height: 46px; vertical-align: -13px; margin-right: 10px; }
+.case-meta { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; text-align: right; }
+.case-meta .sw { font: 12px var(--font-mono); color: var(--muted); white-space: nowrap; }
+.aw { font-size: 12.5px; font-weight: 600; color: var(--c2); white-space: nowrap; }
+.case > .tags { margin: 12px 0 4px; }
+.case > .tags .tag { color: var(--muted); }
+.case .project { margin-top: 4px; }
+/* "Techniques": the methods behind a product, kept at a high level (no customer, model or dataset names). Also read by CV.html. */
+.tech { margin: 14px 0 4px; padding: 14px 16px; border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: 8px; background: var(--bg); }
+.tech h3 { margin: 0 0 6px; font: 600 11px var(--font-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--accent); }
+.tech ul { margin: 0; padding-left: 1.1em; }
+.tech li { margin: 4px 0; }
+.tech li::marker { color: var(--accent); }
+/* More projects: one card per theme, each with its own accent; a whole row opens that project's write-up. */
+#ai-ops { --tc: var(--c1); } #cloud { --tc: var(--c3); }
+.theme { background: var(--surface); border: 1px solid var(--line); border-top: 3px solid var(--tc); border-radius: 12px; overflow: hidden; scroll-margin-top: 72px; }
+.theme + .theme { margin-top: 22px; }
+.more-h { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 16px; padding: 14px 20px;
+  background: color-mix(in srgb, var(--tc) 9%, var(--surface)); border-bottom: 1px solid var(--line); }
+.more-h h3 { margin: 0; font-size: 17px; color: var(--tc); }
+.more-h .sub { font: 12px var(--font-mono); color: var(--muted); }
+.more-h .cnt { font: 600 11px var(--font-mono); letter-spacing: .04em; text-transform: uppercase; color: var(--tc);
+  border: 1px solid color-mix(in srgb, var(--tc) 45%, transparent); border-radius: 999px; padding: 2px 10px; }
+.rows { list-style: none; margin: 0; padding: 4px 8px 8px; }
+.rows li { position: relative; display: grid; grid-template-columns: 52px minmax(0, 1fr) auto 18px; gap: 2px 16px; align-items: baseline;
+  padding: 11px 12px; border-radius: 8px; scroll-margin-top: 72px; transition: background .15s ease; }
+.rows li + li::before { content: ""; position: absolute; top: 0; left: 12px; right: 12px; height: 1px; background: var(--line); }
+.rows li:hover, .rows li:focus-within { background: color-mix(in srgb, var(--tc) 8%, transparent); }
+.rows li:hover::before, .rows li:focus-within::before, .rows li:hover + li::before, .rows li:focus-within + li::before { opacity: 0; }
+.rows .y { font: 600 13px var(--font-mono); color: var(--tc); }
+.rows .t { font-weight: 600; color: var(--fg); white-space: nowrap; }
+.rows .t::after { content: ""; position: absolute; inset: 0; border-radius: 8px; }
+.rows .t:hover { text-decoration: none; }
+.rows .t:focus-visible { outline: none; } .rows .t:focus-visible::after { outline: 2px solid var(--tc); outline-offset: -2px; }
+.rows li:hover .t { color: var(--tc); }
+.rows .d { color: var(--muted); font-size: 14px; }
+.rows .r { display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: baseline; gap: 4px 12px; text-align: right; }
+.rows .v { font: 12px var(--font-mono); color: var(--muted); }
+.rows .r a { position: relative; z-index: 1; font: 600 11.5px var(--font-mono); letter-spacing: .04em; }
+.rows .go { color: var(--tc); font-weight: 600; opacity: 0; transform: translateX(-6px); transition: opacity .15s ease, transform .15s ease; }
+.rows li:hover .go, .rows li:focus-within .go { opacity: 1; transform: none; }
+@media (hover: none) { .rows .go { opacity: .6; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .rows li, .rows .go { transition: none; } }
+@media (max-width: 640px) {
+  .case { padding: 16px; } .case-meta { align-items: flex-start; text-align: left; }
+  .more-h { padding: 12px 14px; } .rows { padding: 2px 4px 6px; }
+  .rows li { grid-template-columns: 44px minmax(0, 1fr) 14px; padding: 10px 8px; }
+  .rows .r { grid-column: 2; grid-row: 2; justify-content: flex-start; text-align: left; }
+  .rows .go { grid-column: 3; grid-row: 1; }
+}
+</style>
+    <section id="featured">
+      <h2>Featured projects</h2>
+<article class="case" id="ari"><header class="case-h"><div><h2 class="ttl"><svg class="pmk ari" aria-hidden="true" viewBox="0 0 64 64"><defs><linearGradient id="ari6-hd" x1="0.15" y1="0" x2="0.85" y2="1"><stop offset="0" stop-color="#FF9A52"/><stop offset="0.45" stop-color="#F26A1B"/><stop offset="1" stop-color="#D5511A"/></linearGradient><linearGradient id="ari6-bd" x1="0.2" y1="0" x2="0.8" y2="1"><stop offset="0" stop-color="#FF8F45"/><stop offset="0.5" stop-color="#F26A1B"/><stop offset="1" stop-color="#D5511A"/></linearGradient><linearGradient id="ari6-vs" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2C2C2C"/><stop offset="1" stop-color="#101010"/></linearGradient><linearGradient id="ari6-sh" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity="0.32"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient></defs><path d="M19 46 Q10 50 9 61" fill="none" stroke="#F26A1B" stroke-width="7" stroke-linecap="round"/><path d="M45 46 Q54 50 55 61" fill="none" stroke="#F26A1B" stroke-width="7" stroke-linecap="round"/><circle cx="19.5" cy="46.5" r="4" fill="#3B2620"/><circle cx="44.5" cy="46.5" r="4" fill="#3B2620"/><rect x="26" y="33" width="12" height="7" rx="2" fill="#3B2620"/><rect x="17" y="38" width="30" height="30" rx="10" fill="#D5511A"/><rect x="17" y="38" width="30" height="24" rx="10" fill="#F26A1B"/><rect x="20" y="39" width="24" height="8" rx="4" fill="#FF8F45" opacity="0.55"/><g fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="30.5" cy="50.5" r="6"/><path d="M35 55 L40 60"/><path d="M25.6 50.5 h2.2 l1.2-3 1.7 6 1.3-3 H35.4" stroke-width="1.8"/></g><ellipse cx="9.2" cy="18" rx="4.6" ry="7.4" fill="#B8420F"/><ellipse cx="9.2" cy="18" rx="3.2" ry="5.6" fill="#3B2620"/><ellipse cx="9.2" cy="18" rx="1.4" ry="2.6" fill="#5C3A2E"/><ellipse cx="54.8" cy="18" rx="4.6" ry="7.4" fill="#B8420F"/><ellipse cx="54.8" cy="18" rx="3.2" ry="5.6" fill="#3B2620"/><ellipse cx="54.8" cy="18" rx="1.4" ry="2.6" fill="#5C3A2E"/><rect x="10" y="2" width="44" height="33" rx="15.18" fill="#D5511A"/><rect x="10" y="2" width="44" height="31.35" rx="15.18" fill="url(#ari6-hd)"/><ellipse cx="32" cy="8.27" rx="16.72" ry="5.61" fill="url(#ari6-sh)"/><rect x="13.96" y="7.61" width="36.08" height="21.78" rx="7.84" fill="url(#ari6-vs)"/><g fill="#fff"><rect x="19.59" y="11.67" width="2.51" height="2.51" rx="0.38"/><rect x="16.81" y="14.46" width="2.51" height="2.51" rx="0.38"/><rect x="22.38" y="14.46" width="2.51" height="2.51" rx="0.38"/><rect x="16.81" y="17.25" width="2.51" height="2.51" rx="0.38"/><rect x="19.59" y="17.25" width="2.51" height="2.51" rx="0.38"/><rect x="22.38" y="17.25" width="2.51" height="2.51" rx="0.38"/><rect x="16.81" y="20.03" width="2.51" height="2.51" rx="0.38"/><rect x="22.38" y="20.03" width="2.51" height="2.51" rx="0.38"/><rect x="16.81" y="22.82" width="2.51" height="2.51" rx="0.38"/><rect x="22.38" y="22.82" width="2.51" height="2.51" rx="0.38"/><rect x="27.96" y="11.67" width="2.51" height="2.51" rx="0.38"/><rect x="30.75" y="11.67" width="2.51" height="2.51" rx="0.38"/><rect x="27.96" y="14.46" width="2.51" height="2.51" rx="0.38"/><rect x="33.53" y="14.46" width="2.51" height="2.51" rx="0.38"/><rect x="27.96" y="17.25" width="2.51" height="2.51" rx="0.38"/><rect x="30.75" y="17.25" width="2.51" height="2.51" rx="0.38"/><rect x="27.96" y="20.03" width="2.51" height="2.51" rx="0.38"/><rect x="33.53" y="20.03" width="2.51" height="2.51" rx="0.38"/><rect x="27.96" y="22.82" width="2.51" height="2.51" rx="0.38"/><rect x="33.53" y="22.82" width="2.51" height="2.51" rx="0.38"/><rect x="39.11" y="11.67" width="2.51" height="2.51" rx="0.38"/><rect x="41.9" y="11.67" width="2.51" height="2.51" rx="0.38"/><rect x="44.69" y="11.67" width="2.51" height="2.51" rx="0.38"/><rect x="41.9" y="14.46" width="2.51" height="2.51" rx="0.38"/><rect x="41.9" y="17.25" width="2.51" height="2.51" rx="0.38"/><rect x="41.9" y="20.03" width="2.51" height="2.51" rx="0.38"/><rect x="39.11" y="22.82" width="2.51" height="2.51" rx="0.38"/><rect x="41.9" y="22.82" width="2.51" height="2.51" rx="0.38"/><rect x="44.69" y="22.82" width="2.51" height="2.51" rx="0.38"/></g><rect x="16.12" y="8.92" width="31.75" height="6.53" rx="3.05" fill="#fff" opacity="0.08"/></svg>ARI: Predictive AI SRE Agent</h2><div class="one">Predictive AI SRE agent that detects, diagnoses and helps resolve production incidents.</div></div><div class="case-meta"><span class="sw">2025 – now · InsightFinder AI</span></div></header><div class="tags"><span class="tag">AI SRE</span><span class="tag">ROOT CAUSE ANALYSIS</span><span class="tag">INCIDENT PREDICTION</span><span class="tag">AGENTIC WORKFLOWS</span><span class="tag">MULTI-AGENT</span><span class="tag">MCP</span><span class="tag">OBSERVABILITY</span><span class="tag">ITSM</span></div><div class="project has-dg"><div>            <p><b>ARI</b> is InsightFinder's Predictive Reliability Agent: Predictive AI SRE for trustworthy production. Observability tells teams what changed; AI SRE helps them understand why. ARI uses InsightFinder's patented unsupervised AI engine to predict failures hours before impact, identify root causes and resolve issues across the stack, from AI agents and applications to IT infrastructure, turning reactive incident response into proactive prevention.</p>
+            <p>ARI builds a unified context from metrics, logs, traces, alerts, change events, tickets, service dependencies and operational history, surfaces fewer, higher-value signals with early-warning patterns, and separates likely root causes from downstream symptoms with causal chains. It answers natural-language questions about predicted and active incidents in Slack, Microsoft Teams or ARI Mobile, creates JIRA tickets, starts verification workflows and recommends or initiates policy-approved actions such as rollback. Every action is explainable, permissioned and auditable; engineers stay in the loop, and each validated incident feeds back into the agent.</p>
+            <section class="tech" aria-label="Techniques"><h3>Techniques</h3><ul>
+              <li><b>Multi-agent system:</b> a <b>coordinator agent</b> plans each request and calls <b>specialist sub-agents</b> for incident prediction and anomaly detection (built on InsightFinder's prediction and anomaly detection engines), code analysis, patch fixing, <b>Kubernetes</b> deployment, external checks such as weather and Downdetector, Jira tickets, and email and Slack notifications.</li>
+              <li><b>Tool use over MCP</b> (Model Context Protocol) with <b>LangGraph</b> ReAct agents; model-agnostic, with the LLM chosen per agent across OpenAI, Anthropic, Google and AWS Bedrock.</li>
+              <li><b>Human-in-the-loop</b> actions: changes such as a Jira ticket are previewed first and run only after the engineer confirms.</li>
+              <li>Every answer <b>cites its sources</b> (anomaly detection, prediction knowledge base, Jira, Downdetector and more), and each agent's steps are <b>streamed</b> live and <b>traced</b> for evaluation in AI Evaluation &amp; Guardrails.</li>
+            </ul></section>
+            <div class="actions"><a class="act" href="https://insightfinder.com/what-is-ai-sre/" target="_blank" rel="noopener">What is AI SRE</a><a class="act" href="https://insightfinder.com/" target="_blank" rel="noopener">InsightFinder AI</a></div>
+            <figure class="dg opt" hidden><svg viewBox="0 0 900 460" width="900" role="img" aria-label="ARI: operational data from change records, the production stack and the service desk flow into a unify, predict, diagnose, act loop; engineers and governance guardrails review and approve actions, remediation and tickets go back to the stack and service desk, and validated incidents feed back into the agent">
+  <defs><marker id="m-ari-ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="o-ah" d="M0 0 L10 5 L0 10 z"/></marker></defs>
+  <rect class="o-lane l1" x="16" y="30" width="868" height="98" rx="10"/>
+  <text class="o-lt" x="30" y="48">DATA · OBSERVABILITY + ITSM</text>
+  <rect class="o-lane l2" x="16" y="162" width="868" height="138" rx="10"/>
+  <text class="o-lt" x="170" y="180">ARI · PREDICTIVE RELIABILITY AGENT</text>
+  <rect class="o-lane l3" x="16" y="334" width="868" height="114" rx="10"/>
+  <text class="o-lt" x="30" y="352">PEOPLE · GOVERNANCE</text>
+  <rect class="o-b s1" x="40" y="58" width="265" height="56" rx="7"/>
+  <text class="o-tt" x="52" y="78">Changes &amp; context</text>
+  <text class="o-tag s1" x="295" y="78" text-anchor="end">CHANGE</text>
+  <text class="o-ds" x="52" y="94">change events · configuration</text>
+  <text class="o-ds" x="52" y="108">tickets · dependencies · history</text>
+  <rect class="o-b s1" x="325" y="58" width="265" height="56" rx="7"/>
+  <text class="o-tt" x="337" y="78">Production stack</text>
+  <text class="o-tag s1" x="580" y="78" text-anchor="end">OBSERVABILITY</text>
+  <text class="o-ds" x="337" y="94">AI agents · apps · infrastructure</text>
+  <text class="o-ds" x="337" y="108">metrics · logs · traces · alerts</text>
+  <rect class="o-b s3" x="610" y="58" width="250" height="56" rx="7"/>
+  <text class="o-tt" x="622" y="78">Service desk</text>
+  <text class="o-tag s3" x="850" y="78" text-anchor="end">ITSM</text>
+  <text class="o-ds" x="622" y="94">incidents · problems · changes</text>
+  <text class="o-ds" x="622" y="108">JIRA tickets</text>
+  <rect class="o-b s2" x="40" y="192" width="130" height="70" rx="7"/>
+  <text class="o-tt" x="52" y="212">Unify</text>
+  <text class="o-tag s2" x="160" y="212" text-anchor="end">DATA</text>
+  <text class="o-ds" x="52" y="228">signals combined</text>
+  <text class="o-ds" x="52" y="242">as one shared</text>
+  <text class="o-ds" x="52" y="256">context</text>
+  <rect class="o-b s2" x="220" y="192" width="200" height="70" rx="7"/>
+  <text class="o-tt" x="232" y="212">Predict</text>
+  <text class="o-tag s2" x="410" y="212" text-anchor="end">EVENT INTELLIGENCE</text>
+  <text class="o-ds" x="232" y="228">anomaly detection: fewer,</text>
+  <text class="o-ds" x="232" y="242">higher-value signals; early</text>
+  <text class="o-ds" x="232" y="256">warning before outages</text>
+  <rect class="o-b s2" x="470" y="192" width="170" height="70" rx="7"/>
+  <text class="o-tt" x="482" y="212">Diagnose</text>
+  <text class="o-tag s2" x="630" y="212" text-anchor="end">AI SRE</text>
+  <text class="o-ds" x="482" y="228">likely root causes &amp;</text>
+  <text class="o-ds" x="482" y="242">causal chains; causes</text>
+  <text class="o-ds" x="482" y="256">vs. symptoms</text>
+  <rect class="o-b s2" x="690" y="192" width="170" height="70" rx="7"/>
+  <text class="o-tt" x="702" y="212">Act</text>
+  <text class="o-tag s2" x="850" y="212" text-anchor="end">AGENTIC SRE</text>
+  <text class="o-ds" x="702" y="228">tickets · verification</text>
+  <text class="o-ds" x="702" y="242">policy-approved actions</text>
+  <text class="o-ds" x="702" y="256">e.g. rollback, re-route</text>
+  <rect class="o-b s3" x="40" y="362" width="520" height="70" rx="7"/>
+  <text class="o-tt" x="52" y="382">Engineers</text>
+  <text class="o-tag s3" x="550" y="382" text-anchor="end">HUMAN-IN-THE-LOOP</text>
+  <text class="o-ds" x="52" y="398">prioritized summaries of unhealthy systems, risks and predicted incidents</text>
+  <text class="o-ds" x="52" y="412">natural-language questions answered with tables, charts and timelines</text>
+  <text class="o-ds" x="52" y="426">review and approve every action · Slack · Microsoft Teams · ARI Mobile</text>
+  <rect class="o-b s3" x="580" y="362" width="280" height="70" rx="7"/>
+  <text class="o-tt" x="592" y="382">Guardrails</text>
+  <text class="o-tag s3" x="850" y="382" text-anchor="end">GOVERNANCE</text>
+  <text class="o-ds" x="592" y="398">explainable · permissioned · auditable</text>
+  <text class="o-ds" x="592" y="412">humans stay accountable</text>
+  <text class="o-ds" x="592" y="426">low-risk tasks first, then policy-bound</text>
+  <path class="o-e" d="M80 114 V190" marker-end="url(#m-ari-ah)"/>
+  <text class="o-el" x="92" y="156">changes</text>
+  <path class="o-e" d="M400 114 V146 H150 V190" marker-end="url(#m-ari-ah)"/>
+  <text class="o-el" x="292" y="142">telemetry</text>
+  <path class="o-e" d="M170 227 H218" marker-end="url(#m-ari-ah)"/>
+  <text class="o-el" x="194" y="213" text-anchor="middle">context</text>
+  <path class="o-e" d="M420 227 H468" marker-end="url(#m-ari-ah)"/>
+  <text class="o-el" x="444" y="213" text-anchor="middle">risks</text>
+  <path class="o-e" d="M640 227 H688" marker-end="url(#m-ari-ah)"/>
+  <text class="o-el" x="664" y="213" text-anchor="middle">causes</text>
+  <path class="o-e" d="M320 264 V360" marker-start="url(#m-ari-ah)" marker-end="url(#m-ari-ah)"/>
+  <text class="o-el" x="332" y="316">summaries · Q&amp;A</text>
+  <path class="o-e" d="M540 362 V318 H750 V264" marker-end="url(#m-ari-ah)"/>
+  <text class="o-el" x="560" y="314">approve · validate</text>
+  <path class="o-e" d="M845 362 V264" marker-end="url(#m-ari-ah)"/>
+  <text class="o-el" x="837" y="330" text-anchor="end">policy · audit</text>
+  <path class="o-e" d="M800 192 V116" marker-end="url(#m-ari-ah)"/>
+  <text class="o-el" x="812" y="156">ticket</text>
+  <path class="o-e" d="M715 192 V146 H520 V116" marker-end="url(#m-ari-ah)"/>
+  <text class="o-el" x="627" y="142">rollback · re-route</text>
+  <path class="o-e" d="M700 262 V284 H370 V264" marker-end="url(#m-ari-ah)"/>
+  <text class="o-el" x="403" y="279">learn from validated incidents</text>
+  <g class="o-n"><circle cx="80" cy="152" r="8"/><text x="80" y="155.5" text-anchor="middle">1</text></g>
+  <g class="o-n"><circle cx="280" cy="146" r="8"/><text x="280" y="149.5" text-anchor="middle">1</text></g>
+  <g class="o-n"><circle cx="194" cy="227" r="8"/><text x="194" y="230.5" text-anchor="middle">2</text></g>
+  <g class="o-n"><circle cx="444" cy="227" r="8"/><text x="444" y="230.5" text-anchor="middle">3</text></g>
+  <g class="o-n"><circle cx="664" cy="227" r="8"/><text x="664" y="230.5" text-anchor="middle">4</text></g>
+  <g class="o-n"><circle cx="320" cy="312" r="8"/><text x="320" y="315.5" text-anchor="middle">5</text></g>
+  <g class="o-n"><circle cx="700" cy="318" r="8"/><text x="700" y="321.5" text-anchor="middle">6</text></g>
+  <g class="o-n"><circle cx="845" cy="346" r="8"/><text x="845" y="349.5" text-anchor="middle">7</text></g>
+  <g class="o-n"><circle cx="800" cy="152" r="8"/><text x="800" y="155.5" text-anchor="middle">8</text></g>
+  <g class="o-n"><circle cx="615" cy="146" r="8"/><text x="615" y="149.5" text-anchor="middle">8</text></g>
+  <g class="o-n"><circle cx="390" cy="284" r="8"/><text x="390" y="287.5" text-anchor="middle">9</text></g>
+</svg>
+<ol class="steps">
+  <li><span>1</span><div><b>Ingest:</b> telemetry from the production stack <em>(metrics, logs, traces, alerts via observability and open-source monitoring tools)</em> plus change events, tickets, service dependencies, configuration and operational history</div></li>
+  <li><span>2</span><div><b>Unify:</b> signals are combined into one operational context, so the agent can explain <em>why</em> something changed, not just <em>what</em></div></li>
+  <li><span>3</span><div><b>Predict:</b> AI-driven anomaly detection yields fewer, higher-value signals; early-warning patterns flag incidents before impact, ranked by risk</div></li>
+  <li><span>4</span><div><b>Diagnose:</b> likely root causes and causal chains across metrics, logs, traces, changes and dependencies, separating causes from downstream symptoms</div></li>
+  <li><span>5</span><div><b>Engage:</b> prioritized summaries and natural-language Q&amp;A with tables, charts and timelines, in Slack, Microsoft Teams or ARI Mobile</div></li>
+  <li><span>6</span><div><b>Approve:</b> engineers review and approve actions; humans remain accountable</div></li>
+  <li><span>7</span><div><b>Govern:</b> every action is explainable, permissioned and auditable; adoption starts with low-risk tasks and expands to policy-bound actions</div></li>
+  <li><span>8</span><div><b>Act:</b> JIRA tickets to the service desk, verification workflows and policy-approved remediation such as rollback or traffic re-routing</div></li>
+  <li><span>9</span><div><b>Learn:</b> each validated incident feeds back into the agent</div></li>
+</ol></figure>
+          
+          </div></div></article>
+<article class="case" id="llmeval"><header class="case-h"><div><h2 class="ttl">AI Evaluation &amp; Guardrails</h2><div class="one">Evaluation, comparison and guardrails for LLM and agent responses, before and after they ship.</div></div><div class="case-meta"><span class="sw">2025 – now · InsightFinder AI</span></div></header><div class="tags"><span class="tag">LLM EVALUATION</span><span class="tag">LLM-AS-A-JUDGE</span><span class="tag">RAG</span><span class="tag">GRAPHRAG</span><span class="tag">VECTOR SEARCH</span><span class="tag">GUARDRAILS</span><span class="tag">HALLUCINATION &amp; SAFETY</span><span class="tag">PROMPT A/B TESTING</span><span class="tag">MULTI-AGENT TRACING</span></div><div class="project has-dg"><div>            <p><b>AI Evaluation</b> is InsightFinder's evaluation workspace: a controlled environment where data scientists and ML engineers create, configure, chat with, monitor and evaluate LLM prompts and responses, with built-in analytics and safety measures, so they can select the best model for their needs. An LLM session pairs model configuration with real-time evaluation and performance metrics, using built-in models or API-connected models from providers such as OpenAI and Anthropic. Prompts run as an interactive chat, where every response is evaluated as it arrives, or as a batch from an upload, manual entry or the saved Prompt Library. Typical uses: testing a new LLM version against the previous one, comparing different LLMs on the same prompts for output quality, token efficiency and edge cases, trust &amp; safety analysis, and keeping an eye on token consumption and latency.</p>
+            <p>Each response is scored from 1.0 to 5.0 by LLM-as-a-judge evaluations for Hallucination &amp; Relevance (logical inconsistency, answer irrelevance, hallucination, factual inaccuracy) and Safety, Guardrails &amp; Toxicity (anomalous outliers, jailbreaks and prompt injection, topic guardrails, tone, toxicity, PII/PHI leakage), checked pass/fail for gender, racial and cultural bias, and judged against custom evaluations written as your own evaluation prompts, such as brand tone or required information. The Model Compare dashboard runs prompts across models and lines up hallucination &amp; relevance, safety &amp; toxicity, bias and total/input/output tokens; A/B testing turns versioned prompt templates, linked datasets and models into a test matrix on quality, tokens and latency, with a Winner badge, an evaluation summary, history and a "Pick Your Favorite" step that promotes a prompt version to production. The same AI reliability line adds multi-agent trace &amp; observability, an LLM Gateway and domain-specific fine-tuning of small language models.</p>
+            <section class="tech" aria-label="Techniques"><h3>Techniques</h3><ul>
+              <li><b>RAG-grounded LLM-as-a-judge</b> for <b>multi-agent</b> workflows: agent outputs are split into individual claims, and each claim is checked against evidence retrieved by <b>vector search</b> over the source documents, reaching <b>98% accuracy</b>.</li>
+              <li>Runs on a <b>self-hosted small open-weight model (SLM)</b>; <b>deterministic checks</b> of numbers, dates and domain rules run before the LLM, keeping the judge cheap and explainable <b>without fine-tuning</b>.</li>
+              <li>Evaluates <b>RAG and GraphRAG</b> (knowledge-graph RAG) applications, including root cause answers grounded in system topology and incident history, by checking each answer against the evidence it retrieved.</li>
+              <li>Evaluates agents from <b>OpenTelemetry traces</b>: each span is matched to the agent being judged and to what that agent was supposed to deliver.</li>
+              <li>New judge versions ship only after <b>statistical A/B testing</b>: confidence intervals, significance tests and false-positive-rate bounds on <b>held-out</b> test sets.</li>
+            </ul></section>
+            <div class="actions"><a class="act" href="https://insightfinder.com/aio_resource/llm-labs/" target="_blank" rel="noopener">AI Evaluation docs</a><a class="act" href="https://insightfinder.com/" target="_blank" rel="noopener">InsightFinder AI</a></div>
+            <figure class="dg opt" hidden><svg viewBox="0 0 900 460" width="900" role="img" aria-label="AI Evaluation: prompts, datasets and models feed an LLM session; responses are scored by LLM-as-a-judge evaluations for hallucination and relevance, safety and guardrails, bias and custom checks; scores drive the Model Compare dashboard and prompt A/B testing, a winning prompt version is promoted to production, and production apps are monitored for tokens, latency and ongoing evaluation">
+  <defs><marker id="m-llm-ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="o-ah" d="M0 0 L10 5 L0 10 z"/></marker></defs>
+  <rect class="o-lane l1" x="16" y="30" width="868" height="98" rx="10"/>
+  <text class="o-lt" x="30" y="48">INPUTS · PROMPTS · DATASETS · MODELS</text>
+  <rect class="o-lane l2" x="16" y="162" width="868" height="138" rx="10"/>
+  <text class="o-lt" x="200" y="180">EVALUATE · LLM-AS-A-JUDGE · GUARDRAILS</text>
+  <rect class="o-lane l3" x="16" y="334" width="536" height="114" rx="10"/>
+  <text class="o-lt" x="30" y="352">COMPARE &amp; DECIDE</text>
+  <rect class="o-lane l1" x="600" y="334" width="284" height="114" rx="10"/>
+  <text class="o-lt" x="614" y="352">MONITOR · PRODUCTION</text>
+  <rect class="o-b s1" x="40" y="58" width="262" height="56" rx="7"/>
+  <text class="o-tt" x="52" y="78">Prompts</text>
+  <text class="o-tag s1" x="292" y="78" text-anchor="end">PROMPT LIBRARY</text>
+  <text class="o-ds" x="52" y="94">chat · batch upload · manual entry</text>
+  <text class="o-ds" x="52" y="108">versioned templates · expected results</text>
+  <rect class="o-b s1" x="318" y="58" width="262" height="56" rx="7"/>
+  <text class="o-tt" x="330" y="78">Datasets</text>
+  <text class="o-tag s1" x="570" y="78" text-anchor="end">DATA</text>
+  <text class="o-ds" x="330" y="94">linked into prompts</text>
+  <text class="o-ds" x="330" y="108">test sets · edge cases · matrix runs</text>
+  <rect class="o-b s1" x="596" y="58" width="264" height="56" rx="7"/>
+  <text class="o-tt" x="608" y="78">Models</text>
+  <text class="o-tag s1" x="850" y="78" text-anchor="end">BUILT-IN · API · SLM</text>
+  <text class="o-ds" x="608" y="94">built-in or API-connected, e.g.</text>
+  <text class="o-ds" x="608" y="108">OpenAI, Anthropic · fine-tuned SLMs</text>
+  <rect class="o-b s2" x="40" y="192" width="112" height="84" rx="7"/>
+  <text class="o-tt" x="52" y="212">Run</text>
+  <text class="o-tag s2" x="142" y="212" text-anchor="end">SESSION</text>
+  <text class="o-ds" x="52" y="228">configure</text>
+  <text class="o-ds" x="52" y="242">chat · batch</text>
+  <text class="o-ds" x="52" y="256">prompt × model</text>
+  <text class="o-ds" x="52" y="270">→ responses</text>
+  <rect class="o-grp" x="190" y="186" width="680" height="100" rx="9"/>
+  <rect class="o-b s2" x="200" y="192" width="184" height="84" rx="7"/>
+  <text class="o-tt" x="212" y="212">Hallucination</text>
+  <text class="o-tag s2" x="374" y="212" text-anchor="end">RELEVANCE</text>
+  <text class="o-ds" x="212" y="228">logical inconsistency</text>
+  <text class="o-ds" x="212" y="242">answer irrelevance</text>
+  <text class="o-ds" x="212" y="256">hallucination</text>
+  <text class="o-ds" x="212" y="270">factual inaccuracy</text>
+  <rect class="o-b s2" x="392" y="192" width="184" height="84" rx="7"/>
+  <text class="o-tt" x="404" y="212">Safety</text>
+  <text class="o-tag s2" x="566" y="212" text-anchor="end">GUARDRAILS</text>
+  <text class="o-ds" x="404" y="228">jailbreaks · prompt injection</text>
+  <text class="o-ds" x="404" y="242">topic guardrails · tone</text>
+  <text class="o-ds" x="404" y="256">toxicity · anomalous outliers</text>
+  <text class="o-ds" x="404" y="270">PII / PHI leakage</text>
+  <rect class="o-b s2" x="584" y="192" width="118" height="84" rx="7"/>
+  <text class="o-tt" x="596" y="212">Bias</text>
+  <text class="o-tag s2" x="692" y="212" text-anchor="end">PASS/FAIL</text>
+  <text class="o-ds" x="596" y="228">gender</text>
+  <text class="o-ds" x="596" y="242">racial</text>
+  <text class="o-ds" x="596" y="256">cultural</text>
+  <rect class="o-b s2" x="710" y="192" width="150" height="84" rx="7"/>
+  <text class="o-tt" x="722" y="212">Custom</text>
+  <text class="o-tag s2" x="850" y="212" text-anchor="end">YOUR RULES</text>
+  <text class="o-ds" x="722" y="228">your own evaluation</text>
+  <text class="o-ds" x="722" y="242">prompts, e.g.</text>
+  <text class="o-ds" x="722" y="256">brand tone</text>
+  <text class="o-ds" x="722" y="270">required information</text>
+  <rect class="o-b s3" x="40" y="362" width="186" height="70" rx="7"/>
+  <text class="o-tt" x="52" y="382">Model Compare</text>
+  <text class="o-tag s3" x="216" y="382" text-anchor="end">DASHBOARD</text>
+  <text class="o-ds" x="52" y="398">same prompts across models</text>
+  <text class="o-ds" x="52" y="412">quality · safety · bias</text>
+  <text class="o-ds" x="52" y="426">total/input/output tokens</text>
+  <rect class="o-b s3" x="296" y="362" width="232" height="70" rx="7"/>
+  <text class="o-tt" x="308" y="382">Prompt A/B testing</text>
+  <text class="o-tag s3" x="518" y="382" text-anchor="end">MATRIX</text>
+  <text class="o-ds" x="308" y="398">prompt versions × models × datasets</text>
+  <text class="o-ds" x="308" y="412">quality · tokens · latency · history</text>
+  <text class="o-ds" x="308" y="426">Winner badge → Pick Your Favorite</text>
+  <rect class="o-b s1" x="624" y="362" width="236" height="70" rx="7"/>
+  <text class="o-tt" x="636" y="382">Production apps</text>
+  <text class="o-tag s1" x="850" y="382" text-anchor="end">TRACES</text>
+  <text class="o-ds" x="636" y="398">LLM, RAG &amp; multi-agent apps</text>
+  <text class="o-ds" x="636" y="412">hallucination · safety monitoring</text>
+  <text class="o-ds" x="636" y="426">token consumption · latency</text>
+  <path class="o-e" d="M99 114 V190" marker-end="url(#m-llm-ah)"/>
+  <text class="o-el" x="111" y="176">prompts</text>
+  <path class="o-e" d="M449 114 V146 H99"/>
+  <text class="o-el" x="461" y="134">datasets</text>
+  <path class="o-e" d="M728 114 V146 H449"/>
+  <text class="o-el" x="740" y="134">models</text>
+  <path class="o-e" d="M152 234 H188" marker-end="url(#m-llm-ah)"/>
+  <path class="o-e" d="M300 286 V318 M190 318 H412"/>
+  <path class="o-e" d="M190 318 V360" marker-end="url(#m-llm-ah)"/>
+  <path class="o-e" d="M412 318 V360" marker-end="url(#m-llm-ah)"/>
+  <text class="o-el" x="312" y="306">scores</text>
+  <path class="o-e" d="M226 397 H294" marker-end="url(#m-llm-ah)"/>
+  <text class="o-el" x="260" y="383" text-anchor="middle">best model</text>
+  <path class="o-e" d="M528 397 H622" marker-end="url(#m-llm-ah)"/>
+  <text class="o-el" x="575" y="383" text-anchor="middle">promote</text>
+  <path class="o-e" d="M830 362 V288" marker-end="url(#m-llm-ah)"/>
+  <text class="o-el" x="818" y="322" text-anchor="end">ongoing evaluation</text>
+  <g class="o-n"><circle cx="99" cy="146" r="8"/><text x="99" y="149.5" text-anchor="middle">1</text></g>
+  <g class="o-n"><circle cx="449" cy="130" r="8"/><text x="449" y="133.5" text-anchor="middle">1</text></g>
+  <g class="o-n"><circle cx="728" cy="130" r="8"/><text x="728" y="133.5" text-anchor="middle">1</text></g>
+  <g class="o-n"><circle cx="171" cy="234" r="8"/><text x="171" y="237.5" text-anchor="middle">2</text></g>
+  <g class="o-n"><circle cx="300" cy="302" r="8"/><text x="300" y="305.5" text-anchor="middle">3</text></g>
+  <g class="o-n"><circle cx="260" cy="397" r="8"/><text x="260" y="400.5" text-anchor="middle">4</text></g>
+  <g class="o-n"><circle cx="575" cy="397" r="8"/><text x="575" y="400.5" text-anchor="middle">5</text></g>
+  <g class="o-n"><circle cx="830" cy="318" r="8"/><text x="830" y="321.5" text-anchor="middle">6</text></g>
+</svg>
+<ol class="steps">
+  <li><span>1</span><div><b>Configure:</b> prompts from a chat, a batch upload, manual entry or the versioned Prompt Library <em>(optionally with expected results)</em>, datasets linked into prompts, and built-in or API-connected models from providers such as OpenAI and Anthropic</div></li>
+  <li><span>2</span><div><b>Run:</b> an LLM session pairs model configuration with real-time evaluation and performance metrics; each chat response is evaluated as it arrives, batches run all at once</div></li>
+  <li><span>3</span><div><b>Evaluate:</b> every response is scored 1.0–5.0 for hallucination &amp; relevance and for safety, guardrails &amp; toxicity, checked pass/fail for gender, racial and cultural bias, and judged against your own custom evaluation prompts</div></li>
+  <li><span>4</span><div><b>Compare:</b> the Model Compare dashboard runs the same prompts across models and lines up hallucination &amp; relevance, safety &amp; toxicity, bias and total/input/output tokens</div></li>
+  <li><span>5</span><div><b>Decide:</b> A/B testing runs prompt versions × models × datasets as a matrix on quality, tokens and latency, awards a Winner badge, summarizes passed/failed runs and lets you "Pick Your Favorite" to promote a version to production</div></li>
+  <li><span>6</span><div><b>Monitor:</b> production LLM, RAG and multi-agent apps are traced and watched for token consumption, latency, hallucinations and safety, feeding ongoing evaluation</div></li>
+</ol></figure>
+          
+          </div></div></article>
+<article class="case" id="itbench"><header class="case-h"><div><h2 class="ttl">ITBench: Benchmarking AI Agents for IT Automation</h2><div class="one">Open benchmark for AI agents on real-world SRE, compliance and FinOps tasks.</div></div><div class="case-meta"><span class="sw">2024 – 2025 · IBM Research</span><span class="aw">&#9733; ICML 2025 spotlight and oral</span></div></header><div class="tags"><span class="tag">AI AGENTS</span><span class="tag">BENCHMARK</span><span class="tag">SRE</span><span class="tag">COMPLIANCE &amp; SECURITY</span><span class="tag">FINOPS</span><span class="tag">KUBERNETES</span></div><div class="project has-dg"><div>            <p><b>ITBench</b> is an open-source framework from IBM Research for systematically benchmarking AI agents on real-world IT automation tasks, toward AI-driven IT automation that is correct, safe and fast. It covers three personas: Site Reliability Engineering (availability and resiliency, e.g. resolve "High error rate on service order-management": detect the alert, trace its source, propose a fix), Compliance &amp; Security Operations (e.g. assess the compliance posture for a new control rule for RHEL 9, turning natural-language regulation into checks) and Financial Operations (cost efficiency and ROI, e.g. resolve "IT spend exceeded the budget"). The ICML version has 102 scenarios (SRE 42, CISO 50, FinOps 10) built from real-world major incidents, compliance controls and FinOps cases, and is easily extended by community contributions.</p>
+            <p>Scenario environments are Kubernetes-based: push-button deployment tooling stands them up and replicates the incident, compliance control or cost event; a scenario framework recreates IT scenarios; reference SRE and CISO agents (built on CrewAI, with configurable LLMs and natural-language tools to interact with the environment) serve as baselines; and a managed leaderboard lets researchers run agents on their own systems and submit outputs for evaluation with push-button workflows and interpretable metrics, rating whether the agent handled the issue and how quickly. Agents powered by state-of-the-art models resolve only 11.4% of SRE scenarios, 25.2% of CISO scenarios and 25.8% of FinOps scenarios (excluding anomaly detection; FinOps anomaly detection F1 0.35), leaving ample room for progress. ITBench is the work of a large IBM Research team; I am a co-author and implemented benchmark scenarios.</p>
+            <div class="actions"><a class="act" href="files/itbench_ICML25.pdf">ICML'25 paper</a><a class="act" href="https://arxiv.org/abs/2502.05352" target="_blank" rel="noopener">arXiv</a><a class="act" href="https://github.com/itbench-hub/ITBench" target="_blank" rel="noopener">Code</a><a class="act" href="https://www.research.ibm.com/blog/it-agent-benchmark" target="_blank" rel="noopener">IBM Research blog</a></div>
+            <figure class="dg opt"><svg viewBox="0 0 900 552" width="900" role="img" aria-label="ITBench: 102 scenarios from three personas (SRE, CISO, FinOps) are recreated by a scenario framework and deployed by push-button tooling into a Kubernetes environment where the incident, compliance control or cost event is replicated; the agent under test, with a configurable LLM and natural-language tools, receives the task, observes and acts on the environment; its outputs are submitted to a managed leaderboard and scored with interpretable metrics, with state-of-the-art agents resolving only 11.4% of SRE, 25.2% of CISO and 25.8% of FinOps scenarios">
+  <defs><marker id="m-itb-ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="o-ah" d="M0 0 L10 5 L0 10 z"/></marker></defs>
+  <rect class="o-lane l1" x="16" y="30" width="868" height="112" rx="10"/>
+  <text class="o-lt" x="30" y="48">SCENARIOS · 102 · THREE PERSONAS</text>
+  <rect class="o-lane l2" x="16" y="176" width="868" height="98" rx="10"/>
+  <text class="o-lt" x="318" y="194">ENVIRONMENT · PUSH-BUTTON · KUBERNETES</text>
+  <rect class="o-lane l3" x="16" y="308" width="868" height="98" rx="10"/>
+  <text class="o-lt" x="318" y="326">AGENT UNDER TEST · LLM · TOOLS</text>
+  <rect class="o-lane l1" x="16" y="440" width="868" height="98" rx="10"/>
+  <text class="o-lt" x="318" y="458">EVALUATION · MANAGED LEADERBOARD</text>
+  <rect class="o-b s1" x="40" y="58" width="266" height="70" rx="7"/>
+  <text class="o-tt" x="52" y="78">SRE</text>
+  <text class="o-tag s1" x="296" y="78" text-anchor="end">42 SCENARIOS</text>
+  <text class="o-ds" x="52" y="94">site reliability engineering</text>
+  <text class="o-ds" x="52" y="108">availability &amp; resiliency, e.g. resolve</text>
+  <text class="o-ds" x="52" y="122">“high error rate on order-management”</text>
+  <rect class="o-b s1" x="317" y="58" width="266" height="70" rx="7"/>
+  <text class="o-tt" x="329" y="78">CISO</text>
+  <text class="o-tag s1" x="573" y="78" text-anchor="end">50 SCENARIOS</text>
+  <text class="o-ds" x="329" y="94">compliance &amp; security operations</text>
+  <text class="o-ds" x="329" y="108">e.g. assess compliance posture for a</text>
+  <text class="o-ds" x="329" y="122">new control rule for RHEL 9</text>
+  <rect class="o-b s1" x="594" y="58" width="266" height="70" rx="7"/>
+  <text class="o-tt" x="606" y="78">FinOps</text>
+  <text class="o-tag s1" x="850" y="78" text-anchor="end">10 SCENARIOS</text>
+  <text class="o-ds" x="606" y="94">financial operations: cost efficiency, ROI</text>
+  <text class="o-ds" x="606" y="108">e.g. resolve “IT spend exceeded the</text>
+  <text class="o-ds" x="606" y="122">budget” · cost-anomaly detection</text>
+  <rect class="o-b s2" x="40" y="204" width="230" height="56" rx="7"/>
+  <text class="o-tt" x="52" y="224">Scenario framework</text>
+  <text class="o-tag s2" x="260" y="224" text-anchor="end">EXTENSIBLE</text>
+  <text class="o-ds" x="52" y="240">real incidents, controls &amp; FinOps</text>
+  <text class="o-ds" x="52" y="254">cases; community adds scenarios</text>
+  <rect class="o-b s2" x="318" y="204" width="230" height="56" rx="7"/>
+  <text class="o-tt" x="330" y="224">Push-button deploy</text>
+  <text class="o-tag s2" x="538" y="224" text-anchor="end">TOOLING</text>
+  <text class="o-ds" x="330" y="240">stands up the environment and</text>
+  <text class="o-ds" x="330" y="254">injects the scenario in one step</text>
+  <rect class="o-b s2" x="596" y="204" width="264" height="56" rx="7"/>
+  <text class="o-tt" x="608" y="224">Kubernetes environment</text>
+  <text class="o-tag s2" x="850" y="224" text-anchor="end">LIVE SYSTEM</text>
+  <text class="o-ds" x="608" y="240">incident · compliance control · cost</text>
+  <text class="o-ds" x="608" y="254">event replicated in a running cluster</text>
+  <rect class="o-b s3" x="40" y="336" width="230" height="56" rx="7"/>
+  <text class="o-tt" x="52" y="356">Agent under test</text>
+  <text class="o-tag s3" x="260" y="356" text-anchor="end">YOUR AGENT</text>
+  <text class="o-ds" x="52" y="372">any agent, run on your own system</text>
+  <text class="o-ds" x="52" y="386">reference SRE &amp; CISO agents (CrewAI)</text>
+  <rect class="o-b s3" x="318" y="336" width="230" height="56" rx="7"/>
+  <text class="o-tt" x="330" y="356">LLM</text>
+  <text class="o-tag s3" x="538" y="356" text-anchor="end">CONFIGURABLE</text>
+  <text class="o-ds" x="330" y="372">state-of-the-art models,</text>
+  <text class="o-ds" x="330" y="386">configurable per agent</text>
+  <rect class="o-b s3" x="596" y="336" width="264" height="56" rx="7"/>
+  <text class="o-tt" x="608" y="356">Tools</text>
+  <text class="o-tag s3" x="850" y="356" text-anchor="end">NATURAL LANGUAGE</text>
+  <text class="o-ds" x="608" y="372">query alerts, logs, policies, costs</text>
+  <text class="o-ds" x="608" y="386">apply changes to the cluster</text>
+  <rect class="o-b s1" x="40" y="468" width="230" height="56" rx="7"/>
+  <text class="o-tt" x="52" y="488">Submit outputs</text>
+  <text class="o-tag s1" x="260" y="488" text-anchor="end">PUSH-BUTTON</text>
+  <text class="o-ds" x="52" y="504">run on your own system; send</text>
+  <text class="o-ds" x="52" y="518">outputs in for evaluation</text>
+  <rect class="o-b s1" x="318" y="468" width="230" height="56" rx="7"/>
+  <text class="o-tt" x="330" y="488">Leaderboard</text>
+  <text class="o-tag s1" x="538" y="488" text-anchor="end">METRICS</text>
+  <text class="o-ds" x="330" y="504">issue handled? how quickly?</text>
+  <text class="o-ds" x="330" y="518">resolved · time to resolve · F1</text>
+  <rect class="o-b s1" x="596" y="468" width="264" height="56" rx="7"/>
+  <text class="o-tt" x="608" y="488">Results</text>
+  <text class="o-tag s1" x="850" y="488" text-anchor="end">ICML 2025</text>
+  <text class="o-ds" x="608" y="504">resolved: SRE 11.4% · CISO 25.2%</text>
+  <text class="o-ds" x="608" y="518">FinOps 25.8% · anomaly-detection F1 0.35</text>
+  <path class="o-e" d="M173 128 V202" marker-end="url(#m-itb-ah)"/>
+  <text class="o-el" x="185" y="154">102 scenarios</text>
+  <path class="o-e" d="M450 128 V162 H173"/>
+  <path class="o-e" d="M727 128 V162 H450"/>
+  <path class="o-e" d="M270 232 H316" marker-end="url(#m-itb-ah)"/>
+  <text class="o-el" x="293" y="218" text-anchor="middle">recipe</text>
+  <path class="o-e" d="M548 232 H594" marker-end="url(#m-itb-ah)"/>
+  <text class="o-el" x="571" y="218" text-anchor="middle">deploy</text>
+  <path class="o-e" d="M640 260 V294 H165 V334" marker-end="url(#m-itb-ah)"/>
+  <text class="o-el" x="412" y="290">task · alerts</text>
+  <path class="o-e" d="M270 364 H316" marker-end="url(#m-itb-ah)"/>
+  <text class="o-el" x="293" y="350" text-anchor="middle">reason</text>
+  <path class="o-e" d="M548 364 H594" marker-end="url(#m-itb-ah)"/>
+  <text class="o-el" x="571" y="350" text-anchor="middle">call</text>
+  <path class="o-e" d="M760 260 V334" marker-start="url(#m-itb-ah)" marker-end="url(#m-itb-ah)"/>
+  <text class="o-el" x="772" y="301">observe · act</text>
+  <path class="o-e" d="M165 392 V466" marker-end="url(#m-itb-ah)"/>
+  <text class="o-el" x="177" y="433">outputs</text>
+  <path class="o-e" d="M270 496 H316" marker-end="url(#m-itb-ah)"/>
+  <text class="o-el" x="293" y="482" text-anchor="middle">judge</text>
+  <path class="o-e" d="M548 496 H594" marker-end="url(#m-itb-ah)"/>
+  <text class="o-el" x="571" y="482" text-anchor="middle">score</text>
+  <g class="o-n"><circle cx="173" cy="150" r="8"/><text x="173" y="153.5" text-anchor="middle">1</text></g>
+  <g class="o-n"><circle cx="450" cy="146" r="8"/><text x="450" y="149.5" text-anchor="middle">1</text></g>
+  <g class="o-n"><circle cx="727" cy="146" r="8"/><text x="727" y="149.5" text-anchor="middle">1</text></g>
+  <g class="o-n"><circle cx="293" cy="232" r="8"/><text x="293" y="235.5" text-anchor="middle">2</text></g>
+  <g class="o-n"><circle cx="571" cy="232" r="8"/><text x="571" y="235.5" text-anchor="middle">3</text></g>
+  <g class="o-n"><circle cx="400" cy="294" r="8"/><text x="400" y="297.5" text-anchor="middle">4</text></g>
+  <g class="o-n"><circle cx="293" cy="364" r="8"/><text x="293" y="367.5" text-anchor="middle">5</text></g>
+  <g class="o-n"><circle cx="571" cy="364" r="8"/><text x="571" y="367.5" text-anchor="middle">6</text></g>
+  <g class="o-n"><circle cx="760" cy="297" r="8"/><text x="760" y="300.5" text-anchor="middle">6</text></g>
+  <g class="o-n"><circle cx="165" cy="429" r="8"/><text x="165" y="432.5" text-anchor="middle">7</text></g>
+  <g class="o-n"><circle cx="293" cy="496" r="8"/><text x="293" y="499.5" text-anchor="middle">8</text></g>
+  <g class="o-n"><circle cx="571" cy="496" r="8"/><text x="571" y="499.5" text-anchor="middle">9</text></g>
+</svg>
+<ol class="steps">
+  <li><span>1</span><div><b>Scenarios:</b> 102 scenarios across three personas, SRE (42), CISO (50) and FinOps (10), built from real-world major incidents, compliance controls and FinOps cases, and easily extended by community contributions</div></li>
+  <li><span>2</span><div><b>Recreate:</b> the scenario framework recreates each IT scenario reproducibly, so it can be deployed and re-run the same way for every agent</div></li>
+  <li><span>3</span><div><b>Deploy:</b> push-button tooling stands up a Kubernetes-based environment and replicates the incident, compliance control or cost event in it</div></li>
+  <li><span>4</span><div><b>Task:</b> the agent receives the job to do, e.g. resolve <em>"High error rate on service order-management"</em>, assess the compliance posture for a new RHEL 9 control rule, or resolve <em>"IT spend exceeded the budget"</em></div></li>
+  <li><span>5</span><div><b>Reason:</b> any agent can be tested; the reference SRE and CISO agents are built on CrewAI with configurable LLMs</div></li>
+  <li><span>6</span><div><b>Act:</b> natural-language tools let the agent observe the environment and change it: detect an alert, trace its source and propose a fix; turn natural-language regulation into checks</div></li>
+  <li><span>7</span><div><b>Submit:</b> researchers run agents on their own systems and submit the outputs to the managed leaderboard</div></li>
+  <li><span>8</span><div><b>Evaluate:</b> interpretable metrics rate whether the agent handled the issue and how quickly; FinOps anomaly detection is scored by F1</div></li>
+  <li><span>9</span><div><b>Results:</b> agents powered by state-of-the-art models resolve only 11.4% of SRE, 25.2% of CISO and 25.8% of FinOps scenarios <em>(excluding anomaly detection; FinOps anomaly-detection F1 0.35)</em>, leaving ample room for progress</div></li>
+</ol></figure>
+          
+          </div></div></article>
+    </section>
+    <section id="more">
+      <h2>More projects</h2>
+<div class="theme" id="ai-ops"><header class="more-h"><div><h3>AI for IT operations</h3><span class="sub">IBM Research · 2023 – 2024</span></div><span class="cnt">2 projects</span></header><ul class="rows"><li id="scriptsmith"><span class="y">2024</span><div><a class="t" href="Projects_archive.html#scriptsmith">ScriptSmith</a> <span class="d">· Generating, assessing and refining Bash scripts for SREs, without an execution environment.</span></div><div class="r"><span class="v">AAAI'25</span><a href="files/scriptsmith_AAAI25.pdf">PDF</a></div><span class="go" aria-hidden="true">&rarr;</span></li><li id="codesift"><span class="y">2023</span><div><a class="t" href="Projects_archive.html#codesift">CodeSift</a> <span class="d">· LLMs as a first-line filter for generated code, with no execution or reference code needed.</span></div><div class="r"><span class="v">CLOUD'24</span><a href="files/codesift_CLOUD24.pdf">PDF</a></div><span class="go" aria-hidden="true">&rarr;</span></li></ul></div>
+<div class="theme" id="cloud"><header class="more-h"><div><h3>Cloud reliability &amp; security</h3><span class="sub">IBM Research · NC State · 2015 – 2021</span></div><span class="cnt">10 projects</span></header><ul class="rows"><li id="risk"><span class="y">2021</span><div><a class="t" href="Projects_archive.html#risk">Risk Quantification</a> <span class="d">· Prioritizing hardening risks by each customer's running environment.</span></div><div class="r"><span class="aw">&#9733; 2021 IBM Research Accomplishment</span></div><span class="go" aria-hidden="true">&rarr;</span></li><li id="compliance"><span class="y">2020</span><div><a class="t" href="Projects_archive.html#compliance">Multi-Cloud Compliance</a> <span class="d">· Ansible-operator policy controllers for CIS benchmarks on RHEL, AWS and Azure.</span></div><div class="r"><span class="aw">&#9733; 2021 IBM Research Accomplishment</span></div><span class="go" aria-hidden="true">&rarr;</span></li><li id="iac"><span class="y">2019</span><div><a class="t" href="Projects_archive.html#iac">SecureCode</a> <span class="d">· Detecting risky scripts embedded in Ansible infrastructure code.</span></div><div class="r"><span class="aw">&#9733; 2021 IBM Research Accomplishment</span><a href="files/securecode_SOCC20.pdf">PDF</a></div><span class="go" aria-hidden="true">&rarr;</span></li><li id="hangfix"><span class="y">2018</span><div><a class="t" href="Projects_archive.html#hangfix">HangFix</a> <span class="d">· Localize the hang, match a root-cause pattern, generate a patch; fixed 40 of 42 real bugs.</span></div><div class="r"><span class="v">SoCC'20</span><a href="files/hangfix_SOCC20.pdf">PDF</a></div><span class="go" aria-hidden="true">&rarr;</span></li><li id="fabzk"><span class="y">2018</span><div><a class="t" href="Projects_archive.html#fabzk">FabZK</a> <span class="d">· Privacy-preserving, auditable smart contracts on Hyperledger Fabric.</span></div><div class="r"><span class="v">DSN'19</span><a href="files/fabzk_DSN19.pdf">PDF</a></div><span class="go" aria-hidden="true">&rarr;</span></li><li id="container"><span class="y">2018</span><div><a class="t" href="Projects_archive.html#container">Container Exploit Study</a> <span class="d">· How well static and dynamic schemes detect container exploits.</span></div><div class="r"><span class="v">IC2E'19</span><a href="files/study_IC2E19.pdf">PDF</a></div><span class="go" aria-hidden="true">&rarr;</span></li><li id="dscope"><span class="y">2017</span><div><a class="t" href="Projects_archive.html#dscope">DScope</a> <span class="d">· Statically detecting data-corruption hang bugs in cloud servers.</span></div><div class="r"><span class="v">SoCC'18</span><a href="files/dscope_SOCC18.pdf">PDF</a></div><span class="go" aria-hidden="true">&rarr;</span></li><li id="timeout"><span class="y">2017</span><div><a class="t" href="Projects_archive.html#timeout">TScope &amp; TFix</a> <span class="d">· A study of 156 timeout problems, TScope to identify timeout bugs, TFix to fix them.</span></div><div class="r"><span class="aw">&#9733; IC2E best paper nominee</span><a href="files/understanding_IC2E18.pdf">PDF</a></div><span class="go" aria-hidden="true">&rarr;</span></li><li id="hytrace"><span class="y">2015</span><div><a class="t" href="Projects_archive.html#hytrace">Hytrace</a> <span class="d">· Hybrid static and runtime diagnosis of performance bugs.</span></div><div class="r"><span class="v">SoCC'17</span><a href="files/hytrace_SOCC17.pdf">PDF</a></div><span class="go" aria-hidden="true">&rarr;</span></li><li id="ccm"><span class="y">2015</span><div><a class="t" href="Projects_archive.html#ccm">CCM</a> <span class="d">· Elastic application deployment and auto-scaling in private clouds.</span></div><div class="r"></div><span class="go" aria-hidden="true">&rarr;</span></li></ul></div>
+    </section>
+  </main>
+
+  <script src="js/site.js"></script>
+</body>
+</html>

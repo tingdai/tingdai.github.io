@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Ting Dai">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="icon" href="images/favicon.ico" sizes="16x16 32x32 48x48">
+  <title>Ting Dai</title>
+  <meta name="description" content="Ting Dai, Senior Staff Data Scientist at InsightFinder AI. LLM evaluation, agentic systems, system reliability and security.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+  <link rel="stylesheet" href="css/site.css">
+  <script defer src="js/analytics.js"></script>
+  <script>
+    try { var t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
+  <style>
+/* Option A: profile + now. One screen of positioning, then a short, scannable set of cards. */
+.hero { display: grid; grid-template-columns: 200px 1fr; gap: 28px; align-items: center; }
+.hero .photo { border-radius: 12px; border: 1px solid var(--line); width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+.hero .eyebrow { color: var(--accent); }
+.hero h1 { font-size: 40px; margin-top: 4px; }
+.hero .pitch { font-size: 18px; line-height: 1.5; color: var(--fg); margin: 12px 0 0; text-wrap: pretty; }
+.hero .pitch b { font-weight: 600; }
+.hero .was { margin: 10px 0 0; color: var(--muted); font-size: 14.5px; }
+.hero .links { margin-top: 16px; }
+@media (max-width: 680px) {
+  .hero { grid-template-columns: 1fr; gap: 18px; }
+  .hero .photo { width: 132px; }
+  .hero h1 { font-size: 32px; }
+  .hero .pitch { font-size: 16.5px; }
+}
+
+/* Two "now" cards side by side */
+.now { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.now .panel { display: flex; flex-direction: column; gap: 8px; border-top: 3px solid var(--tc, var(--accent)); }
+.now .panel.ev { --tc: var(--c1); }
+.now .kicker { font: 600 11px var(--font-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--tc, var(--accent)); }
+.now h3 { margin: 0; font-size: 17px; line-height: 1.3; }
+.now p { margin: 0; color: var(--muted); font-size: 14px; flex: 1; }
+.now .more { display: flex; flex-wrap: wrap; gap: 6px; }
+@media (max-width: 680px) { .now { grid-template-columns: 1fr; } }
+
+/* Core expertise: keyword chips in three groups. Also read by CV.html for the resume's skills band. */
+.xp { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.xg { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; min-width: 0; }
+.xk { font: 600 11px var(--font-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chips span { font-size: 13px; padding: 2px 9px; border-radius: 999px; border: 1px solid var(--line); background: var(--bg); color: var(--fg); white-space: nowrap; }
+@media (max-width: 760px) { .xp { grid-template-columns: 1fr; } }
+
+/* Research themes: compact 2x2 */
+.themes { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.theme { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px 18px; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.theme .n { font: 600 11px var(--font-mono); letter-spacing: .06em; color: var(--muted); }
+.theme h3 { margin: 0; font-size: 15.5px; line-height: 1.35; }
+.theme p { margin: 0; color: var(--muted); font-size: 13.5px; flex: 1; }
+.theme .papers { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+.theme .papers a { font: 600 11px var(--font-mono); letter-spacing: .04em; padding: 1px 7px; border-radius: 4px; border: 1px solid var(--line); color: var(--muted); white-space: nowrap; }
+.theme .papers a:hover { color: var(--accent); border-color: var(--accent); text-decoration: none; }
+@media (max-width: 680px) { .themes { grid-template-columns: 1fr; } }
+
+
+/* Footer row: where to go next */
+.next { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.next a { display: block; padding: 14px 16px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); color: var(--fg); min-width: 0; }
+.next a:hover { text-decoration: none; border-color: var(--accent); }
+.next a:hover b { color: var(--accent); }
+.next b { display: block; font-weight: 600; }
+.next span { display: block; color: var(--muted); font-size: 13px; margin-top: 2px; }
+@media (max-width: 900px) { .next { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 420px) { .next { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <nav class="topnav">
+    <div class="inner">
+      <a class="brand" href="index.html">Ting Dai</a>
+      <ul>
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="Publications.html">Publications</a></li>
+        <li><a href="Projects.html">Projects</a></li>
+        <li><a href="Experience.html">Experience</a></li>
+        <li><a href="Awards.html">Awards</a></li>
+      </ul>
+      <button class="theme-btn" type="button" id="theme-btn">&#9728; Light</button>
+    </div>
+  </nav>
+
+  <main class="wrap">
+    <header class="hero">
+      <img class="photo" src="ting_dai_2025.jpg" alt="Photo of Ting Dai">
+      <div>
+        <div class="eyebrow">Senior Staff Data Scientist · InsightFinder AI</div>
+        <h1>Ting Dai</h1>
+        <p class="pitch">I work on <b>LLM evaluation, agentic systems and AI SRE</b>: making AI systems, and the
+          infrastructure under them, measurable, debuggable and trustworthy in production.</p>
+        <p class="was">Previously Staff Research Scientist at IBM Research. Ph.D. in Computer Science, NC State University, advised by <a href="http://dance.csc.ncsu.edu/gu/" target="_blank" rel="noopener">Xiaohui (Helen) Gu</a>.</p>
+        <div class="links">
+          <a href="mailto:danielday1128@gmail.com"><span class="k">EMAIL</span>danielday1128@gmail.com</a>
+          <a href="CV.html"><span class="k">CV</span>CV / Resume (PDF)</a>
+          <a href="https://scholar.google.com/citations?user=Kv-OQscAAAAJ" target="_blank" rel="noopener"><span class="k">SCHOLAR</span>Google Scholar</a>
+          <a href="https://www.linkedin.com/in/ting-dai-b61579106/" target="_blank" rel="noopener"><span class="k">IN</span>LinkedIn</a>
+        </div>
+      </div>
+    </header>
+
+    <section>
+      <h2>Now <span class="count">INSIGHTFINDER AI · 2025 – NOW</span></h2>
+      <div class="now">
+        <article class="panel">
+          <div class="kicker">AI SRE · Agents</div>
+          <h3><a href="Projects.html#ari">ARI: Predictive AI SRE</a></h3>
+          <p>InsightFinder's predictive reliability agent. It predicts failures hours before impact, identifies root causes
+            and resolves issues across the stack, from AI agents and applications to IT infrastructure, with engineer approval.</p>
+          <div class="more"><a class="act" href="Projects.html#ari">Project</a><a class="act" href="https://insightfinder.com/" target="_blank" rel="noopener">insightfinder.com</a></div>
+        </article>
+        <article class="panel ev">
+          <div class="kicker">LLM evaluation · Guardrails</div>
+          <h3><a href="Projects.html#llmeval">AI Evaluation &amp; Guardrails</a></h3>
+          <p>Evaluates LLM and agent responses for hallucination, relevance, safety and bias, guards against jailbreaks,
+            prompt injection and PII leakage, and compares models and prompt versions side by side before they ship.</p>
+          <div class="more"><a class="act" href="Projects.html#llmeval">Project</a></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="expertise">
+      <h2>Core expertise</h2>
+      <div class="xp">
+        <div class="xg"><div class="xk">Agents &amp; evaluation</div><div class="chips"><span>Multi-agent systems</span><span>LLM-as-a-Judge</span><span>LLM evaluation</span><span>AI guardrails</span><span>RAG / GraphRAG</span><span>Vector search</span><span>Prompt engineering</span><span>Statistical A/B testing</span></div></div>
+        <div class="xg"><div class="xk">AI SRE &amp; AIOps</div><div class="chips"><span>Machine learning</span><span>Incident prediction</span><span>Anomaly detection</span><span>Root cause analysis</span><span>OpenTelemetry</span><span>Kubernetes</span><span>Observability</span></div></div>
+        <div class="xg"><div class="xk">Languages &amp; tools</div><div class="chips"><span>Python</span><span>Java</span><span>LangGraph</span><span>MCP</span><span>OpenAI / Anthropic / Gemini / Bedrock APIs</span><span>PostgreSQL / pgvector</span></div></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Research themes</h2>
+      <div class="themes">
+        <article class="theme">
+          <div class="n">01</div>
+          <h3>AI agents and LLMs for IT operations</h3>
+          <p>Benchmarking agents on real-world SRE, compliance and FinOps tasks (ITBench); generating, assessing and
+            refining operations scripts (ScriptSmith); validating generated code without references (CodeSift).</p>
+          <div class="papers"><a href="files/itbench_ICML25.pdf" title="ICML 2025 spotlight and oral">ICML'25 &#9733;</a><a href="files/scriptsmith_AAAI25.pdf">AAAI'25</a><a href="files/codesift_CLOUD24.pdf">CLOUD'24</a></div>
+        </article>
+        <article class="theme">
+          <div class="n">02</div>
+          <h3>Bug and vulnerability detection</h3>
+          <p>Distributed concurrency bugs through RPC-driven, race-directed test generation and fuzzing (Themis);
+            server-side request forgeries through LLM-assisted, path-sensitive taint analysis (Artemis).</p>
+          <div class="papers"><a href="files/themis_NSDI26.pdf">NSDI'26</a><a href="files/artemis_OOPSLA25.pdf">OOPSLA'25</a><a href="files/ssrf_CCS24.pdf">CCS'24</a></div>
+        </article>
+        <article class="theme">
+          <div class="n">03</div>
+          <h3>Cloud and infrastructure security</h3>
+          <p>Detecting risky scripts embedded in Ansible infrastructure code (SecureCode); how well static and dynamic
+            schemes catch container exploits; privacy-preserving, auditable smart contracts on Hyperledger Fabric (FabZK).</p>
+          <div class="papers"><a href="files/securecode_SOCC20.pdf">SoCC'20</a><a href="files/study_IC2E19.pdf">IC2E'19</a><a href="files/fabzk_DSN19.pdf">DSN'19</a></div>
+        </article>
+        <article class="theme">
+          <div class="n">04</div>
+          <h3>Performance, hang and timeout bugs in cloud systems</h3>
+          <p>Hybrid static and runtime diagnosis, data-corruption hang detection, automatic hang and timeout fixing.
+            The subject of my Ph.D. dissertation.</p>
+          <div class="papers"><a href="files/hytrace_TPDS19.pdf">TPDS'19</a><a href="files/dscope_SOCC18.pdf">SoCC'18</a><a href="files/hangfix_SOCC20.pdf">SoCC'20</a><a href="files/tfix_ICDCS19.pdf">ICDCS'19</a><a href="files/understanding_IC2E18.pdf">IC2E'18</a></div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>More</h2>
+      <div class="next">
+        <a href="Publications.html"><b>Publications</b><span>27 papers · 10 patents · 2 theses</span></a>
+        <a href="Projects.html"><b>Projects</b><span>ARI, AI Evaluation, ITBench and 12 more</span></a>
+        <a href="Experience.html"><b>Experience</b><span>Work, teaching, mentoring, service</span></a>
+        <a href="Awards.html"><b>Awards</b><span>IBM Research Accomplishment ×3, DASH-IF award, IC2E best paper nominee</span></a>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/site.js"></script>
+</body>
+</html>

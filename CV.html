@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Ting Dai">
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="icon" href="images/favicon.ico" sizes="16x16 32x32 48x48">
+  <title>Ting Dai – CV</title>
+  <meta name="description" content="CV and resume for Ting Dai, generated from the current website content.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+  <link rel="stylesheet" href="css/site.css">
+  <script defer src="js/analytics.js"></script>
+  <script>
+    try { var t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
+  <style>
+/* The sheet uses static, self-hosted font files: Chrome embeds them as real fonts in the PDF
+   (the Google variable font gets flattened to Type 3 glyphs, which some ATS parsers read badly). */
+@font-face { font-family: "Plex CV"; font-weight: 400; font-style: normal; font-display: block; src: url(css/fonts/plex-sans-400.woff2) format("woff2"); }
+@font-face { font-family: "Plex CV"; font-weight: 400; font-style: italic; font-display: block; src: url(css/fonts/plex-sans-400-italic.woff2) format("woff2"); }
+@font-face { font-family: "Plex CV"; font-weight: 500; font-style: normal; font-display: block; src: url(css/fonts/plex-sans-500.woff2) format("woff2"); }
+@font-face { font-family: "Plex CV"; font-weight: 600; font-style: normal; font-display: block; src: url(css/fonts/plex-sans-600.woff2) format("woff2"); }
+@font-face { font-family: "Plex CV"; font-weight: 700; font-style: normal; font-display: block; src: url(css/fonts/plex-sans-700.woff2) format("woff2"); }
+@font-face { font-family: "Mono CV"; font-weight: 400; font-display: block; src: url(css/fonts/jetbrains-mono-400.woff2) format("woff2"); }
+@font-face { font-family: "Mono CV"; font-weight: 600; font-display: block; src: url(css/fonts/jetbrains-mono-600.woff2) format("woff2"); }
+
+/* Toolbar: follows the site theme. The sheet below is always paper-white, as it will print. */
+.cv-bar { max-width: 8.5in; margin: 0 auto; padding: 24px 16px 0; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; }
+.cv-bar .seg { display: inline-flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.cv-bar .seg button { font: 600 12px var(--font-mono); letter-spacing: .04em; padding: 7px 12px; border: 0; background: var(--surface); color: var(--muted); cursor: pointer; }
+.cv-bar .seg button + button { border-left: 1px solid var(--line); }
+.cv-bar .seg button[aria-pressed="true"] { background: var(--accent-bg); color: var(--accent); }
+.cv-dl { font: 600 13px var(--font-body); padding: 8px 16px; border-radius: 8px; border: 1px solid var(--accent); background: var(--accent); color: var(--bg); cursor: pointer; }
+.cv-dl:hover:not(:disabled) { filter: brightness(1.1); }
+.cv-dl:disabled { opacity: .5; cursor: progress; }
+.cv-bar .hint { flex-basis: 100%; margin: 0; color: var(--muted); font-size: 13px; }
+
+.sheet { --ink: #1b1f24; --sub: #5a6270; --rule: #c9d0da; --acc: #1f5f7a; --col: 1.3in; --sans: "Plex CV", "IBM Plex Sans", sans-serif; --mono: "Mono CV", "JetBrains Mono", monospace;
+  background: #fff; color: var(--ink); width: 8.5in; max-width: calc(100% - 32px); margin: 16px auto 48px; padding: .7in .75in;
+  border-radius: 4px; box-shadow: 0 6px 30px rgb(0 0 0 / .25); font-family: var(--sans); font-size: 10pt; line-height: 1.42; color-scheme: light; }
+.sheet a { color: inherit; text-decoration: none; }
+.sheet a:hover { text-decoration: underline; }
+.sheet .err, .sheet .loading { color: var(--sub); margin: 0; }
+.cv-h { position: relative; border-bottom: 2px solid var(--acc); padding-bottom: 10px; margin-bottom: 6px; }
+.cv-h .up { position: absolute; right: 0; top: 2px; font-size: 8pt; color: var(--sub); }
+.cv-h h1 { font-size: 22pt; line-height: 1.1; letter-spacing: -.01em; margin: 0; color: var(--ink); }
+.cv-h .hl { font-size: 11pt; font-weight: 500; color: var(--acc); margin-top: 3px; }
+.cv-h .ct { margin-top: 6px; font-size: 9pt; color: var(--sub); display: flex; flex-wrap: wrap; gap: 0 2px; }
+.cv-h .dot { margin: 0 6px; color: var(--rule); }
+.sheet section { margin-top: 14px; }
+.sheet h2 { font: 600 10pt var(--sans); letter-spacing: .05em; text-transform: uppercase; color: var(--acc);
+  border-bottom: 1px solid var(--rule); padding-bottom: 2px; margin: 0 0 7px; break-after: avoid; }
+.sheet h3 { font-size: 9.5pt; font-weight: 600; color: var(--sub); margin: 10px 0 5px; break-after: avoid; }
+.sheet .org { font-size: 10.5pt; font-weight: 600; margin: 0 0 2px; break-after: avoid; }
+.sheet .org:first-of-type { margin-top: 0; }
+.sheet .e { display: grid; grid-template-columns: var(--col) minmax(0, 1fr); gap: 0 12px; margin-bottom: 5px; break-inside: avoid; }
+.sheet .e .l { color: var(--sub); font-size: 9pt; padding-top: .5pt; }
+.sheet .e .b b { font-weight: 600; }
+.sheet .tag { font: 600 8pt var(--mono); color: var(--acc); border: 0; padding: 0; background: none; letter-spacing: 0; }
+.sheet .n, .sheet .w { color: var(--sub); }
+.sheet .n { font-size: 9pt; }
+.sheet .v { font: 8pt var(--mono); color: var(--sub); }
+.sheet .aw { color: #9a4b0c; font-size: 9pt; font-weight: 500; white-space: nowrap; }
+.sheet .st { width: .8em; height: .8em; fill: currentColor; vertical-align: -.05em; margin-right: .25em; }
+.sheet .sum { margin: 0; }
+.sheet .tech { margin: 2px 0 0; padding-left: 1.1em; }
+.sheet .tech li { margin: 1px 0; break-inside: avoid; }
+.sheet .tech li::marker { color: var(--acc); }
+.sheet { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.sheet .e.x { margin-bottom: 4px; }
+.sheet .chips { display: flex; flex-wrap: wrap; gap: 3px 5px; }
+.sheet .chips span { font-size: 8.6pt; line-height: 1.3; padding: 0 6px; border-radius: 8px; border: 1px solid #cfe0e8; background: #eef5f8; color: #173f52; }
+.sheet .job { margin-top: 10px; break-inside: avoid; }
+.sheet section > .job:first-of-type { margin-top: 0; }
+.sheet .job .e { margin-bottom: 1px; }
+.sheet .wb { margin: 3px 0 0 calc(var(--col) + 12px); padding-left: 1.1em; }
+.sheet .wb li { margin: 2px 0; break-inside: avoid; }
+.sheet .wb li::marker { color: var(--acc); }
+@media (max-width: 640px) { .sheet .wb { margin-left: 0; } }
+.sheet .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 2px 18px; }
+.sheet .cols .y { display: inline-block; width: 3.2em; color: var(--sub); font-size: 9pt; }
+.sheet .svc { margin: 0; }
+.sheet .svc .nw { white-space: nowrap; }
+.sheet .svc .dot { margin: 0 7px; color: var(--rule); }
+@media (max-width: 640px) { .sheet .cols { grid-template-columns: 1fr; } }
+.sheet .more { margin: 6px 0 0; font-size: 9pt; color: var(--sub); }
+.sheet.resume { font-size: 9.5pt; line-height: 1.32; }
+.sheet.resume section { margin-top: 9px; }
+.sheet.resume .e { margin-bottom: 3px; }
+
+@media (max-width: 640px) {
+  .sheet { padding: 22px 18px; font-size: 9.5pt; }
+  .sheet .e { grid-template-columns: 1fr; }
+  .sheet .e .l { padding: 0; }
+  .cv-h .up { position: static; margin-bottom: 4px; }
+}
+
+@page { size: letter; margin: .55in .6in .6in; @bottom-right { content: counter(page) " / " counter(pages); font: 8pt "Plex CV", sans-serif; color: #7a828f; } }
+@media print {
+  html, body { background: #fff !important; }
+  .topnav, .cv-bar { display: none !important; }
+  .sheet { width: auto; max-width: none; margin: 0; padding: 0; box-shadow: none; border-radius: 0; }
+  .sheet a { text-decoration: none !important; }
+}
+  </style>
+</head>
+<body>
+
+  <nav class="topnav">
+    <div class="inner">
+      <a class="brand" href="index.html">Ting Dai</a>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="Publications.html">Publications</a></li>
+        <li><a href="Projects.html">Projects</a></li>
+        <li><a href="Experience.html">Experience</a></li>
+        <li><a href="Awards.html">Awards</a></li>
+      </ul>
+      <button class="theme-btn" type="button" id="theme-btn">&#9728; Light</button>
+    </div>
+  </nav>
+
+  <div class="cv-bar">
+    <div class="seg" role="group" aria-label="Format">
+      <button type="button" data-mode="cv" aria-pressed="true">FULL CV</button>
+      <button type="button" data-mode="resume" aria-pressed="false">RESUME</button>
+    </div>
+    <button class="cv-dl" type="button" id="cv-dl" disabled>Download PDF</button>
+    <p class="hint">Built live from the pages of this site, so it is always current. In the print dialog pick
+      <b>Save as PDF</b> and turn off <b>Headers and footers</b>.</p>
+  </div>
+
+  <article class="sheet" id="cv"><p class="loading">Building from the site…</p></article>
+
+  <script src="js/site.js"></script>
+  <script src="js/cv.js"></script>
+</body>
+</html>
